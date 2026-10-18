@@ -1,0 +1,28 @@
+{
+  "id": "x_minesweeper",
+  "name": "首步安全扫雷",
+  "version": "1.0.0",
+  "description": "/扫雷 开始 [边长 雷数]；开 行 列；旗 行 列（再次取消）；状态；投降。首个实际翻开格安全，插旗不算翻开。",
+  "worker": "worker.py",
+  "commands": [
+    "/扫雷"
+  ],
+  "config_schema": [
+    {
+      "key": "board_size",
+      "type": "integer",
+      "label": "默认棋盘边长",
+      "default": 6,
+      "min": 5,
+      "max": 9
+    },
+    {
+      "key": "mine_count",
+      "type": "integer",
+      "label": "默认雷数（至多总格数减一）",
+      "default": 6,
+      "min": 1,
+      "max": 40
+    }
+  ]
+}

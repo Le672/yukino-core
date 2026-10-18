@@ -1,0 +1,11 @@
+{
+  "id": "wordle",
+  "name": "五字母猜词",
+  "version": "1.0.0",
+  "description": "每用户每会话独立六次猜词，正确处理重复字母",
+  "worker": "worker.py",
+  "commands": [
+    "/猜词"
+  ],
+  "config_schema": []
+}

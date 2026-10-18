@@ -1,0 +1,19 @@
+{
+  "id": "i_truth",
+  "name": "真心话大冒险",
+  "description": "/真心冒险 创建；加入；主持人 抽人；被抽到的人 真心话 或 大冒险，然后 完成 或 跳过。每轮可无惩罚跳过；8条原创真心话和8条轻松任务，可重复抽取；状态、结束。",
+  "commands": [
+    "/真心冒险"
+  ],
+  "worker": "worker.py",
+  "config_schema": [
+    {
+      "key": "max_players",
+      "type": "integer",
+      "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+      "min": 2,
+      "max": 12,
+      "default": 12
+    }
+  ]
+}

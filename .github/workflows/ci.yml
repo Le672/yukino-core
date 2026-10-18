@@ -1,0 +1,46 @@
+name: Check source and packages
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.12', '3.14']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install core
+        run: python -m pip install . tzdata
+      - name: Core tests
+        run: python -m unittest discover -s tests -v
+      - name: Launcher tests
+        run: python -m unittest discover -s windows/tests -v
+      - name: Community tests
+        run: python -m unittest discover -s extensions/community_pack/tests -v
+      - name: Mai reference tests
+        run: python -m unittest discover -s extensions/maibot_pack/tests -v
+      - name: Expansion tests
+        run: python -m unittest discover -s extensions/expansion_pack/tests -v
+      - name: Market tests
+        run: python -m unittest discover -s extensions/market2_pack/tests -v
+      - name: Interaction tests
+        run: python -m unittest discover -s extensions/interaction_pack/tests -v
+      - name: Build source package
+        run: python scripts/build_release.py --output ./dist/source
+      - name: Build individual plugins
+        run: |
+          python extensions/community_pack/build_pack.py --output ./dist/community-pack
+          python extensions/maibot_pack/build_pack.py --output ./dist/mai-pack
+          python extensions/expansion_pack/build_pack.py --output ./dist/expansion-pack
+          python extensions/market2_pack/build_pack.py --output ./dist/market2-pack
+          python extensions/interaction_pack/build_pack.py --output ./dist/interaction-pack

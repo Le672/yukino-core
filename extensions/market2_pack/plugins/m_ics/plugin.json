@@ -1,0 +1,36 @@
+{
+  "id": "m_ics",
+  "name": "ICS个人课程表",
+  "description": "私聊纯文本ICS导入、每周重复与排除日期查询、历史软归档恢复；不主动提醒",
+  "commands": [
+    "/课表"
+  ],
+  "config_schema": [
+    {
+      "key": "max_events",
+      "type": "integer",
+      "label": "单次导入课程上限",
+      "default": 50,
+      "min": 5,
+      "max": 100
+    },
+    {
+      "key": "max_versions",
+      "type": "integer",
+      "label": "每用户每会话保留版本上限",
+      "default": 10,
+      "min": 1,
+      "max": 30
+    },
+    {
+      "key": "result_limit",
+      "type": "integer",
+      "label": "单日结果显示上限",
+      "default": 20,
+      "min": 1,
+      "max": 50
+    }
+  ],
+  "version": "1.0.0",
+  "worker": "worker.py"
+}

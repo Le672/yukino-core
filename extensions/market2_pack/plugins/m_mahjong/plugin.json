@@ -1,0 +1,43 @@
+{
+  "id": "m_mahjong",
+  "name": "麻将结构听牌与原创训练",
+  "description": "标准面子、七对子与国士结构判定和原创可解听牌训练；不计算役番点数",
+  "commands": [
+    "/听牌",
+    "/和牌",
+    "/麻将训练"
+  ],
+  "config_schema": [
+    {
+      "key": "candidate_limit",
+      "type": "integer",
+      "label": "听牌指令最多显示候选种数",
+      "default": 34,
+      "min": 1,
+      "max": 34
+    },
+    {
+      "key": "max_attempts",
+      "type": "integer",
+      "label": "新训练题最多作答次数",
+      "default": 5,
+      "min": 1,
+      "max": 20
+    },
+    {
+      "key": "training_style",
+      "type": "string",
+      "label": "默认原创建题类型",
+      "default": "混合",
+      "max_length": 10,
+      "options": [
+        "混合",
+        "标准",
+        "七对",
+        "国士"
+      ]
+    }
+  ],
+  "version": "1.0.0",
+  "worker": "worker.py"
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "file": "ai-video-downloader-LICENSE.txt",
+    "source": "https://raw.githubusercontent.com/Shaun520/ai-video-downloader/main/LICENSE",
+    "retrieved": "2026-10-16",
+    "sha256": "f7e0d57657d464e6b25ecca9ed1f64fb6690b3610dafc862b286850a40624898"
+  },
+  {
+    "file": "pyzipper-LICENSE.txt",
+    "source": "https://raw.githubusercontent.com/danifus/pyzipper/master/LICENSE",
+    "retrieved": "2026-10-16",
+    "sha256": "a61b10433d33778e1fe918492991aa4111c2ab0f7370adeb083c4e079941338d"
+  },
+  {
+    "file": "video-downloader-LICENSE.txt",
+    "source": "https://raw.githubusercontent.com/zyipeng/video-downloader/main/LICENSE",
+    "retrieved": "2026-10-16",
+    "sha256": "27c4e7241b46b73a1199aaf10b6d8dfd5d66fc9a69cc263186571966d1b9ff10"
+  },
+  {
+    "file": "pypdf-LICENSE.txt",
+    "source": "https://raw.githubusercontent.com/py-pdf/pypdf/main/LICENSE",
+    "retrieved": "2026-10-16",
+    "sha256": "a97ac230e5f33ef10a5367a850eb01f91f1a0b064e34742c7794d2294557f524"
+  },
+  {
+    "file": "aiohttp-LICENSE.txt",
+    "source": "https://raw.githubusercontent.com/aio-libs/aiohttp/master/LICENSE.txt",
+    "retrieved": "2026-10-16",
+    "sha256": "2e4be5fc6c4c72a466fcb665d726e049a6891981fe536c4f04b6366749461d23"
+  },
+  {
+    "file": "Pillow-LICENSE.txt",
+    "source": "https://raw.githubusercontent.com/python-pillow/Pillow/main/LICENSE",
+    "retrieved": "2026-10-16",
+    "sha256": "15181e7363dca9aed78b79bebebc7fde7f1814b8bd311ea3b87ae8ccadfc185b"
+  }
+]

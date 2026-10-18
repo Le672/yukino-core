@@ -1,0 +1,32 @@
+{
+  "id": "m_bing",
+  "name": "Bing每日一图链接",
+  "version": "1.0.0",
+  "description": "Bing每日图片标题、版权说明及UHD原站链接，纯文字返回",
+  "worker": "worker.py",
+  "commands": [
+    "/每日壁纸"
+  ],
+  "config_schema": [
+    {
+      "key": "market",
+      "type": "string",
+      "label": "Bing区域",
+      "default": "zh-CN",
+      "options": [
+        "zh-CN",
+        "en-US",
+        "ja-JP",
+        "de-DE"
+      ]
+    },
+    {
+      "key": "network_timeout_seconds",
+      "type": "integer",
+      "label": "单命令联网总预算秒",
+      "default": 12,
+      "min": 2,
+      "max": 15
+    }
+  ]
+}

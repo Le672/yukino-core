@@ -1,0 +1,11 @@
+{
+  "id": "x_tictactoe",
+  "name": "井字棋",
+  "version": "1.0.0",
+  "description": "/井字棋 开始；另一人 加入；或 /井字棋 开始 人机。/井字棋 行 列（1—3），连3获胜；状态、认输、结束。",
+  "worker": "worker.py",
+  "commands": [
+    "/井字棋"
+  ],
+  "config_schema": []
+}

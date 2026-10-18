@@ -1,0 +1,11 @@
+{
+  "id": "mc_status",
+  "name": "Minecraft状态",
+  "version": "1.0.0",
+  "description": "通过第三方接口查询公网Java服务器状态",
+  "worker": "worker.py",
+  "commands": [
+    "/mc"
+  ],
+  "config_schema": []
+}

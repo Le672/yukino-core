@@ -1,0 +1,20 @@
+{
+  "id": "x_spaced_cards",
+  "name": "间隔复习卡",
+  "version": "1.0.0",
+  "description": "卡片、自评、间隔与到期查询",
+  "worker": "worker.py",
+  "commands": [
+    "/复习卡"
+  ],
+  "config_schema": [
+    {
+      "key": "max_active_records",
+      "type": "integer",
+      "label": "每用户或群的活跃记录上限",
+      "default": 200,
+      "min": 10,
+      "max": 200
+    }
+  ]
+}

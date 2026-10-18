@@ -1,0 +1,20 @@
+{
+  "id": "x_bookmarks",
+  "name": "标签书签",
+  "version": "1.0.0",
+  "description": "URL、标签、检索和修改；不请求网站",
+  "worker": "worker.py",
+  "commands": [
+    "/书签"
+  ],
+  "config_schema": [
+    {
+      "key": "max_active_records",
+      "type": "integer",
+      "label": "每用户或群的活跃记录上限",
+      "default": 200,
+      "min": 10,
+      "max": 200
+    }
+  ]
+}

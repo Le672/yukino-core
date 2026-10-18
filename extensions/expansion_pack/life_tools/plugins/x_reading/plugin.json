@@ -1,0 +1,20 @@
+{
+  "id": "x_reading",
+  "name": "阅读进度",
+  "version": "1.0.0",
+  "description": "逐本记录总页数与已读进度",
+  "worker": "worker.py",
+  "commands": [
+    "/阅读进度"
+  ],
+  "config_schema": [
+    {
+      "key": "max_active_records",
+      "type": "integer",
+      "label": "每用户或群的活跃记录上限",
+      "default": 200,
+      "min": 10,
+      "max": 200
+    }
+  ]
+}

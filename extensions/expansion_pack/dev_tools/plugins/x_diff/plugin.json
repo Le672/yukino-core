@@ -1,0 +1,28 @@
+{
+  "id": "x_diff",
+  "name": "多行文本差异",
+  "version": "1.0.0",
+  "description": "Unified Diff与字符相似度，支持JSON输入保留竖线",
+  "worker": "worker.py",
+  "commands": [
+    "/文本差异"
+  ],
+  "config_schema": [
+    {
+      "key": "context_lines",
+      "type": "integer",
+      "label": "差异前后上下文行数",
+      "default": 2,
+      "min": 0,
+      "max": 5
+    },
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

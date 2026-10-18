@@ -1,0 +1,44 @@
+{
+  "id": "m_rss",
+  "name": "个人RSS手动订阅",
+  "version": "1.0.0",
+  "description": "RSS/Atom个人订阅增删查和手动刷新去重；不自动推送",
+  "worker": "worker.py",
+  "commands": [
+    "/订阅源"
+  ],
+  "config_schema": [
+    {
+      "key": "max_subscriptions",
+      "type": "integer",
+      "label": "每用户每会话订阅上限",
+      "default": 10,
+      "min": 1,
+      "max": 30
+    },
+    {
+      "key": "result_limit",
+      "type": "integer",
+      "label": "每源最多展示新条目",
+      "default": 3,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "key": "refresh_feed_limit",
+      "type": "integer",
+      "label": "未指定编号时最多刷新源数",
+      "default": 3,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "key": "network_timeout_seconds",
+      "type": "integer",
+      "label": "单命令联网总预算秒",
+      "default": 12,
+      "min": 2,
+      "max": 15
+    }
+  ]
+}

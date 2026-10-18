@@ -1,0 +1,52 @@
+{
+  "id": "affinity",
+  "name": "指令互动与好感",
+  "description": "明确按互动指令积累，含日上限、冷却和可选主人满级。",
+  "version": "1.0.0",
+  "worker": "worker.py",
+  "commands": [
+    "/好感",
+    "/互动",
+    "/好感榜"
+  ],
+  "config_schema": [
+    {
+      "key": "max_points",
+      "type": "integer",
+      "label": "好感上限",
+      "default": 1000,
+      "min": 10,
+      "max": 1000000
+    },
+    {
+      "key": "points_per_interaction",
+      "type": "integer",
+      "label": "每次互动好感",
+      "default": 5,
+      "min": 1,
+      "max": 1000
+    },
+    {
+      "key": "daily_limit",
+      "type": "integer",
+      "label": "每日可获得好感",
+      "default": 30,
+      "min": 1,
+      "max": 10000
+    },
+    {
+      "key": "cooldown_seconds",
+      "type": "integer",
+      "label": "互动冷却秒数",
+      "default": 60,
+      "min": 0,
+      "max": 86400
+    },
+    {
+      "key": "owner_max",
+      "type": "boolean",
+      "label": "内核配置主人好感满级",
+      "default": false
+    }
+  ]
+}

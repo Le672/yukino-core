@@ -1,0 +1,11 @@
+{
+  "id": "tarot",
+  "name": "塔罗灵感抽牌",
+  "version": "1.0.0",
+  "description": "22张大阿尔卡那名称与自有简短文字，不带第三方牌面",
+  "worker": "worker.py",
+  "commands": [
+    "/塔罗"
+  ],
+  "config_schema": []
+}

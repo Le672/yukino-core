@@ -1,0 +1,29 @@
+{
+  "id": "x_json",
+  "name": "JSON格式与路径取值",
+  "version": "1.0.0",
+  "description": "严格JSON格式化、数组/属性路径和JSON Pointer取值",
+  "worker": "worker.py",
+  "commands": [
+    "/JSON格式",
+    "/JSON取值"
+  ],
+  "config_schema": [
+    {
+      "key": "indent",
+      "type": "integer",
+      "label": "格式化缩进空格",
+      "default": 2,
+      "min": 1,
+      "max": 4
+    },
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

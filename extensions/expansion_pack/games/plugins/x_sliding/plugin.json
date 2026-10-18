@@ -1,0 +1,20 @@
+{
+  "id": "x_sliding",
+  "name": "可解滑块拼图",
+  "version": "1.0.0",
+  "description": "/滑块拼图 开始；移动 数字；或 上/下/左/右（移动空格）；状态；投降。目标为1～8按行排列，空格右下。",
+  "worker": "worker.py",
+  "commands": [
+    "/滑块拼图"
+  ],
+  "config_schema": [
+    {
+      "key": "shuffle_steps",
+      "type": "integer",
+      "label": "合法随机打乱步数",
+      "default": 80,
+      "min": 10,
+      "max": 200
+    }
+  ]
+}

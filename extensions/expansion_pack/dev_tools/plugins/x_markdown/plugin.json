@@ -1,0 +1,27 @@
+{
+  "id": "x_markdown",
+  "name": "Markdown目录与表格",
+  "version": "1.0.0",
+  "description": "跳过代码围栏提取标题目录和CSV转Markdown表格",
+  "worker": "worker.py",
+  "commands": [
+    "/Markdown目录",
+    "/Markdown表格"
+  ],
+  "config_schema": [
+    {
+      "key": "delimiter",
+      "type": "string",
+      "label": "CSV分隔符：逗号、分号或制表符",
+      "default": ","
+    },
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

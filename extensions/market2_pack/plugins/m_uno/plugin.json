@@ -1,0 +1,15 @@
+{
+  "id": "m_uno",
+  "name": "文字UNO房间",
+  "version": "1.0.0",
+  "description": "2—6人群聊文字出牌，108张牌与动作牌规则；手牌仅本人主动私聊读取，持久化房间、席位及抽弃牌堆。",
+  "worker": "worker.py",
+  "commands": ["/UNO", "/uno"],
+  "config_schema": [
+    {"key":"max_players","type":"integer","label":"新房间最多玩家","default":6,"min":2,"max":6},
+    {"key":"max_rooms","type":"integer","label":"保留房间总数上限","default":200,"min":10,"max":1000},
+    {"key":"expiry_days","type":"integer","label":"无游戏操作过期天数","default":31,"min":1,"max":31},
+    {"key":"hand_page_size","type":"integer","label":"每页私聊显示手牌数量","default":30,"min":10,"max":60},
+    {"key":"max_moves","type":"integer","label":"每局出牌及跳过回合上限","default":1000,"min":50,"max":5000}
+  ]
+}

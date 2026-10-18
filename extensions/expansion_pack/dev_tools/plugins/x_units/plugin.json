@@ -1,0 +1,28 @@
+{
+  "id": "x_units",
+  "name": "多量纲单位换算",
+  "version": "1.0.0",
+  "description": "温度长度质量速度面积体积数据与时间间隔换算",
+  "worker": "worker.py",
+  "commands": [
+    "/单位换算"
+  ],
+  "config_schema": [
+    {
+      "key": "precision",
+      "type": "integer",
+      "label": "展示有效位数",
+      "default": 14,
+      "min": 4,
+      "max": 28
+    },
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

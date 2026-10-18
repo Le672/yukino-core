@@ -1,0 +1,28 @@
+{
+  "id": "x_lights",
+  "name": "可解熄灯游戏",
+  "version": "1.0.0",
+  "description": "/熄灯游戏 开始；按 行 列；状态；投降。切换自身及上下左右，目标全部熄灭。",
+  "worker": "worker.py",
+  "commands": [
+    "/熄灯游戏"
+  ],
+  "config_schema": [
+    {
+      "key": "board_size",
+      "type": "integer",
+      "label": "棋盘边长",
+      "default": 4,
+      "min": 3,
+      "max": 5
+    },
+    {
+      "key": "shuffle_steps",
+      "type": "integer",
+      "label": "生成局面时开关次数",
+      "default": 12,
+      "min": 1,
+      "max": 100
+    }
+  ]
+}

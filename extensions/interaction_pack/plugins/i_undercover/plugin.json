@@ -1,0 +1,19 @@
+{
+  "id": "i_undercover",
+  "name": "谁是卧底",
+  "description": "/谁是卧底 创建；3—12人 加入；主持人 开始。每人私聊 /谁是卧底 取词 房间码；群中描述后 投票 对方QQ；主持人 结算。平票重投，卧底出局平民胜，剩2人卧底胜。状态、结束。8组原创简单词对，投票并非匿名。",
+  "commands": [
+    "/谁是卧底"
+  ],
+  "worker": "worker.py",
+  "config_schema": [
+    {
+      "key": "max_players",
+      "type": "integer",
+      "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+      "min": 2,
+      "max": 12,
+      "default": 12
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "m_abbr",
+  "name": "神奇海螺缩写释义",
+  "version": "1.0.0",
+  "description": "查询能不能好好说话公开接口，保留社区释义和查无结果",
+  "worker": "worker.py",
+  "commands": [
+    "/缩写"
+  ],
+  "config_schema": [
+    {
+      "key": "explanation_limit",
+      "type": "integer",
+      "label": "每词最多释义",
+      "default": 8,
+      "min": 1,
+      "max": 20
+    },
+    {
+      "key": "network_timeout_seconds",
+      "type": "integer",
+      "label": "单命令联网总预算秒",
+      "default": 12,
+      "min": 2,
+      "max": 15
+    }
+  ]
+}

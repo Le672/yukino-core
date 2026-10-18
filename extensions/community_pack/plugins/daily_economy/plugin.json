@@ -1,0 +1,59 @@
+{
+  "id": "daily_economy",
+  "name": "每日签到与娱乐积分",
+  "description": "会话隔离的签到、转账、流水、商店和背包。金币没有现金价值。",
+  "version": "1.0.0",
+  "worker": "worker.py",
+  "commands": [
+    "/签到",
+    "/余额",
+    "/金币榜",
+    "/转账",
+    "/流水",
+    "/商店",
+    "/购买",
+    "/背包",
+    "/经济帮助"
+  ],
+  "config_schema": [
+    {
+      "key": "daily_reward",
+      "type": "integer",
+      "label": "基础签到奖励",
+      "default": 50,
+      "min": 1,
+      "max": 100000
+    },
+    {
+      "key": "streak_bonus",
+      "type": "integer",
+      "label": "连续签到每日额外奖励（最多6次）",
+      "default": 10,
+      "min": 0,
+      "max": 10000
+    },
+    {
+      "key": "max_balance",
+      "type": "integer",
+      "label": "余额上限",
+      "default": 1000000000,
+      "min": 1000,
+      "max": 1000000000
+    },
+    {
+      "key": "max_transfer",
+      "type": "integer",
+      "label": "单笔转账上限",
+      "default": 1000000,
+      "min": 1,
+      "max": 100000000
+    },
+    {
+      "key": "shop_json",
+      "type": "string",
+      "label": "商品 JSON 数组",
+      "default": "[{\"id\":\"flower\",\"name\":\"小花\",\"price\":30},{\"id\":\"badge\",\"name\":\"纪念徽章\",\"price\":150}]",
+      "max_length": 6000
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "x_reversi",
+  "name": "六路黑白棋",
+  "version": "1.0.0",
+  "description": "/黑白棋 开始；另一人 加入；/黑白棋 行 列（1—6）。必须夹住对手棋子；无合法步时发送 跳过；双方均无步按子数结算。状态、认输、结束。",
+  "worker": "worker.py",
+  "commands": [
+    "/黑白棋"
+  ],
+  "config_schema": []
+}

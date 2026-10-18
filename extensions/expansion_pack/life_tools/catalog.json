@@ -1,0 +1,212 @@
+[
+  {
+    "id": "x_habits",
+    "name": "习惯打卡",
+    "commands": [
+      "/习惯"
+    ],
+    "smoke_command": "/习惯 添加 喝水",
+    "expected_contains": "习惯已添加",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_ledger",
+    "name": "个人记账",
+    "commands": [
+      "/记账"
+    ],
+    "smoke_command": "/记账 添加 支出 12.50 餐饮 午饭",
+    "expected_contains": "流水已记录",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_reading",
+    "name": "阅读进度",
+    "commands": [
+      "/阅读进度"
+    ],
+    "smoke_command": "/阅读进度 添加 示例书|200",
+    "expected_contains": "阅读记录已创建",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_watchlist",
+    "name": "观影清单",
+    "commands": [
+      "/观影单"
+    ],
+    "smoke_command": "/观影单 添加 示例影片",
+    "expected_contains": "观影条目已添加",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_spaced_cards",
+    "name": "间隔复习卡",
+    "commands": [
+      "/复习卡"
+    ],
+    "smoke_command": "/复习卡 添加 Python列表可变吗|可以",
+    "expected_contains": "复习卡已创建",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_pomodoro",
+    "name": "持久番茄钟",
+    "commands": [
+      "/番茄钟"
+    ],
+    "smoke_command": "/番茄钟 开始 25 阅读",
+    "expected_contains": "番茄钟已开始",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_goals",
+    "name": "量化目标",
+    "commands": [
+      "/目标"
+    ],
+    "smoke_command": "/目标 添加 阅读页数|1000",
+    "expected_contains": "目标已添加",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_inventory",
+    "name": "物品库存流水",
+    "commands": [
+      "/物品库存"
+    ],
+    "smoke_command": "/物品库存 添加 笔记本 本",
+    "expected_contains": "库存条目已添加",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_split_bill",
+    "name": "群AA账本",
+    "commands": [
+      "/AA账本"
+    ],
+    "smoke_command": "/AA账本 创建 午饭|小明|小红",
+    "expected_contains": "AA账本已创建",
+    "scope": "group"
+  },
+  {
+    "id": "x_signup",
+    "name": "活动报名",
+    "commands": [
+      "/活动报名"
+    ],
+    "smoke_command": "/活动报名 创建 周末桌游|6",
+    "expected_contains": "报名活动已创建",
+    "scope": "group"
+  },
+  {
+    "id": "x_round_robin",
+    "name": "循环轮值",
+    "commands": [
+      "/轮值抽取"
+    ],
+    "smoke_command": "/轮值抽取 创建 值日|小明|小红",
+    "expected_contains": "轮值名单已创建",
+    "scope": "group"
+  },
+  {
+    "id": "x_queue",
+    "name": "群排队",
+    "commands": [
+      "/排队"
+    ],
+    "smoke_command": "/排队 创建 连麦队列",
+    "expected_contains": "队列已创建",
+    "scope": "group"
+  },
+  {
+    "id": "x_wishlist",
+    "name": "愿望优先级",
+    "commands": [
+      "/愿望单"
+    ],
+    "smoke_command": "/愿望单 添加 新键盘|2",
+    "expected_contains": "愿望已添加",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_recipes",
+    "name": "自录食谱本",
+    "commands": [
+      "/食谱本"
+    ],
+    "smoke_command": "/食谱本 添加 番茄炒蛋|番茄、鸡蛋|炒熟后调味",
+    "expected_contains": "食谱已收录",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_bookmarks",
+    "name": "标签书签",
+    "commands": [
+      "/书签"
+    ],
+    "smoke_command": "/书签 添加 示例|https://example.com|资料",
+    "expected_contains": "书签已添加",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_anniversary",
+    "name": "年度纪念日",
+    "commands": [
+      "/纪念日"
+    ],
+    "smoke_command": "/纪念日 添加 纪念日|10-01",
+    "expected_contains": "纪念日已添加",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_packing",
+    "name": "行李核对清单",
+    "commands": [
+      "/行李清单"
+    ],
+    "smoke_command": "/行李清单 模板 短途",
+    "expected_contains": "行李清单已创建",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_agenda",
+    "name": "群议程主持",
+    "commands": [
+      "/议程"
+    ],
+    "smoke_command": "/议程 创建 周会",
+    "expected_contains": "议程已创建",
+    "scope": "group"
+  },
+  {
+    "id": "x_time_budget",
+    "name": "项目工时",
+    "commands": [
+      "/工时"
+    ],
+    "smoke_command": "/工时 开始 插件开发",
+    "expected_contains": "工时计时已开始",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_decision_matrix",
+    "name": "加权决策表",
+    "commands": [
+      "/决策表"
+    ],
+    "smoke_command": "/决策表 创建 选设备|性能:3|续航:2",
+    "expected_contains": "决策表已创建",
+    "scope": "user_or_wiki_group"
+  },
+  {
+    "id": "x_wiki",
+    "name": "版本知识页",
+    "commands": [
+      "/知识页"
+    ],
+    "smoke_command": "/知识页 创建 使用说明|# 一级\\n## 二级\\n示例正文",
+    "expected_contains": "知识页已创建",
+    "scope": "user_or_wiki_group"
+  }
+]

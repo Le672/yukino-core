@@ -1,0 +1,20 @@
+{
+  "id": "x_queue",
+  "name": "群排队",
+  "version": "1.0.0",
+  "description": "本人入列退出、创建者推进和关闭",
+  "worker": "worker.py",
+  "commands": [
+    "/排队"
+  ],
+  "config_schema": [
+    {
+      "key": "max_active_records",
+      "type": "integer",
+      "label": "每用户或群的活跃记录上限",
+      "default": 200,
+      "min": 10,
+      "max": 200
+    }
+  ]
+}

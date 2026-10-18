@@ -1,0 +1,27 @@
+{
+  "id": "i_nim",
+  "name": "取石子",
+  "description": "/取石子 创建 3 4 5（1—7堆，各1—30颗）；第二人 加入；发起者 开始；轮到的人 取 堆号 数量。每次从一堆取1—3颗（可配置），取最后一颗获胜；状态、结束。",
+  "commands": [
+    "/取石子"
+  ],
+  "worker": "worker.py",
+  "config_schema": [
+    {
+      "key": "max_players",
+      "type": "integer",
+      "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+      "min": 2,
+      "max": 12,
+      "default": 12
+    },
+    {
+      "key": "nim_max_take",
+      "type": "integer",
+      "label": "创建时每次最多取石数",
+      "min": 1,
+      "max": 30,
+      "default": 3
+    }
+  ]
+}

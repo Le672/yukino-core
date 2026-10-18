@@ -1,0 +1,11 @@
+{
+  "id": "rps",
+  "name": "石头剪刀布",
+  "version": "1.0.0",
+  "description": "系统随机猜拳与本会话战绩",
+  "worker": "worker.py",
+  "commands": [
+    "/猜拳"
+  ],
+  "config_schema": []
+}

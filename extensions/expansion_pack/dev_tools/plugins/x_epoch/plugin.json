@@ -1,0 +1,28 @@
+{
+  "id": "x_epoch",
+  "name": "Unix时间戳与ISO互转",
+  "version": "1.0.0",
+  "description": "秒/毫秒时间戳和带时区ISO日期时间双向转换",
+  "worker": "worker.py",
+  "commands": [
+    "/时间戳转换"
+  ],
+  "config_schema": [
+    {
+      "key": "utc_offset_hours",
+      "type": "integer",
+      "label": "无偏移输入与显示时区UTC小时",
+      "default": 8,
+      "min": -12,
+      "max": 14
+    },
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

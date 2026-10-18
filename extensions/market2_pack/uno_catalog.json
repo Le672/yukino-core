@@ -1,0 +1,11 @@
+[
+  {
+    "id": "m_uno",
+    "name": "文字UNO房间",
+    "commands": ["/UNO", "/uno"],
+    "smoke_command": "/UNO 创建",
+    "expected_contains": "UNO房间已创建",
+    "settings": {"timeout":6,"input_max_chars":4000,"output_max_chars":6000},
+    "usage": "群内 /UNO 创建、加入、开始、状态；本人主动私聊 /UNO 手牌 房间码 [页码]；轮到本人 /UNO 出 编号 [颜色] 或 摸牌、跳过，剩1张时 喊UNO。仅创建者或机器人主人可开始/结束。"
+  }
+]

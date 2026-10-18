@@ -1,0 +1,20 @@
+{
+  "id": "game_news",
+  "name": "Steam游戏更新",
+  "description": "通过Steam公开接口查询游戏新闻与更新记录",
+  "worker": "worker.py",
+  "commands": [
+    "/游戏更新"
+  ],
+  "config_schema": [
+    {
+      "key": "result_limit",
+      "type": "integer",
+      "label": "新闻条数",
+      "default": 3,
+      "min": 1,
+      "max": 5
+    }
+  ],
+  "version": "1.0.0"
+}

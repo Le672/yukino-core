@@ -1,0 +1,220 @@
+[
+  {
+    "id": "x_json",
+    "name": "JSON格式与路径取值",
+    "commands": [
+      "/JSON格式",
+      "/JSON取值"
+    ],
+    "smoke_command": "/JSON取值 user.name|{\"user\":{\"name\":\"雪乃\"}}",
+    "expected_contains": "雪乃",
+    "invalid_command": "/JSON格式 {broken}"
+  },
+  {
+    "id": "x_csv",
+    "name": "CSV结构与数值统计",
+    "commands": [
+      "/CSV统计"
+    ],
+    "smoke_command": "/CSV统计 姓名,分数\n小明,90\n小红,80",
+    "expected_contains": "平均 85",
+    "invalid_command": "/CSV统计 \"unterminated"
+  },
+  {
+    "id": "x_regex",
+    "name": "限时正则测试",
+    "commands": [
+      "/正则测试"
+    ],
+    "smoke_command": "/正则测试 ([a-z]+)([0-9]+)|abc123 中文",
+    "expected_contains": "abc123",
+    "invalid_command": "/正则测试 [|abc"
+  },
+  {
+    "id": "x_cron",
+    "name": "Cron解释与下次时间",
+    "commands": [
+      "/Cron说明",
+      "/Cron下次"
+    ],
+    "smoke_command": "/Cron下次 0 9 * * 1-5|2026-10-16T09:00:00+08:00",
+    "expected_contains": "2026-10-19T09:00+08:00",
+    "invalid_command": "/Cron说明 60 * * * *"
+  },
+  {
+    "id": "x_uuid",
+    "name": "UUID生成与解析",
+    "commands": [
+      "/UUID",
+      "/UUID解析"
+    ],
+    "smoke_command": "/UUID 5 dns|example.com",
+    "expected_contains": "UUID v5",
+    "invalid_command": "/UUID解析 bad-uuid"
+  },
+  {
+    "id": "x_ip",
+    "name": "IP与CIDR离线分析",
+    "commands": [
+      "/IP信息"
+    ],
+    "smoke_command": "/IP信息 192.168.1.10/24",
+    "expected_contains": "192.168.1.0/24",
+    "invalid_command": "/IP信息 999.999.999.999"
+  },
+  {
+    "id": "x_url",
+    "name": "链接结构与跟踪清理",
+    "commands": [
+      "/链接信息",
+      "/清理链接"
+    ],
+    "smoke_command": "/清理链接 https://example.com/watch?v=42&utm_source=test&spm=123",
+    "expected_contains": "https://example.com/watch?v=42",
+    "invalid_command": "/链接信息 file:///etc/passwd"
+  },
+  {
+    "id": "x_color",
+    "name": "颜色转换与可读性对比",
+    "commands": [
+      "/颜色",
+      "/对比度"
+    ],
+    "smoke_command": "/对比度 #000000|#ffffff",
+    "expected_contains": "21.00:1",
+    "invalid_command": "/颜色 rgb(256,0,0)"
+  },
+  {
+    "id": "x_units",
+    "name": "多量纲单位换算",
+    "commands": [
+      "/单位换算"
+    ],
+    "smoke_command": "/单位换算 32 F C",
+    "expected_contains": "= 0 C",
+    "invalid_command": "/单位换算 1 kg m"
+  },
+  {
+    "id": "x_radix",
+    "name": "任意进制整数转换",
+    "commands": [
+      "/进制转换"
+    ],
+    "smoke_command": "/进制转换 FF 16 2",
+    "expected_contains": "11111111",
+    "invalid_command": "/进制转换 2 2 10"
+  },
+  {
+    "id": "x_unicode",
+    "name": "Unicode字符与规范化",
+    "commands": [
+      "/字符信息",
+      "/文本规范化"
+    ],
+    "smoke_command": "/文本规范化 NFKC|ＡＢＣ１２３",
+    "expected_contains": "ABC123",
+    "invalid_command": "/文本规范化 BAD|abc"
+  },
+  {
+    "id": "x_markdown",
+    "name": "Markdown目录与表格",
+    "commands": [
+      "/Markdown目录",
+      "/Markdown表格"
+    ],
+    "smoke_command": "/Markdown目录 # 开始\n## 安装\n## 使用",
+    "expected_contains": "[安装](#安装)",
+    "invalid_command": "/Markdown表格 \"unterminated"
+  },
+  {
+    "id": "x_diff",
+    "name": "多行文本差异",
+    "commands": [
+      "/文本差异"
+    ],
+    "smoke_command": "/文本差异 old line|new line",
+    "expected_contains": "-old line",
+    "invalid_command": "/文本差异 missingseparator"
+  },
+  {
+    "id": "x_semver",
+    "name": "语义版本比较",
+    "commands": [
+      "/版本比较"
+    ],
+    "smoke_command": "/版本比较 1.2.3-alpha.2 1.2.3-alpha.10",
+    "expected_contains": " < ",
+    "invalid_command": "/版本比较 01.2.3 1.2.3"
+  },
+  {
+    "id": "x_http",
+    "name": "HTTP状态与MIME速查",
+    "commands": [
+      "/HTTP状态",
+      "/MIME"
+    ],
+    "smoke_command": "/HTTP状态 404",
+    "expected_contains": "Not Found",
+    "invalid_command": "/HTTP状态 700"
+  },
+  {
+    "id": "x_epoch",
+    "name": "Unix时间戳与ISO互转",
+    "commands": [
+      "/时间戳转换"
+    ],
+    "smoke_command": "/时间戳转换 1700000000000",
+    "expected_contains": "2023-11-14T22:13:20+00:00",
+    "invalid_command": "/时间戳转换 not-a-date"
+  },
+  {
+    "id": "x_decimal",
+    "name": "Decimal与有理数计算",
+    "commands": [
+      "/精确计算"
+    ],
+    "smoke_command": "/精确计算 0.1+0.2",
+    "expected_contains": "= 0.3",
+    "invalid_command": "/精确计算 __import__(\"os\").system(\"echo unsafe\")"
+  },
+  {
+    "id": "x_matrix",
+    "name": "小矩阵代数",
+    "commands": [
+      "/矩阵"
+    ],
+    "smoke_command": "/矩阵 行列式 [[1,2],[3,4]]",
+    "expected_contains": "行列式：-2",
+    "invalid_command": "/矩阵 行列式 [[1,2,3],[4,5,6]]"
+  },
+  {
+    "id": "x_stats",
+    "name": "描述性数据统计",
+    "commands": [
+      "/数据统计"
+    ],
+    "smoke_command": "/数据统计 1,2,3,4",
+    "expected_contains": "平均：2.5",
+    "invalid_command": "/数据统计 1,NaN,3"
+  },
+  {
+    "id": "x_probability",
+    "name": "组合排列与二项概率",
+    "commands": [
+      "/概率计算"
+    ],
+    "smoke_command": "/概率计算 二项 10 3 0.5",
+    "expected_contains": "0.1171875",
+    "invalid_command": "/概率计算 二项 10 3 1.5"
+  },
+  {
+    "id": "x_polynomial",
+    "name": "多项式求值导数与方程",
+    "commands": [
+      "/多项式"
+    ],
+    "smoke_command": "/多项式 求值 1,-3,2|3",
+    "expected_contains": "P(x)=2",
+    "invalid_command": "/多项式 二次 1 2"
+  }
+]

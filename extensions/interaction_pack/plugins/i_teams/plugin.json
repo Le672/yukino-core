@@ -1,0 +1,19 @@
+{
+  "id": "i_teams",
+  "name": "队长蛇形选队",
+  "description": "/选队 创建；4—12人 加入；发起者 选队长 QQ1 QQ2。队长轮流 选 待选QQ，顺序A-B-B-A循环。全部选完结束；状态、结束。报名后无法中途退场，请结束重建。",
+  "commands": [
+    "/选队"
+  ],
+  "worker": "worker.py",
+  "config_schema": [
+    {
+      "key": "max_players",
+      "type": "integer",
+      "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+      "min": 2,
+      "max": 12,
+      "default": 12
+    }
+  ]
+}

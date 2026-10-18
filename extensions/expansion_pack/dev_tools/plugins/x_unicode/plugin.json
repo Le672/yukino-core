@@ -1,0 +1,29 @@
+{
+  "id": "x_unicode",
+  "name": "Unicode字符与规范化",
+  "version": "1.0.0",
+  "description": "码点名称类别UTF8字节及NFC/NFD/NFKC/NFKD转换",
+  "worker": "worker.py",
+  "commands": [
+    "/字符信息",
+    "/文本规范化"
+  ],
+  "config_schema": [
+    {
+      "key": "character_limit",
+      "type": "integer",
+      "label": "字符信息最多码点数",
+      "default": 40,
+      "min": 1,
+      "max": 80
+    },
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

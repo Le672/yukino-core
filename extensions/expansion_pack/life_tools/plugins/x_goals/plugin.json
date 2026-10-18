@@ -1,0 +1,20 @@
+{
+  "id": "x_goals",
+  "name": "量化目标",
+  "version": "1.0.0",
+  "description": "目标数值、进度和增量",
+  "worker": "worker.py",
+  "commands": [
+    "/目标"
+  ],
+  "config_schema": [
+    {
+      "key": "max_active_records",
+      "type": "integer",
+      "label": "每用户或群的活跃记录上限",
+      "default": 200,
+      "min": 10,
+      "max": 200
+    }
+  ]
+}

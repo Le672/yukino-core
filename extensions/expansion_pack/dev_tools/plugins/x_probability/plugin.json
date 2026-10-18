@@ -1,0 +1,20 @@
+{
+  "id": "x_probability",
+  "name": "组合排列与二项概率",
+  "version": "1.0.0",
+  "description": "精确组合排列及独立同概率试验二项分布",
+  "worker": "worker.py",
+  "commands": [
+    "/概率计算"
+  ],
+  "config_schema": [
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

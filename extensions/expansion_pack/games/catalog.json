@@ -1,0 +1,441 @@
+[
+  {
+    "id": "x_connect4",
+    "name": "四子棋",
+    "commands": [
+      "/四子棋"
+    ],
+    "smoke_command": "/四子棋 开始",
+    "expected_contains": "对局已开始",
+    "config_schema": [],
+    "usage": "/四子棋 开始；另一人 /四子棋 加入；当前玩家 /四子棋 列号（1—7）。固定7列6行，有重力，横竖斜连4获胜；状态、认输、结束。"
+  },
+  {
+    "id": "x_tictactoe",
+    "name": "井字棋",
+    "commands": [
+      "/井字棋"
+    ],
+    "smoke_command": "/井字棋 开始 人机",
+    "expected_contains": "对局已开始",
+    "config_schema": [],
+    "usage": "/井字棋 开始；另一人 加入；或 /井字棋 开始 人机。/井字棋 行 列（1—3），连3获胜；状态、认输、结束。"
+  },
+  {
+    "id": "x_gomoku",
+    "name": "九路五子棋",
+    "commands": [
+      "/五子棋"
+    ],
+    "smoke_command": "/五子棋 开始",
+    "expected_contains": "对局已开始",
+    "config_schema": [],
+    "usage": "/五子棋 开始；另一人 加入；/五子棋 行 列（1—9），固定9×9自由规则，连5及以上获胜，无禁手；状态、认输、结束。"
+  },
+  {
+    "id": "x_reversi",
+    "name": "六路黑白棋",
+    "commands": [
+      "/黑白棋"
+    ],
+    "smoke_command": "/黑白棋 开始",
+    "expected_contains": "对局已开始",
+    "config_schema": [],
+    "usage": "/黑白棋 开始；另一人 加入；/黑白棋 行 列（1—6）。必须夹住对手棋子；无合法步时发送 跳过；双方均无步按子数结算。状态、认输、结束。"
+  },
+  {
+    "id": "x_yahtzee",
+    "name": "快艇骰子",
+    "commands": [
+      "/快艇骰子"
+    ],
+    "smoke_command": "/快艇骰子 开始",
+    "expected_contains": "快艇骰子已开始",
+    "config_schema": [
+      {
+        "key": "round_limit",
+        "type": "integer",
+        "label": "一局最多计分类别数",
+        "default": 13,
+        "min": 3,
+        "max": 13
+      }
+    ],
+    "usage": "/快艇骰子 开始；保留 1 3 表示保留位置1、3并重掷其余；重掷 2 4 指定重掷位置。每回合最多掷3次。计分 一/二/三/四/五/六/三条/四条/葫芦/小顺/大顺/快艇/机会。每类一次，13回合；上半区≥63加35分。不采用额外快艇或万能规则。状态、结束。"
+  },
+  {
+    "id": "x_wordchain",
+    "name": "成语接龙",
+    "commands": [
+      "/成语接龙"
+    ],
+    "smoke_command": "/成语接龙 开始",
+    "expected_contains": "成语接龙已开始",
+    "config_schema": [
+      {
+        "key": "max_rounds",
+        "type": "integer",
+        "label": "完成挑战的轮数",
+        "default": 20,
+        "min": 3,
+        "max": 30
+      }
+    ],
+    "usage": "/成语接龙 开始；/成语接龙 意气风发。与机器人轮流按文字首尾接龙，仅本地有限常见词典，不按读音；同词不能重复。提示、状态、结束。机器人无词则玩家赢；达到轮数即完成挑战。"
+  },
+  {
+    "id": "x_twentyfour",
+    "name": "24点",
+    "commands": [
+      "/24点"
+    ],
+    "smoke_command": "/24点 开始",
+    "expected_contains": "24点已开始",
+    "config_schema": [
+      {
+        "key": "max_attempts",
+        "type": "integer",
+        "label": "每道题有效尝试次数",
+        "default": 10,
+        "min": 3,
+        "max": 30
+      }
+    ],
+    "usage": "/24点 开始；/24点 (1+2+3)*4。必须将给定的四个数字各使用一次，只允许四则运算、括号；精确分数判定，不用浮点误差。状态、答案/投降。每道题保证有解，答错次数可配置。"
+  },
+  {
+    "id": "x_hangman",
+    "name": "吊小人猜字母",
+    "commands": [
+      "/吊小人"
+    ],
+    "smoke_command": "/吊小人 开始",
+    "expected_contains": "游戏已开始",
+    "config_schema": [
+      {
+        "key": "max_mistakes",
+        "type": "integer",
+        "label": "允许猜错次数",
+        "default": 8,
+        "min": 4,
+        "max": 12
+      },
+      {
+        "key": "show_hint",
+        "type": "boolean",
+        "label": "显示原创中文线索",
+        "default": true
+      }
+    ],
+    "usage": "/吊小人 开始；/吊小人 猜 a（单字母）或 /吊小人 猜 apple（完整英文词）；状态；投降。错误字母和错误整词各消耗一次机会，重复输入不消耗。词库与中文线索原创整理。"
+  },
+  {
+    "id": "x_battleship",
+    "name": "单人坐标海战",
+    "commands": [
+      "/海战"
+    ],
+    "smoke_command": "/海战 开始",
+    "expected_contains": "游戏已开始",
+    "config_schema": [
+      {
+        "key": "max_shots",
+        "type": "integer",
+        "label": "每局攻击次数",
+        "default": 18,
+        "min": 10,
+        "max": 25
+      }
+    ],
+    "usage": "/海战 开始；/海战 攻击 A1；状态；投降。5×5隐藏海图含长度3、2、2的三艘船，直线连续、不重叠、可以相邻。X为命中、~为未中；击沉全部舰船获胜，重复坐标不消耗攻击次数。"
+  },
+  {
+    "id": "x_highlow",
+    "name": "高低牌挑战",
+    "commands": [
+      "/高低牌"
+    ],
+    "smoke_command": "/高低牌 开始",
+    "expected_contains": "游戏已开始",
+    "config_schema": [
+      {
+        "key": "target_wins",
+        "type": "integer",
+        "label": "猜中目标次数",
+        "default": 5,
+        "min": 3,
+        "max": 12
+      }
+    ],
+    "usage": "/高低牌 开始；/高低牌 高 或 /高低牌 低；状态；投降。完整52张牌洗牌不放回，2最小、A最大、不比较花色。同点数平局不加分也不判错，一次猜错结束，达到面板目标次数获胜。"
+  },
+  {
+    "id": "x_knight",
+    "name": "骑士巡游",
+    "commands": [
+      "/骑士巡游"
+    ],
+    "smoke_command": "/骑士巡游 开始",
+    "expected_contains": "游戏已开始",
+    "config_schema": [
+      {
+        "key": "board_size",
+        "type": "integer",
+        "label": "棋盘边长",
+        "default": 5,
+        "min": 5,
+        "max": 6
+      }
+    ],
+    "usage": "/骑士巡游 开始 [A1]；/骑士巡游 移动 B3；状态；投降。采用国际象棋骑士日字走法（横1竖2或横2竖1），每格只访问一次，覆盖全部格子获胜，无合法下一步结束。5×5只能从与A1同色格子开局，6×6可任意格。"
+  },
+  {
+    "id": "x_arithmetic",
+    "name": "口算挑战",
+    "commands": [
+      "/口算挑战"
+    ],
+    "smoke_command": "/口算挑战 开始",
+    "expected_contains": "游戏已开始",
+    "config_schema": [
+      {
+        "key": "question_count",
+        "type": "integer",
+        "label": "每局题数",
+        "default": 5,
+        "min": 3,
+        "max": 20
+      },
+      {
+        "key": "max_operand",
+        "type": "integer",
+        "label": "生成算式因子上限",
+        "default": 20,
+        "min": 5,
+        "max": 100
+      }
+    ],
+    "usage": "/口算挑战 开始；/口算挑战 答 -3；状态；投降。原创随机整数加减乘除题，除法均可整除，每题提交一次；错题揭晓答案后进入下一题，完成后显示答对题数和实际经过秒数。"
+  },
+  {
+    "id": "x_trivia",
+    "name": "原创知识问答",
+    "commands": [
+      "/知识问答"
+    ],
+    "smoke_command": "/知识问答 开始",
+    "expected_contains": "游戏已开始",
+    "config_schema": [
+      {
+        "key": "question_count",
+        "type": "integer",
+        "label": "每局题数",
+        "default": 5,
+        "min": 3,
+        "max": 12
+      }
+    ],
+    "usage": "/知识问答 开始；/知识问答 A（或B/C/D）；状态；投降。原创24道基础知识小题库，每局随机抽题不重复，选项会打乱；每题提交一次并给出简短解释。完成后显示得分。"
+  },
+  {
+    "id": "x_anagram",
+    "name": "乱序猜词",
+    "commands": [
+      "/乱序猜词"
+    ],
+    "smoke_command": "/乱序猜词 开始",
+    "expected_contains": "游戏已开始",
+    "config_schema": [
+      {
+        "key": "max_mistakes",
+        "type": "integer",
+        "label": "允许猜错次数",
+        "default": 5,
+        "min": 2,
+        "max": 10
+      },
+      {
+        "key": "show_hint",
+        "type": "boolean",
+        "label": "显示原创中文线索",
+        "default": true
+      }
+    ],
+    "usage": "/乱序猜词 开始；/乱序猜词 猜 apple；状态；投降。将同一英文词的全部字母打乱，猜中完整单词获胜；重复输入不扣机会，错词消耗一次机会。可在面板设置机会数和是否显示原创中文线索。"
+  },
+  {
+    "id": "x_minesweeper",
+    "name": "首步安全扫雷",
+    "commands": [
+      "/扫雷"
+    ],
+    "smoke_command": "/扫雷 开始",
+    "expected_contains": "扫雷已开始",
+    "config_schema": [
+      {
+        "key": "board_size",
+        "type": "integer",
+        "label": "默认棋盘边长",
+        "default": 6,
+        "min": 5,
+        "max": 9
+      },
+      {
+        "key": "mine_count",
+        "type": "integer",
+        "label": "默认雷数（至多总格数减一）",
+        "default": 6,
+        "min": 1,
+        "max": 40
+      }
+    ],
+    "usage": "/扫雷 开始 [边长 雷数]；开 行 列；旗 行 列（再次取消）；状态；投降。首个实际翻开格安全，插旗不算翻开。"
+  },
+  {
+    "id": "x_sliding",
+    "name": "可解滑块拼图",
+    "commands": [
+      "/滑块拼图"
+    ],
+    "smoke_command": "/滑块拼图 开始",
+    "expected_contains": "滑块拼图已开始",
+    "config_schema": [
+      {
+        "key": "shuffle_steps",
+        "type": "integer",
+        "label": "合法随机打乱步数",
+        "default": 80,
+        "min": 10,
+        "max": 200
+      }
+    ],
+    "usage": "/滑块拼图 开始；移动 数字；或 上/下/左/右（移动空格）；状态；投降。目标为1～8按行排列，空格右下。"
+  },
+  {
+    "id": "x_2048",
+    "name": "2048合并挑战",
+    "commands": [
+      "/2048"
+    ],
+    "smoke_command": "/2048 开始",
+    "expected_contains": "2048已开始",
+    "config_schema": [
+      {
+        "key": "target",
+        "type": "integer",
+        "label": "达标方块",
+        "default": 2048,
+        "min": 128,
+        "max": 65536,
+        "options": [
+          128,
+          256,
+          512,
+          1024,
+          2048,
+          4096,
+          8192,
+          16384,
+          32768,
+          65536
+        ]
+      }
+    ],
+    "usage": "/2048 开始；上/下/左/右；状态；投降。每格每步最多合并一次；无效移动不会产生新块。达标后可继续。"
+  },
+  {
+    "id": "x_lights",
+    "name": "可解熄灯游戏",
+    "commands": [
+      "/熄灯游戏"
+    ],
+    "smoke_command": "/熄灯游戏 开始",
+    "expected_contains": "熄灯游戏已开始",
+    "config_schema": [
+      {
+        "key": "board_size",
+        "type": "integer",
+        "label": "棋盘边长",
+        "default": 4,
+        "min": 3,
+        "max": 5
+      },
+      {
+        "key": "shuffle_steps",
+        "type": "integer",
+        "label": "生成局面时开关次数",
+        "default": 12,
+        "min": 1,
+        "max": 100
+      }
+    ],
+    "usage": "/熄灯游戏 开始；按 行 列；状态；投降。切换自身及上下左右，目标全部熄灭。"
+  },
+  {
+    "id": "x_sokoban",
+    "name": "原创推箱子",
+    "commands": [
+      "/推箱子"
+    ],
+    "smoke_command": "/推箱子 开始",
+    "expected_contains": "推箱子已开始",
+    "config_schema": [
+      {
+        "key": "undo_limit",
+        "type": "integer",
+        "label": "最多保留撤销步数",
+        "default": 50,
+        "min": 1,
+        "max": 100
+      }
+    ],
+    "usage": "/推箱子 开始；上/下/左/右；撤销；状态；投降。@人物，$箱子，.目标，*到位。只能推不能拉，原创单关。"
+  },
+  {
+    "id": "x_maze",
+    "name": "随机可达迷宫",
+    "commands": [
+      "/迷宫"
+    ],
+    "smoke_command": "/迷宫 开始",
+    "expected_contains": "迷宫已开始",
+    "config_schema": [
+      {
+        "key": "board_size",
+        "type": "integer",
+        "label": "地图边长（单数）",
+        "default": 9,
+        "min": 7,
+        "max": 15,
+        "options": [
+          7,
+          9,
+          11,
+          13,
+          15
+        ]
+      }
+    ],
+    "usage": "/迷宫 开始；上/下/左/右；状态；投降。@人物，E出口，#墙，·走过路径；随机地图保证可达。"
+  },
+  {
+    "id": "x_memory",
+    "name": "翻牌配对记忆",
+    "commands": [
+      "/翻牌记忆"
+    ],
+    "smoke_command": "/翻牌记忆 开始",
+    "expected_contains": "翻牌记忆已开始",
+    "config_schema": [
+      {
+        "key": "pairs",
+        "type": "integer",
+        "label": "配对数量",
+        "default": 6,
+        "min": 4,
+        "max": 12
+      }
+    ],
+    "usage": "/翻牌记忆 开始；翻 编号；或 翻 编号A 编号B；状态；投降。不匹配的两张在回执显示后盖回，隐藏其他牌。"
+  }
+]

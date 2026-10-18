@@ -1,0 +1,2495 @@
+{
+  "format": 1,
+  "project": "yukino-core",
+  "version": "0.6.2",
+  "artifact": "source",
+  "entries": [
+    {
+      "path": ".dockerignore",
+      "bytes": 55,
+      "sha256": "42732377ebadbd6955dd484d65a3c21bad859334db5b1bd3b125147f2b855171"
+    },
+    {
+      "path": ".env.example",
+      "bytes": 585,
+      "sha256": "18dc478ba02f542152755224104a684005872be3401bee84394992344b16f3af"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 1824,
+      "sha256": "8a6dba7f8656f7b79c5c4ac13ed2363c133e31185f704e7683b17b792cf3e780"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 121,
+      "sha256": "2cda321d8f7278cd0e2d5fb8425cbae94500481e30ca9dba6622fab19823e59f"
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "bytes": 8517,
+      "sha256": "92532e6b94a56f1bf7bc0801a006aece3e56da0b8a75959ad1ba72fcb27b99da"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 5512,
+      "sha256": "f5aed6458d901be46925770fc673b4ecee8f9b62260825ac72dc6d991ab0604b"
+    },
+    {
+      "path": "Dockerfile",
+      "bytes": 453,
+      "sha256": "8894caa054151d2fd29411e7674082a58aa4bd9c1316f03e92401e7a1a18fa05"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1085,
+      "sha256": "28ca83024584d7ea2b6a642ca229356d50d5eaf58a10323d482c355fbc2099fa"
+    },
+    {
+      "path": "README.md",
+      "bytes": 8688,
+      "sha256": "50cbbfc91c5781d3682b8bd84eeb110125fb10ae0a9b268129a064cd9b534d30"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 3863,
+      "sha256": "d31b013cf0fad0f0129fb63d175685011fb34dc21490b05cb10e4333968be817"
+    },
+    {
+      "path": "compose.release.yaml",
+      "bytes": 1033,
+      "sha256": "370dbdaafe59f5f984162ade4bcfa1cbdb4f333f2c8aaf92434c49354c0acdcc"
+    },
+    {
+      "path": "config.example.json",
+      "bytes": 1149,
+      "sha256": "322105073802365e0954ad2fc7184af57d39c3f319b98d21c49f3103a4871012"
+    },
+    {
+      "path": "docs/COMMUNITY_PLUGINS.md",
+      "bytes": 2420,
+      "sha256": "5316e1bacf726cb400f257010b11346f52e6137d7232471100641dd0df8feb9f"
+    },
+    {
+      "path": "docs/CONFIGURATION.md",
+      "bytes": 4590,
+      "sha256": "b31295f65493d24ca8ca70c535196a52c87a079043ffb070ecc80689037a92b0"
+    },
+    {
+      "path": "docs/EXPANSION_PLUGINS.md",
+      "bytes": 7810,
+      "sha256": "0c11b705167227d4a98e19af317ddcb23559df9579fb7273d538230d7d943390"
+    },
+    {
+      "path": "docs/INTERACTION_PLUGINS.md",
+      "bytes": 3274,
+      "sha256": "2cba03c2cc92da10ed5c0957e8be6f1fcb36a33857c5d525a9156231526cbf51"
+    },
+    {
+      "path": "docs/LICENSE_REVIEW.md",
+      "bytes": 4800,
+      "sha256": "2af3c2f501bd4ac80e5fbf6226a3d61379132b43920fc80139a1e258344e6d2b"
+    },
+    {
+      "path": "docs/MAI_EXTENSIONS.md",
+      "bytes": 2996,
+      "sha256": "fb1d9d6fba07ab9ec47c4280656e3c0d79c61f834f11a6f4674587b44957cdc2"
+    },
+    {
+      "path": "docs/NOTICE_INTERACTIONS.md",
+      "bytes": 2630,
+      "sha256": "f965f0a6cdbdfe8e18ebd759be7fa99431cd2e3913b7d54720dd906d6775cd29"
+    },
+    {
+      "path": "docs/OPERATIONS.md",
+      "bytes": 4965,
+      "sha256": "78b0b672a3897f3ea65eddf73dc6f1ffc45b9e1014b55c50af5869ec67a3cd05"
+    },
+    {
+      "path": "docs/PLUGINS.md",
+      "bytes": 7691,
+      "sha256": "d58509f84f09d18b345f48cfe757a025e3d2e51ed8b88943fd6785412c9e5765"
+    },
+    {
+      "path": "docs/PLUGIN_AUTHORING.md",
+      "bytes": 26236,
+      "sha256": "163f44e10fd394d86a5a194fab236a7cd1ff0a13796305238d224a218014c7e1"
+    },
+    {
+      "path": "docs/QUICKSTART.md",
+      "bytes": 4720,
+      "sha256": "8003d116c5f2c66aed6fa1ada54fc078bbca2e1dbb5ec64a7ae6273086c1cbcc"
+    },
+    {
+      "path": "docs/RELEASE.md",
+      "bytes": 3491,
+      "sha256": "575dfd68575f40d743bd7d3c9f983e11f4d94a42c632e65875073d45a2fcb31e"
+    },
+    {
+      "path": "docs/licenses/Pillow-LICENSE.txt",
+      "bytes": 1457,
+      "sha256": "15181e7363dca9aed78b79bebebc7fde7f1814b8bd311ea3b87ae8ccadfc185b"
+    },
+    {
+      "path": "docs/licenses/ai-video-downloader-LICENSE.txt",
+      "bytes": 1099,
+      "sha256": "f7e0d57657d464e6b25ecca9ed1f64fb6690b3610dafc862b286850a40624898"
+    },
+    {
+      "path": "docs/licenses/aiohttp-LICENSE.txt",
+      "bytes": 11313,
+      "sha256": "2e4be5fc6c4c72a466fcb665d726e049a6891981fe536c4f04b6366749461d23"
+    },
+    {
+      "path": "docs/licenses/pypdf-LICENSE.txt",
+      "bytes": 1605,
+      "sha256": "a97ac230e5f33ef10a5367a850eb01f91f1a0b064e34742c7794d2294557f524"
+    },
+    {
+      "path": "docs/licenses/pyzipper-LICENSE.txt",
+      "bytes": 1071,
+      "sha256": "a61b10433d33778e1fe918492991aa4111c2ab0f7370adeb083c4e079941338d"
+    },
+    {
+      "path": "docs/licenses/sources.json",
+      "bytes": 1510,
+      "sha256": "b3a270d07b56f05fd7b6c111e4df1fee3a137c909ae98356c77f57a965e3c761"
+    },
+    {
+      "path": "docs/licenses/video-downloader-LICENSE.txt",
+      "bytes": 1067,
+      "sha256": "27c4e7241b46b73a1199aaf10b6d8dfd5d66fc9a69cc263186571966d1b9ff10"
+    },
+    {
+      "path": "examples/plugins/hello_counter/LICENSE",
+      "bytes": 1085,
+      "sha256": "28ca83024584d7ea2b6a642ca229356d50d5eaf58a10323d482c355fbc2099fa"
+    },
+    {
+      "path": "examples/plugins/hello_counter/README.md",
+      "bytes": 1328,
+      "sha256": "5a285aacdb8d7382652c6dc3ae7106c479c2e97914ec0350894df0c1a6353e49"
+    },
+    {
+      "path": "examples/plugins/hello_counter/build.py",
+      "bytes": 1957,
+      "sha256": "6b31c6d5aa4fc791720c8c8d283b3f478a40b35690627199dbbe7ed0e12cf0b7"
+    },
+    {
+      "path": "examples/plugins/hello_counter/plugin.json",
+      "bytes": 687,
+      "sha256": "8d9c82948cf7be2a947aea6e8dcaeb118ea1db406a966087a06d3d7d0ad52a45"
+    },
+    {
+      "path": "examples/plugins/hello_counter/verify.py",
+      "bytes": 3347,
+      "sha256": "53e53463256e02637b9c93c0f1db7a46f6932227e3566cea7b5d0a744325cd09"
+    },
+    {
+      "path": "examples/plugins/hello_counter/worker.py",
+      "bytes": 1896,
+      "sha256": "26de1cb4296b6a50bcc804296e64b5015f461936e60b3c61979fa84d377c4c9a"
+    },
+    {
+      "path": "extensions/community_pack/README.md",
+      "bytes": 1915,
+      "sha256": "f19f7d9cab632868c0d79a1925eaf5832009006545307fabdbb1cbbba90db957"
+    },
+    {
+      "path": "extensions/community_pack/SOURCES.md",
+      "bytes": 2423,
+      "sha256": "c1bd3b95c9bd8737151445447d2c2be632eda489e98b47a38c0aeaa12c475d9c"
+    },
+    {
+      "path": "extensions/community_pack/build_pack.py",
+      "bytes": 5192,
+      "sha256": "f633f76dc744c0e41650aa43131e7341f4a814fc64d5062fb8fb19d17628165c"
+    },
+    {
+      "path": "extensions/community_pack/plugins/affinity/LICENSE",
+      "bytes": 1097,
+      "sha256": "e9cde4f3d381603ec5470930d92fb4a970f47ffbc8633852b67a2f9effa01513"
+    },
+    {
+      "path": "extensions/community_pack/plugins/affinity/README.md",
+      "bytes": 1351,
+      "sha256": "b9a873fbe8c51dc685f0c4168cbcee46b939b4cb729c684a3b7534b0e7099a1e"
+    },
+    {
+      "path": "extensions/community_pack/plugins/affinity/plugin.json",
+      "bytes": 1133,
+      "sha256": "585e857fea54e9cb4b9527313d6126b5909beeec1a97e3701ca8e35cf6daa377"
+    },
+    {
+      "path": "extensions/community_pack/plugins/affinity/worker.py",
+      "bytes": 4462,
+      "sha256": "b36023ee71969dea6be77734f2a3dcbb4797a426f3e36ea26484a033fc6bbccb"
+    },
+    {
+      "path": "extensions/community_pack/plugins/bili_query/README.md",
+      "bytes": 1317,
+      "sha256": "1baf09cd7f555babcd64977f671574fd2e80c0ae1ba9e6bcd546e51e8b823af1"
+    },
+    {
+      "path": "extensions/community_pack/plugins/bili_query/_net.py",
+      "bytes": 4950,
+      "sha256": "535151d81994f88674ef2caa4b9e5ef68e7fb6c27b8f992f4ea4636bcb241ffd"
+    },
+    {
+      "path": "extensions/community_pack/plugins/bili_query/plugin.json",
+      "bytes": 441,
+      "sha256": "afaf9b5a4e56a694adbdeef9b94bca26a9508490b8096ec4ed109ff32a9a65dc"
+    },
+    {
+      "path": "extensions/community_pack/plugins/bili_query/worker.py",
+      "bytes": 2918,
+      "sha256": "504d97916dfa47ba165df1fe42ac06aeb17e677d22c4929a0499a7d572ba3641"
+    },
+    {
+      "path": "extensions/community_pack/plugins/daily_economy/LICENSE",
+      "bytes": 1097,
+      "sha256": "e9cde4f3d381603ec5470930d92fb4a970f47ffbc8633852b67a2f9effa01513"
+    },
+    {
+      "path": "extensions/community_pack/plugins/daily_economy/README.md",
+      "bytes": 1575,
+      "sha256": "5e02fbff5c287e2a088d6b040e8f45ed056fbc2aeea9b8bb43e54fb4d6a193c9"
+    },
+    {
+      "path": "extensions/community_pack/plugins/daily_economy/plugin.json",
+      "bytes": 1418,
+      "sha256": "ec6305cd6976d999a95a89ef2870680b648ef073a3d4246ee1c53d07074936ad"
+    },
+    {
+      "path": "extensions/community_pack/plugins/daily_economy/worker.py",
+      "bytes": 8923,
+      "sha256": "4b7747d03e17dd79eb68d31291c243d1a732fc5ef51606f02cec418c7f79ce6d"
+    },
+    {
+      "path": "extensions/community_pack/plugins/eat_what/LICENSE",
+      "bytes": 1097,
+      "sha256": "e9cde4f3d381603ec5470930d92fb4a970f47ffbc8633852b67a2f9effa01513"
+    },
+    {
+      "path": "extensions/community_pack/plugins/eat_what/README.md",
+      "bytes": 1056,
+      "sha256": "7ba4d18c1dbebb2fb6731b9dce232c4ff49e7bd0bc31b3b8e8ef17e1327d2380"
+    },
+    {
+      "path": "extensions/community_pack/plugins/eat_what/plugin.json",
+      "bytes": 769,
+      "sha256": "b2ca9f1fdf4e8d9b2efe61bc41c60a53423f568837f40b95d73638d31e0485e4"
+    },
+    {
+      "path": "extensions/community_pack/plugins/eat_what/worker.py",
+      "bytes": 1829,
+      "sha256": "ee94b79b0fa0d49c5c346846978d1872a140c9f740521daf68cb66703d26811b"
+    },
+    {
+      "path": "extensions/community_pack/plugins/hot_trends/README.md",
+      "bytes": 1352,
+      "sha256": "84e2a1dc4ad7dd43af592aabc49485b3a75d2de4716dfcd076725f059124830a"
+    },
+    {
+      "path": "extensions/community_pack/plugins/hot_trends/_net.py",
+      "bytes": 4950,
+      "sha256": "535151d81994f88674ef2caa4b9e5ef68e7fb6c27b8f992f4ea4636bcb241ffd"
+    },
+    {
+      "path": "extensions/community_pack/plugins/hot_trends/plugin.json",
+      "bytes": 611,
+      "sha256": "56a2222b601476c16644a2ef2d2efaec5b0c4d5e8ce0385655d1968c4a0e7a29"
+    },
+    {
+      "path": "extensions/community_pack/plugins/hot_trends/worker.py",
+      "bytes": 2533,
+      "sha256": "22f412b48f0de6d9f180ee72a48dc82d469f4714bf1719acfdaf34769136645f"
+    },
+    {
+      "path": "extensions/community_pack/plugins/mc_status/README.md",
+      "bytes": 1463,
+      "sha256": "ebc958db158791538dab92f595f97f37b92aaaa1f83cffc9f36d77043dd9f1a0"
+    },
+    {
+      "path": "extensions/community_pack/plugins/mc_status/_net.py",
+      "bytes": 4950,
+      "sha256": "535151d81994f88674ef2caa4b9e5ef68e7fb6c27b8f992f4ea4636bcb241ffd"
+    },
+    {
+      "path": "extensions/community_pack/plugins/mc_status/plugin.json",
+      "bytes": 238,
+      "sha256": "8ad27e6ef63470d4282baf6c23c84460dd568784fe9021c5ef24dbc819cab515"
+    },
+    {
+      "path": "extensions/community_pack/plugins/mc_status/worker.py",
+      "bytes": 3504,
+      "sha256": "59429ce91665131be155627dc0290c00c8acaabc822d2cf2dc97e0df81eb2a16"
+    },
+    {
+      "path": "extensions/community_pack/plugins/member_aliases/LICENSE",
+      "bytes": 1097,
+      "sha256": "e9cde4f3d381603ec5470930d92fb4a970f47ffbc8633852b67a2f9effa01513"
+    },
+    {
+      "path": "extensions/community_pack/plugins/member_aliases/README.md",
+      "bytes": 1336,
+      "sha256": "e07e5eb25e1f905a1c866411efc77b0eecbbebe1daaab13fa4827b7ddb45f68c"
+    },
+    {
+      "path": "extensions/community_pack/plugins/member_aliases/plugin.json",
+      "bytes": 444,
+      "sha256": "d9c6884574ac98d3a33fe4232946740397b6e226870429aec4c398ca91f83533"
+    },
+    {
+      "path": "extensions/community_pack/plugins/member_aliases/worker.py",
+      "bytes": 3490,
+      "sha256": "8a13cc12585b6d477eff84db67a376099f918804bf60d3d73b431b60f9ec3c57"
+    },
+    {
+      "path": "extensions/community_pack/plugins/music_search/README.md",
+      "bytes": 1253,
+      "sha256": "8e5c0a59f7183a41536ac7f5d5a2a77b88ffe157264c5754c2b53132fa464b8f"
+    },
+    {
+      "path": "extensions/community_pack/plugins/music_search/_net.py",
+      "bytes": 4950,
+      "sha256": "535151d81994f88674ef2caa4b9e5ef68e7fb6c27b8f992f4ea4636bcb241ffd"
+    },
+    {
+      "path": "extensions/community_pack/plugins/music_search/plugin.json",
+      "bytes": 396,
+      "sha256": "880f9649265047f0ed71c37b77f50bf24aafb255133c12285d8b8cd1c5219409"
+    },
+    {
+      "path": "extensions/community_pack/plugins/music_search/worker.py",
+      "bytes": 1964,
+      "sha256": "925dd14cd8a86ecb3fe9c9a2b470c23ffb968541e98fd06177339be110b3254c"
+    },
+    {
+      "path": "extensions/community_pack/plugins/steam_query/README.md",
+      "bytes": 1263,
+      "sha256": "2b8d0f0e14fc37cfcf6b1a4d286b0f9cfae63139e28eeb18bca170e79eafdfdd"
+    },
+    {
+      "path": "extensions/community_pack/plugins/steam_query/_net.py",
+      "bytes": 4950,
+      "sha256": "535151d81994f88674ef2caa4b9e5ef68e7fb6c27b8f992f4ea4636bcb241ffd"
+    },
+    {
+      "path": "extensions/community_pack/plugins/steam_query/plugin.json",
+      "bytes": 574,
+      "sha256": "4d7f1cb647660a4e6ee5ebdf37623068acb594cfff9fba719a2fc585c0a06478"
+    },
+    {
+      "path": "extensions/community_pack/plugins/steam_query/worker.py",
+      "bytes": 3034,
+      "sha256": "077ea1fbae54e7c1cc233b9a33ef41281f44abab952885946cc8c51ae489b9ed"
+    },
+    {
+      "path": "extensions/community_pack/plugins/trpg_dice/LICENSE",
+      "bytes": 1097,
+      "sha256": "e9cde4f3d381603ec5470930d92fb4a970f47ffbc8633852b67a2f9effa01513"
+    },
+    {
+      "path": "extensions/community_pack/plugins/trpg_dice/README.md",
+      "bytes": 1689,
+      "sha256": "1aa73df2a4787066b326d907407e18ec93532274467b677e9da7d477f0394a55"
+    },
+    {
+      "path": "extensions/community_pack/plugins/trpg_dice/plugin.json",
+      "bytes": 646,
+      "sha256": "0ab6e8de2b2779208b31bbc8461e4ddad89addbd8c2fd706dab50c0bd872181a"
+    },
+    {
+      "path": "extensions/community_pack/plugins/trpg_dice/worker.py",
+      "bytes": 4120,
+      "sha256": "b2dfd6646194ad54b0c6f566b099f3e67556b81062816ca07a9ad73595de22f5"
+    },
+    {
+      "path": "extensions/community_pack/plugins/weather_query/README.md",
+      "bytes": 1483,
+      "sha256": "916c61bcdb807ebb2661e23868588e0526dbfda9509bbd50169a0d3eb30ceca4"
+    },
+    {
+      "path": "extensions/community_pack/plugins/weather_query/_net.py",
+      "bytes": 4950,
+      "sha256": "535151d81994f88674ef2caa4b9e5ef68e7fb6c27b8f992f4ea4636bcb241ffd"
+    },
+    {
+      "path": "extensions/community_pack/plugins/weather_query/plugin.json",
+      "bytes": 561,
+      "sha256": "0bc9e1b97ab406942d2e72a8a4a205a90a08e556e27da4716d381bf2eb1227ac"
+    },
+    {
+      "path": "extensions/community_pack/plugins/weather_query/worker.py",
+      "bytes": 3834,
+      "sha256": "1c5bb6959a108be00c7660caebcfd10e41e11c8a24035de79076d0eec59f74c4"
+    },
+    {
+      "path": "extensions/community_pack/tests/test_network_plugins.py",
+      "bytes": 20711,
+      "sha256": "fa4491e631762da055b2cba534f20f4d934fdab343bc5ef88f4535c7e25a175d"
+    },
+    {
+      "path": "extensions/community_pack/tests/test_offline_plugins.py",
+      "bytes": 16710,
+      "sha256": "d20305d781ca370d832e1d37a93a6d6a3d5788e28330cfb55067565faa1fe791"
+    },
+    {
+      "path": "extensions/expansion_pack/README.md",
+      "bytes": 2642,
+      "sha256": "961c6817fa9f8d1282f01e5dda600b844ccaf350e4727c3538642c582067f5e4"
+    },
+    {
+      "path": "extensions/expansion_pack/SOURCES.md",
+      "bytes": 760,
+      "sha256": "f043b1017b2b8b51afa9273a2af5e2b4770343ca8ad154587c6da2917986abc2"
+    },
+    {
+      "path": "extensions/expansion_pack/build_pack.py",
+      "bytes": 6087,
+      "sha256": "a7f859d4183208649bf77181d5685240af80c79edd6b2ada3e492e0b4a3caebe"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/README.md",
+      "bytes": 5570,
+      "sha256": "87dcf911507277753c29d6ac58999c001440f5169df180baa336b5aa1df180c7"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/catalog.json",
+      "bytes": 5963,
+      "sha256": "f468632496ccf3b6db195ab9d27f461849b9771aa2e176b7bf2a7863ba2ed785"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/dev_engine.py",
+      "bytes": 41113,
+      "sha256": "ef3151cfd252e929551528934a34eef1a93ca95f08e81f75d958f4c8f55ceaeb"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/generate_catalog.py",
+      "bytes": 13032,
+      "sha256": "8b90a633e95b22c24b4675c94b91fe2d0ee5271740a43f97aa7eb92cf5f322ee"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_color/README.md",
+      "bytes": 1099,
+      "sha256": "6739118d5a70e3ab3cbfd1eb785c4470903ce87a91f557e1d68f730c18bb95fd"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_color/plugin.json",
+      "bytes": 462,
+      "sha256": "51de3ca97fce3f9650705039f259c2b1391534f6b8db73592a729bc0ea93c729"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_color/worker.py",
+      "bytes": 597,
+      "sha256": "1ee9c65e0f69b0956419cd4e79cafabe7ea1d3fef183926e03663fe2bf61c2dc"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_cron/README.md",
+      "bytes": 1410,
+      "sha256": "26c4ddf60ed7ed8adee720fd52c6ea640e9916f3c96747b9039ffacbc587c4e9"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_cron/plugin.json",
+      "bytes": 984,
+      "sha256": "885897b30d2960d180cb954f1827ee27f33395a87fcd39f4cf054a4e83beca9b"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_cron/worker.py",
+      "bytes": 601,
+      "sha256": "9b805504335d438746dc9813c24601e5d2004a2c7e74633112424f38e5dfaeb1"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_csv/README.md",
+      "bytes": 1193,
+      "sha256": "a8d90cf2e6aca2071613b0fd7ddfa0dc3986d4806ddeb4531f3cdb59b78eebf8"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_csv/plugin.json",
+      "bytes": 725,
+      "sha256": "1b1a6ccb5324cf1622f39201bb8eaed97dc87e41649e598709724a1c78bff2c7"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_csv/worker.py",
+      "bytes": 585,
+      "sha256": "e8b7decc8b040a3835d1598fde9d63027754c390eb8c7313716af3711efb7f71"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_decimal/README.md",
+      "bytes": 1301,
+      "sha256": "969b1c826618287ab77ae551aa8e54af6a9220a557b7c9f03976a4a6db98c426"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_decimal/plugin.json",
+      "bytes": 615,
+      "sha256": "cd6006f0d9b1817882e0581b9d7b99ed647932c2e157b74a4c8912b0ae0f19ac"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_decimal/worker.py",
+      "bytes": 592,
+      "sha256": "abecddd7af00335ae97df06fb46e88dd5c6be1c4896933e5e40bffce81bbe348"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_diff/README.md",
+      "bytes": 1199,
+      "sha256": "f3a4ab79c5795154e928a7893b925ba978b1f975d67301b728166404b6af4b9a"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_diff/plugin.json",
+      "bytes": 616,
+      "sha256": "b21c56d2c2115bf750cc488e1887bd864eec86129b7ef8378f526316637e3edd"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_diff/worker.py",
+      "bytes": 589,
+      "sha256": "f271e7160f5a924705af539d210043b9b48ada2790a86a14817a708253ed814f"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_epoch/README.md",
+      "bytes": 1234,
+      "sha256": "5b4c2e7239c91b24a68ab248b73790afe8d843a0f6701954c61e12eaf651e338"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_epoch/plugin.json",
+      "bytes": 642,
+      "sha256": "9d54cbe1a5865f83121c24c2293d2d633a38f071d59fdff4c28f88f5c3cf91f9"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_epoch/worker.py",
+      "bytes": 593,
+      "sha256": "b1fa68bb0497f6794b084c7f389dd563dc43dacf6a5543c245c7901fc49133ce"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_http/README.md",
+      "bytes": 1100,
+      "sha256": "4bcb943021b2efa257be94a59664372710b8f1034e38ef38244d1f508678726c"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_http/plugin.json",
+      "bytes": 449,
+      "sha256": "c6c8eef2f170981a193237b86f0ba4f954d6dbe03e1f1e9ba563529b2f17849b"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_http/worker.py",
+      "bytes": 595,
+      "sha256": "4f0415e5f926a045247cf0a8a5e5a23ebbbef3393f24381f800c36f6b60ab7b8"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_ip/README.md",
+      "bytes": 1102,
+      "sha256": "93f490036240abdee669e111f7e9ce1c6a0caec36d3ffb5e41971e42149a87e8"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_ip/plugin.json",
+      "bytes": 436,
+      "sha256": "15d02355e00d3a3450718d7b6e15ac135c1cd7d282062ac97f8ca20b108cf9f6"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_ip/worker.py",
+      "bytes": 583,
+      "sha256": "6d14e3cf0a824d6c7220036a182e10e325369ad308132cf461a935b5d9617827"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_json/README.md",
+      "bytes": 1171,
+      "sha256": "4527fa03367d3125c9df824f087bf7fcb1d855698e5987f883f5874055999008"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_json/plugin.json",
+      "bytes": 629,
+      "sha256": "b01e8edc85b5fc5ff5190b51f7c24f7cc7648e1196c939cef87a4ed68fa89ea7"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_json/worker.py",
+      "bytes": 601,
+      "sha256": "96fa94b4461a6e5b5bc34d2092eed4f3e6eebcd57f2017087e5d237381102edd"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_markdown/README.md",
+      "bytes": 1268,
+      "sha256": "39dd3c8898773349068349cd2533f16b9118ddfa561430b62abca211c762aad8"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_markdown/plugin.json",
+      "bytes": 627,
+      "sha256": "ebd32ca1ce6cb5703966f4a1e8fff6356ebb375f988b680c8cabe6f01c90d5f2"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_markdown/worker.py",
+      "bytes": 613,
+      "sha256": "839bf84d84779d3e35ed34c7f7ca1cfe1f7cd85f669f062132eecff8491445d4"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_matrix/README.md",
+      "bytes": 1153,
+      "sha256": "903e31cfcfbcb862411416036cea3f9899f03cfdb3f5d09698c921aa7360f362"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_matrix/plugin.json",
+      "bytes": 432,
+      "sha256": "632308154ae2efd8d0cc13a5abd70bb5bba4934e611304141213a41d911cbda7"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_matrix/worker.py",
+      "bytes": 585,
+      "sha256": "b4754cbe64f90d0cdd15480853b06073655e1359912cd1d433b0d7ed3cfedaad"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_polynomial/README.md",
+      "bytes": 1229,
+      "sha256": "8abe2958fb2469de6904169aecb4ca7c6ad04dd30e5b77cd268fa8f86cb55bff"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_polynomial/plugin.json",
+      "bytes": 457,
+      "sha256": "01f66dff38566ac36fb31cb425a330c6969aa0ba053e65f93906bdadbf8aa3f3"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_polynomial/worker.py",
+      "bytes": 592,
+      "sha256": "809ec10759bcbf0edaebe84ad94fe1f068f5aa1ec7fe0b1bd8db7db62457cbab"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_probability/README.md",
+      "bytes": 1149,
+      "sha256": "507792883cf4d51fd26f4d902a05bfc56525aa5909fadade6b2d806323c5f54f"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_probability/plugin.json",
+      "bytes": 452,
+      "sha256": "66134ce89dfe74a09d840b80816d3da87fd1fd89396803870f6f69d79787c2ad"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_probability/worker.py",
+      "bytes": 596,
+      "sha256": "0b5cd3acfa32a62c7733f1820a017db441d97957e4021b6ce7e93d2b713898ff"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_radix/README.md",
+      "bytes": 1081,
+      "sha256": "9638c13852cce09f798a9355650fea1b7ce8084ebb71f4b94f5242a993207a2f"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_radix/plugin.json",
+      "bytes": 437,
+      "sha256": "545be2a0fc8afbb9d069ce3ffff876fea1051182a20072caa1439c86a984f542"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_radix/worker.py",
+      "bytes": 590,
+      "sha256": "2e7abcd2d5d485193c223b3716c3c512e8f453baaacabb3a1a2475148ddd2072"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_regex/README.md",
+      "bytes": 1384,
+      "sha256": "68a241d7af7197783b33a57bc6946a5765eadadc3fcbc0786569465b358dade8"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_regex/plugin.json",
+      "bytes": 931,
+      "sha256": "02ba258155c0f1151e2b24c8308651978f08350cccb0fde0309585d48ced0c60"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_regex/worker.py",
+      "bytes": 590,
+      "sha256": "1cb8dd215aeabbccae6f3e225d29b9375f296505425589ee239834e2890bd65d"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_semver/README.md",
+      "bytes": 1135,
+      "sha256": "8237a368ceb498cd3842d100528c323848c019ef23dad0f15bab4ffb4de8f204"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_semver/plugin.json",
+      "bytes": 450,
+      "sha256": "7c506845d8b2abbbabf555511bda1e0c5c400fac167c727b3353dfe7fbf2fa9e"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_semver/worker.py",
+      "bytes": 591,
+      "sha256": "eb00cdf1cdadd918f82bed3f2ff9efa50d89214b825d5863b6e25c0b41d58aea"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_stats/README.md",
+      "bytes": 1207,
+      "sha256": "30ab294aa8da76b0f0cf496d9769885dc01a229805afa9d40c727f2d62e3fbc6"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_stats/plugin.json",
+      "bytes": 444,
+      "sha256": "2d7a941fe02f3d27674e04f2c808a2d740425d8c553d3d5d3b710f257da2684a"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_stats/worker.py",
+      "bytes": 590,
+      "sha256": "718bf25603400ae5d35b3b0899ec2174b2bac7cade45062d7d39b72bd93e041e"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_unicode/README.md",
+      "bytes": 1239,
+      "sha256": "d6b0ac693b6ad2785455626c972bba2db1a942e6d8c133e94c5bde9b352e17b7"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_unicode/plugin.json",
+      "bytes": 648,
+      "sha256": "14b86d19d1a19f0891ea098dee6fc842805496e4615d15a522f6d6edf14286e6"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_unicode/worker.py",
+      "bytes": 611,
+      "sha256": "7d4bbca360f5815a8658a450f0658146a531beca743dc04a923b22ecfc87568a"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_units/README.md",
+      "bytes": 1267,
+      "sha256": "8551bf0ed51e779ce228fb73eb449cf049947e5411da8e94ae8bf015f95fae9c"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_units/plugin.json",
+      "bytes": 611,
+      "sha256": "7d1dddc4c2f5027f8dfe0804fb16c167a42955e0eeb5aba432c38893fa5e4655"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_units/worker.py",
+      "bytes": 590,
+      "sha256": "fc2819f8ad67583044a37f125ab05ddd420c733b690d3fdc2a8754bf1c71b395"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_url/README.md",
+      "bytes": 1199,
+      "sha256": "f902794c777f9c85345bd943323e37842920a674028593ec5d7f31971eb4d7df"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_url/plugin.json",
+      "bytes": 475,
+      "sha256": "77fb12a861ab6cd61713f4f8a27eb9c07b6908561102910f53c61e69b5829ae8"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_url/worker.py",
+      "bytes": 604,
+      "sha256": "6e68b825891579bfbd4df7cfa3bb80d2f673a9b8240970f39ea46f5752badc40"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_uuid/README.md",
+      "bytes": 1150,
+      "sha256": "8e8e3b0d4aab619007d6bb978eee0178d4d9ffd67473aee48703975439d9cd34"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_uuid/plugin.json",
+      "bytes": 612,
+      "sha256": "0aed9da66ed16b2df2fa2b556c1806e69a4003fd659094dbf4a63f174da6e8f8"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/plugins/x_uuid/worker.py",
+      "bytes": 595,
+      "sha256": "e9e8b5a851c3b6413126588c126488fa6b984d3f670eaa74f6b313d2de450d69"
+    },
+    {
+      "path": "extensions/expansion_pack/dev_tools/tests/test_dev_tools.py",
+      "bytes": 15206,
+      "sha256": "b0b7ff5330ffabbcb838650f7b6191fbba0ccd130948f0945d110144af7d4681"
+    },
+    {
+      "path": "extensions/expansion_pack/games/README.md",
+      "bytes": 2490,
+      "sha256": "7b265b8a6fd5756add7315c7ff3ef969f2ecb7f4993639baf84941ccd01233a3"
+    },
+    {
+      "path": "extensions/expansion_pack/games/catalog.json",
+      "bytes": 13599,
+      "sha256": "a9003aca21866d03d794c06a3f3275d3f1beeccb7315b2655b89ba4c26497abf"
+    },
+    {
+      "path": "extensions/expansion_pack/games/games_engine.py",
+      "bytes": 4519,
+      "sha256": "c57f46c9ec1a41c20bfb98b45923ebf938aa3589f961de3619bbecd094543176"
+    },
+    {
+      "path": "extensions/expansion_pack/games/generate_catalog.py",
+      "bytes": 5428,
+      "sha256": "748902cd045ffb0dcff40e5849198d8354db1079630e7fb9b492f4920336f04e"
+    },
+    {
+      "path": "extensions/expansion_pack/games/helper_board.py",
+      "bytes": 21678,
+      "sha256": "719b3f2cc5928b440952a7367e73bb80d79c16096752c9c595c013fae80155b9"
+    },
+    {
+      "path": "extensions/expansion_pack/games/helper_extra.py",
+      "bytes": 24876,
+      "sha256": "b0a5ee52d87202d3dae9cd8185143cf18ffe6da931c08089957c6a8cfeeb87d4"
+    },
+    {
+      "path": "extensions/expansion_pack/games/helper_puzzles.py",
+      "bytes": 23054,
+      "sha256": "4dc684364633b3a7b87e4ad6d53fd3ebb6df43fdf1470d3f2f752665a98ca61d"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_2048/README.md",
+      "bytes": 1212,
+      "sha256": "6e6594ead125eaba58f5fa192cc293d8af4025bc126a4c60f36c3d57556f6798"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_2048/plugin.json",
+      "bytes": 666,
+      "sha256": "7922ff42aecfe3bcdf7a9938f77f5d75a851b548f06f4b24145f46c58df5b0aa"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_2048/worker.py",
+      "bytes": 476,
+      "sha256": "da330f19382e687b72991694e0226f7974cb30508a2c93f892260866c2f53012"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_anagram/README.md",
+      "bytes": 1495,
+      "sha256": "a76693e5467ba128f21da4e88ce6f22370bca32c7f2b8724e05d678c2d582b0e"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_anagram/plugin.json",
+      "bytes": 748,
+      "sha256": "ec45e83abc8c53990de92b4f48150b1c24c3f63ccd92b12bb0398c3902459c11"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_anagram/worker.py",
+      "bytes": 479,
+      "sha256": "7b776916b6305594404e49218b28e1bb58ffa02e6fc053cbf99516620b852063"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_arithmetic/README.md",
+      "bytes": 1469,
+      "sha256": "34de704bfed8adc2b77abcd37fcd47a2e4601cbf34cb41dad23dac7f0590d92f"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_arithmetic/plugin.json",
+      "bytes": 762,
+      "sha256": "70084732356dc28cf6bc034ed1178dbe84ceed9b9ac76a0a9b825bf8a4e31a02"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_arithmetic/worker.py",
+      "bytes": 482,
+      "sha256": "9bfb309e24f3469a0b18acfd252774cc8d95840ecda9a052b3263f8d9c67276f"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_battleship/README.md",
+      "bytes": 1324,
+      "sha256": "45b19ca0699d2bb2070c9128785aeb773fa851eed278f561c5d27d85ca5e8611"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_battleship/plugin.json",
+      "bytes": 597,
+      "sha256": "d7c26dd09723f201c37782526b4377c7e530e2111873e019a70963e75d46cc88"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_battleship/worker.py",
+      "bytes": 482,
+      "sha256": "d6d24f1ef6bd51ed9d9c998c2609346b2d746b7de2420fc5b99e2ddd3916e578"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_connect4/README.md",
+      "bytes": 1385,
+      "sha256": "a81f2a0ea2b979ecf67030d28fb101b3cfa4788bb1f1c003c3675bb2cddc84fa"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_connect4/plugin.json",
+      "bytes": 360,
+      "sha256": "9354e6d092de0298191b5acbf8e2e5cb99b57a2a1c4b29dcadd1a954c00f9792"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_connect4/worker.py",
+      "bytes": 480,
+      "sha256": "b809e7b9951b5b642fe7491e1a2b7d6481f26998a6c4a0a640ac674d01b4ba1a"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_gomoku/README.md",
+      "bytes": 1374,
+      "sha256": "83e52e039eea78cfc2478ccc3ec0fe1979df29aa975d3728b63beee6de522809"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_gomoku/plugin.json",
+      "bytes": 349,
+      "sha256": "7e46bb2e646086293864db1e68561b69bb012eae9d956d71d2898ce6cf4fc208"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_gomoku/worker.py",
+      "bytes": 478,
+      "sha256": "5fbabe061949df5bf2dee5a9a414bf14bc75f7c449d671b087b3115bb871e6fe"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_hangman/README.md",
+      "bytes": 1470,
+      "sha256": "fa61bc176fb38fe0f57dc8f36831e6be2072e213184bc7f2da9e1099317d6825"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_hangman/plugin.json",
+      "bytes": 726,
+      "sha256": "15c00c11c9a01567cf2c31042edd52c93feaf60bc06c2649ffb717ce4c5eb481"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_hangman/worker.py",
+      "bytes": 479,
+      "sha256": "6363432e3c1bc7a80671e85ce0188f9330eb3884431c32630125976c99f5f3ce"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_highlow/README.md",
+      "bytes": 1326,
+      "sha256": "e7559dece83639e57d259ca4b7d84ad94ab0d7d160ab8232bd5b0814f91fa0f5"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_highlow/plugin.json",
+      "bytes": 596,
+      "sha256": "84ca2275b818389428496098ab89209842a2a16e9f66fb059d4070db8453cf35"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_highlow/worker.py",
+      "bytes": 479,
+      "sha256": "654e864c0307f49cf1a6387b17ab891f171b047f806b10f13aeb14d19ec2c0f4"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_knight/README.md",
+      "bytes": 1355,
+      "sha256": "6ccd64534c6267073f423423fca7a658e7b10684012f7f2e77143fb76fe0f7e1"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_knight/plugin.json",
+      "bytes": 622,
+      "sha256": "528d7989b25e0577c2c3d37d4b4aae2432394e2b3ade20810d4832012ace5578"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_knight/worker.py",
+      "bytes": 478,
+      "sha256": "8840917f6008c82098f36b26dea4fea7860911210d28979a5b3ee93ea1d20639"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_lights/README.md",
+      "bytes": 1345,
+      "sha256": "5be0dd4e58cfb000921c7432eff468203bac9fb2db9800d53ebb1eb86dfa58b3"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_lights/plugin.json",
+      "bytes": 638,
+      "sha256": "c16264780e58bbaa942b6797d0b63b1a5429b346f42065e0a899f873d609d283"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_lights/worker.py",
+      "bytes": 478,
+      "sha256": "c0ea38c5b6f25f4ac921471bc2e9ab265ee749491bcd12f3f27f47397b544d27"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_maze/README.md",
+      "bytes": 1212,
+      "sha256": "3cd2fb5a34dfb15330e806ae4833e6c06d3d086f5ce6281c588f98d4fd67dc08"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_maze/plugin.json",
+      "bytes": 577,
+      "sha256": "695f2a57feac9199431711986a5f10f978c46c153fdbf06f174695814efaf2ac"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_maze/worker.py",
+      "bytes": 476,
+      "sha256": "a1f340d52e38e6939a7b7c9c87e92e337878524997241398a847f2330c1c9b79"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_memory/README.md",
+      "bytes": 1228,
+      "sha256": "1b3e5e27d3e4d11e9c21260b46fe10b3b90dee83d47e28d19299e3e6e7ae0b30"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_memory/plugin.json",
+      "bytes": 495,
+      "sha256": "318c1d56d91a47952660fe6a48b480851bb78b190ae5f5a4aff9e4d9ba64d488"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_memory/worker.py",
+      "bytes": 478,
+      "sha256": "3d09af295ce7e9bfef0fe8a5bcf653b2076a49adc642cde1370a90eadbe8605a"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_minesweeper/README.md",
+      "bytes": 1393,
+      "sha256": "918c7f331844bfc1df9ee6e72bb5601b661c573ef455aa9fc5395041c0f7afd8"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_minesweeper/plugin.json",
+      "bytes": 692,
+      "sha256": "5ff232eefa541d1accababef8a3d0b5fb303f70a05d355a80c59088776177f2f"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_minesweeper/worker.py",
+      "bytes": 483,
+      "sha256": "f6ba38058c796be95e4d5dedf5fb7151efb7f76f4dc6ccb2dbad3dc235ceb8ef"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_reversi/README.md",
+      "bytes": 1407,
+      "sha256": "797be1261d4da9dc3f7571375981db2e4fabb783bd93d3bfa2d521cff4928d14"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_reversi/plugin.json",
+      "bytes": 382,
+      "sha256": "7e9d5d384a403a33ce45b35a2a8cf283e953891b9da75ca5743402b4c4654159"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_reversi/worker.py",
+      "bytes": 479,
+      "sha256": "20a78b9727fca9db2c02bf72818c95c8c305e8bde2842a1a805404980926dcac"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_sliding/README.md",
+      "bytes": 1250,
+      "sha256": "037661b6602111034dbb741c2a8a22b6adb6c0a40d0c1b0f370e731ada18d175"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_sliding/plugin.json",
+      "bytes": 517,
+      "sha256": "9255d23e7e5cc27746c24ba705021306e6fc33ddc51ab983c6bec28861eed0e3"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_sliding/worker.py",
+      "bytes": 479,
+      "sha256": "f3ded2392acdf0abc32a01ca6b9ed4d1f79e8b2e3ff27857e06d751e354bc5ea"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_sokoban/README.md",
+      "bytes": 1237,
+      "sha256": "f553eb952a59bfaf9b339c9856c8cd782de887f256f722e7aafff5d24903cfba"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_sokoban/plugin.json",
+      "bytes": 507,
+      "sha256": "6762800e1fc0bb01c8631d7b0f968bb70f744fd4dda87067c170017e517b387b"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_sokoban/worker.py",
+      "bytes": 479,
+      "sha256": "e3559ce8518216a1f45f34b68fcf98e0e4cc272c5e5072cb720eef00eb477832"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_tictactoe/README.md",
+      "bytes": 1363,
+      "sha256": "0721bf51fefeb3791818e76b1c6172843e594811aec4d78bfb3da8f8007ac5e1"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_tictactoe/plugin.json",
+      "bytes": 331,
+      "sha256": "740251d9b94e1d0f9e7cf0b32dfd1939416f125c1c8d9b2ccc7165b0aab70c69"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_tictactoe/worker.py",
+      "bytes": 481,
+      "sha256": "12fb68aac6e6dd24922567a42cbf5c5262ff657c09fddf36c70638fe462458e4"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_trivia/README.md",
+      "bytes": 1316,
+      "sha256": "d91e1e1ec45edfd0b2e6b970c931702af0b72f684d5ff064eee639a78348af27"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_trivia/plugin.json",
+      "bytes": 583,
+      "sha256": "8c6fea34e85aade4d2bd7d4e3889e487d62c4895bc84b48a1a7a6bbda582fe85"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_trivia/worker.py",
+      "bytes": 478,
+      "sha256": "3681f98efb453bed0c490eb40fb24f46ad67c58ed0444c7a96f19446d924aae2"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_twentyfour/README.md",
+      "bytes": 1316,
+      "sha256": "60af5d58bada8fcd59e880762108d14d86acd87244df1d80532888b5abee86ad"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_twentyfour/plugin.json",
+      "bytes": 590,
+      "sha256": "b1d28003b91880b1e477d551787e343d701924d694ad2e08cb8be408fca0be9c"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_twentyfour/worker.py",
+      "bytes": 482,
+      "sha256": "eb81df459de1ca20b53156c75564da34962e4595309601dcb3e07b04e700c397"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_wordchain/README.md",
+      "bytes": 1344,
+      "sha256": "f48ce13401736f4fb4b4fb4c915df1f843ee9118899293d7dc5ca5d9565c31dc"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_wordchain/plugin.json",
+      "bytes": 611,
+      "sha256": "366f2a23a9bd49f700c8183993b4b69c632ca0d30c8920d77ab12f54f62f8002"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_wordchain/worker.py",
+      "bytes": 481,
+      "sha256": "2a9b1b1c5772c04cefe0dbfd6b7a7850c813cfc2d6df871bc2140c09c4c1b356"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_yahtzee/README.md",
+      "bytes": 1424,
+      "sha256": "2d8b65961b914f18abffd9322903bf66ed2f86a63d4ef8b4d11b766693e09922"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_yahtzee/plugin.json",
+      "bytes": 691,
+      "sha256": "25d88c4806324c8159d01388d83f685b9d2ffd279cd313ffb3693c184331d3b1"
+    },
+    {
+      "path": "extensions/expansion_pack/games/plugins/x_yahtzee/worker.py",
+      "bytes": 479,
+      "sha256": "3d66c7ba7084415bde0186d1570556fb1349030974680ba1a9062bea42d29914"
+    },
+    {
+      "path": "extensions/expansion_pack/games/tests/test_board_games.py",
+      "bytes": 10791,
+      "sha256": "9a455f8dfe57b8dc80ff7ac64e00062bfee891baa901da3d3936f20fa5aca527"
+    },
+    {
+      "path": "extensions/expansion_pack/games/tests/test_games_engine.py",
+      "bytes": 4948,
+      "sha256": "a29afca4399562ee651be8c4a4326c52e596617934d670f1c43ea5abd18de86c"
+    },
+    {
+      "path": "extensions/expansion_pack/games/tests/test_games_extra.py",
+      "bytes": 12340,
+      "sha256": "e4696421408978d1844a7c77a57463bb751778648155d7a1e7b552a99c0571cc"
+    },
+    {
+      "path": "extensions/expansion_pack/games/tests/test_games_puzzles.py",
+      "bytes": 14439,
+      "sha256": "e6260f4aecbc6d97777b423b18913e543a9d56e47a6ceb53fe4c82e4a07ad0a3"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/README.md",
+      "bytes": 4253,
+      "sha256": "b2974291899d60bacbeedfbb4e4c55bd6a0c6ed44f5ca312f02d782797201ff2"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/catalog.json",
+      "bytes": 5369,
+      "sha256": "232c7f3a293e9455b68ce7752220e095d9d8ea69b2c9869a34328cfefabb96a5"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/life_engine.py",
+      "bytes": 41145,
+      "sha256": "fc94502842ea48af03a68712a167f5d80e379631031a0b26e08cc038dd92923c"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_agenda/README.md",
+      "bytes": 1450,
+      "sha256": "e6515e34c86dbdb5d735e2ca6b0c0ae053428d0d3b05adda8f5321a6b1d3a1ca"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_agenda/plugin.json",
+      "bytes": 429,
+      "sha256": "4318cc9ea09782c2de226c530a2ee95c2db8baa4997995e7b6a7e719b107572a"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_agenda/worker.py",
+      "bytes": 638,
+      "sha256": "c5ff6d2095e17b819e83a3bb233a78a3559e24f3fd23f18eeed9749be600b03b"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_anniversary/README.md",
+      "bytes": 1258,
+      "sha256": "0c76015ed9bd534ad68a83a4db9c68e16e9b2729920305f5d6800ebf6a6e4a26"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_anniversary/plugin.json",
+      "bytes": 437,
+      "sha256": "b48c1bd0a4bf24016f9ebae12c627305d583f5641f8172d0ff277f2033cec883"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_anniversary/worker.py",
+      "bytes": 646,
+      "sha256": "4bf53d3123f4f8a67b93fe6b93521bfee5267b11fb17ce2bf68335b321ef9d75"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_bookmarks/README.md",
+      "bytes": 1278,
+      "sha256": "6be6b7cea47a07645027d04cfceba4c701d6c29302ea25add478d57c3f07d7aa"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_bookmarks/plugin.json",
+      "bytes": 432,
+      "sha256": "84650c3aa7787b00f33b2fa5a8b5bd7e9a221e7a3e70f8d3b5a55b4deee3713f"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_bookmarks/worker.py",
+      "bytes": 641,
+      "sha256": "7aecc2c23a878958d2941cc02c65f9c6af3b2439e41413a467d08fbbd0475e7f"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_decision_matrix/README.md",
+      "bytes": 1312,
+      "sha256": "984c71bd54ce8fe2d06b0491682676b4abf46bb3726b9a4f6e1fe47c0ba0d046"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_decision_matrix/plugin.json",
+      "bytes": 441,
+      "sha256": "8af4334dc35e61dd4c01a65279e1ec66cd44abdb54c1e41a45dcd30ee587a647"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_decision_matrix/worker.py",
+      "bytes": 650,
+      "sha256": "cfc76b3688a81be8bc8411b7dbef1b3ac6a4021ae4fa11312d3e38f5103093fa"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_goals/README.md",
+      "bytes": 1218,
+      "sha256": "803103ac7d985a2e0082063e0f6a7d8b7d094cbd40793a47f6e5fea938582243"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_goals/plugin.json",
+      "bytes": 410,
+      "sha256": "b497294878b8edcb40c352d34b044394968caa48eaa40af6e11f5807c3b51b5f"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_goals/worker.py",
+      "bytes": 637,
+      "sha256": "edd84cb0d64ed0ae3d463f6d9e62897962b9830baadb7d5ab348f223ddf6b822"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_habits/README.md",
+      "bytes": 1210,
+      "sha256": "f3cc8fcb3a3abb3377913369b688b7f0d52a5bb148f5ca53a42df726fc089f23"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_habits/plugin.json",
+      "bytes": 426,
+      "sha256": "d2705d1da467e243f08133c544c3c537ae731824071da84f389dbc06090a8cbf"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_habits/worker.py",
+      "bytes": 638,
+      "sha256": "9d767caaef08bee4574bc4a182979af4ba8a160c8af1a615ad1094d65090bb22"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_inventory/README.md",
+      "bytes": 1246,
+      "sha256": "a1c206f59a2a56e7764976d65df6da36691b524211e82d731c3a1f39ff069894"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_inventory/plugin.json",
+      "bytes": 438,
+      "sha256": "fc2ac8a0429f95804d280bbc08eab1edbd64badf8fc0c9b99e00debad6abddf5"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_inventory/worker.py",
+      "bytes": 647,
+      "sha256": "959dad07f12afd9f20bde4cfb7f1538f9890b8779b94faa30a10b35d0a11a425"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_ledger/README.md",
+      "bytes": 1244,
+      "sha256": "b72966c42ad6e6623e030f2c5b2695d697ee5ce28e584079f83dc5b9f008f920"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_ledger/plugin.json",
+      "bytes": 423,
+      "sha256": "24be60815d233e5685cbc688eeba15b822d8821e48bc1c8ddb93a9c891e8302c"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_ledger/worker.py",
+      "bytes": 638,
+      "sha256": "f1d7ee10500b4ade22958516f39387800ce9d3c21a4192a8686d70cb7106cf24"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_packing/README.md",
+      "bytes": 1292,
+      "sha256": "b8dbb6d681fa00d777939b61f1e2296094dfabf904f6e92f67ad6ddc7d2ad3c3"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_packing/plugin.json",
+      "bytes": 430,
+      "sha256": "7dd3bfc87f61b58412390f6613f2e5cf5ece8257b3b76c9980c7ee31b19ae5ce"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_packing/worker.py",
+      "bytes": 645,
+      "sha256": "590f1d31bd6c2a43c3c287da1688d805548ff2dc672ff37608d2a922abe855d8"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_pomodoro/README.md",
+      "bytes": 1244,
+      "sha256": "31f195fa4382477b5abe90b35444355bb20a8e0fdf5bdeaf041764799cf4e608"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_pomodoro/plugin.json",
+      "bytes": 428,
+      "sha256": "e8b52dcce80ceeb58544da45a81d59b142c06260a4d166c756c49490ca1b1b06"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_pomodoro/worker.py",
+      "bytes": 643,
+      "sha256": "75552b00070e175c1fcd92b0e9ae07a640db3c9613cd55e08ec5d01576fbf09f"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_queue/README.md",
+      "bytes": 1422,
+      "sha256": "b2bcea1dc6948f90641be60493d09b21b18ccecfa051e31f358c86d184585bd5"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_queue/plugin.json",
+      "bytes": 422,
+      "sha256": "afe34d1adb7fa73b82456383d15be40eeaced3904fee500348ac1a547bc9bf32"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_queue/worker.py",
+      "bytes": 637,
+      "sha256": "a02c081ec28f8cdbea7aff708d8aa4a3b57bb6ad8c2cf0e8367091bd6511773e"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_reading/README.md",
+      "bytes": 1224,
+      "sha256": "2922886a7c9550cd52806f2aeadd48a5714e1f605c128268b70525c45c1f75ca"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_reading/plugin.json",
+      "bytes": 424,
+      "sha256": "80fd7b2b426de2962ed9ab91b8beb3057a45054e2d8402fbde6142a4d18b6bad"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_reading/worker.py",
+      "bytes": 645,
+      "sha256": "ffd4bbac1eab6c6758b40fd1a6f0ede9e0e39d18155ca788228a8a59f0b04932"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_recipes/README.md",
+      "bytes": 1311,
+      "sha256": "5040e009f524435d4d4f3272dd331010e271ffeacfa9995ba4e01c6b2f4219b5"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_recipes/plugin.json",
+      "bytes": 427,
+      "sha256": "3bb344a020efcbc80b591eb58bd7d59065f53c7305b44ca736fa347e174b9177"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_recipes/worker.py",
+      "bytes": 642,
+      "sha256": "22324d9d5c7757eda3b88ca29727d3d977837b6003a8d119d0e677959dd5540c"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_round_robin/README.md",
+      "bytes": 1448,
+      "sha256": "5fe21264b18aa88f50c812abb8fd88b4a637c407627dc994ff0374d6678da0c1"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_round_robin/plugin.json",
+      "bytes": 440,
+      "sha256": "bee359b28a266f7ca8b0c844e41ab676273a85079fe6cd2098cda793e13ec550"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_round_robin/worker.py",
+      "bytes": 649,
+      "sha256": "b3ad1490b01ef3a41f6134147c6e78431bf6904c01f1df077dffe5ec52c2044f"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_signup/README.md",
+      "bytes": 1430,
+      "sha256": "b6146c197646ce899f8ce462c46bb07d9d8676c0954645e4c00555ad4e0a117d"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_signup/plugin.json",
+      "bytes": 432,
+      "sha256": "e916df8411fe6620abd6bcb9f0a9d4ea8eab9ed1b584861515e7ee80417f5ff8"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_signup/worker.py",
+      "bytes": 644,
+      "sha256": "82a261be044713692505d6db27e33429232ec0d94f4d78354087a6a7c7973f6b"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_spaced_cards/README.md",
+      "bytes": 1269,
+      "sha256": "a64d4436e3c2edf24040e5acdfc0e309ee0f020fef20e6798545ba60b49a0b26"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_spaced_cards/plugin.json",
+      "bytes": 432,
+      "sha256": "b894159d3779b25ff11b63bab9572fd55f1857b716ef0dbc979afb0588455ec6"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_spaced_cards/worker.py",
+      "bytes": 647,
+      "sha256": "3fd26a9bba282e247b751c3df44517db97bb0be27f56a17ffacb6185a7511dec"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_split_bill/README.md",
+      "bytes": 1477,
+      "sha256": "27c43bf0438f9c182dce590002260a18fee60231582df46a097c4c94ef3bf8aa"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_split_bill/plugin.json",
+      "bytes": 428,
+      "sha256": "cc4ad74ff86005e8f8989719ebda688a76bbea911c3dc4a2d67a2674afc3a81d"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_split_bill/worker.py",
+      "bytes": 644,
+      "sha256": "f884ddb25ba57dd60980193b4f63d9c754e31cde3bf084cdfe9720ac2589ef2f"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_time_budget/README.md",
+      "bytes": 1250,
+      "sha256": "31a2261f1ec22924429eccfba391ead686eccbe65dca9fda77dd9f828275a77c"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_time_budget/plugin.json",
+      "bytes": 431,
+      "sha256": "c77369c6d294b3ea54c8524e12c886290cb25f86858f60379b589fd511dc67e5"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_time_budget/worker.py",
+      "bytes": 643,
+      "sha256": "ae9d35b6d29deb2c7cdbf718a85c36792bd135ede2ac96f484ecb1dc978ac641"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_watchlist/README.md",
+      "bytes": 1221,
+      "sha256": "4e681916060c60e37cf5f82da64799fc8eb86a5a8de680e352d7c8622fd73223"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_watchlist/plugin.json",
+      "bytes": 426,
+      "sha256": "6ba6759eb41708eb77c9e6e5cf312fda6daeded2662999659e8bebd17fc0185c"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_watchlist/worker.py",
+      "bytes": 644,
+      "sha256": "512c80a4d69d9f802bf0c8adb6843c8dcecd9a615ad71821789a93a89d57eb14"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_wiki/README.md",
+      "bytes": 1481,
+      "sha256": "0f94af586b4d68a233cd431bfe0872502d1cbcfb10e3bb3e4c0a1b8668ea654b"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_wiki/plugin.json",
+      "bytes": 435,
+      "sha256": "e7d605d826ca8277ee4255ccc2beff6ecb6ebdf4e68782104902e816a1076041"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_wiki/worker.py",
+      "bytes": 639,
+      "sha256": "8425cd73ca561fca9dc236ea5f72441e1c6b25525bd67d2fe3aadfc4252abf57"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_wishlist/README.md",
+      "bytes": 1230,
+      "sha256": "d99c5ae37af812c1cacda0707159b4f60c366f15097be6d8e79402f46da9c03c"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_wishlist/plugin.json",
+      "bytes": 427,
+      "sha256": "81b6061e5d1559280824fc9c07c893fb5750c9afab37812c080772b4b8f2b212"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/plugins/x_wishlist/worker.py",
+      "bytes": 643,
+      "sha256": "48bd7ce3f299f93b76cd313f69139038952934287e6eb3c3f36f3500efa1e7d2"
+    },
+    {
+      "path": "extensions/expansion_pack/life_tools/tests/test_life_tools.py",
+      "bytes": 20011,
+      "sha256": "2b4eea4656b6cf2e61c818e0f829d3db6a98c02bb17a4d31b393c9352064b0cb"
+    },
+    {
+      "path": "extensions/expansion_pack/verify_pack.py",
+      "bytes": 3394,
+      "sha256": "93fc69eb3b9e0fcc078e4b6623ec3332baec326cf19ee375bc2f0f711cb231d8"
+    },
+    {
+      "path": "extensions/interaction_pack/LICENSE",
+      "bytes": 1085,
+      "sha256": "28ca83024584d7ea2b6a642ca229356d50d5eaf58a10323d482c355fbc2099fa"
+    },
+    {
+      "path": "extensions/interaction_pack/README.md",
+      "bytes": 3082,
+      "sha256": "9cfbe5923b2c79ec2f1dd768b89e21848da19af18f32b57b7417eda88b3f131b"
+    },
+    {
+      "path": "extensions/interaction_pack/SOURCES.md",
+      "bytes": 1387,
+      "sha256": "f8a70218d1b4ed13061b6726db8ad61849bd2f74486ef1f8a571b8da19158353"
+    },
+    {
+      "path": "extensions/interaction_pack/boards.py",
+      "bytes": 6897,
+      "sha256": "7f539ed7ac771e61f121d728b3258d6564acb418244311bfdd981d45f2900d66"
+    },
+    {
+      "path": "extensions/interaction_pack/build_pack.py",
+      "bytes": 2640,
+      "sha256": "a82b28a42001d9660dcee71012fc6822cfb35d11befee55c32a8a9195a0e4c95"
+    },
+    {
+      "path": "extensions/interaction_pack/catalog.json",
+      "bytes": 13851,
+      "sha256": "8470124d366af687c76bc39e155f4dce747d2fb457016f6cfc998c648d2611c0"
+    },
+    {
+      "path": "extensions/interaction_pack/common.py",
+      "bytes": 4796,
+      "sha256": "abce86366ea32b3f7e384ff71ddfc70021937c38d71119984668e080a4120c9b"
+    },
+    {
+      "path": "extensions/interaction_pack/engine.py",
+      "bytes": 497,
+      "sha256": "a18a63614deaf4beedfa1edab4921a461d45a838ce2267fec1e1a6f2562e44fa"
+    },
+    {
+      "path": "extensions/interaction_pack/generate.py",
+      "bytes": 5920,
+      "sha256": "8258ea2ef4d6202df66b962049207489f401e5a23611d86361ac6b4016a7a77e"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_auction/README.md",
+      "bytes": 709,
+      "sha256": "c7774c38e675dc8d6492ce9a7f4ddb60553b256a14f2b0ccb9ff2607ebb44b24"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_auction/plugin.json",
+      "bytes": 845,
+      "sha256": "c9d52ace87dd10b07ddb54d50e50b5a401e6d58fa36d251b87bc12cd90f6bb3d"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_auction/worker.py",
+      "bytes": 198,
+      "sha256": "08c705d28329834fa29fb6b186df0171c0795441b86a199624bf19bf10e50f5a"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_buzzer/README.md",
+      "bytes": 641,
+      "sha256": "2952bdf1ab16c8582e856b19dac69ccbb0f302804cade6e9e084d80225a3b669"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_buzzer/plugin.json",
+      "bytes": 594,
+      "sha256": "4eace96e7e1e35aa077dd796867cacac5a6f3bc12423c6a07e1954881812cc01"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_buzzer/worker.py",
+      "bytes": 197,
+      "sha256": "57f94337d60d7f0c5a9a7120a3f859065be10a9e1f7bf56d2124a30463b7d454"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_dots/README.md",
+      "bytes": 666,
+      "sha256": "98a2e35259aba287e506d5c0ce0a97a2141789a648abd66465300f1fb677b329"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_dots/plugin.json",
+      "bytes": 617,
+      "sha256": "a4b46bd8a930b8393d270124e4c960009423ead2c4da93965d02e2f9222c1870"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_dots/worker.py",
+      "bytes": 195,
+      "sha256": "9d93e2fc9f1e76baefd015796422578e768a3d0e42ade830f482efb613687c72"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_guess/README.md",
+      "bytes": 680,
+      "sha256": "30bdcf701cb0b019d030bac18e2ee4cb9d26eaafdfe8b2629eeb0387ed17a1ac"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_guess/plugin.json",
+      "bytes": 632,
+      "sha256": "28e8cf4f55a74421a762cd77e6ba623c28e1ca1af56dfe46f28a697f765c41ab"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_guess/worker.py",
+      "bytes": 196,
+      "sha256": "558d7b611afeff212acaa957bc7118fb59187d98ffb2f1b4caf2799a462329dc"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_nim/README.md",
+      "bytes": 640,
+      "sha256": "c90df6b8b6fa2d781fb91b4f9e4d9508d56da0be40d87bb5e9e90eab18e86bd1"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_nim/plugin.json",
+      "bytes": 766,
+      "sha256": "73650fbb7b35ef53cc89e579fd7ea0da4bfc3ac00d3798457e341608a095c142"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_nim/worker.py",
+      "bytes": 194,
+      "sha256": "4b36910f13c949129ab0b3703d9c12750abf890a0126465ad8a088992abc0fbb"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_set/README.md",
+      "bytes": 716,
+      "sha256": "5734f31209a61edf27ee8e54b3b9514d665a90345d3d3fd76bd4e3961e30fe21"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_set/plugin.json",
+      "bytes": 666,
+      "sha256": "6077dc827360f487536da38a0ef497f699b194d3f07d441fdd444e196d8fff05"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_set/worker.py",
+      "bytes": 194,
+      "sha256": "be0f98a38b2a82cb2dfea38eeabf26c32cb85480a6bc341df586db103277d5ee"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_story/README.md",
+      "bytes": 634,
+      "sha256": "397782c9c43b24eb43236cba5a0eebb85d6eabd0aaa385b045713530374e3a04"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_story/plugin.json",
+      "bytes": 586,
+      "sha256": "d8c4ea3059f4e5697f6291c3da1fce293e52c9fd5213fcb1d8fc1ee4567d9a97"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_story/worker.py",
+      "bytes": 196,
+      "sha256": "042274c989648d71532563a5aafdfcc43c4b83bfa4b84133c8c3bcb7de72fa21"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_teams/README.md",
+      "bytes": 637,
+      "sha256": "0dbb60bb1bba81d012e05933b501af2de5e08a381447cc08a78e359359ab3b69"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_teams/plugin.json",
+      "bytes": 589,
+      "sha256": "bffe17aac997ea253200f8508618791c8e3ec39bd8c102e8d8eab72307cd5fd7"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_teams/worker.py",
+      "bytes": 196,
+      "sha256": "763eef7d4f60ee11f71b878ec5484249e0abdf480795cb523945de5bd786037b"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_topics/README.md",
+      "bytes": 636,
+      "sha256": "ac752afa19cf12a0945bc81138020501f0cbd605c90e5622a8169537781c5505"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_topics/plugin.json",
+      "bytes": 589,
+      "sha256": "852b3e28177531af4458413cd9f5ea7afe6a60e884ddc07fab86198dacf51f5a"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_topics/worker.py",
+      "bytes": 197,
+      "sha256": "af51dd740d64e6df95e41ab8283c31396195725dc14e5e42cadd2efce3537ece"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_truth/README.md",
+      "bytes": 664,
+      "sha256": "1d058ac537b3df5a1480eebf011f54cf132012c9c98dd5c26a97f6f39ce56013"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_truth/plugin.json",
+      "bytes": 616,
+      "sha256": "24317a61f9dd9dea5e731ab5a5d10c8c9c53ccc7fcf84f46dc1eb060e2e8eec1"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_truth/worker.py",
+      "bytes": 196,
+      "sha256": "a677dba617f86d2b19f0c8f4cf2b47dd39c1e4b797ee920415f0ec2e65b8daa5"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_turtle/README.md",
+      "bytes": 704,
+      "sha256": "d46b867a486e642d4ada4ec3e9f4dccbb8f0b38dea5fbe3f3f6c6e2afc21bbc4"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_turtle/plugin.json",
+      "bytes": 657,
+      "sha256": "96f72053f2ed5e69daf890a3d9f4f96c379518b51d8c63168cbaed1057fe14b7"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_turtle/worker.py",
+      "bytes": 197,
+      "sha256": "e8b2bf8dd5e444a6bd1d0c5fd2c89485c01da4b73365c40976b85f96dd74e707"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_undercover/README.md",
+      "bytes": 716,
+      "sha256": "47d0e943ac1f73dbdd453feb3657a1ad0187bf3e41e034e50558832dea190fe0"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_undercover/plugin.json",
+      "bytes": 673,
+      "sha256": "f9e6ec55e88de29054a92d745082b8d428c017a28e7fed2c6b343607abdca67e"
+    },
+    {
+      "path": "extensions/interaction_pack/plugins/i_undercover/worker.py",
+      "bytes": 201,
+      "sha256": "fba0801c8a4737086092ba787f3847d0b4ecbdbbc1255eebac5fddc4ab662491"
+    },
+    {
+      "path": "extensions/interaction_pack/social.py",
+      "bytes": 13884,
+      "sha256": "d1f6a19221e7209b56b74859d4cb5386978e687d034c324ae08169438ba19b28"
+    },
+    {
+      "path": "extensions/interaction_pack/tests/test_interactions.py",
+      "bytes": 14348,
+      "sha256": "856d7630a382c43d5dcc09afbe8ee1381ac05bc6ce9e92ede44b4a2021f94088"
+    },
+    {
+      "path": "extensions/maibot_pack/README.md",
+      "bytes": 2945,
+      "sha256": "4975f336f40ab19aa061e8f686a4411f1cfe5970e72c9dd954086819dbfac58e"
+    },
+    {
+      "path": "extensions/maibot_pack/SOURCES.md",
+      "bytes": 2784,
+      "sha256": "e32048da47ec34454a629ed4eb747fa8834cc8ed7ce936418a37d6ddeeda8597"
+    },
+    {
+      "path": "extensions/maibot_pack/build_pack.py",
+      "bytes": 5433,
+      "sha256": "7582d2358e495ef03128a9580913f5eb068020447778cf23a7eb2ff999b071f7"
+    },
+    {
+      "path": "extensions/maibot_pack/local_engine.py",
+      "bytes": 19457,
+      "sha256": "9722a47aee0076baf79998feec5bbb98c50a6b7d70218410db7448fe3dcbe3d1"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/answer_book/README.md",
+      "bytes": 506,
+      "sha256": "eb47410216dfaeb7fdc7bbb37f689a3758339ea7348358172806619fc0350c80"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/answer_book/plugin.json",
+      "bytes": 237,
+      "sha256": "7702679440ff81860e5d5b70969de6085875f80e085dd1a3df029708893c827b"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/answer_book/worker.py",
+      "bytes": 550,
+      "sha256": "e94a81cf8dfb1ea225e05641f49dc32832a510994fef49ee5ba9ef929dd63b50"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/daily_greetings/README.md",
+      "bytes": 559,
+      "sha256": "aad62f2460353873c86f94d2b3dccc197995129d0b5a1ec2f19590017a763fdc"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/daily_greetings/plugin.json",
+      "bytes": 265,
+      "sha256": "d1115b7e47676ceeb5df1ccd91528c5eb645a2afa853cdce4c6aef76f0d15dc7"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/daily_greetings/worker.py",
+      "bytes": 558,
+      "sha256": "6328e4ab2dda9994d4be582c9da54827634ad81aea50b4adec7417582760dc16"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/daily_luck/README.md",
+      "bytes": 529,
+      "sha256": "c78d181d8b6131dc4f70274ea9556b4534f7efa0c08457747f2bd43b0a635303"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/daily_luck/plugin.json",
+      "bytes": 251,
+      "sha256": "80c7ca9b0296062c36d20a55c2dd00d516b8d340c981f42e8668cf0f544a2910"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/daily_luck/worker.py",
+      "bytes": 549,
+      "sha256": "7fc276c1c3f943ec080212f7cea927e107d1e853b80d55209e7b09e7ba76fa68"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/decision/README.md",
+      "bytes": 526,
+      "sha256": "3fcf20445f32c62f033b723a89c2e4fc145f46050499abab8f2f8a703eb704c3"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/decision/plugin.json",
+      "bytes": 266,
+      "sha256": "21cb585683b7ccc3458efb9b64760f80002a70733440241a3b7a54d06881e67c"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/decision/worker.py",
+      "bytes": 565,
+      "sha256": "7ad1864703ba1e28787b1292fdd78a3873891d19cfd997f115fee111ea421603"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/f1_info/README.md",
+      "bytes": 708,
+      "sha256": "ee5abb144c3378ba12d6bee41586d9103c20a24273aa695ef01106ae8ce09b58"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/f1_info/_net.py",
+      "bytes": 4913,
+      "sha256": "81bf4f1f37fc4e0fa142d5b7367bcd3b9d49156a4d06faae31cb1dd2d60ce0dc"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/f1_info/plugin.json",
+      "bytes": 637,
+      "sha256": "d006a0e7d790582430332a68976442c5bc39cedb254602393d95f04ee6fc1559"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/f1_info/worker.py",
+      "bytes": 6134,
+      "sha256": "b24cd5b8658de4afd389c218bdb73b0f3b627c062300c9dcfd2836da6bca1591"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/game_news/README.md",
+      "bytes": 543,
+      "sha256": "14bb349ea386383e9941b53329ad2120dc633c268e125c5652669183fde27553"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/game_news/_net.py",
+      "bytes": 4913,
+      "sha256": "81bf4f1f37fc4e0fa142d5b7367bcd3b9d49156a4d06faae31cb1dd2d60ce0dc"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/game_news/plugin.json",
+      "bytes": 414,
+      "sha256": "e877e6bcb655498208e54ba7ce4a0771764dff746ed279b31f1967d792d0b578"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/game_news/worker.py",
+      "bytes": 1744,
+      "sha256": "25192112da32f7ddcae4c243ab5a6c0c6555dd7affd3a1d8a433351748044022"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/guess_number/README.md",
+      "bytes": 553,
+      "sha256": "831166639af5a2afb94c3b2c3bc8865a490c056613885e2b899d808749df4188"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/guess_number/plugin.json",
+      "bytes": 416,
+      "sha256": "68470fff795a4c971335f2b73ca9a73a022711d8e438cec38794bfa596f316d6"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/guess_number/worker.py",
+      "bytes": 548,
+      "sha256": "63d858dbf7b17d0f60b5634f8deb5b6162a8c8749cd0bf32165a9e2a5283c0c9"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/polls/README.md",
+      "bytes": 622,
+      "sha256": "cd23d72fc11aa23ba6399fff992349956dd173214ea4ae49463bd9f8030a85e9"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/polls/plugin.json",
+      "bytes": 370,
+      "sha256": "a7ab05cc990961e046cdf70ec05416f83184241ed4fb0004c241ff39166f4277"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/polls/worker.py",
+      "bytes": 538,
+      "sha256": "54548a08c13744d13ab4db8c700771230f1218d6d74104347e984bd22da9eb1c"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/quotes/README.md",
+      "bytes": 631,
+      "sha256": "98ffb1de68a95cb91e53c45db7d3b3f70624ea2fbb34b5e14aad6a90884a07bf"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/quotes/plugin.json",
+      "bytes": 422,
+      "sha256": "3320a35403779a01269b3af3e765440796c787165a211ad6973af8acdc1a6bdc"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/quotes/worker.py",
+      "bytes": 539,
+      "sha256": "59b5cd9b63e5622e8034ad777db19b471567c137e0d7ab4fa360f7a3f11f7e9e"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/rps/README.md",
+      "bytes": 497,
+      "sha256": "2a968fb1a6e05d1d9810513d6109e3a80247993fc82c75f88b33d8de5cf4184e"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/rps/plugin.json",
+      "bytes": 220,
+      "sha256": "338a82066c2badeebd6064f8918fc6e4e62d18b6eb166e24fcfa580f0fa33c02"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/rps/worker.py",
+      "bytes": 536,
+      "sha256": "20acc82a9fdaf9c486d8669e10f422cef13cd854ed93f6bca51c1ab8ce229ae0"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/tarot/README.md",
+      "bytes": 537,
+      "sha256": "0b4bde3c2666a316bca228e3211115c16d2c6ff930d0ae2088b52e9703f8b955"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/tarot/plugin.json",
+      "bytes": 260,
+      "sha256": "2e521bcfe8ae40cd6b6fd1b1937f4e2245ca78b7574942b0e8abbb10a70ca4e6"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/tarot/worker.py",
+      "bytes": 538,
+      "sha256": "ba49695dd6bdbfb673a03cc0c52692138ccb4639cedcbb6452d9f992505fbdba"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/text_tools/README.md",
+      "bytes": 618,
+      "sha256": "b982c8a6fda0493da138e5e57f69b1cd92567122ee5a8d3bafafc2d4e38411f0"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/text_tools/plugin.json",
+      "bytes": 328,
+      "sha256": "d6ab017c43e7af2c4e06ddc1615124da5b873a21143391a960b541711e2613c9"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/text_tools/worker.py",
+      "bytes": 606,
+      "sha256": "c5a1ab536c7066a2bb3bac0cc27af300fb863903b6f96aaf9547758b205131fe"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/time_tools/README.md",
+      "bytes": 606,
+      "sha256": "a3b7b16589ea1c1df600ac5cf595f38f8ed40496c08c2cfaa08e2fcf71a02443"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/time_tools/plugin.json",
+      "bytes": 273,
+      "sha256": "d57eaf3e181bfea8aea5957c11ccf2a9e87d557810cb0de7d0e95422e0fa28cc"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/time_tools/worker.py",
+      "bytes": 553,
+      "sha256": "2811b96bb2f7a4a0a8ed345b4fbfbcd610d04709d8ac694c5058f37901e06956"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/todo_notes/README.md",
+      "bytes": 661,
+      "sha256": "37a6e60236c0db1f9f4ad4d33a8fd824c85a07837a66b00b4143745432db73ba"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/todo_notes/plugin.json",
+      "bytes": 448,
+      "sha256": "fa2438c609959baf2be4769b91ecac78bac67d4e7e36852e1a7b66087e3e7fcf"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/todo_notes/worker.py",
+      "bytes": 553,
+      "sha256": "7c961273b1ba19532d810a473858da46c5fe66531d66356c695276d8b5b95c85"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/wordle/README.md",
+      "bytes": 587,
+      "sha256": "cd28db3547cc57d6dc53fcffd41d22d825ab79cd9cb680e1a763de0f667b1834"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/wordle/plugin.json",
+      "bytes": 250,
+      "sha256": "dc5d183e09dba571a8c23d1f5ad68041ecf3b30fff2705e12b956625399dc36a"
+    },
+    {
+      "path": "extensions/maibot_pack/plugins/wordle/worker.py",
+      "bytes": 539,
+      "sha256": "152b0ee15f6f29b12f82102bea42faff082301933e4f361ab31cf18c91cf0f66"
+    },
+    {
+      "path": "extensions/maibot_pack/tests/test_mai_pack.py",
+      "bytes": 13049,
+      "sha256": "98c4db5ae76f57e0f3da46fb6238eea680141519c3592ad03ad904d6d10c96a6"
+    },
+    {
+      "path": "extensions/market2_pack/LICENSE",
+      "bytes": 1085,
+      "sha256": "28ca83024584d7ea2b6a642ca229356d50d5eaf58a10323d482c355fbc2099fa"
+    },
+    {
+      "path": "extensions/market2_pack/README.md",
+      "bytes": 3764,
+      "sha256": "b463b8b4a5726afafcc1b3dbfc6031dbd5044c8ab1d04cdc2c239b7d311683b3"
+    },
+    {
+      "path": "extensions/market2_pack/SOURCES.md",
+      "bytes": 2685,
+      "sha256": "30cecdd339121a7a3bbdf092cc7ea8ac3b0b6814c3cbfb9a346918a21f830e74"
+    },
+    {
+      "path": "extensions/market2_pack/build_pack.py",
+      "bytes": 4102,
+      "sha256": "97224564afb95565efe53935cd48cc62cc93f15e3087fc6b03ba7e80ae03bffc"
+    },
+    {
+      "path": "extensions/market2_pack/ics_engine.py",
+      "bytes": 18704,
+      "sha256": "31ffb7f4c93c9e495ff2f9dd39db7b9897ed026e6886b053cf38ebe34e29e6c7"
+    },
+    {
+      "path": "extensions/market2_pack/local_catalog.json",
+      "bytes": 2408,
+      "sha256": "cc4e0d6e4ad9cb2971446c636d010d853d14e7b05cc7509d8c76eaa9bdefbe54"
+    },
+    {
+      "path": "extensions/market2_pack/mahjong_engine.py",
+      "bytes": 10826,
+      "sha256": "5abc8ebfa4679b9781ccc4e8ed09f05690f8856c3675af42a2f7cbe9d63d666c"
+    },
+    {
+      "path": "extensions/market2_pack/network_catalog.json",
+      "bytes": 5362,
+      "sha256": "67de4871a6d6f024d2ea24c5db35052f6ded2501524dcb16bf2beec61554d90e"
+    },
+    {
+      "path": "extensions/market2_pack/network_engine.py",
+      "bytes": 21778,
+      "sha256": "e932af792b714d91faafed902c8c690ab091b7e2785987162edd7916af445b72"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_abbr/README.md",
+      "bytes": 3108,
+      "sha256": "ff116ab71266d789585409fb2a968aa02dbbbf2b204fa22e3bd9b4750fceadf5"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_abbr/plugin.json",
+      "bytes": 628,
+      "sha256": "d6caeab838fc241e582b8e6fddf27cb7967ad7f2d0269d54b253e19d20b1a95a"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_abbr/worker.py",
+      "bytes": 718,
+      "sha256": "e13c0512b72473f66e90ec16c19e19ff715a1f42155fd7c52f66b1b1d47a8aca"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_bangumi/README.md",
+      "bytes": 3317,
+      "sha256": "e707a7240555712dd354989766094df72da3924228869c54bf4256e2d536e6e3"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_bangumi/plugin.json",
+      "bytes": 985,
+      "sha256": "606ec98fd4026a9237d0c88f95c2ec2b531563201dc8947af08001dc7a7a2522"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_bangumi/worker.py",
+      "bytes": 721,
+      "sha256": "bbc7a86731b74e95c360bc04108a00aa475a1566ca56f37d1479379867f812ef"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_bing/README.md",
+      "bytes": 3146,
+      "sha256": "eaba2854f2c99acb864cf1e532fe7d709312d7cab3d7319589d818e958381ff8"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_bing/plugin.json",
+      "bytes": 682,
+      "sha256": "432b2703619c2ab6557d830438e29a8d74f4fbabfc05a13488677581125e0126"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_bing/worker.py",
+      "bytes": 718,
+      "sha256": "b9a6252aea0064a505357a77f032431948437f81cbadc1a9b7941e5c165fd5e9"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_ics/README.md",
+      "bytes": 2707,
+      "sha256": "480265e65c6eadb6b1317cd9e9f6bc3dd331c77be1d7dfa0fe0bfcf2850a3da1"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_ics/plugin.json",
+      "bytes": 818,
+      "sha256": "4b3e2f790458a57fa8cd2eac740eded04e978cf8c586de03d6bf3679ddea1671"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_ics/worker.py",
+      "bytes": 610,
+      "sha256": "ac4cfef17ccc963b76a68ca8fc8cf7017907feb7e78c815d46ea8a7f288eedfa"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_mahjong/README.md",
+      "bytes": 2606,
+      "sha256": "850b7520bc13c9315a1ed794b2bb76d5fc2a893fac1f895881d65d40f1995b79"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_mahjong/plugin.json",
+      "bytes": 980,
+      "sha256": "018dee06821152ea8243e11cf3534e608dd3a759844c228bd8eaf8904c653c02"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_mahjong/worker.py",
+      "bytes": 645,
+      "sha256": "f7c10733dac74b7c9e20dea22b639821da68f8cfa4609bb0882762b5d2207f43"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_rss/README.md",
+      "bytes": 3579,
+      "sha256": "8801ce70b963819d61b088d6f9b14bbdb97642122d14d802e253fcf41448ef05"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_rss/plugin.json",
+      "bytes": 994,
+      "sha256": "fa0bb313c3e42efe37cb86aa5edd8153289727dda48aff976ae4e2719846e03b"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_rss/worker.py",
+      "bytes": 717,
+      "sha256": "6a664a5d1abb5ae52dfd49061bd293c11861e63dcfbbe66150a3469c52eaef84"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_uno/README.md",
+      "bytes": 4606,
+      "sha256": "d60cbb11cefdfaa987cb7a513bcc6cb45057450d9ae5e2f3f66475dc6af70ae6"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_uno/plugin.json",
+      "bytes": 878,
+      "sha256": "ff939b9707620423aa43cc72a008942fc0f4c509afd2f8f46f462d88fbbf6ad3"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_uno/worker.py",
+      "bytes": 438,
+      "sha256": "6fe001d274d91808494e11091d9e75a417800da26bb2910269322405effb3e03"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_webtext/README.md",
+      "bytes": 3129,
+      "sha256": "3e372bedcec4e9b025282f63e23bf3b8a1a6473304bb1eada4f47130bf527c9a"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_webtext/plugin.json",
+      "bytes": 628,
+      "sha256": "78a87e7b7cf5b9284fdaa25b95ed8cfcc00c79176e170ad73cf50923257f3038"
+    },
+    {
+      "path": "extensions/market2_pack/plugins/m_webtext/worker.py",
+      "bytes": 721,
+      "sha256": "0b3e6db86e13d5a07b40fbddaee47bc86b6a81f343a3bea7d04e2c469cc8667d"
+    },
+    {
+      "path": "extensions/market2_pack/safe_net.py",
+      "bytes": 19857,
+      "sha256": "88ce8710b881a836edd371f6bb023749cec58bb13aa859b5651698d17fda3d76"
+    },
+    {
+      "path": "extensions/market2_pack/tests/test_ics.py",
+      "bytes": 12209,
+      "sha256": "146f2538ea0df7df498b538c5e044c6e686238629e1d095a882a64550f38380d"
+    },
+    {
+      "path": "extensions/market2_pack/tests/test_mahjong.py",
+      "bytes": 9547,
+      "sha256": "61e660672a252900d71c7fae04810e77894fa55b9da3788261ba8f71cd9c1984"
+    },
+    {
+      "path": "extensions/market2_pack/tests/test_network_plugins.py",
+      "bytes": 16554,
+      "sha256": "195fefed380acc18227433fe3eb0a65d669fa5da293a3edde108461d7c205c6b"
+    },
+    {
+      "path": "extensions/market2_pack/tests/test_network_safety.py",
+      "bytes": 15344,
+      "sha256": "dca40eeedefd348c44b3fb274416d93ed6d7ee591ef92193f0332730bfc3bae3"
+    },
+    {
+      "path": "extensions/market2_pack/tests/test_uno.py",
+      "bytes": 22006,
+      "sha256": "ce0df96541c845d4daf343c68f13a7ab1dbbe7b879563b9eeaf5dd09a3aa5674"
+    },
+    {
+      "path": "extensions/market2_pack/uno_catalog.json",
+      "bytes": 502,
+      "sha256": "4aac30c3d54f98d8f1cae9e9941e0ea62e2e702df767fdc448b0d0aed8cd5f32"
+    },
+    {
+      "path": "extensions/market2_pack/uno_engine.py",
+      "bytes": 19130,
+      "sha256": "06ffbb3373171cf4d2ce311b0155019a694b66374f1fab2e428d853227864f84"
+    },
+    {
+      "path": "extensions/market2_pack/verify_pack.py",
+      "bytes": 3091,
+      "sha256": "4470614e9a713b17e6b9da42d9a3076254f9134e6e42fbaa4388c326486e3f19"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 843,
+      "sha256": "4d0e310b3cbf9e61b6c826311598a58509611d3608ad4d0651b8947522090b4d"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 31,
+      "sha256": "360a8e1731eafcc9dc7c8ce31ef00d714ad45768937f083d5ed42a266b43b972"
+    },
+    {
+      "path": "resources/curated.json",
+      "bytes": 59,
+      "sha256": "21fa2709f1d37f2dfc089ce7352ba20d5d42c801ac5f020526cc5cafbfb47d4a"
+    },
+    {
+      "path": "scripts/build_release.py",
+      "bytes": 9469,
+      "sha256": "56cffd1b44938160f60ae080c811eba310d7cd0d8c67af1b3788f2b93ce5879b"
+    },
+    {
+      "path": "scripts/init_instance.py",
+      "bytes": 2969,
+      "sha256": "6c6baedbc069bf82a52c8be6880cab52e50425a67605039a8d1d54665221d044"
+    },
+    {
+      "path": "scripts/run.py",
+      "bytes": 1425,
+      "sha256": "70556c584620344cff0d3a50a6b76ea37884e15267be620aae7746400a6f7707"
+    },
+    {
+      "path": "tests/test_app_plugins.py",
+      "bytes": 18265,
+      "sha256": "3823290d0450c9a34ffc70e485d78ecc69108c9dd251649a7a649304f0109adf"
+    },
+    {
+      "path": "tests/test_core.py",
+      "bytes": 29015,
+      "sha256": "34e7a6d5be5b61da374ca1b9f8dfc0ae6526c49dca8dfe7f2a37d4f5dd12d1be"
+    },
+    {
+      "path": "tests/test_models.py",
+      "bytes": 30947,
+      "sha256": "bbf1de50a64bb50fc50351f2fc5946cf67f329ddc91cad73f5c5c24595ff05d1"
+    },
+    {
+      "path": "tests/test_native_extensions.py",
+      "bytes": 13754,
+      "sha256": "d03ad70a8aaf962f81159b03d66fa7936656019c35754e7a384e32d42f6adbf9"
+    },
+    {
+      "path": "tests/test_notices.py",
+      "bytes": 10925,
+      "sha256": "33471dadcef37c7fdd56b4802371a25c7b22245606da314065a0cd3daf264b4d"
+    },
+    {
+      "path": "tests/test_owner_identity.py",
+      "bytes": 4255,
+      "sha256": "cabd69bb31dd571bb70a994b0095bb1134ce8b7b120755825fbd301335e94a48"
+    },
+    {
+      "path": "tests/test_plugin_capacity.py",
+      "bytes": 3111,
+      "sha256": "d3824daeb4b7e2a10f3dfbef7bd07f6b54fd50f94dd4514ead9564ba76076bdc"
+    },
+    {
+      "path": "tests/test_plugin_packages.py",
+      "bytes": 17330,
+      "sha256": "09d99cf1d04dde8021b655ff2457b4ad8bb0f4160ad3e30a0b3ffce13fa43106"
+    },
+    {
+      "path": "tests/test_plugin_pool.py",
+      "bytes": 2850,
+      "sha256": "26e0a088da0a4196661debcfe8bd3e124772eda48361b901ca2908cb6a1ffa7e"
+    },
+    {
+      "path": "tests/test_plugin_state.py",
+      "bytes": 6756,
+      "sha256": "40de49626d624198ea9f962bff7fddf13bb159e5c86d6dbe3a4ddc5cec0d263f"
+    },
+    {
+      "path": "tests/test_provider.py",
+      "bytes": 11451,
+      "sha256": "7b24cdd1557895dfbf29db982cb66da3df9c9d8414c018857579d881426270fa"
+    },
+    {
+      "path": "tests/test_release.py",
+      "bytes": 8981,
+      "sha256": "56e6e7bd900a9271f626496d2c422e39d51b67d27899f93755f16d006f66f5d0"
+    },
+    {
+      "path": "tests/test_resource_api.py",
+      "bytes": 9646,
+      "sha256": "3dc29aa81069ad3ebfe5d2b00b058b4b45665b9f01998e9fde4dc1e4cbc9e4db"
+    },
+    {
+      "path": "tests/test_resources.py",
+      "bytes": 24685,
+      "sha256": "7a9e4b7d1928b2b2a728b3bd441ad93dd7dba6f39dcec39a9bac2878e63111f8"
+    },
+    {
+      "path": "tests/test_settings.py",
+      "bytes": 10029,
+      "sha256": "94471cd406da3653e79d9d099bcba3c2837d635fb7de3c4ff208f3f37b19bd64"
+    },
+    {
+      "path": "tests/test_store.py",
+      "bytes": 10691,
+      "sha256": "86085d0f3b2a682661958b07ac0c13976891c9cb84a17a714600aace4df65b4e"
+    },
+    {
+      "path": "tests/test_store_media.py",
+      "bytes": 3031,
+      "sha256": "86732e5595cf1a2f91ac95002b6f6b006124757c46d370a425966cdd8c521ea0"
+    },
+    {
+      "path": "tests/test_transport.py",
+      "bytes": 11943,
+      "sha256": "0db40f0ab6ff945f6d4f56915e9f224d226c1af855ab71c954c8cb5f6d67446f"
+    },
+    {
+      "path": "windows/README.md",
+      "bytes": 7356,
+      "sha256": "3fc3d61bfc8ebd579d72f1608e6c5211f8fe12f8d302b8e562070edb6b188a41"
+    },
+    {
+      "path": "windows/build_windows.py",
+      "bytes": 9463,
+      "sha256": "b81b2f4fba7b1f96cd2061dcc2029c1413f28078a3dac3ee3cd0d5cf65e3f3e6"
+    },
+    {
+      "path": "windows/fetch_runtime.py",
+      "bytes": 2559,
+      "sha256": "9bd319e6968a5c46935f454b05915af184f9bc962aa7a8f6b418c04e22acc0a8"
+    },
+    {
+      "path": "windows/launcher.py",
+      "bytes": 12181,
+      "sha256": "eb99262b14efccece8069b1d95c1d13b4389f7dd999adbdb635a9b1cc6432803"
+    },
+    {
+      "path": "windows/requirements.txt",
+      "bytes": 46,
+      "sha256": "337455f3ae39c041497ffe97b6f57c573e9ee2903c2192984666eb070b209b3b"
+    },
+    {
+      "path": "windows/tests/test_launcher.py",
+      "bytes": 17699,
+      "sha256": "1baf6697da6db586ae0ce1089e5a77442ef155d9b380dfc30f6ebdd5aae38826"
+    },
+    {
+      "path": "yukino_core/__init__.py",
+      "bytes": 23,
+      "sha256": "e1ab1c52349e22122c31b62e85ec87ed251bef67b64fc894497ef5b5057ac564"
+    },
+    {
+      "path": "yukino_core/__main__.py",
+      "bytes": 837,
+      "sha256": "907bea826a5db97dae5dc637889a5acac38c681fd0f8d68bd9012a83cfd120c6"
+    },
+    {
+      "path": "yukino_core/app.py",
+      "bytes": 16937,
+      "sha256": "fa580168d71ddf0fe2c560e0842aeb414257a03bdf6b9bb5c7699d4b6a2ce704"
+    },
+    {
+      "path": "yukino_core/config.py",
+      "bytes": 13454,
+      "sha256": "5d84b4faedd7ee3c2fab9af1f1cd7f57e6e0252912f968a62b675ec4c1e9ce72"
+    },
+    {
+      "path": "yukino_core/core.py",
+      "bytes": 29361,
+      "sha256": "b50afba3d0e6cff42b0644eddc7ccf24a7238ed827dcf2e123c2b73ea031024b"
+    },
+    {
+      "path": "yukino_core/group_admin.py",
+      "bytes": 11330,
+      "sha256": "5adb5c28e63920e776094f3ebc5dce8dbbf53164d1d7fea278275b6db7e4b720"
+    },
+    {
+      "path": "yukino_core/models.py",
+      "bytes": 31661,
+      "sha256": "f87c066c054b2fc2f58ee16c0920a9ce9704ddc172e9da3c650c3c149d129899"
+    },
+    {
+      "path": "yukino_core/native_plugins.py",
+      "bytes": 11609,
+      "sha256": "fc776e642f4f4af1486180f87b8d597c0369617305a483b60e3d17e203eb7b61"
+    },
+    {
+      "path": "yukino_core/notice_plugins.py",
+      "bytes": 10174,
+      "sha256": "2215b3579efa75284ffb8637bb8862c0c4e43cd2ddba792af301210d9f4adc75"
+    },
+    {
+      "path": "yukino_core/plugin_packages.py",
+      "bytes": 10953,
+      "sha256": "1f0aabb8359707a2e2ed295c4a62ec1907ea2952607b8a7c873ebdebf03b30b2"
+    },
+    {
+      "path": "yukino_core/plugin_worker.py",
+      "bytes": 1205,
+      "sha256": "a2bd190887d62433a2199c7ecd33086dc50c2125c4ce257068e6c2b80d9df04d"
+    },
+    {
+      "path": "yukino_core/plugins.py",
+      "bytes": 20898,
+      "sha256": "454cb3523493abd6c1e735c5e2f992fd03fc8298ac6e3d300b81b666d03f53e7"
+    },
+    {
+      "path": "yukino_core/plugins/calculator.py",
+      "bytes": 1289,
+      "sha256": "06bb96104b4a18a7622ec56f03b98112bd1b0857d08e37150ade79cbe70d4072"
+    },
+    {
+      "path": "yukino_core/provider.py",
+      "bytes": 6176,
+      "sha256": "98eb77f9f973c1c43e640bf445a8c3bcc5e142ef13f076ffb021bb782fde3e00"
+    },
+    {
+      "path": "yukino_core/resources.py",
+      "bytes": 35658,
+      "sha256": "945fe5a57c26faa431cb9dfe2443c2891c72dbd2874945e83c0abde281197277"
+    },
+    {
+      "path": "yukino_core/settings_api.py",
+      "bytes": 11219,
+      "sha256": "5d189c7919a6fb0eb4d6e4581a503cdac435401210297e5e22916d3577211875"
+    },
+    {
+      "path": "yukino_core/static/app.js",
+      "bytes": 103727,
+      "sha256": "adf72c4b7a9c4bfdc8b70b7e760f09e325a9577aa20788b0d4981ae5c5c2c675"
+    },
+    {
+      "path": "yukino_core/static/brand-logo.svg",
+      "bytes": 246,
+      "sha256": "330ce82aa03f04e0d2d435fb7be1d0a6e16795448f7089e7c521390336401ca6"
+    },
+    {
+      "path": "yukino_core/static/index.html",
+      "bytes": 36132,
+      "sha256": "9714b3c64e6afae67955f335df6936df7a6132a9848ad5f96a9ee6b630cbcf20"
+    },
+    {
+      "path": "yukino_core/static/style.css",
+      "bytes": 53170,
+      "sha256": "87ba16f3ddcad452356074dfb986295370c314656304ec51c1fb88569b5c4e8c"
+    },
+    {
+      "path": "yukino_core/store.py",
+      "bytes": 24498,
+      "sha256": "14dd035f50c8368676940e1b9a8292628fb69ed98ebee764f44fdbddc99d37a2"
+    },
+    {
+      "path": "yukino_core/transport.py",
+      "bytes": 22133,
+      "sha256": "ce99af6558a0ccb5fdece3cc56813e1f91cc4d38d3243c9ab24435cc85b211ae"
+    },
+    {
+      "path": "yukino_core/video_session.py",
+      "bytes": 1638,
+      "sha256": "a743b0b34adae7a3c30e121c2fca19a0ec9646364a0399f5e90916d29d8eaf39"
+    }
+  ],
+  "contains_credentials": false,
+  "contains_user_resources": false,
+  "logo": "generated Y letter SVG; private deployment image excluded",
+  "optional_integrations_included": false,
+  "windows_build_tools_included": true,
+  "external_plugin_source_packs": [
+    "community_pack",
+    "maibot_pack",
+    "expansion_pack",
+    "market2_pack",
+    "interaction_pack"
+  ],
+  "licensing_status": "review_required_see_docs_LICENSE_REVIEW",
+  "omitted": [
+    "runtime data and tokens",
+    "user persona and histories",
+    "QQ accounts",
+    "meme image packs",
+    "private logo",
+    "MaiBot databases",
+    "deployment integrations"
+  ]
+}

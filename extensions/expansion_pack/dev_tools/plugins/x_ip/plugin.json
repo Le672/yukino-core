@@ -1,0 +1,20 @@
+{
+  "id": "x_ip",
+  "name": "IP与CIDR离线分析",
+  "version": "1.0.0",
+  "description": "IPv4/IPv6地址、网络掩码、地址数与类别分析",
+  "worker": "worker.py",
+  "commands": [
+    "/IP信息"
+  ],
+  "config_schema": [
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

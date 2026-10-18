@@ -1,0 +1,28 @@
+{
+  "id": "m_webtext",
+  "name": "公开网页正文摘录",
+  "version": "1.0.0",
+  "description": "安全获取公开HTTPS网页标题及可见正文摘录",
+  "worker": "worker.py",
+  "commands": [
+    "/网页正文"
+  ],
+  "config_schema": [
+    {
+      "key": "text_max_chars",
+      "type": "integer",
+      "label": "正文摘录最多字符",
+      "default": 2400,
+      "min": 200,
+      "max": 6000
+    },
+    {
+      "key": "network_timeout_seconds",
+      "type": "integer",
+      "label": "单命令联网总预算秒",
+      "default": 12,
+      "min": 2,
+      "max": 15
+    }
+  ]
+}

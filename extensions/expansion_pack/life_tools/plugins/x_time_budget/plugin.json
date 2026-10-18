@@ -1,0 +1,20 @@
+{
+  "id": "x_time_budget",
+  "name": "项目工时",
+  "version": "1.0.0",
+  "description": "项目计时、结束、历史和累计工时",
+  "worker": "worker.py",
+  "commands": [
+    "/工时"
+  ],
+  "config_schema": [
+    {
+      "key": "max_active_records",
+      "type": "integer",
+      "label": "每用户或群的活跃记录上限",
+      "default": 200,
+      "min": 10,
+      "max": 200
+    }
+  ]
+}

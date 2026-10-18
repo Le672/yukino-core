@@ -1,0 +1,28 @@
+{
+  "id": "steam_query",
+  "name": "Steam商店查询",
+  "version": "1.0.0",
+  "description": "按游戏名或App ID查询官方商店信息",
+  "worker": "worker.py",
+  "commands": [
+    "/steam",
+    "/Steam"
+  ],
+  "config_schema": [
+    {
+      "key": "result_limit",
+      "type": "integer",
+      "label": "搜索结果条数",
+      "min": 1,
+      "max": 5,
+      "default": 3
+    },
+    {
+      "key": "country_code",
+      "type": "string",
+      "label": "商店地区代码",
+      "default": "cn",
+      "max_length": 2
+    }
+  ]
+}

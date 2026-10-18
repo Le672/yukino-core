@@ -1,0 +1,20 @@
+{
+  "id": "x_memory",
+  "name": "翻牌配对记忆",
+  "version": "1.0.0",
+  "description": "/翻牌记忆 开始；翻 编号；或 翻 编号A 编号B；状态；投降。不匹配的两张在回执显示后盖回，隐藏其他牌。",
+  "worker": "worker.py",
+  "commands": [
+    "/翻牌记忆"
+  ],
+  "config_schema": [
+    {
+      "key": "pairs",
+      "type": "integer",
+      "label": "配对数量",
+      "default": 6,
+      "min": 4,
+      "max": 12
+    }
+  ]
+}

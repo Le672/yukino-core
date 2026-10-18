@@ -1,0 +1,20 @@
+{
+  "id": "x_radix",
+  "name": "任意进制整数转换",
+  "version": "1.0.0",
+  "description": "2到36进制有符号整数转换与容量限制",
+  "worker": "worker.py",
+  "commands": [
+    "/进制转换"
+  ],
+  "config_schema": [
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

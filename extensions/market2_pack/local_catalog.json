@@ -1,0 +1,87 @@
+[
+  {
+    "id": "m_ics",
+    "name": "ICS个人课程表",
+    "description": "私聊纯文本ICS导入、每周重复与排除日期查询、历史软归档恢复；不主动提醒",
+    "commands": [
+      "/课表"
+    ],
+    "smoke_command": "/课表 导入\nBEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nUID:market2-demo\nSUMMARY:课程示例\nDTSTART;TZID=Asia/Shanghai:20261019T090000\nDTEND;TZID=Asia/Shanghai:20261019T100000\nRRULE:FREQ=WEEKLY;COUNT=4;BYDAY=MO\nEND:VEVENT\nEND:VCALENDAR",
+    "expected_contains": "课表已导入",
+    "smoke_context": {
+      "session_id": "p:2",
+      "user_id": "2"
+    },
+    "config_schema": [
+      {
+        "key": "max_events",
+        "type": "integer",
+        "label": "单次导入课程上限",
+        "default": 50,
+        "min": 5,
+        "max": 100
+      },
+      {
+        "key": "max_versions",
+        "type": "integer",
+        "label": "每用户每会话保留版本上限",
+        "default": 10,
+        "min": 1,
+        "max": 30
+      },
+      {
+        "key": "result_limit",
+        "type": "integer",
+        "label": "单日结果显示上限",
+        "default": 20,
+        "min": 1,
+        "max": 50
+      }
+    ],
+    "engine": "ics_engine.py"
+  },
+  {
+    "id": "m_mahjong",
+    "name": "麻将结构听牌与原创训练",
+    "description": "标准面子、七对子与国士结构判定和原创可解听牌训练；不计算役番点数",
+    "commands": [
+      "/听牌",
+      "/和牌",
+      "/麻将训练"
+    ],
+    "smoke_command": "/听牌 123m123p123s1112z",
+    "expected_contains": "2z",
+    "config_schema": [
+      {
+        "key": "candidate_limit",
+        "type": "integer",
+        "label": "听牌指令最多显示候选种数",
+        "default": 34,
+        "min": 1,
+        "max": 34
+      },
+      {
+        "key": "max_attempts",
+        "type": "integer",
+        "label": "新训练题最多作答次数",
+        "default": 5,
+        "min": 1,
+        "max": 20
+      },
+      {
+        "key": "training_style",
+        "type": "string",
+        "label": "默认原创建题类型",
+        "default": "混合",
+        "max_length": 10,
+        "options": [
+          "混合",
+          "标准",
+          "七对",
+          "国士"
+        ]
+      }
+    ],
+    "engine": "mahjong_engine.py"
+  }
+]

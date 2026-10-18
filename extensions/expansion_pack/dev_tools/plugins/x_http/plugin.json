@@ -1,0 +1,21 @@
+{
+  "id": "x_http",
+  "name": "HTTP状态与MIME速查",
+  "version": "1.0.0",
+  "description": "标准HTTP状态解释和扩展名MIME双向查询",
+  "worker": "worker.py",
+  "commands": [
+    "/HTTP状态",
+    "/MIME"
+  ],
+  "config_schema": [
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

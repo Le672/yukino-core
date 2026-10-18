@@ -1,0 +1,21 @@
+{
+  "id": "x_url",
+  "name": "链接结构与跟踪清理",
+  "version": "1.0.0",
+  "description": "离线URL解析和常见跟踪参数清理，保留其余参数",
+  "worker": "worker.py",
+  "commands": [
+    "/链接信息",
+    "/清理链接"
+  ],
+  "config_schema": [
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

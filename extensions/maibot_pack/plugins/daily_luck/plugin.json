@@ -1,0 +1,11 @@
+{
+  "id": "daily_luck",
+  "name": "今日幸运小签",
+  "version": "1.0.0",
+  "description": "按会话与用户生成当天固定的娱乐小签",
+  "worker": "worker.py",
+  "commands": [
+    "/今日运势"
+  ],
+  "config_schema": []
+}

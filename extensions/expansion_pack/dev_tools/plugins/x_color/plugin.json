@@ -1,0 +1,21 @@
+{
+  "id": "x_color",
+  "name": "颜色转换与可读性对比",
+  "version": "1.0.0",
+  "description": "HEX/RGB/HSL转换、亮度和WCAG文字对比度计算",
+  "worker": "worker.py",
+  "commands": [
+    "/颜色",
+    "/对比度"
+  ],
+  "config_schema": [
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

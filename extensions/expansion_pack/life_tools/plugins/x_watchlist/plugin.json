@@ -1,0 +1,20 @@
+{
+  "id": "x_watchlist",
+  "name": "观影清单",
+  "version": "1.0.0",
+  "description": "待看、看完状态、评分和笔记",
+  "worker": "worker.py",
+  "commands": [
+    "/观影单"
+  ],
+  "config_schema": [
+    {
+      "key": "max_active_records",
+      "type": "integer",
+      "label": "每用户或群的活跃记录上限",
+      "default": 200,
+      "min": 10,
+      "max": 200
+    }
+  ]
+}

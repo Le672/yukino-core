@@ -1,0 +1,31 @@
+{
+  "id": "trpg_dice",
+  "name": "TRPG骰子与CoC7检定",
+  "description": "有界骰式、CoC7默认技能检定、基础属性和先攻，无eval。",
+  "version": "1.0.0",
+  "worker": "worker.py",
+  "commands": [
+    "/r",
+    "/ra",
+    "/coc",
+    "/先攻"
+  ],
+  "config_schema": [
+    {
+      "key": "max_dice",
+      "type": "integer",
+      "label": "骰子数量上限",
+      "default": 100,
+      "min": 1,
+      "max": 100
+    },
+    {
+      "key": "max_faces",
+      "type": "integer",
+      "label": "骰子面数上限",
+      "default": 1000000,
+      "min": 2,
+      "max": 1000000
+    }
+  ]
+}

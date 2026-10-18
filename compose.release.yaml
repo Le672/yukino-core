@@ -1,0 +1,36 @@
+name: yukino-core
+services:
+  core:
+    image: yukino-core:0.6.2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    init: true
+    user: "${YUKINO_UID:-10001}:${YUKINO_GID:-10001}"
+    read_only: true
+    ports:
+      - "127.0.0.1:${YUKINO_ADMIN_PORT:-18001}:18001"
+    environment:
+      YUKINO_SECRETS_FILE: /run/yukino/secrets.json
+      YUKINO_RECEIVE_ENABLED: "false"
+    volumes:
+      - ./data:/data
+      - ./data/secrets.json:/run/yukino/secrets.json:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    mem_limit: 512m
+    cpus: 1
+    pids_limit: 96
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:18001/health',timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: json-file
+      options: {max-size: "5m", max-file: "2"}

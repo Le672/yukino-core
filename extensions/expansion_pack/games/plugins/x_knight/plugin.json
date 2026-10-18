@@ -1,0 +1,20 @@
+{
+  "id": "x_knight",
+  "name": "骑士巡游",
+  "version": "1.0.0",
+  "description": "/骑士巡游 开始 [A1]；/骑士巡游 移动 B3；状态；投降。采用国际象棋骑士日字走法（横1竖2或横2竖1），每格只访问一次，覆盖全部格子获胜，无合法下一步结束。5×5只能从与A1同色格子开局，6×6可任意格。",
+  "worker": "worker.py",
+  "commands": [
+    "/骑士巡游"
+  ],
+  "config_schema": [
+    {
+      "key": "board_size",
+      "type": "integer",
+      "label": "棋盘边长",
+      "default": 5,
+      "min": 5,
+      "max": 6
+    }
+  ]
+}

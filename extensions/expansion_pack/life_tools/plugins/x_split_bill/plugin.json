@@ -1,0 +1,20 @@
+{
+  "id": "x_split_bill",
+  "name": "群AA账本",
+  "version": "1.0.0",
+  "description": "成员支出、精确平摊与结算建议",
+  "worker": "worker.py",
+  "commands": [
+    "/AA账本"
+  ],
+  "config_schema": [
+    {
+      "key": "max_active_records",
+      "type": "integer",
+      "label": "每用户或群的活跃记录上限",
+      "default": 200,
+      "min": 10,
+      "max": 200
+    }
+  ]
+}

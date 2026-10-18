@@ -1,0 +1,20 @@
+{
+  "id": "x_recipes",
+  "name": "自录食谱本",
+  "version": "1.0.0",
+  "description": "用户录入食材步骤、检索修改",
+  "worker": "worker.py",
+  "commands": [
+    "/食谱本"
+  ],
+  "config_schema": [
+    {
+      "key": "max_active_records",
+      "type": "integer",
+      "label": "每用户或群的活跃记录上限",
+      "default": 200,
+      "min": 10,
+      "max": 200
+    }
+  ]
+}

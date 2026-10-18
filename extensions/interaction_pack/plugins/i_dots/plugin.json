@@ -1,0 +1,19 @@
+{
+  "id": "i_dots",
+  "name": "点格棋",
+  "description": "/点格棋 创建；第二人 加入；发起者 开始。轮到的人 落子 H 行 列（横边，行1—3列1—2）或 V 行 列（竖边，行1—2列1—3）。闭合格子得分并再走，4格全满分高者胜；状态、结束。",
+  "commands": [
+    "/点格棋"
+  ],
+  "worker": "worker.py",
+  "config_schema": [
+    {
+      "key": "max_players",
+      "type": "integer",
+      "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+      "min": 2,
+      "max": 12,
+      "default": 12
+    }
+  ]
+}

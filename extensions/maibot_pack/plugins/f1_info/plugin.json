@@ -1,0 +1,29 @@
+{
+  "id": "f1_info",
+  "name": "F1赛事与积分",
+  "description": "Jolpica下一站周末时间、赛历、车手/车队积分、正赛与排位结果",
+  "worker": "worker.py",
+  "commands": [
+    "/f1",
+    "/F1"
+  ],
+  "config_schema": [
+    {
+      "key": "utc_offset_hours",
+      "type": "integer",
+      "label": "显示时区UTC偏移小时",
+      "default": 8,
+      "min": -12,
+      "max": 14
+    },
+    {
+      "key": "result_limit",
+      "type": "integer",
+      "label": "成绩与积分展示人数",
+      "default": 20,
+      "min": 1,
+      "max": 30
+    }
+  ],
+  "version": "1.0.0"
+}

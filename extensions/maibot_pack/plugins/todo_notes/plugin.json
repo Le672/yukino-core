@@ -1,0 +1,21 @@
+{
+  "id": "todo_notes",
+  "name": "待办与私人便签",
+  "version": "1.0.0",
+  "description": "会话和用户隔离的待办、便签与软归档",
+  "worker": "worker.py",
+  "commands": [
+    "/待办",
+    "/便签"
+  ],
+  "config_schema": [
+    {
+      "key": "max_entries",
+      "type": "integer",
+      "label": "每用户每类活跃条目上限",
+      "default": 100,
+      "min": 1,
+      "max": 500
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "i_guess",
+  "name": "你说我猜",
+  "description": "/你说我猜 创建；主持人 开始，私聊 /你说我猜 取词 房间码；群内 线索 内容；其他人 猜 答案。猜中得1分可开新轮；主持人 揭晓；积分、状态、结束。12个生活词，真人主持文字玩法。",
+  "commands": [
+    "/你说我猜"
+  ],
+  "worker": "worker.py",
+  "config_schema": [
+    {
+      "key": "max_players",
+      "type": "integer",
+      "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+      "min": 2,
+      "max": 12,
+      "default": 12
+    }
+  ]
+}

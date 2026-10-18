@@ -1,0 +1,19 @@
+{
+  "id": "i_buzzer",
+  "name": "抢答计分",
+  "description": "/抢答 创建；主持人 开题 问题；其他人 抢答，群里作答后主持人 判定 对/错。答对得1分，答错本题不能再抢；结题、积分、状态、结束。先创建，再另发开题。",
+  "commands": [
+    "/抢答"
+  ],
+  "worker": "worker.py",
+  "config_schema": [
+    {
+      "key": "max_players",
+      "type": "integer",
+      "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+      "min": 2,
+      "max": 12,
+      "default": 12
+    }
+  ]
+}

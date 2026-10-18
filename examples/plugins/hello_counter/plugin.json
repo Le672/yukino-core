@@ -1,0 +1,13 @@
+{
+  "id": "hello_counter",
+  "name": "问候与计数示例",
+  "description": "演示文字指令、面板参数与按用户和会话隔离的SQLite持久化",
+  "commands": ["/hello", "/hello_count"],
+  "worker": "worker.py",
+  "config_schema": [
+    {"key": "greeting", "type": "string", "label": "问候语", "default": "你好", "max_length": 100},
+    {"key": "show_count", "type": "boolean", "label": "问候后显示计数", "default": true},
+    {"key": "name_max_chars", "type": "integer", "label": "名字字符上限", "default": 40, "min": 1, "max": 80},
+    {"key": "style", "type": "string", "label": "回复风格", "default": "warm", "options": ["warm", "plain"]}
+  ]
+}

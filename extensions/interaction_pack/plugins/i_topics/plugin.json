@@ -1,0 +1,19 @@
+{
+  "id": "i_topics",
+  "name": "群话题箱",
+  "description": "/话题箱 创建；添加 话题；抽取（取出一条不重复话题）；列表、删除 编号、状态、结束。可删除自己添加的条目，主持人和主人可管理全部；最多100条。",
+  "commands": [
+    "/话题箱"
+  ],
+  "worker": "worker.py",
+  "config_schema": [
+    {
+      "key": "max_players",
+      "type": "integer",
+      "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+      "min": 2,
+      "max": 12,
+      "default": 12
+    }
+  ]
+}

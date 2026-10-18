@@ -1,0 +1,26 @@
+{
+  "id": "weather_query",
+  "name": "天气查询",
+  "version": "1.0.0",
+  "description": "查询实际地点、当前天气与未来三天预报",
+  "worker": "worker.py",
+  "commands": [
+    "/天气"
+  ],
+  "config_schema": [
+    {
+      "key": "default_city",
+      "type": "string",
+      "label": "默认城市",
+      "default": "",
+      "max_length": 60
+    },
+    {
+      "key": "country_code",
+      "type": "string",
+      "label": "国家代码（空为全球）",
+      "default": "",
+      "max_length": 2
+    }
+  ]
+}

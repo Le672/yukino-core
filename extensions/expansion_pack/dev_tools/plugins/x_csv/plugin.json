@@ -1,0 +1,32 @@
+{
+  "id": "x_csv",
+  "name": "CSV结构与数值统计",
+  "version": "1.0.0",
+  "description": "解析含引号CSV，统计缺失、唯一值及数值列平均值",
+  "worker": "worker.py",
+  "commands": [
+    "/CSV统计"
+  ],
+  "config_schema": [
+    {
+      "key": "delimiter",
+      "type": "string",
+      "label": "分隔符：逗号、分号或制表符",
+      "default": ","
+    },
+    {
+      "key": "has_header",
+      "type": "boolean",
+      "label": "首行为表头",
+      "default": true
+    },
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

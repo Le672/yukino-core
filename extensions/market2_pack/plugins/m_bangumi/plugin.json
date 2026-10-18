@@ -1,0 +1,44 @@
+{
+  "id": "m_bangumi",
+  "name": "Bangumi公开番剧查询",
+  "version": "1.0.0",
+  "description": "Bangumi官方公开API动画搜索、条目详情和每周放送",
+  "worker": "worker.py",
+  "commands": [
+    "/番剧"
+  ],
+  "config_schema": [
+    {
+      "key": "result_limit",
+      "type": "integer",
+      "label": "搜索和放送最多条目",
+      "default": 5,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "key": "summary_max_chars",
+      "type": "integer",
+      "label": "详情简介最多字符",
+      "default": 500,
+      "min": 100,
+      "max": 1500
+    },
+    {
+      "key": "utc_offset_hours",
+      "type": "integer",
+      "label": "默认星期UTC偏移小时",
+      "default": 8,
+      "min": -12,
+      "max": 14
+    },
+    {
+      "key": "network_timeout_seconds",
+      "type": "integer",
+      "label": "单命令联网总预算秒",
+      "default": 12,
+      "min": 2,
+      "max": 15
+    }
+  ]
+}

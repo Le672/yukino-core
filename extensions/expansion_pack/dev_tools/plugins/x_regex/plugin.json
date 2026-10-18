@@ -1,0 +1,42 @@
+{
+  "id": "x_regex",
+  "name": "限时正则测试",
+  "version": "1.0.0",
+  "description": "带捕获分组与位置的正则匹配，独立短超时保护",
+  "worker": "worker.py",
+  "commands": [
+    "/正则测试"
+  ],
+  "config_schema": [
+    {
+      "key": "timeout_ms",
+      "type": "integer",
+      "label": "正则子进程超时毫秒",
+      "default": 500,
+      "min": 200,
+      "max": 1500
+    },
+    {
+      "key": "match_limit",
+      "type": "integer",
+      "label": "最多显示匹配项",
+      "default": 10,
+      "min": 1,
+      "max": 30
+    },
+    {
+      "key": "ignore_case",
+      "type": "boolean",
+      "label": "忽略英文字母大小写",
+      "default": false
+    },
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

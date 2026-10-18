@@ -1,0 +1,20 @@
+{
+  "id": "guess_number",
+  "name": "四位数AB猜谜",
+  "version": "1.0.0",
+  "description": "数字与位置的A/B提示，持久化游戏进度",
+  "worker": "worker.py",
+  "commands": [
+    "/猜数字"
+  ],
+  "config_schema": [
+    {
+      "key": "max_guesses",
+      "type": "integer",
+      "label": "最多猜测次数",
+      "default": 10,
+      "min": 4,
+      "max": 20
+    }
+  ]
+}

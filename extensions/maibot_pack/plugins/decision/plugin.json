@@ -1,0 +1,13 @@
+{
+  "id": "decision",
+  "name": "随机选择工具",
+  "version": "1.0.0",
+  "description": "随机选择、抛硬币和有界整数",
+  "worker": "worker.py",
+  "commands": [
+    "/选择",
+    "/硬币",
+    "/随机数"
+  ],
+  "config_schema": []
+}

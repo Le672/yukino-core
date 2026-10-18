@@ -1,0 +1,12 @@
+{
+  "id": "time_tools",
+  "name": "世界时间与日历倒数",
+  "version": "1.0.0",
+  "description": "UTC偏移或IANA时区查询、按UTC+8日历日倒数",
+  "worker": "worker.py",
+  "commands": [
+    "/时间",
+    "/倒数"
+  ],
+  "config_schema": []
+}

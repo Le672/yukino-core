@@ -1,0 +1,20 @@
+{
+  "id": "x_wiki",
+  "name": "版本知识页",
+  "version": "1.0.0",
+  "description": "分级Markdown标题、完整版本历史和恢复",
+  "worker": "worker.py",
+  "commands": [
+    "/知识页"
+  ],
+  "config_schema": [
+    {
+      "key": "max_active_records",
+      "type": "integer",
+      "label": "每用户或群的活跃记录上限",
+      "default": 200,
+      "min": 10,
+      "max": 200
+    }
+  ]
+}

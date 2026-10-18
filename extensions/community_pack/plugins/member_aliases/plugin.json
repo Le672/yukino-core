@@ -1,0 +1,20 @@
+{
+  "id": "member_aliases",
+  "name": "会话成员外号",
+  "description": "自行设置显示外号，主人可管理，外号不构成授权身份。",
+  "version": "1.0.0",
+  "worker": "worker.py",
+  "commands": [
+    "/外号"
+  ],
+  "config_schema": [
+    {
+      "key": "max_alias_chars",
+      "type": "integer",
+      "label": "外号最大字数",
+      "default": 24,
+      "min": 1,
+      "max": 60
+    }
+  ]
+}

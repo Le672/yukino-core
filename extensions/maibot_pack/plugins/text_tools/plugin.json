@@ -1,0 +1,16 @@
+{
+  "id": "text_tools",
+  "name": "文字编码与统计",
+  "version": "1.0.0",
+  "description": "字数、Base64、SHA256和URL编码解码",
+  "worker": "worker.py",
+  "commands": [
+    "/字数",
+    "/Base64",
+    "/解Base64",
+    "/哈希",
+    "/URL编码",
+    "/URL解码"
+  ],
+  "config_schema": []
+}

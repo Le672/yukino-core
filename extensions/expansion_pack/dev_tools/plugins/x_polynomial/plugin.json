@@ -1,0 +1,20 @@
+{
+  "id": "x_polynomial",
+  "name": "多项式求值导数与方程",
+  "version": "1.0.0",
+  "description": "Horner求值、导数系数和含复根的二次方程求解",
+  "worker": "worker.py",
+  "commands": [
+    "/多项式"
+  ],
+  "config_schema": [
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

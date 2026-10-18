@@ -1,0 +1,20 @@
+{
+  "id": "x_highlow",
+  "name": "高低牌挑战",
+  "version": "1.0.0",
+  "description": "/高低牌 开始；/高低牌 高 或 /高低牌 低；状态；投降。完整52张牌洗牌不放回，2最小、A最大、不比较花色。同点数平局不加分也不判错，一次猜错结束，达到面板目标次数获胜。",
+  "worker": "worker.py",
+  "commands": [
+    "/高低牌"
+  ],
+  "config_schema": [
+    {
+      "key": "target_wins",
+      "type": "integer",
+      "label": "猜中目标次数",
+      "default": 5,
+      "min": 3,
+      "max": 12
+    }
+  ]
+}

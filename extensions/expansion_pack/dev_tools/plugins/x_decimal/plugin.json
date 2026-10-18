@@ -1,0 +1,28 @@
+{
+  "id": "x_decimal",
+  "name": "Decimal与有理数计算",
+  "version": "1.0.0",
+  "description": "受限AST十进制计算与Fraction精确分数模式",
+  "worker": "worker.py",
+  "commands": [
+    "/精确计算"
+  ],
+  "config_schema": [
+    {
+      "key": "precision",
+      "type": "integer",
+      "label": "Decimal有效数字位数",
+      "default": 28,
+      "min": 10,
+      "max": 80
+    },
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

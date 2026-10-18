@@ -1,0 +1,29 @@
+{
+  "id": "x_uuid",
+  "name": "UUID生成与解析",
+  "version": "1.0.0",
+  "description": "随机UUIDv4、可重复的命名UUIDv5及结构解析",
+  "worker": "worker.py",
+  "commands": [
+    "/UUID",
+    "/UUID解析"
+  ],
+  "config_schema": [
+    {
+      "key": "count",
+      "type": "integer",
+      "label": "默认UUIDv4生成数量",
+      "default": 1,
+      "min": 1,
+      "max": 10
+    },
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

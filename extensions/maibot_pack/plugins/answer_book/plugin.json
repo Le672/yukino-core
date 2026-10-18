@@ -1,0 +1,11 @@
+{
+  "id": "answer_book",
+  "name": "答案之书",
+  "version": "1.0.0",
+  "description": "从原创短句中随机抽取文字答案",
+  "worker": "worker.py",
+  "commands": [
+    "/答案之书"
+  ],
+  "config_schema": []
+}

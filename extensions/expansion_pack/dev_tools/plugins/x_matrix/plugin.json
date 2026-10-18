@@ -1,0 +1,20 @@
+{
+  "id": "x_matrix",
+  "name": "小矩阵代数",
+  "version": "1.0.0",
+  "description": "精确有理数转置、矩阵乘法与消元法行列式",
+  "worker": "worker.py",
+  "commands": [
+    "/矩阵"
+  ],
+  "config_schema": [
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "单次回复最多字符",
+      "default": 6000,
+      "min": 1000,
+      "max": 12000
+    }
+  ]
+}

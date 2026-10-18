@@ -1,0 +1,31 @@
+{
+  "id": "hot_trends",
+  "name": "热榜查询",
+  "version": "1.0.0",
+  "description": "查询B站热门视频或贴吧热议话题",
+  "worker": "worker.py",
+  "commands": [
+    "/热榜"
+  ],
+  "config_schema": [
+    {
+      "key": "result_limit",
+      "type": "integer",
+      "label": "展示条数",
+      "min": 1,
+      "max": 10,
+      "default": 5
+    },
+    {
+      "key": "default_source",
+      "type": "string",
+      "label": "默认来源",
+      "default": "b站",
+      "options": [
+        "b站",
+        "贴吧"
+      ],
+      "max_length": 10
+    }
+  ]
+}

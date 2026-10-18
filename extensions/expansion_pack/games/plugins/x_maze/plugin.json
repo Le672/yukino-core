@@ -1,0 +1,27 @@
+{
+  "id": "x_maze",
+  "name": "随机可达迷宫",
+  "version": "1.0.0",
+  "description": "/迷宫 开始；上/下/左/右；状态；投降。@人物，E出口，#墙，·走过路径；随机地图保证可达。",
+  "worker": "worker.py",
+  "commands": [
+    "/迷宫"
+  ],
+  "config_schema": [
+    {
+      "key": "board_size",
+      "type": "integer",
+      "label": "地图边长（单数）",
+      "default": 9,
+      "min": 7,
+      "max": 15,
+      "options": [
+        7,
+        9,
+        11,
+        13,
+        15
+      ]
+    }
+  ]
+}

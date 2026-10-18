@@ -1,0 +1,27 @@
+{
+  "id": "eat_what",
+  "name": "今天吃什么",
+  "description": "可配置候选菜单与排除项的本地随机推荐。",
+  "version": "1.0.0",
+  "worker": "worker.py",
+  "commands": [
+    "/吃什么",
+    "/吃什么列表"
+  ],
+  "config_schema": [
+    {
+      "key": "candidates_json",
+      "type": "string",
+      "label": "候选菜单 JSON 数组",
+      "default": "[\"番茄鸡蛋面\",\"黄焖鸡米饭\",\"饺子\",\"麻辣烫\",\"炒饭\",\"牛肉面\",\"清蒸鱼配米饭\",\"盖浇饭\",\"馄饨\",\"鸡肉沙拉\"]",
+      "max_length": 6000
+    },
+    {
+      "key": "excluded_json",
+      "type": "string",
+      "label": "固定排除菜单 JSON 数组",
+      "default": "[]",
+      "max_length": 6000
+    }
+  ]
+}
