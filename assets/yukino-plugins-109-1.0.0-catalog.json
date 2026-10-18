@@ -1,0 +1,1136 @@
+{
+  "version": "1.0.0",
+  "core_release": "0.6.2",
+  "count": 109,
+  "plugins": [
+    {
+      "pack": "community-pack",
+      "id": "affinity",
+      "name": "指令互动与好感",
+      "commands": [
+        "/好感",
+        "/互动",
+        "/好感榜"
+      ],
+      "archive": "community-pack/affinity-1.0.0.zip",
+      "sha256": "e864e4c085ee5a6bd561ac96fbb6553e62e6175e37b073352024ff860d9366b9"
+    },
+    {
+      "pack": "community-pack",
+      "id": "bili_query",
+      "name": "B站查询",
+      "commands": [
+        "/B站搜索",
+        "/b站搜索",
+        "/直播"
+      ],
+      "archive": "community-pack/bili_query-1.0.0.zip",
+      "sha256": "a00d0672f3df78c9eb48ef38db579a2c13d9f30785483f31c2c69200b4538f07"
+    },
+    {
+      "pack": "community-pack",
+      "id": "daily_economy",
+      "name": "每日签到与娱乐积分",
+      "commands": [
+        "/签到",
+        "/余额",
+        "/金币榜",
+        "/转账",
+        "/流水",
+        "/商店",
+        "/购买",
+        "/背包",
+        "/经济帮助"
+      ],
+      "archive": "community-pack/daily_economy-1.0.0.zip",
+      "sha256": "880b30c5527683022ee139c43d6f048fd0f39866f73e4fd822fc8b44fa36ae33"
+    },
+    {
+      "pack": "community-pack",
+      "id": "eat_what",
+      "name": "今天吃什么",
+      "commands": [
+        "/吃什么",
+        "/吃什么列表"
+      ],
+      "archive": "community-pack/eat_what-1.0.0.zip",
+      "sha256": "70cbb99dc384d679f9dff3d138bdbf45249c7732eb162224bc7f87f4b3e8e385"
+    },
+    {
+      "pack": "community-pack",
+      "id": "hot_trends",
+      "name": "热榜查询",
+      "commands": [
+        "/热榜"
+      ],
+      "archive": "community-pack/hot_trends-1.0.0.zip",
+      "sha256": "2b32953ddb898211b594f3c59398ca04757a8c40479452ff0e140e556d3b5f58"
+    },
+    {
+      "pack": "community-pack",
+      "id": "mc_status",
+      "name": "Minecraft状态",
+      "commands": [
+        "/mc"
+      ],
+      "archive": "community-pack/mc_status-1.0.0.zip",
+      "sha256": "83ca391b3d7b7de73e4a16b3de2945fc82ccc733508d2447bffeff70d3aa1bce"
+    },
+    {
+      "pack": "community-pack",
+      "id": "member_aliases",
+      "name": "会话成员外号",
+      "commands": [
+        "/外号"
+      ],
+      "archive": "community-pack/member_aliases-1.0.0.zip",
+      "sha256": "4bb5562dedbea79f9c27f66d66a64dcebebeb6e958939bd4ca283e77a0316b8e"
+    },
+    {
+      "pack": "community-pack",
+      "id": "music_search",
+      "name": "歌曲搜索",
+      "commands": [
+        "/搜歌"
+      ],
+      "archive": "community-pack/music_search-1.0.0.zip",
+      "sha256": "4f6380d2e79e4a39a54336a5b9786375dacd5fd6da8f837fe3fa32afd77cf04e"
+    },
+    {
+      "pack": "community-pack",
+      "id": "steam_query",
+      "name": "Steam商店查询",
+      "commands": [
+        "/steam",
+        "/Steam"
+      ],
+      "archive": "community-pack/steam_query-1.0.0.zip",
+      "sha256": "9d727692732a59309e641e1810b023904ca16122279bba37062eeefdd3ded7b7"
+    },
+    {
+      "pack": "community-pack",
+      "id": "trpg_dice",
+      "name": "TRPG骰子与CoC7检定",
+      "commands": [
+        "/r",
+        "/ra",
+        "/coc",
+        "/先攻"
+      ],
+      "archive": "community-pack/trpg_dice-1.0.0.zip",
+      "sha256": "53dbb4909541588f38044a77ab030929d6ff6a01ba0470f0b33ab22c227f07c3"
+    },
+    {
+      "pack": "community-pack",
+      "id": "weather_query",
+      "name": "天气查询",
+      "commands": [
+        "/天气"
+      ],
+      "archive": "community-pack/weather_query-1.0.0.zip",
+      "sha256": "ecb0308c10521d4510ca21688667aa26d255eafeaa5e53eb4adeeaf3eca5dec9"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_2048",
+      "name": "2048合并挑战",
+      "commands": [
+        "/2048"
+      ],
+      "archive": "expansion-pack/x_2048-1.0.0.zip",
+      "sha256": "c0c8b7bde730a45d819d4a1181690233b3ee1da3c8e0d195db4c76f55852ab01"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_agenda",
+      "name": "群议程主持",
+      "commands": [
+        "/议程"
+      ],
+      "archive": "expansion-pack/x_agenda-1.0.0.zip",
+      "sha256": "434dfb288441a6bc7268ab32f32cd2b055b85efa89b267dd183630305414c91e"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_anagram",
+      "name": "乱序猜词",
+      "commands": [
+        "/乱序猜词"
+      ],
+      "archive": "expansion-pack/x_anagram-1.0.0.zip",
+      "sha256": "d79ea26af423205d71bcbd7e25089382743f66dc42669be6e041e4c36cb9ade8"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_anniversary",
+      "name": "年度纪念日",
+      "commands": [
+        "/纪念日"
+      ],
+      "archive": "expansion-pack/x_anniversary-1.0.0.zip",
+      "sha256": "7df29b1ce84e3520f33df41e79b27ad3083c319dea19cabb271c355351e04cbf"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_arithmetic",
+      "name": "口算挑战",
+      "commands": [
+        "/口算挑战"
+      ],
+      "archive": "expansion-pack/x_arithmetic-1.0.0.zip",
+      "sha256": "0d84aa907f8a0e1dd888fd8c3be17748ba492ad5679e8d7a4c1710327705508d"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_battleship",
+      "name": "单人坐标海战",
+      "commands": [
+        "/海战"
+      ],
+      "archive": "expansion-pack/x_battleship-1.0.0.zip",
+      "sha256": "5284fe8e89630e4c2a389d2ed685fd10e34313dba8b6a53d9410985c275b0141"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_bookmarks",
+      "name": "标签书签",
+      "commands": [
+        "/书签"
+      ],
+      "archive": "expansion-pack/x_bookmarks-1.0.0.zip",
+      "sha256": "c3aa41776cd43427076935f3f1c4d8cda8036f232cade15cb37ba6a8837340ce"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_color",
+      "name": "颜色转换与可读性对比",
+      "commands": [
+        "/颜色",
+        "/对比度"
+      ],
+      "archive": "expansion-pack/x_color-1.0.0.zip",
+      "sha256": "f9df64a6003c21daa58ccfa2a8716d590b778649946ad5315913edd2790cd290"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_connect4",
+      "name": "四子棋",
+      "commands": [
+        "/四子棋"
+      ],
+      "archive": "expansion-pack/x_connect4-1.0.0.zip",
+      "sha256": "985b8e3c3dc5e5a284fcdd2d17b9897754658460a9890c812fa545ac56fe0dbe"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_cron",
+      "name": "Cron解释与下次时间",
+      "commands": [
+        "/Cron说明",
+        "/Cron下次"
+      ],
+      "archive": "expansion-pack/x_cron-1.0.0.zip",
+      "sha256": "9b1248e9b71b4d9ccd7e5e53946a74f7a4007c13acaef54cfbf1ba3f56bf8224"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_csv",
+      "name": "CSV结构与数值统计",
+      "commands": [
+        "/CSV统计"
+      ],
+      "archive": "expansion-pack/x_csv-1.0.0.zip",
+      "sha256": "1ff3cb278a18f13687e1f51080aa2f61b41da1d1a334476c8c4084a2af59ea69"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_decimal",
+      "name": "Decimal与有理数计算",
+      "commands": [
+        "/精确计算"
+      ],
+      "archive": "expansion-pack/x_decimal-1.0.0.zip",
+      "sha256": "568be59dccda3634fad521c40260c5c1f7df9412702935e97fb5ffea5ff23a00"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_decision_matrix",
+      "name": "加权决策表",
+      "commands": [
+        "/决策表"
+      ],
+      "archive": "expansion-pack/x_decision_matrix-1.0.0.zip",
+      "sha256": "4f67a58d6bb99f6eef97912e5d1ed277a25fd99efeb58848b10057dcbaaa6fd1"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_diff",
+      "name": "多行文本差异",
+      "commands": [
+        "/文本差异"
+      ],
+      "archive": "expansion-pack/x_diff-1.0.0.zip",
+      "sha256": "77aae3c21305367eb21c5c6f6c84ac48003268fa4e121507f0dad74f373e8fe7"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_epoch",
+      "name": "Unix时间戳与ISO互转",
+      "commands": [
+        "/时间戳转换"
+      ],
+      "archive": "expansion-pack/x_epoch-1.0.0.zip",
+      "sha256": "a6881e2f9b15d775f8aff37873402dbf925b4a57f12ed68f7e2e0c0d7b6a17ab"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_goals",
+      "name": "量化目标",
+      "commands": [
+        "/目标"
+      ],
+      "archive": "expansion-pack/x_goals-1.0.0.zip",
+      "sha256": "fcb6aa4ed05d61005f6536ea1e9e7f6453e931b8ddce96fd859ecac613b88c35"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_gomoku",
+      "name": "九路五子棋",
+      "commands": [
+        "/五子棋"
+      ],
+      "archive": "expansion-pack/x_gomoku-1.0.0.zip",
+      "sha256": "8d8b9447913ad9169c38fcc9a01fa0048b8e30b9f48fe7d4e6b7baebc50a9ff0"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_habits",
+      "name": "习惯打卡",
+      "commands": [
+        "/习惯"
+      ],
+      "archive": "expansion-pack/x_habits-1.0.0.zip",
+      "sha256": "038e5fb29cfee4672cebed18bd02ce0c7c1c9ffc85774f27dfc2ae35f325f096"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_hangman",
+      "name": "吊小人猜字母",
+      "commands": [
+        "/吊小人"
+      ],
+      "archive": "expansion-pack/x_hangman-1.0.0.zip",
+      "sha256": "0376e72d76892886b2616b111d25a1857f64b95921cf4f2e92a9f880c815d9df"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_highlow",
+      "name": "高低牌挑战",
+      "commands": [
+        "/高低牌"
+      ],
+      "archive": "expansion-pack/x_highlow-1.0.0.zip",
+      "sha256": "a08d300c7fbe424d6133a6afa6f73fd6361662aacdb1acde13b44c8eca12184a"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_http",
+      "name": "HTTP状态与MIME速查",
+      "commands": [
+        "/HTTP状态",
+        "/MIME"
+      ],
+      "archive": "expansion-pack/x_http-1.0.0.zip",
+      "sha256": "13c815ef8f4012965632988d06ebbfc04f58e303fcb4d4c07d9182798146749b"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_inventory",
+      "name": "物品库存流水",
+      "commands": [
+        "/物品库存"
+      ],
+      "archive": "expansion-pack/x_inventory-1.0.0.zip",
+      "sha256": "293183275e9b65d5c20727ffbab7f63821ab473595113a61d6df785291214fdc"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_ip",
+      "name": "IP与CIDR离线分析",
+      "commands": [
+        "/IP信息"
+      ],
+      "archive": "expansion-pack/x_ip-1.0.0.zip",
+      "sha256": "ba94ed4f5c0974b74002aefad7fceeaffc9014b7619bc111aa16bad9f3b816f8"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_json",
+      "name": "JSON格式与路径取值",
+      "commands": [
+        "/JSON格式",
+        "/JSON取值"
+      ],
+      "archive": "expansion-pack/x_json-1.0.0.zip",
+      "sha256": "fef2f8eb0f6d65fcf06b9f8e1cd2a227c8218bb65baeb10000e3080eba65d1f4"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_knight",
+      "name": "骑士巡游",
+      "commands": [
+        "/骑士巡游"
+      ],
+      "archive": "expansion-pack/x_knight-1.0.0.zip",
+      "sha256": "cadeac6303a84437583c698041e74955c7401ea17326319cba814986588ce409"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_ledger",
+      "name": "个人记账",
+      "commands": [
+        "/记账"
+      ],
+      "archive": "expansion-pack/x_ledger-1.0.0.zip",
+      "sha256": "f48ecf45853ef2af3ae0b02022575491c88e6a3f6976018c2b3ca36224af0790"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_lights",
+      "name": "可解熄灯游戏",
+      "commands": [
+        "/熄灯游戏"
+      ],
+      "archive": "expansion-pack/x_lights-1.0.0.zip",
+      "sha256": "40eac6a636576f48fc9595f8770aadc53dc0219f665f7716117bcab5fd30f735"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_markdown",
+      "name": "Markdown目录与表格",
+      "commands": [
+        "/Markdown目录",
+        "/Markdown表格"
+      ],
+      "archive": "expansion-pack/x_markdown-1.0.0.zip",
+      "sha256": "df831b0bac33c22dc7da7a1daf18ca1f13de91706972310f9cafc1603aa24245"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_matrix",
+      "name": "小矩阵代数",
+      "commands": [
+        "/矩阵"
+      ],
+      "archive": "expansion-pack/x_matrix-1.0.0.zip",
+      "sha256": "c0cdda7bef29a4631138b2509f124f331389aae86779ac81ec24ebee365bf4eb"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_maze",
+      "name": "随机可达迷宫",
+      "commands": [
+        "/迷宫"
+      ],
+      "archive": "expansion-pack/x_maze-1.0.0.zip",
+      "sha256": "5f0f55ef5e0bac0ef890d661344ba366f17b92f585f13bfb78394e69ff2627ad"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_memory",
+      "name": "翻牌配对记忆",
+      "commands": [
+        "/翻牌记忆"
+      ],
+      "archive": "expansion-pack/x_memory-1.0.0.zip",
+      "sha256": "99e97d62294e1c59cc2e4c5d110299b780cc715e9c81c8b19fe56fc67f131608"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_minesweeper",
+      "name": "首步安全扫雷",
+      "commands": [
+        "/扫雷"
+      ],
+      "archive": "expansion-pack/x_minesweeper-1.0.0.zip",
+      "sha256": "715d5b2721bdad31de9608b3ef1f6d5485c7e9158fded60c1c3693b18ef1b376"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_packing",
+      "name": "行李核对清单",
+      "commands": [
+        "/行李清单"
+      ],
+      "archive": "expansion-pack/x_packing-1.0.0.zip",
+      "sha256": "048bc0f9df1d81bb9a3bf30503a83584f287d93b61dd761fcc678342631bf398"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_polynomial",
+      "name": "多项式求值导数与方程",
+      "commands": [
+        "/多项式"
+      ],
+      "archive": "expansion-pack/x_polynomial-1.0.0.zip",
+      "sha256": "90cde75382f81ab01b130245fe2a48fee24784b0e61efa5e5d54a8e275d0794c"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_pomodoro",
+      "name": "持久番茄钟",
+      "commands": [
+        "/番茄钟"
+      ],
+      "archive": "expansion-pack/x_pomodoro-1.0.0.zip",
+      "sha256": "997733d17281d2cbd5078191830283b92fc2c65124f2b2bb12672eaca4cf7018"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_probability",
+      "name": "组合排列与二项概率",
+      "commands": [
+        "/概率计算"
+      ],
+      "archive": "expansion-pack/x_probability-1.0.0.zip",
+      "sha256": "1f7a27cbd95b91e18d96b40fd288285f31ea494f437f20c4944c685138e98cca"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_queue",
+      "name": "群排队",
+      "commands": [
+        "/排队"
+      ],
+      "archive": "expansion-pack/x_queue-1.0.0.zip",
+      "sha256": "2cfcb8d88fe592a62379f6bb129e661df9f2fff4df1ce3deb15b24f9574453e7"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_radix",
+      "name": "任意进制整数转换",
+      "commands": [
+        "/进制转换"
+      ],
+      "archive": "expansion-pack/x_radix-1.0.0.zip",
+      "sha256": "fd3b83b9faa23ccd12a9a8d745998b2e5134c43a773d0c04f52bf51e6c0e5af5"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_reading",
+      "name": "阅读进度",
+      "commands": [
+        "/阅读进度"
+      ],
+      "archive": "expansion-pack/x_reading-1.0.0.zip",
+      "sha256": "838cab10bb9a60c1dc1b3496fb8dc53f1ebf393939e07f8465c27d599dc50351"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_recipes",
+      "name": "自录食谱本",
+      "commands": [
+        "/食谱本"
+      ],
+      "archive": "expansion-pack/x_recipes-1.0.0.zip",
+      "sha256": "22de579679e49aea1997a19fc22442c77684a42a3922b7d12dc85a3e57d101a9"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_regex",
+      "name": "限时正则测试",
+      "commands": [
+        "/正则测试"
+      ],
+      "archive": "expansion-pack/x_regex-1.0.0.zip",
+      "sha256": "320bf1648070e5cb9fc8ddb6a2bb571cbfa0c3925870fa70d8b045dbae760671"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_reversi",
+      "name": "六路黑白棋",
+      "commands": [
+        "/黑白棋"
+      ],
+      "archive": "expansion-pack/x_reversi-1.0.0.zip",
+      "sha256": "dbc36dc287188f38ea8948bf86c5b2d931e47de6244758711425ff750f56e76e"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_round_robin",
+      "name": "循环轮值",
+      "commands": [
+        "/轮值抽取"
+      ],
+      "archive": "expansion-pack/x_round_robin-1.0.0.zip",
+      "sha256": "2b8e6a88f98ec74fbd5b804b37e1f80f4c4790a229035d40ad191f63c8b55a50"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_semver",
+      "name": "语义版本比较",
+      "commands": [
+        "/版本比较"
+      ],
+      "archive": "expansion-pack/x_semver-1.0.0.zip",
+      "sha256": "9052df437e83b50c71eac503e115ec8de85479e6f560e19e2fb7aebf382653d2"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_signup",
+      "name": "活动报名",
+      "commands": [
+        "/活动报名"
+      ],
+      "archive": "expansion-pack/x_signup-1.0.0.zip",
+      "sha256": "2f2597b21418be3a5fef46d3fc513baba05c482fab4865583b3d0a599ed6ecd5"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_sliding",
+      "name": "可解滑块拼图",
+      "commands": [
+        "/滑块拼图"
+      ],
+      "archive": "expansion-pack/x_sliding-1.0.0.zip",
+      "sha256": "9574344a5b782a7395cdf2f3f3b68b514ab45cd1acf658478c6a6882bcc7fd3b"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_sokoban",
+      "name": "原创推箱子",
+      "commands": [
+        "/推箱子"
+      ],
+      "archive": "expansion-pack/x_sokoban-1.0.0.zip",
+      "sha256": "d24d4f1770b7c045726fa68690c027b74d2550dbc2d52809de4a95dd01578d52"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_spaced_cards",
+      "name": "间隔复习卡",
+      "commands": [
+        "/复习卡"
+      ],
+      "archive": "expansion-pack/x_spaced_cards-1.0.0.zip",
+      "sha256": "16dead15e5cde1783d95795b95e5cdebec77ebbb99cc0bb19bdc4f44f8b50689"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_split_bill",
+      "name": "群AA账本",
+      "commands": [
+        "/AA账本"
+      ],
+      "archive": "expansion-pack/x_split_bill-1.0.0.zip",
+      "sha256": "e2e86d625f423ee22afdf30065a31e7efe3c386a667db1f7c80db05fc5194cdb"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_stats",
+      "name": "描述性数据统计",
+      "commands": [
+        "/数据统计"
+      ],
+      "archive": "expansion-pack/x_stats-1.0.0.zip",
+      "sha256": "fe54186bd57dbae8fc4816b5fddd438f7009f08fd5788ee1db544426d5ce8f6d"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_tictactoe",
+      "name": "井字棋",
+      "commands": [
+        "/井字棋"
+      ],
+      "archive": "expansion-pack/x_tictactoe-1.0.0.zip",
+      "sha256": "6c68d02202adad24c5d8de0689a852cd1ef6539630e95b68606148a55e636cd6"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_time_budget",
+      "name": "项目工时",
+      "commands": [
+        "/工时"
+      ],
+      "archive": "expansion-pack/x_time_budget-1.0.0.zip",
+      "sha256": "a9eed018220f833ddb6c945b6c9ac93766d9b322305f848577d7c74cf71c7ecb"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_trivia",
+      "name": "原创知识问答",
+      "commands": [
+        "/知识问答"
+      ],
+      "archive": "expansion-pack/x_trivia-1.0.0.zip",
+      "sha256": "180994a2d3ca9729ae4428d2150fae4406b1b3e32ae0b954752240d234130093"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_twentyfour",
+      "name": "24点",
+      "commands": [
+        "/24点"
+      ],
+      "archive": "expansion-pack/x_twentyfour-1.0.0.zip",
+      "sha256": "a64412b48ce59b0484815f3a23153c09a29eaec525ea32b34f357a1e2a0b96d6"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_unicode",
+      "name": "Unicode字符与规范化",
+      "commands": [
+        "/字符信息",
+        "/文本规范化"
+      ],
+      "archive": "expansion-pack/x_unicode-1.0.0.zip",
+      "sha256": "099ea6e974cee583a99b111abcbd3b20d778112e429771a6b23a249528a89ed1"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_units",
+      "name": "多量纲单位换算",
+      "commands": [
+        "/单位换算"
+      ],
+      "archive": "expansion-pack/x_units-1.0.0.zip",
+      "sha256": "eb403ff76db1deed049c3f71123ce44de327e17e1696f5e3ccf06dd512e8bccd"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_url",
+      "name": "链接结构与跟踪清理",
+      "commands": [
+        "/链接信息",
+        "/清理链接"
+      ],
+      "archive": "expansion-pack/x_url-1.0.0.zip",
+      "sha256": "de02f3cfe2f480eccad03e78242ee765fcafea00ce6acb5ca5a91107da0a4e4c"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_uuid",
+      "name": "UUID生成与解析",
+      "commands": [
+        "/UUID",
+        "/UUID解析"
+      ],
+      "archive": "expansion-pack/x_uuid-1.0.0.zip",
+      "sha256": "1e98e1e259b9d56ec3339e9a70744bb971d1445da5660fef0850bf67e1eb1170"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_watchlist",
+      "name": "观影清单",
+      "commands": [
+        "/观影单"
+      ],
+      "archive": "expansion-pack/x_watchlist-1.0.0.zip",
+      "sha256": "8e3324c95ca030c7c5dec2f58fa5e8130269143fcd50b1753c29c224e0d63e5f"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_wiki",
+      "name": "版本知识页",
+      "commands": [
+        "/知识页"
+      ],
+      "archive": "expansion-pack/x_wiki-1.0.0.zip",
+      "sha256": "c0bf172fb9fd9c44683c28d5329319a0c5d159dc209f45ef8319ff845b7e1bbe"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_wishlist",
+      "name": "愿望优先级",
+      "commands": [
+        "/愿望单"
+      ],
+      "archive": "expansion-pack/x_wishlist-1.0.0.zip",
+      "sha256": "9eea9b3581bb7bdb57bb2fb9b1c53dbf3972bf173d060e682769145f6febbb9c"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_wordchain",
+      "name": "成语接龙",
+      "commands": [
+        "/成语接龙"
+      ],
+      "archive": "expansion-pack/x_wordchain-1.0.0.zip",
+      "sha256": "cb3e451a790a3d696dfbce90cb5d30c3355d8dbaf81fc3e9b8a39f2d1fcc7fb8"
+    },
+    {
+      "pack": "expansion-pack",
+      "id": "x_yahtzee",
+      "name": "快艇骰子",
+      "commands": [
+        "/快艇骰子"
+      ],
+      "archive": "expansion-pack/x_yahtzee-1.0.0.zip",
+      "sha256": "a50360c7a34897f04a682b45c8296781e8bdf601c758b78e33bdbadaedc84abe"
+    },
+    {
+      "pack": "interaction-pack",
+      "id": "i_auction",
+      "name": "纯虚拟拍卖",
+      "commands": [
+        "/虚拟拍卖"
+      ],
+      "archive": "interaction-pack/i_auction-1.0.0.zip",
+      "sha256": "70e84e42738324fc27392ae44c6fcb94358630b282156a411532afe8aa85d406"
+    },
+    {
+      "pack": "interaction-pack",
+      "id": "i_buzzer",
+      "name": "抢答计分",
+      "commands": [
+        "/抢答"
+      ],
+      "archive": "interaction-pack/i_buzzer-1.0.0.zip",
+      "sha256": "f305c5475368c7921d3f1383483fbc30090b113e6946ec46fc149eb9a53f472a"
+    },
+    {
+      "pack": "interaction-pack",
+      "id": "i_dots",
+      "name": "点格棋",
+      "commands": [
+        "/点格棋"
+      ],
+      "archive": "interaction-pack/i_dots-1.0.0.zip",
+      "sha256": "3f926fbc053897909a2a1cb8d03bf8e6b079126ccec85807b4845a35aad81b5b"
+    },
+    {
+      "pack": "interaction-pack",
+      "id": "i_guess",
+      "name": "你说我猜",
+      "commands": [
+        "/你说我猜"
+      ],
+      "archive": "interaction-pack/i_guess-1.0.0.zip",
+      "sha256": "49219db9f6d4f225392294b80a1c36cc4b94054d015a934f5a6e3290fd73c08a"
+    },
+    {
+      "pack": "interaction-pack",
+      "id": "i_nim",
+      "name": "取石子",
+      "commands": [
+        "/取石子"
+      ],
+      "archive": "interaction-pack/i_nim-1.0.0.zip",
+      "sha256": "35c6a3b9b35ac2aaf305bb9f6437de65f50e7363e6faceda9af6f43925371ea6"
+    },
+    {
+      "pack": "interaction-pack",
+      "id": "i_set",
+      "name": "SET集合牌",
+      "commands": [
+        "/集合牌"
+      ],
+      "archive": "interaction-pack/i_set-1.0.0.zip",
+      "sha256": "2d463e8525c3070dc9b9d17693b946b4014675631dfdda6a8a19e4303db021ad"
+    },
+    {
+      "pack": "interaction-pack",
+      "id": "i_story",
+      "name": "轮流续写",
+      "commands": [
+        "/续写"
+      ],
+      "archive": "interaction-pack/i_story-1.0.0.zip",
+      "sha256": "1cd94d07dcdd8b6b1530b7970f22b4fdae43072191eb920a9599b31b91065993"
+    },
+    {
+      "pack": "interaction-pack",
+      "id": "i_teams",
+      "name": "队长蛇形选队",
+      "commands": [
+        "/选队"
+      ],
+      "archive": "interaction-pack/i_teams-1.0.0.zip",
+      "sha256": "aeded5d449c65d570a23e26818315e44e6a4e2a457072d77b187ba0886e67b07"
+    },
+    {
+      "pack": "interaction-pack",
+      "id": "i_topics",
+      "name": "群话题箱",
+      "commands": [
+        "/话题箱"
+      ],
+      "archive": "interaction-pack/i_topics-1.0.0.zip",
+      "sha256": "bab3d24dec601ba8f9541eef2a015f8cead4f55b87e66a7828b91fe416131fb4"
+    },
+    {
+      "pack": "interaction-pack",
+      "id": "i_truth",
+      "name": "真心话大冒险",
+      "commands": [
+        "/真心冒险"
+      ],
+      "archive": "interaction-pack/i_truth-1.0.0.zip",
+      "sha256": "2a378b70f517ff39635aa4670e6c7b281fb7a26ebed2f8e14f07107ba07969be"
+    },
+    {
+      "pack": "interaction-pack",
+      "id": "i_turtle",
+      "name": "海龟汤主持",
+      "commands": [
+        "/海龟汤"
+      ],
+      "archive": "interaction-pack/i_turtle-1.0.0.zip",
+      "sha256": "4a6c76c7cee7ce2c930cc07880b6ac020ec779592af952790554a90111875916"
+    },
+    {
+      "pack": "interaction-pack",
+      "id": "i_undercover",
+      "name": "谁是卧底",
+      "commands": [
+        "/谁是卧底"
+      ],
+      "archive": "interaction-pack/i_undercover-1.0.0.zip",
+      "sha256": "d56930c3ff01e53deb819082a3c9d7317ddfa7491aab8896da949241a3d5e464"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "answer_book",
+      "name": "答案之书",
+      "commands": [
+        "/答案之书"
+      ],
+      "archive": "mai-pack/answer_book-1.0.0.zip",
+      "sha256": "44a81e4381646de9b46437db82d1eeb532aa6c1b47255fcc88bf8eb468aec1b9"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "daily_greetings",
+      "name": "早晚安记录",
+      "commands": [
+        "/早安",
+        "/晚安"
+      ],
+      "archive": "mai-pack/daily_greetings-1.0.0.zip",
+      "sha256": "83abdab149c3836af4d172787450e96c2ed7d16268f443dd4a0b370859db2498"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "daily_luck",
+      "name": "今日幸运小签",
+      "commands": [
+        "/今日运势"
+      ],
+      "archive": "mai-pack/daily_luck-1.0.0.zip",
+      "sha256": "fa080b573215c46777b77a005199bda02dc3846715388802b77513d541675d86"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "decision",
+      "name": "随机选择工具",
+      "commands": [
+        "/选择",
+        "/硬币",
+        "/随机数"
+      ],
+      "archive": "mai-pack/decision-1.0.0.zip",
+      "sha256": "53462ec836428ec7b242b49918aac3229107f70ef3c8578de8b2de314bd8e3aa"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "f1_info",
+      "name": "F1赛事与积分",
+      "commands": [
+        "/f1",
+        "/F1"
+      ],
+      "archive": "mai-pack/f1_info-1.0.0.zip",
+      "sha256": "8729061631acf977a2761d293f4ecc49e099c90ce79a644aeb62a7792b5fb8f2"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "game_news",
+      "name": "Steam游戏更新",
+      "commands": [
+        "/游戏更新"
+      ],
+      "archive": "mai-pack/game_news-1.0.0.zip",
+      "sha256": "0c69731446b2859781b92c2595db635cba6ece8118af745793c417248de7720f"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "guess_number",
+      "name": "四位数AB猜谜",
+      "commands": [
+        "/猜数字"
+      ],
+      "archive": "mai-pack/guess_number-1.0.0.zip",
+      "sha256": "395a9684d382d78206528257eaaa748faf4be84f2c5a7cb2be6bc874346c1395"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "polls",
+      "name": "会话投票",
+      "commands": [
+        "/投票"
+      ],
+      "archive": "mai-pack/polls-1.0.0.zip",
+      "sha256": "17a7d4fda24d0321d6112c87fc2326d1ad45cad60a1fca08cdc8f0872fb2dcf0"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "quotes",
+      "name": "会话语录收藏",
+      "commands": [
+        "/语录"
+      ],
+      "archive": "mai-pack/quotes-1.0.0.zip",
+      "sha256": "22faf3e35dcd380a0693bdfd612a7bf2540f2741d1b2cf807920afea5f9e34b4"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "rps",
+      "name": "石头剪刀布",
+      "commands": [
+        "/猜拳"
+      ],
+      "archive": "mai-pack/rps-1.0.0.zip",
+      "sha256": "ae4f8707ee5b5520dbc9b8093513f3c9c1dd3f9f9457d951227332dac6d32758"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "tarot",
+      "name": "塔罗灵感抽牌",
+      "commands": [
+        "/塔罗"
+      ],
+      "archive": "mai-pack/tarot-1.0.0.zip",
+      "sha256": "7b536baf72a79c138b6fcbac4ee9482b8ad35aaac6ba7cba2c60219c514514f3"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "text_tools",
+      "name": "文字编码与统计",
+      "commands": [
+        "/字数",
+        "/Base64",
+        "/解Base64",
+        "/哈希",
+        "/URL编码",
+        "/URL解码"
+      ],
+      "archive": "mai-pack/text_tools-1.0.0.zip",
+      "sha256": "48f6813ce6ae1e1400520bf33355efc9d9313261b08f08adab8b6847ae59ed70"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "time_tools",
+      "name": "世界时间与日历倒数",
+      "commands": [
+        "/时间",
+        "/倒数"
+      ],
+      "archive": "mai-pack/time_tools-1.0.0.zip",
+      "sha256": "68555de9561cb9aa256b6e45192fd5e41675694112e13ae8685cc35d285aff90"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "todo_notes",
+      "name": "待办与私人便签",
+      "commands": [
+        "/待办",
+        "/便签"
+      ],
+      "archive": "mai-pack/todo_notes-1.0.0.zip",
+      "sha256": "d03d97db47d4deb334a8f4625dd07a24d70dad0b5e7bccbdbd819efc164cbe88"
+    },
+    {
+      "pack": "mai-pack",
+      "id": "wordle",
+      "name": "五字母猜词",
+      "commands": [
+        "/猜词"
+      ],
+      "archive": "mai-pack/wordle-1.0.0.zip",
+      "sha256": "343c5b32fe381e96dc8c9dfed13b4f57ca2607157b6239e72a937aa8436d69a0"
+    },
+    {
+      "pack": "market2-pack",
+      "id": "m_abbr",
+      "name": "神奇海螺缩写释义",
+      "commands": [
+        "/缩写"
+      ],
+      "archive": "market2-pack/m_abbr-1.0.0.zip",
+      "sha256": "1ddc7b7900036211bc1fcb39eb1a7ec980367952379a219debd7fa679626b540"
+    },
+    {
+      "pack": "market2-pack",
+      "id": "m_bangumi",
+      "name": "Bangumi公开番剧查询",
+      "commands": [
+        "/番剧"
+      ],
+      "archive": "market2-pack/m_bangumi-1.0.0.zip",
+      "sha256": "0ab70bb964857f7c884c7eeb7fbbb12aa32610c11dafd14ed12fd7647bf95b2f"
+    },
+    {
+      "pack": "market2-pack",
+      "id": "m_bing",
+      "name": "Bing每日一图链接",
+      "commands": [
+        "/每日壁纸"
+      ],
+      "archive": "market2-pack/m_bing-1.0.0.zip",
+      "sha256": "fd574eb265afc0e951f46e83247fa81cb85efb8d9ba69ae1ffab9021bd763308"
+    },
+    {
+      "pack": "market2-pack",
+      "id": "m_ics",
+      "name": "ICS个人课程表",
+      "commands": [
+        "/课表"
+      ],
+      "archive": "market2-pack/m_ics-1.0.0.zip",
+      "sha256": "41751418cbbc94f0070baa073aada37e565dcac39a8d3b50aff9d956a6d4b78e"
+    },
+    {
+      "pack": "market2-pack",
+      "id": "m_mahjong",
+      "name": "麻将结构听牌与原创训练",
+      "commands": [
+        "/听牌",
+        "/和牌",
+        "/麻将训练"
+      ],
+      "archive": "market2-pack/m_mahjong-1.0.0.zip",
+      "sha256": "1046e177ba92bbfc43ef656ba68e84f5595898504ed55255a64dc095380dbb20"
+    },
+    {
+      "pack": "market2-pack",
+      "id": "m_rss",
+      "name": "个人RSS手动订阅",
+      "commands": [
+        "/订阅源"
+      ],
+      "archive": "market2-pack/m_rss-1.0.0.zip",
+      "sha256": "1ee1040dd900b38a02950bfcd1cdd9dd493f7b24647156c96e5c39aa0b2866aa"
+    },
+    {
+      "pack": "market2-pack",
+      "id": "m_uno",
+      "name": "文字UNO房间",
+      "commands": [
+        "/UNO",
+        "/uno"
+      ],
+      "archive": "market2-pack/m_uno-1.0.0.zip",
+      "sha256": "a13b73116c2ffba02d464414e9344bc1dbfe0a807db7fa9ccfcf3a030e4bb311"
+    },
+    {
+      "pack": "market2-pack",
+      "id": "m_webtext",
+      "name": "公开网页正文摘录",
+      "commands": [
+        "/网页正文"
+      ],
+      "archive": "market2-pack/m_webtext-1.0.0.zip",
+      "sha256": "b6692f35ea1bbf8c0e40e10f105043bc46ad950eb04a13627f065d10f2dfa2a8"
+    }
+  ]
+}

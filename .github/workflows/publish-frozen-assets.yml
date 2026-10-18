@@ -1,0 +1,81 @@
+name: Publish verified v0.6.2 assets
+on:
+  push:
+    branches: ['release-assets/v0.6.2']
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: publish-yukino-v0.6.2
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'Le672/yukino-core' && github.ref == 'refs/heads/release-assets/v0.6.2'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/github-script@v9.0.0
+        with:
+          script: |
+            const fs = require('node:fs');
+            const crypto = require('node:crypto');
+            const {owner, repo} = context.repo;
+            const manifest = JSON.parse(fs.readFileSync('upload-manifest.json', 'utf8'));
+            const expectedNames = [
+              'SHA256SUMS.txt', 'YukinoCore-0.6.2-Windows-x64-build2-portable.zip',
+              'yukino-core-0.6.2-source.zip', 'yukino-core-0.6.2-release-manifest.json',
+              'yukino-core-0.6.2-windows-manifest.json', 'yukino-plugins-109-1.0.0.zip',
+              'yukino-plugins-109-1.0.0-catalog.json'
+            ].sort();
+            if (manifest.tag !== 'v0.6.2' || manifest.release_id !== 416280431 ||
+                JSON.stringify(manifest.files.map(f => f.name).sort()) !== JSON.stringify(expectedNames)) {
+              throw new Error('Unexpected release or asset set');
+            }
+            const run = (await github.rest.actions.getWorkflowRun({owner, repo, run_id: manifest.verified_run_id})).data;
+            if (run.head_sha !== manifest.source_commit || run.conclusion !== 'success') {
+              throw new Error('Source commit must have successful cross-platform checks');
+            }
+            const release_id = manifest.release_id;
+            let release = (await github.rest.repos.getRelease({owner, repo, release_id})).data;
+            if (release.tag_name !== manifest.tag) throw new Error('Release tag mismatch');
+            const sha256 = data => crypto.createHash('sha256').update(data).digest('hex');
+            for (const file of manifest.files) {
+              const data = fs.readFileSync('assets/' + file.name);
+              if (data.length !== file.bytes || sha256(data) !== file.sha256) {
+                throw new Error('Frozen asset checksum mismatch: ' + file.name);
+              }
+              const existing = release.assets.find(a => a.name === file.name);
+              if (existing) {
+                if (existing.state !== 'uploaded' || existing.size !== file.bytes || existing.digest !== 'sha256:' + file.sha256) {
+                  throw new Error('Refusing to replace different existing asset: ' + file.name);
+                }
+                core.info('Already verified: ' + file.name);
+                continue;
+              }
+              if (!release.draft) throw new Error('Refusing to add missing files to an already published release');
+              const uploaded = (await github.rest.repos.uploadReleaseAsset({owner, repo, release_id,
+                name: file.name, data, headers: {'content-type': 'application/octet-stream', 'content-length': data.length}
+              })).data;
+              if (uploaded.state !== 'uploaded' || uploaded.size !== file.bytes || uploaded.digest !== 'sha256:' + file.sha256) {
+                throw new Error('Uploaded asset verification failed: ' + file.name);
+              }
+              core.info('Uploaded and verified: ' + file.name);
+            }
+            release = (await github.rest.repos.getRelease({owner, repo, release_id})).data;
+            if (release.assets.length !== manifest.files.length) throw new Error('Unexpected asset count');
+            for (const file of manifest.files) {
+              const asset = release.assets.find(a => a.name === file.name);
+              if (!asset || asset.size !== file.bytes || asset.digest !== 'sha256:' + file.sha256) {
+                throw new Error('Final verification failed: ' + file.name);
+              }
+            }
+            if (release.draft) {
+              release = (await github.rest.repos.updateRelease({owner, repo, release_id,
+                tag_name: manifest.tag, target_commitish: manifest.source_commit, draft: false,
+                prerelease: false, make_latest: 'true'
+              })).data;
+            }
+            await core.summary.addHeading('Yukino Core 0.6.2 published')
+              .addLink('Download release', release.html_url)
+              .addRaw('\n\nAll 7 assets verified against frozen SHA-256 hashes.\n').write();
