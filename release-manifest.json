@@ -2306,8 +2306,8 @@
     },
     {
       "path": "tests/test_resources.py",
-      "bytes": 24685,
-      "sha256": "7a9e4b7d1928b2b2a728b3bd441ad93dd7dba6f39dcec39a9bac2878e63111f8"
+      "bytes": 24879,
+      "sha256": "aafeb3916bb1ed7025ef33d4d2940d96692c880b64bb322df4ebdebc22bf6998"
     },
     {
       "path": "tests/test_settings.py",

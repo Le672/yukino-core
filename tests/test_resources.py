@@ -20,6 +20,9 @@ class ResourceTests(unittest.IsolatedAsyncioTestCase):
         self.tmp = tempfile.TemporaryDirectory()
         self.root = Path(self.tmp.name) / "resources"
         self.root.mkdir()
+        # GitHub's Windows temporary root may use an 8.3 alias; the library
+        # returns canonical paths, so compare against the same resolved root.
+        self.root = self.root.resolve()
 
     async def asyncTearDown(self):
         self.tmp.cleanup()
