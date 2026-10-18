@@ -15,9 +15,14 @@
       "sha256": "18dc478ba02f542152755224104a684005872be3401bee84394992344b16f3af"
     },
     {
+      "path": ".gitattributes",
+      "bytes": 14,
+      "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9"
+    },
+    {
       "path": ".github/workflows/ci.yml",
-      "bytes": 1824,
-      "sha256": "8a6dba7f8656f7b79c5c4ac13ed2363c133e31185f704e7683b17b792cf3e780"
+      "bytes": 2015,
+      "sha256": "dfaeb6ab43f4d9d662a96514872d0458f2ceb32915cbd2c3618c4feb036e77bf"
     },
     {
       "path": ".gitignore",
@@ -26,8 +31,8 @@
     },
     {
       "path": "ARCHITECTURE.md",
-      "bytes": 8517,
-      "sha256": "92532e6b94a56f1bf7bc0801a006aece3e56da0b8a75959ad1ba72fcb27b99da"
+      "bytes": 8373,
+      "sha256": "10ca7913e09d7c02ed523731d6ecb958c611172e173de0745424535214873cac"
     },
     {
       "path": "CHANGELOG.md",
@@ -41,13 +46,13 @@
     },
     {
       "path": "LICENSE",
-      "bytes": 1085,
-      "sha256": "28ca83024584d7ea2b6a642ca229356d50d5eaf58a10323d482c355fbc2099fa"
+      "bytes": 1064,
+      "sha256": "eec0dcba58f6d4e92d98f2fa3a61f86235e1b322aa512bc40daa8886a4f9cfb3"
     },
     {
       "path": "README.md",
-      "bytes": 8688,
-      "sha256": "50cbbfc91c5781d3682b8bd84eeb110125fb10ae0a9b268129a064cd9b534d30"
+      "bytes": 8635,
+      "sha256": "54c4809c51f379a22e625f951c2aec77baa47bca8efd89cd6a36e7aaf9a1fd10"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -56,13 +61,13 @@
     },
     {
       "path": "compose.release.yaml",
-      "bytes": 1033,
-      "sha256": "370dbdaafe59f5f984162ade4bcfa1cbdb4f333f2c8aaf92434c49354c0acdcc"
+      "bytes": 997,
+      "sha256": "255d224852cc5b5028afa8755ecf003402a66b6bc80efe768c89868ef87498f1"
     },
     {
       "path": "config.example.json",
-      "bytes": 1149,
-      "sha256": "322105073802365e0954ad2fc7184af57d39c3f319b98d21c49f3103a4871012"
+      "bytes": 1109,
+      "sha256": "e46af0f368aa805cd04921bce38ac8b8ea2d7e39d51748bd8be763777330d07e"
     },
     {
       "path": "docs/COMMUNITY_PLUGINS.md",
@@ -76,18 +81,18 @@
     },
     {
       "path": "docs/EXPANSION_PLUGINS.md",
-      "bytes": 7810,
-      "sha256": "0c11b705167227d4a98e19af317ddcb23559df9579fb7273d538230d7d943390"
+      "bytes": 7704,
+      "sha256": "df9d7d356cf7b1d436e2af283db549439a608f2ca0e6edd7a68c2c8043fe90bd"
     },
     {
       "path": "docs/INTERACTION_PLUGINS.md",
-      "bytes": 3274,
-      "sha256": "2cba03c2cc92da10ed5c0957e8be6f1fcb36a33857c5d525a9156231526cbf51"
+      "bytes": 3273,
+      "sha256": "5261ac543a02bd5b717af414346db8fd1cc2a54c9f08df9e6a0573ac01415c4b"
     },
     {
       "path": "docs/LICENSE_REVIEW.md",
-      "bytes": 4800,
-      "sha256": "2af3c2f501bd4ac80e5fbf6226a3d61379132b43920fc80139a1e258344e6d2b"
+      "bytes": 4764,
+      "sha256": "04f16895913f35dbed8b80beede0ac9aca0773514909a6cff679a4923a7d2635"
     },
     {
       "path": "docs/MAI_EXTENSIONS.md",
@@ -106,23 +111,23 @@
     },
     {
       "path": "docs/PLUGINS.md",
-      "bytes": 7691,
-      "sha256": "d58509f84f09d18b345f48cfe757a025e3d2e51ed8b88943fd6785412c9e5765"
+      "bytes": 7564,
+      "sha256": "4581b2a49ff4bab08ec59376af4c4520a0cc63e3a5419b54b90e21255a54a3d5"
     },
     {
       "path": "docs/PLUGIN_AUTHORING.md",
-      "bytes": 26236,
-      "sha256": "163f44e10fd394d86a5a194fab236a7cd1ff0a13796305238d224a218014c7e1"
+      "bytes": 25790,
+      "sha256": "10354c5d8385c4dfafbf716ae3f0bd3d89c95e3dd4786a3155fd3469622ed245"
     },
     {
       "path": "docs/QUICKSTART.md",
-      "bytes": 4720,
-      "sha256": "8003d116c5f2c66aed6fa1ada54fc078bbca2e1dbb5ec64a7ae6273086c1cbcc"
+      "bytes": 4652,
+      "sha256": "6af6a6a009aa40a6cc524d67e14c8e49bda7484ef7146cc420a5b171656764fc"
     },
     {
       "path": "docs/RELEASE.md",
-      "bytes": 3491,
-      "sha256": "575dfd68575f40d743bd7d3c9f983e11f4d94a42c632e65875073d45a2fcb31e"
+      "bytes": 3446,
+      "sha256": "e0023cb30849f72f6d1c212240f358da7a00f90c77a3305bb79c7fdc3ba9ef83"
     },
     {
       "path": "docs/licenses/Pillow-LICENSE.txt",
@@ -151,8 +156,8 @@
     },
     {
       "path": "docs/licenses/sources.json",
-      "bytes": 1510,
-      "sha256": "b3a270d07b56f05fd7b6c111e4df1fee3a137c909ae98356c77f57a965e3c761"
+      "bytes": 1472,
+      "sha256": "0886baca7680a25fbc919c625b5beeee4bb7f0b76788fc2487d23a43347f50e1"
     },
     {
       "path": "docs/licenses/video-downloader-LICENSE.txt",
@@ -161,8 +166,8 @@
     },
     {
       "path": "examples/plugins/hello_counter/LICENSE",
-      "bytes": 1085,
-      "sha256": "28ca83024584d7ea2b6a642ca229356d50d5eaf58a10323d482c355fbc2099fa"
+      "bytes": 1064,
+      "sha256": "eec0dcba58f6d4e92d98f2fa3a61f86235e1b322aa512bc40daa8886a4f9cfb3"
     },
     {
       "path": "examples/plugins/hello_counter/README.md",
@@ -196,8 +201,8 @@
     },
     {
       "path": "extensions/community_pack/SOURCES.md",
-      "bytes": 2423,
-      "sha256": "c1bd3b95c9bd8737151445447d2c2be632eda489e98b47a38c0aeaa12c475d9c"
+      "bytes": 2398,
+      "sha256": "c88e44b7162a8fe9d6c946a55b5ada21fc5f015354939ec09bf6c47898050e60"
     },
     {
       "path": "extensions/community_pack/build_pack.py",
@@ -206,18 +211,18 @@
     },
     {
       "path": "extensions/community_pack/plugins/affinity/LICENSE",
-      "bytes": 1097,
-      "sha256": "e9cde4f3d381603ec5470930d92fb4a970f47ffbc8633852b67a2f9effa01513"
+      "bytes": 1076,
+      "sha256": "6a9e5d471df79f7a83ac3f172fc7c258874e8525d8348cf97ee579fe714ef393"
     },
     {
       "path": "extensions/community_pack/plugins/affinity/README.md",
-      "bytes": 1351,
-      "sha256": "b9a873fbe8c51dc685f0c4168cbcee46b939b4cb729c684a3b7534b0e7099a1e"
+      "bytes": 1336,
+      "sha256": "db47d9fbaa43fd395d49e1e3aded1ae13bb37c3d982f9d217cc50f2c05b8de83"
     },
     {
       "path": "extensions/community_pack/plugins/affinity/plugin.json",
-      "bytes": 1133,
-      "sha256": "585e857fea54e9cb4b9527313d6126b5909beeec1a97e3701ca8e35cf6daa377"
+      "bytes": 1081,
+      "sha256": "34c904e9eb070b7fe1580faa6a4fad22fae94073c6f71ea611b2abe09fb5b530"
     },
     {
       "path": "extensions/community_pack/plugins/affinity/worker.py",
@@ -226,8 +231,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/bili_query/README.md",
-      "bytes": 1317,
-      "sha256": "1baf09cd7f555babcd64977f671574fd2e80c0ae1ba9e6bcd546e51e8b823af1"
+      "bytes": 1304,
+      "sha256": "4615496362fd035f4b57f4b223d257fee6a5be86bd9fe6d2574aa4f57fccca73"
     },
     {
       "path": "extensions/community_pack/plugins/bili_query/_net.py",
@@ -236,8 +241,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/bili_query/plugin.json",
-      "bytes": 441,
-      "sha256": "afaf9b5a4e56a694adbdeef9b94bca26a9508490b8096ec4ed109ff32a9a65dc"
+      "bytes": 419,
+      "sha256": "d9c60cc0a9d23379a355073c2d94adf9ab59d5512ff7a41b9a7053c110cbf676"
     },
     {
       "path": "extensions/community_pack/plugins/bili_query/worker.py",
@@ -246,18 +251,18 @@
     },
     {
       "path": "extensions/community_pack/plugins/daily_economy/LICENSE",
-      "bytes": 1097,
-      "sha256": "e9cde4f3d381603ec5470930d92fb4a970f47ffbc8633852b67a2f9effa01513"
+      "bytes": 1076,
+      "sha256": "6a9e5d471df79f7a83ac3f172fc7c258874e8525d8348cf97ee579fe714ef393"
     },
     {
       "path": "extensions/community_pack/plugins/daily_economy/README.md",
-      "bytes": 1575,
-      "sha256": "5e02fbff5c287e2a088d6b040e8f45ed056fbc2aeea9b8bb43e54fb4d6a193c9"
+      "bytes": 1560,
+      "sha256": "f1a3f4f32a0ac8c95012b8d515e7caaf02ffa9c4d5afd7eab68924e4e889a931"
     },
     {
       "path": "extensions/community_pack/plugins/daily_economy/plugin.json",
-      "bytes": 1418,
-      "sha256": "ec6305cd6976d999a95a89ef2870680b648ef073a3d4246ee1c53d07074936ad"
+      "bytes": 1359,
+      "sha256": "fe7929a003f648ccb077855bb4835c3ee8f4afff6d7513613929b186a4514d1e"
     },
     {
       "path": "extensions/community_pack/plugins/daily_economy/worker.py",
@@ -266,18 +271,18 @@
     },
     {
       "path": "extensions/community_pack/plugins/eat_what/LICENSE",
-      "bytes": 1097,
-      "sha256": "e9cde4f3d381603ec5470930d92fb4a970f47ffbc8633852b67a2f9effa01513"
+      "bytes": 1076,
+      "sha256": "6a9e5d471df79f7a83ac3f172fc7c258874e8525d8348cf97ee579fe714ef393"
     },
     {
       "path": "extensions/community_pack/plugins/eat_what/README.md",
-      "bytes": 1056,
-      "sha256": "7ba4d18c1dbebb2fb6731b9dce232c4ff49e7bd0bc31b3b8e8ef17e1327d2380"
+      "bytes": 1045,
+      "sha256": "9aeaf1dddc68b3fccef7ce87291ef04bfcc4ef32452a7778833bd0b7ce574fd0"
     },
     {
       "path": "extensions/community_pack/plugins/eat_what/plugin.json",
-      "bytes": 769,
-      "sha256": "b2ca9f1fdf4e8d9b2efe61bc41c60a53423f568837f40b95d73638d31e0485e4"
+      "bytes": 742,
+      "sha256": "28a5942090f8889ac43959388ed4fe4a7e4e527df28498270a06ea0f21009f9c"
     },
     {
       "path": "extensions/community_pack/plugins/eat_what/worker.py",
@@ -286,8 +291,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/hot_trends/README.md",
-      "bytes": 1352,
-      "sha256": "84e2a1dc4ad7dd43af592aabc49485b3a75d2de4716dfcd076725f059124830a"
+      "bytes": 1339,
+      "sha256": "84a2d0c718c4c670447c2cb22f79f72cf675d454648078e250c83410873b2dab"
     },
     {
       "path": "extensions/community_pack/plugins/hot_trends/_net.py",
@@ -296,8 +301,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/hot_trends/plugin.json",
-      "bytes": 611,
-      "sha256": "56a2222b601476c16644a2ef2d2efaec5b0c4d5e8ce0385655d1968c4a0e7a29"
+      "bytes": 580,
+      "sha256": "77ae583ae0a90cf6a0d800059bc552124f386d82c3d9737791d56ca5b650d908"
     },
     {
       "path": "extensions/community_pack/plugins/hot_trends/worker.py",
@@ -306,8 +311,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/mc_status/README.md",
-      "bytes": 1463,
-      "sha256": "ebc958db158791538dab92f595f97f37b92aaaa1f83cffc9f36d77043dd9f1a0"
+      "bytes": 1451,
+      "sha256": "1e936856e0e66b9a81d0e5aa445cd2a40b385a8b4d1e6a796daf4dad3e50de8f"
     },
     {
       "path": "extensions/community_pack/plugins/mc_status/_net.py",
@@ -316,8 +321,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/mc_status/plugin.json",
-      "bytes": 238,
-      "sha256": "8ad27e6ef63470d4282baf6c23c84460dd568784fe9021c5ef24dbc819cab515"
+      "bytes": 227,
+      "sha256": "3a2c3fbd4c4dd9f19af92333f377fb052dbdd642adedae82461162e7f3fe02fc"
     },
     {
       "path": "extensions/community_pack/plugins/mc_status/worker.py",
@@ -326,18 +331,18 @@
     },
     {
       "path": "extensions/community_pack/plugins/member_aliases/LICENSE",
-      "bytes": 1097,
-      "sha256": "e9cde4f3d381603ec5470930d92fb4a970f47ffbc8633852b67a2f9effa01513"
+      "bytes": 1076,
+      "sha256": "6a9e5d471df79f7a83ac3f172fc7c258874e8525d8348cf97ee579fe714ef393"
     },
     {
       "path": "extensions/community_pack/plugins/member_aliases/README.md",
-      "bytes": 1336,
-      "sha256": "e07e5eb25e1f905a1c866411efc77b0eecbbebe1daaab13fa4827b7ddb45f68c"
+      "bytes": 1321,
+      "sha256": "d28791184ecd29b73b9186bf168ecca69d40f4444722120a48aa340112adfe0a"
     },
     {
       "path": "extensions/community_pack/plugins/member_aliases/plugin.json",
-      "bytes": 444,
-      "sha256": "d9c6884574ac98d3a33fe4232946740397b6e226870429aec4c398ca91f83533"
+      "bytes": 424,
+      "sha256": "35759883b3ba659b8b6f5ff09a9642694b646f20d65f719fe040a6ea8e69e8d0"
     },
     {
       "path": "extensions/community_pack/plugins/member_aliases/worker.py",
@@ -346,8 +351,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/music_search/README.md",
-      "bytes": 1253,
-      "sha256": "8e5c0a59f7183a41536ac7f5d5a2a77b88ffe157264c5754c2b53132fa464b8f"
+      "bytes": 1241,
+      "sha256": "add24d4c905710ca1b0c0e24a87f8acb4a7ed54cd286499923ef8f69271e7727"
     },
     {
       "path": "extensions/community_pack/plugins/music_search/_net.py",
@@ -356,8 +361,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/music_search/plugin.json",
-      "bytes": 396,
-      "sha256": "880f9649265047f0ed71c37b77f50bf24aafb255133c12285d8b8cd1c5219409"
+      "bytes": 376,
+      "sha256": "fc14720ae448cc6553742e3ab86d86ed99763da71ce1b587746fced1be0a8a2c"
     },
     {
       "path": "extensions/community_pack/plugins/music_search/worker.py",
@@ -366,8 +371,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/steam_query/README.md",
-      "bytes": 1263,
-      "sha256": "2b8d0f0e14fc37cfcf6b1a4d286b0f9cfae63139e28eeb18bca170e79eafdfdd"
+      "bytes": 1251,
+      "sha256": "2ac06ecc4adbba374892fe0a3d2fd9b88f4b5e2652b1d03023da6711c4a502e4"
     },
     {
       "path": "extensions/community_pack/plugins/steam_query/_net.py",
@@ -376,8 +381,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/steam_query/plugin.json",
-      "bytes": 574,
-      "sha256": "4d7f1cb647660a4e6ee5ebdf37623068acb594cfff9fba719a2fc585c0a06478"
+      "bytes": 546,
+      "sha256": "7ac5bff05f24473bc1d40d049346b2322ec00e1f832aba677e44d747effa2b6d"
     },
     {
       "path": "extensions/community_pack/plugins/steam_query/worker.py",
@@ -386,18 +391,18 @@
     },
     {
       "path": "extensions/community_pack/plugins/trpg_dice/LICENSE",
-      "bytes": 1097,
-      "sha256": "e9cde4f3d381603ec5470930d92fb4a970f47ffbc8633852b67a2f9effa01513"
+      "bytes": 1076,
+      "sha256": "6a9e5d471df79f7a83ac3f172fc7c258874e8525d8348cf97ee579fe714ef393"
     },
     {
       "path": "extensions/community_pack/plugins/trpg_dice/README.md",
-      "bytes": 1689,
-      "sha256": "1aa73df2a4787066b326d907407e18ec93532274467b677e9da7d477f0394a55"
+      "bytes": 1672,
+      "sha256": "75d90d890f3877f0de48ccffc8b31df7825b8d760cf16ecf77a12210e199dba0"
     },
     {
       "path": "extensions/community_pack/plugins/trpg_dice/plugin.json",
-      "bytes": 646,
-      "sha256": "0ab6e8de2b2779208b31bbc8461e4ddad89addbd8c2fd706dab50c0bd872181a"
+      "bytes": 615,
+      "sha256": "1cf57592b3e7590def154fe90703a2f44defa6fa051332933e035b7f5b9512c3"
     },
     {
       "path": "extensions/community_pack/plugins/trpg_dice/worker.py",
@@ -406,8 +411,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/weather_query/README.md",
-      "bytes": 1483,
-      "sha256": "916c61bcdb807ebb2661e23868588e0526dbfda9509bbd50169a0d3eb30ceca4"
+      "bytes": 1470,
+      "sha256": "22bce64a1642376e935a6781b2e1964566f18bf135354284af1b9f526c1ff13f"
     },
     {
       "path": "extensions/community_pack/plugins/weather_query/_net.py",
@@ -416,8 +421,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/weather_query/plugin.json",
-      "bytes": 561,
-      "sha256": "0bc9e1b97ab406942d2e72a8a4a205a90a08e556e27da4716d381bf2eb1227ac"
+      "bytes": 535,
+      "sha256": "f234eb621e99dae778910d7582782a8d1863f7c1e87e73ff2c284fd39c2da21d"
     },
     {
       "path": "extensions/community_pack/plugins/weather_query/worker.py",
@@ -456,8 +461,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/catalog.json",
-      "bytes": 5963,
-      "sha256": "f468632496ccf3b6db195ab9d27f461849b9771aa2e176b7bf2a7863ba2ed785"
+      "bytes": 5743,
+      "sha256": "57cf402049047059f86006ee5400fcf027fa15709bebb02b990e7d60cb3764cf"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/dev_engine.py",
@@ -466,323 +471,323 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/generate_catalog.py",
-      "bytes": 13032,
-      "sha256": "8b90a633e95b22c24b4675c94b91fe2d0ee5271740a43f97aa7eb92cf5f322ee"
+      "bytes": 12936,
+      "sha256": "2f0fe41ce8e0050a0406366bde78f2d15f08f67134c9588708b4a4e5064085bd"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_color/README.md",
-      "bytes": 1099,
-      "sha256": "6739118d5a70e3ab3cbfd1eb785c4470903ce87a91f557e1d68f730c18bb95fd"
+      "bytes": 1072,
+      "sha256": "1f2466b2a788ba79740895b9b71295f666d47ea3fd99ca39f172c9dc1bbe92c8"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_color/plugin.json",
-      "bytes": 462,
-      "sha256": "51de3ca97fce3f9650705039f259c2b1391534f6b8db73592a729bc0ea93c729"
+      "bytes": 441,
+      "sha256": "e2f87dd32ea8d95463afbc56eb8779ac5401a7279d662900b7e4e04a3889df31"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_color/worker.py",
-      "bytes": 597,
-      "sha256": "1ee9c65e0f69b0956419cd4e79cafabe7ea1d3fef183926e03663fe2bf61c2dc"
+      "bytes": 582,
+      "sha256": "659a44d3171ed910b9dc00feaa27fd418f6655b16fc8d041be0e105c494e51b6"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_cron/README.md",
-      "bytes": 1410,
-      "sha256": "26c4ddf60ed7ed8adee720fd52c6ea640e9916f3c96747b9039ffacbc587c4e9"
+      "bytes": 1380,
+      "sha256": "a7d5e5c602917d29a6c0d6c9b03c8ef4fbdd31ce7bba2b0afa0394580bf0bf22"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_cron/plugin.json",
-      "bytes": 984,
-      "sha256": "885897b30d2960d180cb954f1827ee27f33395a87fcd39f4cf054a4e83beca9b"
+      "bytes": 939,
+      "sha256": "6a9b42955cdbb6c0c9bbb730d7431ddd83a2fc1964d8f5af467c817ab022ca4a"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_cron/worker.py",
-      "bytes": 601,
-      "sha256": "9b805504335d438746dc9813c24601e5d2004a2c7e74633112424f38e5dfaeb1"
+      "bytes": 586,
+      "sha256": "f73bf1d39756ad13a4135b68a976f603aa8a87f78bd90ff691431f2b035d6cac"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_csv/README.md",
-      "bytes": 1193,
-      "sha256": "a8d90cf2e6aca2071613b0fd7ddfa0dc3986d4806ddeb4531f3cdb59b78eebf8"
+      "bytes": 1162,
+      "sha256": "ff41b161eeb3c88a8ffa9765f495fc40ae556d148a99c9f86ed88365e3e8a315"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_csv/plugin.json",
-      "bytes": 725,
-      "sha256": "1b1a6ccb5324cf1622f39201bb8eaed97dc87e41649e598709724a1c78bff2c7"
+      "bytes": 693,
+      "sha256": "35a89fde5e87c354c3718bf186829f69628f864676c42ac5dd0df8c6a72ac49f"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_csv/worker.py",
-      "bytes": 585,
-      "sha256": "e8b7decc8b040a3835d1598fde9d63027754c390eb8c7313716af3711efb7f71"
+      "bytes": 570,
+      "sha256": "a6613adc99486b6261c71e4180f63491686d6734a87bdbe922773f6bcda5db2c"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_decimal/README.md",
-      "bytes": 1301,
-      "sha256": "969b1c826618287ab77ae551aa8e54af6a9220a557b7c9f03976a4a6db98c426"
+      "bytes": 1273,
+      "sha256": "db81776c19fcb3fa9a3190f87be52ec337c3157d0ec2841077a7fbeb3002f53e"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_decimal/plugin.json",
-      "bytes": 615,
-      "sha256": "cd6006f0d9b1817882e0581b9d7b99ed647932c2e157b74a4c8912b0ae0f19ac"
+      "bytes": 587,
+      "sha256": "e62721e3b31a6051c16edab771bd8cc4c1753a61099e375058d025c5cc764ddd"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_decimal/worker.py",
-      "bytes": 592,
-      "sha256": "abecddd7af00335ae97df06fb46e88dd5c6be1c4896933e5e40bffce81bbe348"
+      "bytes": 577,
+      "sha256": "a1a5b842543d89f25090e1279adb8b1e927c4b9b889f937ae893aafa37e105b1"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_diff/README.md",
-      "bytes": 1199,
-      "sha256": "f3a4ab79c5795154e928a7893b925ba978b1f975d67301b728166404b6af4b9a"
+      "bytes": 1171,
+      "sha256": "dcbc6a14b46e2eee8125cf5f715ac29e2dd27105a291ceb05be2729ab8a28a27"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_diff/plugin.json",
-      "bytes": 616,
-      "sha256": "b21c56d2c2115bf750cc488e1887bd864eec86129b7ef8378f526316637e3edd"
+      "bytes": 588,
+      "sha256": "e16414b8b0b04dfe8b1139d64a37b7340cb5d51338638cebdbeb4a9d45e16279"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_diff/worker.py",
-      "bytes": 589,
-      "sha256": "f271e7160f5a924705af539d210043b9b48ada2790a86a14817a708253ed814f"
+      "bytes": 574,
+      "sha256": "948fc9a1537994be779a216851f75d839476f62307de2c6894fc5b7c9853789d"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_epoch/README.md",
-      "bytes": 1234,
-      "sha256": "5b4c2e7239c91b24a68ab248b73790afe8d843a0f6701954c61e12eaf651e338"
+      "bytes": 1206,
+      "sha256": "69a8540febef28fb0d6ad4a6fa83e402dc8aa3d037b6d404146eeab6a6547d0b"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_epoch/plugin.json",
-      "bytes": 642,
-      "sha256": "9d54cbe1a5865f83121c24c2293d2d633a38f071d59fdff4c28f88f5c3cf91f9"
+      "bytes": 614,
+      "sha256": "08b0d6dffa6dfcb5a1a05e7d96505b98d721d841e7ab4d201caef7c63000516c"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_epoch/worker.py",
-      "bytes": 593,
-      "sha256": "b1fa68bb0497f6794b084c7f389dd563dc43dacf6a5543c245c7901fc49133ce"
+      "bytes": 578,
+      "sha256": "45649c0091516ecaca47435fb609f6840ee45d5caa75e6bb8fdafa70210e409c"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_http/README.md",
-      "bytes": 1100,
-      "sha256": "4bcb943021b2efa257be94a59664372710b8f1034e38ef38244d1f508678726c"
+      "bytes": 1073,
+      "sha256": "4f506fbfc2d70782672f56e6008dd15f3fd1d1e84b135bef05d5424e9018632a"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_http/plugin.json",
-      "bytes": 449,
-      "sha256": "c6c8eef2f170981a193237b86f0ba4f954d6dbe03e1f1e9ba563529b2f17849b"
+      "bytes": 428,
+      "sha256": "16e744086d879e0fe4c5d31dd7d559519f4eff41d87b5437a70200c21262b345"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_http/worker.py",
-      "bytes": 595,
-      "sha256": "4f0415e5f926a045247cf0a8a5e5a23ebbbef3393f24381f800c36f6b60ab7b8"
+      "bytes": 580,
+      "sha256": "ffa6a36970c8687f3208bf36b8def95780dc19db4b67f68c49c0da41dcf6c021"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_ip/README.md",
-      "bytes": 1102,
-      "sha256": "93f490036240abdee669e111f7e9ce1c6a0caec36d3ffb5e41971e42149a87e8"
+      "bytes": 1075,
+      "sha256": "203f5080d7c4fd01735feee6da7cceeb44451a99b3740158db344a9757d6c6c8"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_ip/plugin.json",
-      "bytes": 436,
-      "sha256": "15d02355e00d3a3450718d7b6e15ac135c1cd7d282062ac97f8ca20b108cf9f6"
+      "bytes": 416,
+      "sha256": "43273bd79dd7d82b4bb08bdcb843b2072779eeb0fcea7cca34db4bd5c3267eca"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_ip/worker.py",
-      "bytes": 583,
-      "sha256": "6d14e3cf0a824d6c7220036a182e10e325369ad308132cf461a935b5d9617827"
+      "bytes": 568,
+      "sha256": "4985ae6bc8acfdb377f4f0e2ed5c7787aa6a8eda35c9cdc1fcd68c30cf6c3042"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_json/README.md",
-      "bytes": 1171,
-      "sha256": "4527fa03367d3125c9df824f087bf7fcb1d855698e5987f883f5874055999008"
+      "bytes": 1143,
+      "sha256": "3ad6658d332bad762090434c079cdc94a77f12d324ce5a72cebbbbf69dd892d1"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_json/plugin.json",
-      "bytes": 629,
-      "sha256": "b01e8edc85b5fc5ff5190b51f7c24f7cc7648e1196c939cef87a4ed68fa89ea7"
+      "bytes": 600,
+      "sha256": "cb282eb9d5baf96a0b602c6dcbb630ea0914ab7a1fcc643fbc06e7c54513dc88"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_json/worker.py",
-      "bytes": 601,
-      "sha256": "96fa94b4461a6e5b5bc34d2092eed4f3e6eebcd57f2017087e5d237381102edd"
+      "bytes": 586,
+      "sha256": "bd7af9b4c8de1b4260bcb1489003f8c3fd6ac287cb36f7ef0082beadc6125b1a"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_markdown/README.md",
-      "bytes": 1268,
-      "sha256": "39dd3c8898773349068349cd2533f16b9118ddfa561430b62abca211c762aad8"
+      "bytes": 1238,
+      "sha256": "921123a50955d19d9d759c7e2dfdd2de7fafc25a638d27e39d58e6ffa9c63b9f"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_markdown/plugin.json",
-      "bytes": 627,
-      "sha256": "ebd32ca1ce6cb5703966f4a1e8fff6356ebb375f988b680c8cabe6f01c90d5f2"
+      "bytes": 600,
+      "sha256": "b6171d8482b1c71103f1ce6fcf2be76fb90a0a6180ce9bba184924e6bb5670bf"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_markdown/worker.py",
-      "bytes": 613,
-      "sha256": "839bf84d84779d3e35ed34c7f7ca1cfe1f7cd85f669f062132eecff8491445d4"
+      "bytes": 598,
+      "sha256": "3f84905baafde3af34ac027c61f2dda1d05573c7152679e384cd346c6310a1cd"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_matrix/README.md",
-      "bytes": 1153,
-      "sha256": "903e31cfcfbcb862411416036cea3f9899f03cfdb3f5d09698c921aa7360f362"
+      "bytes": 1126,
+      "sha256": "fa4db73e5cffde0aa1b491a47caf7c1cb443a3ca055b569dc10344273fa59a5a"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_matrix/plugin.json",
-      "bytes": 432,
-      "sha256": "632308154ae2efd8d0cc13a5abd70bb5bba4934e611304141213a41d911cbda7"
+      "bytes": 412,
+      "sha256": "e3daaebcce8187583ac291175c71b120e4f27f28f0b4aabfddceb97c5d9747b6"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_matrix/worker.py",
-      "bytes": 585,
-      "sha256": "b4754cbe64f90d0cdd15480853b06073655e1359912cd1d433b0d7ed3cfedaad"
+      "bytes": 570,
+      "sha256": "3d16cbcd5f45471fe78253cbae2fb086a126de15ceadb25c45c615eb17724ce8"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_polynomial/README.md",
-      "bytes": 1229,
-      "sha256": "8abe2958fb2469de6904169aecb4ca7c6ad04dd30e5b77cd268fa8f86cb55bff"
+      "bytes": 1202,
+      "sha256": "82ca8dbe31c3f22993896fb144e91d2ced008bc8b924aeb8660b1c060bdc2b8d"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_polynomial/plugin.json",
-      "bytes": 457,
-      "sha256": "01f66dff38566ac36fb31cb425a330c6969aa0ba053e65f93906bdadbf8aa3f3"
+      "bytes": 437,
+      "sha256": "b68091f5f08b6c611b3549e5fcb2341584ea43a50e0786f28efefce07c3d7a1f"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_polynomial/worker.py",
-      "bytes": 592,
-      "sha256": "809ec10759bcbf0edaebe84ad94fe1f068f5aa1ec7fe0b1bd8db7db62457cbab"
+      "bytes": 577,
+      "sha256": "f8f810d33f35b15b52d7ca4a6ab160711ed3e7a8d06e51f0a377136c0e4c085e"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_probability/README.md",
-      "bytes": 1149,
-      "sha256": "507792883cf4d51fd26f4d902a05bfc56525aa5909fadade6b2d806323c5f54f"
+      "bytes": 1122,
+      "sha256": "3f9f667d4257c38c2ed19f5cd445697b0fe81cff3a799da979a5a526b20384be"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_probability/plugin.json",
-      "bytes": 452,
-      "sha256": "66134ce89dfe74a09d840b80816d3da87fd1fd89396803870f6f69d79787c2ad"
+      "bytes": 432,
+      "sha256": "1c4014ffa29d56b7868875e596fcdb06709f41379e514a609570be51ae03824b"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_probability/worker.py",
-      "bytes": 596,
-      "sha256": "0b5cd3acfa32a62c7733f1820a017db441d97957e4021b6ce7e93d2b713898ff"
+      "bytes": 581,
+      "sha256": "9986fd922159268f1c729b262a8b9dd38b57fea938808b2169df60ab565ad9f4"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_radix/README.md",
-      "bytes": 1081,
-      "sha256": "9638c13852cce09f798a9355650fea1b7ce8084ebb71f4b94f5242a993207a2f"
+      "bytes": 1054,
+      "sha256": "834b52f0ae29dfd4d22ccffaec53c363549c7a8cb53eab138dabedb0a460a98a"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_radix/plugin.json",
-      "bytes": 437,
-      "sha256": "545be2a0fc8afbb9d069ce3ffff876fea1051182a20072caa1439c86a984f542"
+      "bytes": 417,
+      "sha256": "4ca15f8f86612a38ea808abf72ab2c762a7cb89b34695df0671cf64b0dd4edb5"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_radix/worker.py",
-      "bytes": 590,
-      "sha256": "2e7abcd2d5d485193c223b3716c3c512e8f453baaacabb3a1a2475148ddd2072"
+      "bytes": 575,
+      "sha256": "f411f3490be02154ce8fd2baabaf64701fd88d40a5d4e86fed4bc22e183c343f"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_regex/README.md",
-      "bytes": 1384,
-      "sha256": "68a241d7af7197783b33a57bc6946a5765eadadc3fcbc0786569465b358dade8"
+      "bytes": 1354,
+      "sha256": "a0c4ede70c645d99fa57bfbc843b4a78942438a81b4214566b996b24aa4bf61e"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_regex/plugin.json",
-      "bytes": 931,
-      "sha256": "02ba258155c0f1151e2b24c8308651978f08350cccb0fde0309585d48ced0c60"
+      "bytes": 889,
+      "sha256": "fbce11e32d05b14145ef7b7598790cc31e0396a6f429a7dbd79ac1017cd06b0d"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_regex/worker.py",
-      "bytes": 590,
-      "sha256": "1cb8dd215aeabbccae6f3e225d29b9375f296505425589ee239834e2890bd65d"
+      "bytes": 575,
+      "sha256": "fcf240f46f4f6767bec5749d7a011901723e0287cc7f895a69de69bb6805fb09"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_semver/README.md",
-      "bytes": 1135,
-      "sha256": "8237a368ceb498cd3842d100528c323848c019ef23dad0f15bab4ffb4de8f204"
+      "bytes": 1108,
+      "sha256": "b4c76103dff0ee6ec5c143b6b20044ea5b1ffd45230bf9923c5c39fa4152d9d0"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_semver/plugin.json",
-      "bytes": 450,
-      "sha256": "7c506845d8b2abbbabf555511bda1e0c5c400fac167c727b3353dfe7fbf2fa9e"
+      "bytes": 430,
+      "sha256": "2cc79d15d8c35b38a68e850684bedc6a024c6b10d01fbd2f13ad0f3287670fe3"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_semver/worker.py",
-      "bytes": 591,
-      "sha256": "eb00cdf1cdadd918f82bed3f2ff9efa50d89214b825d5863b6e25c0b41d58aea"
+      "bytes": 576,
+      "sha256": "d0a28a0054f04c6f31007566b1af18b89159123823d99c070c2af8ce16e5a3f5"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_stats/README.md",
-      "bytes": 1207,
-      "sha256": "30ab294aa8da76b0f0cf496d9769885dc01a229805afa9d40c727f2d62e3fbc6"
+      "bytes": 1180,
+      "sha256": "51a3eddeb8149c2a754d0b2b570554bdc845492c86f44fdb589443497f831655"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_stats/plugin.json",
-      "bytes": 444,
-      "sha256": "2d7a941fe02f3d27674e04f2c808a2d740425d8c553d3d5d3b710f257da2684a"
+      "bytes": 424,
+      "sha256": "715234ef8a415bdb3e804511f5d8b2dc30011983f3aa171f4aa4ae4d5e652dbb"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_stats/worker.py",
-      "bytes": 590,
-      "sha256": "718bf25603400ae5d35b3b0899ec2174b2bac7cade45062d7d39b72bd93e041e"
+      "bytes": 575,
+      "sha256": "a4859db6972950f43cb76a8b122cfdbe71d4194cde8a930df924ebcd90c6f86f"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_unicode/README.md",
-      "bytes": 1239,
-      "sha256": "d6b0ac693b6ad2785455626c972bba2db1a942e6d8c133e94c5bde9b352e17b7"
+      "bytes": 1211,
+      "sha256": "f594c614b3786cd38eed0a9f05a72d017f58c1a81e62ad1f6d7f9a813e1c8b68"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_unicode/plugin.json",
-      "bytes": 648,
-      "sha256": "14b86d19d1a19f0891ea098dee6fc842805496e4615d15a522f6d6edf14286e6"
+      "bytes": 619,
+      "sha256": "4ff1027022e7c9d05b71bd76d0bc7b502f6a1d75440e4e14d7bbe73da2ff2933"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_unicode/worker.py",
-      "bytes": 611,
-      "sha256": "7d4bbca360f5815a8658a450f0658146a531beca743dc04a923b22ecfc87568a"
+      "bytes": 596,
+      "sha256": "b8d1c0cb328891b514ef44d84d3aa3f1c1c214095a2c205e3ed8f33d1fa14187"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_units/README.md",
-      "bytes": 1267,
-      "sha256": "8551bf0ed51e779ce228fb73eb449cf049947e5411da8e94ae8bf015f95fae9c"
+      "bytes": 1239,
+      "sha256": "0c50ecee84d8d9ee2c3e187ac8eadde94fe48afb923a3cf87ab2d2c9bdd3e596"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_units/plugin.json",
-      "bytes": 611,
-      "sha256": "7d1dddc4c2f5027f8dfe0804fb16c167a42955e0eeb5aba432c38893fa5e4655"
+      "bytes": 583,
+      "sha256": "aa587b120e17bcda5b221f0914600cfdd8225ce0daa2b019272a94014097fa7d"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_units/worker.py",
-      "bytes": 590,
-      "sha256": "fc2819f8ad67583044a37f125ab05ddd420c733b690d3fdc2a8754bf1c71b395"
+      "bytes": 575,
+      "sha256": "5573fa890dfec150d0b0b250bac942a3011911ae59509487f393d3e65699e8d5"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_url/README.md",
-      "bytes": 1199,
-      "sha256": "f902794c777f9c85345bd943323e37842920a674028593ec5d7f31971eb4d7df"
+      "bytes": 1172,
+      "sha256": "08d939f87e7d95b6a9d2653651d16d83d221ed45def0ae8b2f5bd06457a51c2e"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_url/plugin.json",
-      "bytes": 475,
-      "sha256": "77fb12a861ab6cd61713f4f8a27eb9c07b6908561102910f53c61e69b5829ae8"
+      "bytes": 454,
+      "sha256": "e7b6547e3b185a97a02b5a505f97da008c755d2a3e6586809951fa17f6b3ce05"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_url/worker.py",
-      "bytes": 604,
-      "sha256": "6e68b825891579bfbd4df7cfa3bb80d2f673a9b8240970f39ea46f5752badc40"
+      "bytes": 589,
+      "sha256": "913b86717a8ed2743fdc7f2e1bbd5e69c557af92445be3eebaeb68594039f407"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_uuid/README.md",
-      "bytes": 1150,
-      "sha256": "8e8e3b0d4aab619007d6bb978eee0178d4d9ffd67473aee48703975439d9cd34"
+      "bytes": 1122,
+      "sha256": "76f64b15295dbb15f0ba64ea645fb47f9e70564e84fbea04daa9f3ddc588bb69"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_uuid/plugin.json",
-      "bytes": 612,
-      "sha256": "0aed9da66ed16b2df2fa2b556c1806e69a4003fd659094dbf4a63f174da6e8f8"
+      "bytes": 583,
+      "sha256": "72e332e2b9a2dfa9b63c42aca210c2e7a3a108c4031ec3bd3cdffcf9eca70c0e"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_uuid/worker.py",
-      "bytes": 595,
-      "sha256": "e9e8b5a851c3b6413126588c126488fa6b984d3f670eaa74f6b313d2de450d69"
+      "bytes": 580,
+      "sha256": "50a06b8395139ddc46cd2b4966f40b2e382d24d482917c1f2a6f3c84e8715854"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/tests/test_dev_tools.py",
@@ -791,18 +796,18 @@
     },
     {
       "path": "extensions/expansion_pack/games/README.md",
-      "bytes": 2490,
-      "sha256": "7b265b8a6fd5756add7315c7ff3ef969f2ecb7f4993639baf84941ccd01233a3"
+      "bytes": 2455,
+      "sha256": "68344363a375f60a54b058d93ddca542b5b4419bb6807f3f3ba7603a839b58e9"
     },
     {
       "path": "extensions/expansion_pack/games/catalog.json",
-      "bytes": 13599,
-      "sha256": "a9003aca21866d03d794c06a3f3275d3f1beeccb7315b2655b89ba4c26497abf"
+      "bytes": 13158,
+      "sha256": "307078560418a7fe969db54ace334cd641d24ef5a74e71504962f0d7dc98c8b2"
     },
     {
       "path": "extensions/expansion_pack/games/games_engine.py",
-      "bytes": 4519,
-      "sha256": "c57f46c9ec1a41c20bfb98b45923ebf938aa3589f961de3619bbecd094543176"
+      "bytes": 4433,
+      "sha256": "bdd284594d35674fdf00d9485fe1b0b0b7fa55e95b3bf361383d9fb394ba85cf"
     },
     {
       "path": "extensions/expansion_pack/games/generate_catalog.py",
@@ -811,8 +816,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/helper_board.py",
-      "bytes": 21678,
-      "sha256": "719b3f2cc5928b440952a7367e73bb80d79c16096752c9c595c013fae80155b9"
+      "bytes": 21368,
+      "sha256": "8838b3d21adc7f8578488b66f07de1259956d08fb184150383a49c4e8567cd03"
     },
     {
       "path": "extensions/expansion_pack/games/helper_extra.py",
@@ -826,318 +831,318 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_2048/README.md",
-      "bytes": 1212,
-      "sha256": "6e6594ead125eaba58f5fa192cc293d8af4025bc126a4c60f36c3d57556f6798"
+      "bytes": 1191,
+      "sha256": "5c5b01bf53a41b2949db56cb6f3ab3745e78de6126b8aac782b6496f18a30f15"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_2048/plugin.json",
-      "bytes": 666,
-      "sha256": "7922ff42aecfe3bcdf7a9938f77f5d75a851b548f06f4b24145f46c58df5b0aa"
+      "bytes": 634,
+      "sha256": "24c0962e6efb62ebf3bff15759cefc18b0313c5ab49d01877bb60fa4cefefc0d"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_2048/worker.py",
-      "bytes": 476,
-      "sha256": "da330f19382e687b72991694e0226f7974cb30508a2c93f892260866c2f53012"
+      "bytes": 466,
+      "sha256": "7584a9d6511718d4450bcc880ce536b6529b63fdcf9fb90ff22ef5260540645d"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_anagram/README.md",
-      "bytes": 1495,
-      "sha256": "a76693e5467ba128f21da4e88ce6f22370bca32c7f2b8724e05d678c2d582b0e"
+      "bytes": 1473,
+      "sha256": "f44b6dbe4931907f8dcd7ad4ab7d019605e7890cf02d3c0274a7e41d5ac54bc2"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_anagram/plugin.json",
-      "bytes": 748,
-      "sha256": "ec45e83abc8c53990de92b4f48150b1c24c3f63ccd92b12bb0398c3902459c11"
+      "bytes": 722,
+      "sha256": "7a6816649e939750f0693a9d4b0c553a6edcc05e921343eb0dea67090c6e7b2a"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_anagram/worker.py",
-      "bytes": 479,
-      "sha256": "7b776916b6305594404e49218b28e1bb58ffa02e6fc053cbf99516620b852063"
+      "bytes": 469,
+      "sha256": "32db3d59093c7bf4bbe0a8118881df83cccc35e37be2975d95dcbfd6840409b7"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_arithmetic/README.md",
-      "bytes": 1469,
-      "sha256": "34de704bfed8adc2b77abcd37fcd47a2e4601cbf34cb41dad23dac7f0590d92f"
+      "bytes": 1447,
+      "sha256": "5dd424f423a1156d524f5f9ba882e73af6937b691077608dd2e510af10c22ba9"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_arithmetic/plugin.json",
-      "bytes": 762,
-      "sha256": "70084732356dc28cf6bc034ed1178dbe84ceed9b9ac76a0a9b825bf8a4e31a02"
+      "bytes": 734,
+      "sha256": "8cc9a6ee300712ba382df802099f09be6178d4149ec4d5aa063999ce705b8229"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_arithmetic/worker.py",
-      "bytes": 482,
-      "sha256": "9bfb309e24f3469a0b18acfd252774cc8d95840ecda9a052b3263f8d9c67276f"
+      "bytes": 472,
+      "sha256": "768773616ea26b9f3d38295809b44b1348eebfe665168a9dad33d50803a112da"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_battleship/README.md",
-      "bytes": 1324,
-      "sha256": "45b19ca0699d2bb2070c9128785aeb773fa851eed278f561c5d27d85ca5e8611"
+      "bytes": 1303,
+      "sha256": "b3c068de0bd1e85724112f3f314433df4aea1dd5fd2ea6ef50ecc4b7eee7f249"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_battleship/plugin.json",
-      "bytes": 597,
-      "sha256": "d7c26dd09723f201c37782526b4377c7e530e2111873e019a70963e75d46cc88"
+      "bytes": 577,
+      "sha256": "9a3bda136eeb62a15b096e1fca656a3542c6a6ac527f39cf8bb6c1776ba1fa59"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_battleship/worker.py",
-      "bytes": 482,
-      "sha256": "d6d24f1ef6bd51ed9d9c998c2609346b2d746b7de2420fc5b99e2ddd3916e578"
+      "bytes": 472,
+      "sha256": "9688b9fd3e444c99a1e4b6e4bfc3e4436040886d1423ba5f99b643d72a83ba91"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_connect4/README.md",
-      "bytes": 1385,
-      "sha256": "a81f2a0ea2b979ecf67030d28fb101b3cfa4788bb1f1c003c3675bb2cddc84fa"
+      "bytes": 1364,
+      "sha256": "2d1ad4d48ef54193d7a2dc61f4cb30c350846dcf0fb6dffa53ee9fd2865dbd0a"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_connect4/plugin.json",
-      "bytes": 360,
-      "sha256": "9354e6d092de0298191b5acbf8e2e5cb99b57a2a1c4b29dcadd1a954c00f9792"
+      "bytes": 349,
+      "sha256": "6addbe59b971dbbca28b6099b76ae5655a59ef5a466cb9ddf77a482e09f47d40"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_connect4/worker.py",
-      "bytes": 480,
-      "sha256": "b809e7b9951b5b642fe7491e1a2b7d6481f26998a6c4a0a640ac674d01b4ba1a"
+      "bytes": 470,
+      "sha256": "9324c94de923f014e140ce716f1d65beaba4215c9cd75f9e0780fa03766ed83d"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_gomoku/README.md",
-      "bytes": 1374,
-      "sha256": "83e52e039eea78cfc2478ccc3ec0fe1979df29aa975d3728b63beee6de522809"
+      "bytes": 1353,
+      "sha256": "6a850b0830641b869e87ea4f192c1366b9c2f6595194a47a8ebb7ffe88aa4b34"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_gomoku/plugin.json",
-      "bytes": 349,
-      "sha256": "7e46bb2e646086293864db1e68561b69bb012eae9d956d71d2898ce6cf4fc208"
+      "bytes": 338,
+      "sha256": "ca87848698cc528eede5f1a746c71efcbf87e12a36e40848cd52dca33b6fb371"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_gomoku/worker.py",
-      "bytes": 478,
-      "sha256": "5fbabe061949df5bf2dee5a9a414bf14bc75f7c449d671b087b3115bb871e6fe"
+      "bytes": 468,
+      "sha256": "787e5ea720d97bceaf0fd147fc2d1382f1dbff5cab629fb70e9070c220738e55"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_hangman/README.md",
-      "bytes": 1470,
-      "sha256": "fa61bc176fb38fe0f57dc8f36831e6be2072e213184bc7f2da9e1099317d6825"
+      "bytes": 1448,
+      "sha256": "44252c6c91fcbd1d26a63848d7f535a09172e46b14f502831c0b63d6c70800c1"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_hangman/plugin.json",
-      "bytes": 726,
-      "sha256": "15c00c11c9a01567cf2c31042edd52c93feaf60bc06c2649ffb717ce4c5eb481"
+      "bytes": 700,
+      "sha256": "03a50f545acc647c97ccb34d74d38143b7a6d3b22daa31c61c9ca2dd6bf218f0"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_hangman/worker.py",
-      "bytes": 479,
-      "sha256": "6363432e3c1bc7a80671e85ce0188f9330eb3884431c32630125976c99f5f3ce"
+      "bytes": 469,
+      "sha256": "cd6b4a3ceca70424a3637481f382e9a2c1e9dda6b773c48a6dcb55a1a1987c56"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_highlow/README.md",
-      "bytes": 1326,
-      "sha256": "e7559dece83639e57d259ca4b7d84ad94ab0d7d160ab8232bd5b0814f91fa0f5"
+      "bytes": 1305,
+      "sha256": "dfb2b48e05e6a80e0d379506bd751b704e5cbb4404950dbf7818fc8957e16f6e"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_highlow/plugin.json",
-      "bytes": 596,
-      "sha256": "84ca2275b818389428496098ab89209842a2a16e9f66fb059d4070db8453cf35"
+      "bytes": 576,
+      "sha256": "6c1efa8e80116cc36ef918f1f01fbb4edd29d386b5319760a902eaf2c5dc3f6f"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_highlow/worker.py",
-      "bytes": 479,
-      "sha256": "654e864c0307f49cf1a6387b17ab891f171b047f806b10f13aeb14d19ec2c0f4"
+      "bytes": 469,
+      "sha256": "4b03ed6a8d879402bb5d28e70353b97ab3ddb6ad927e7158a912c49db1341106"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_knight/README.md",
-      "bytes": 1355,
-      "sha256": "6ccd64534c6267073f423423fca7a658e7b10684012f7f2e77143fb76fe0f7e1"
+      "bytes": 1334,
+      "sha256": "6ceaabd1542c7d2137b5007ac3f04b1e76249d6c065abc04d7fb852713130d51"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_knight/plugin.json",
-      "bytes": 622,
-      "sha256": "528d7989b25e0577c2c3d37d4b4aae2432394e2b3ade20810d4832012ace5578"
+      "bytes": 602,
+      "sha256": "f62f376f031fbb169a24600381a5489a7f85fb5f0322825b6a6e1af179219526"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_knight/worker.py",
-      "bytes": 478,
-      "sha256": "8840917f6008c82098f36b26dea4fea7860911210d28979a5b3ee93ea1d20639"
+      "bytes": 468,
+      "sha256": "b6ed3bcbe1750dca0564af521ec79790b6c8a54e037989785665b12078cdd842"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_lights/README.md",
-      "bytes": 1345,
-      "sha256": "5be0dd4e58cfb000921c7432eff468203bac9fb2db9800d53ebb1eb86dfa58b3"
+      "bytes": 1323,
+      "sha256": "5c4a64d664d23d8761f4649527ac0da1b78fdaae620defdc3e9a993680e26735"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_lights/plugin.json",
-      "bytes": 638,
-      "sha256": "c16264780e58bbaa942b6797d0b63b1a5429b346f42065e0a899f873d609d283"
+      "bytes": 610,
+      "sha256": "fc77368235caa03b2495be7af2434de3930d0d017bff943614fd9b9c66f0ff32"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_lights/worker.py",
-      "bytes": 478,
-      "sha256": "c0ea38c5b6f25f4ac921471bc2e9ab265ee749491bcd12f3f27f47397b544d27"
+      "bytes": 468,
+      "sha256": "10c934c930921cd6c2831e298bc23d601565634312a1b5dd61cb558682348da1"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_maze/README.md",
-      "bytes": 1212,
-      "sha256": "3cd2fb5a34dfb15330e806ae4833e6c06d3d086f5ce6281c588f98d4fd67dc08"
+      "bytes": 1191,
+      "sha256": "2f1c0c3c3c2f7e1071df705fee0d0c06318e4bb5f53f6df2d4472f80bc5cb783"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_maze/plugin.json",
-      "bytes": 577,
-      "sha256": "695f2a57feac9199431711986a5f10f978c46c153fdbf06f174695814efaf2ac"
+      "bytes": 550,
+      "sha256": "c8d0808deab1ca4d43a7f92eeca9deb9f3102a702a70b355f7b872c379f99019"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_maze/worker.py",
-      "bytes": 476,
-      "sha256": "a1f340d52e38e6939a7b7c9c87e92e337878524997241398a847f2330c1c9b79"
+      "bytes": 466,
+      "sha256": "9550e9941eb95f7c4161761f1931c27e3cc0d2a375d4edfc47974b31369c8bf2"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_memory/README.md",
-      "bytes": 1228,
-      "sha256": "1b3e5e27d3e4d11e9c21260b46fe10b3b90dee83d47e28d19299e3e6e7ae0b30"
+      "bytes": 1207,
+      "sha256": "55d0dddbc412c9d89105d07f47c5da2b84df1000ace630000334ec17a7339e69"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_memory/plugin.json",
-      "bytes": 495,
-      "sha256": "318c1d56d91a47952660fe6a48b480851bb78b190ae5f5a4aff9e4d9ba64d488"
+      "bytes": 475,
+      "sha256": "b8d23aaa97efaf0ff9224b1883da7ef9929d7df46597b0831d42483ea2c5caea"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_memory/worker.py",
-      "bytes": 478,
-      "sha256": "3d09af295ce7e9bfef0fe8a5bcf653b2076a49adc642cde1370a90eadbe8605a"
+      "bytes": 468,
+      "sha256": "f2e680726991e2e48eab06a5dae0df6d20d128977363163d7ce3b645f3b53161"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_minesweeper/README.md",
-      "bytes": 1393,
-      "sha256": "918c7f331844bfc1df9ee6e72bb5601b661c573ef455aa9fc5395041c0f7afd8"
+      "bytes": 1371,
+      "sha256": "f27ec4d409061d5296275ba39d6d844ba2768a2b6fce6695c7c271daf030ac63"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_minesweeper/plugin.json",
-      "bytes": 692,
-      "sha256": "5ff232eefa541d1accababef8a3d0b5fb303f70a05d355a80c59088776177f2f"
+      "bytes": 664,
+      "sha256": "289a12215f577fe88bfe4191f06166dabf7959272f5afc91bcc54302dfc6e471"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_minesweeper/worker.py",
-      "bytes": 483,
-      "sha256": "f6ba38058c796be95e4d5dedf5fb7151efb7f76f4dc6ccb2dbad3dc235ceb8ef"
+      "bytes": 473,
+      "sha256": "41984f3c02f374cf3f0ebc631ebbb724ceb9f02105222dc10da4534337620d3c"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_reversi/README.md",
-      "bytes": 1407,
-      "sha256": "797be1261d4da9dc3f7571375981db2e4fabb783bd93d3bfa2d521cff4928d14"
+      "bytes": 1386,
+      "sha256": "2e5f125228d81171e381865f1dcda2f1ffbd50b43d7670e43535218b7ce53352"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_reversi/plugin.json",
-      "bytes": 382,
-      "sha256": "7e9d5d384a403a33ce45b35a2a8cf283e953891b9da75ca5743402b4c4654159"
+      "bytes": 371,
+      "sha256": "a0397f3a47b27acfb0a7c3be0ed803ed167ae543d8af3e75d3c0270548ff3dcc"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_reversi/worker.py",
-      "bytes": 479,
-      "sha256": "20a78b9727fca9db2c02bf72818c95c8c305e8bde2842a1a805404980926dcac"
+      "bytes": 469,
+      "sha256": "84a5156aad831468a6486212e4f3e23c172c6afc03f0f70fb912a445437fbae5"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_sliding/README.md",
-      "bytes": 1250,
-      "sha256": "037661b6602111034dbb741c2a8a22b6adb6c0a40d0c1b0f370e731ada18d175"
+      "bytes": 1229,
+      "sha256": "b5ce01cc7d285ca8c7656e84eb8fc78e72704af40ba417831c2f9758f41e616a"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_sliding/plugin.json",
-      "bytes": 517,
-      "sha256": "9255d23e7e5cc27746c24ba705021306e6fc33ddc51ab983c6bec28861eed0e3"
+      "bytes": 497,
+      "sha256": "87ccfa6bb8c4692bb9892ea0c189f0aa0c70f488649ff1fbd1ca37ca2391512d"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_sliding/worker.py",
-      "bytes": 479,
-      "sha256": "f3ded2392acdf0abc32a01ca6b9ed4d1f79e8b2e3ff27857e06d751e354bc5ea"
+      "bytes": 469,
+      "sha256": "83ad9fd7d4a3dc357bb653370841bfc8520e64d27f1344f54871e25e01e26541"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_sokoban/README.md",
-      "bytes": 1237,
-      "sha256": "f553eb952a59bfaf9b339c9856c8cd782de887f256f722e7aafff5d24903cfba"
+      "bytes": 1216,
+      "sha256": "4cb46c86b94feea5faae2ba4e0d81133f9085f67fb577b6c45d494f46303f636"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_sokoban/plugin.json",
-      "bytes": 507,
-      "sha256": "6762800e1fc0bb01c8631d7b0f968bb70f744fd4dda87067c170017e517b387b"
+      "bytes": 487,
+      "sha256": "6a7db0d924968978ed38b15464f189bb95e339629a18ebbd8f671ca79b54e75c"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_sokoban/worker.py",
-      "bytes": 479,
-      "sha256": "e3559ce8518216a1f45f34b68fcf98e0e4cc272c5e5072cb720eef00eb477832"
+      "bytes": 469,
+      "sha256": "c618ae240d19b01b31d4e8eef31c2bb5491a0d34bfe8336e90d177414445dceb"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_tictactoe/README.md",
-      "bytes": 1363,
-      "sha256": "0721bf51fefeb3791818e76b1c6172843e594811aec4d78bfb3da8f8007ac5e1"
+      "bytes": 1342,
+      "sha256": "d3e14bb77ee72444b0ca090050845417741dce98ccecb9c4958c705627e1be51"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_tictactoe/plugin.json",
-      "bytes": 331,
-      "sha256": "740251d9b94e1d0f9e7cf0b32dfd1939416f125c1c8d9b2ccc7165b0aab70c69"
+      "bytes": 320,
+      "sha256": "15997275ccde1b2ea5338f8ffc5290ffb16ac05444d68b655d62429e63f420c1"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_tictactoe/worker.py",
-      "bytes": 481,
-      "sha256": "12fb68aac6e6dd24922567a42cbf5c5262ff657c09fddf36c70638fe462458e4"
+      "bytes": 471,
+      "sha256": "4c6e19c309ebf9f956b041628528f24a28663ea5d9d73042ef4f52d7830dbeaa"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_trivia/README.md",
-      "bytes": 1316,
-      "sha256": "d91e1e1ec45edfd0b2e6b970c931702af0b72f684d5ff064eee639a78348af27"
+      "bytes": 1295,
+      "sha256": "0bf5425f7d0dbb863325cb53de5bcff32c9cf9ec12f6ed9ce17f190c30186022"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_trivia/plugin.json",
-      "bytes": 583,
-      "sha256": "8c6fea34e85aade4d2bd7d4e3889e487d62c4895bc84b48a1a7a6bbda582fe85"
+      "bytes": 563,
+      "sha256": "95c7d655a66c1eede1840c801f3efdacc4409d0b6f9320eda504269584974117"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_trivia/worker.py",
-      "bytes": 478,
-      "sha256": "3681f98efb453bed0c490eb40fb24f46ad67c58ed0444c7a96f19446d924aae2"
+      "bytes": 468,
+      "sha256": "91c63bed348d7420aca921aa80b5c641510cd1d666b63973fd8331014bbbfde2"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_twentyfour/README.md",
-      "bytes": 1316,
-      "sha256": "60af5d58bada8fcd59e880762108d14d86acd87244df1d80532888b5abee86ad"
+      "bytes": 1295,
+      "sha256": "de48ad3c5fc118e872e966f874785db119327a4fca32131dcc1e8c3758de8297"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_twentyfour/plugin.json",
-      "bytes": 590,
-      "sha256": "b1d28003b91880b1e477d551787e343d701924d694ad2e08cb8be408fca0be9c"
+      "bytes": 570,
+      "sha256": "02a057e0930e96fbea49273ca39b20d3a5c85ab4bf5a1c495bd2ac11e426fe44"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_twentyfour/worker.py",
-      "bytes": 482,
-      "sha256": "eb81df459de1ca20b53156c75564da34962e4595309601dcb3e07b04e700c397"
+      "bytes": 472,
+      "sha256": "756fee75c549fbe70197a4e305518aa572240ac97c2ec86d3d6650f7da86577e"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_wordchain/README.md",
-      "bytes": 1344,
-      "sha256": "f48ce13401736f4fb4b4fb4c915df1f843ee9118899293d7dc5ca5d9565c31dc"
+      "bytes": 1323,
+      "sha256": "a4fe46c6a5a288d138eef178976c01056d1b065392a6bb7a6df9dc3319deecc0"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_wordchain/plugin.json",
-      "bytes": 611,
-      "sha256": "366f2a23a9bd49f700c8183993b4b69c632ca0d30c8920d77ab12f54f62f8002"
+      "bytes": 591,
+      "sha256": "9b817fb952e931097be01a90dd649ba2f8963193ea6cb5ac05c7bfb8a57ea4d3"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_wordchain/worker.py",
-      "bytes": 481,
-      "sha256": "2a9b1b1c5772c04cefe0dbfd6b7a7850c813cfc2d6df871bc2140c09c4c1b356"
+      "bytes": 471,
+      "sha256": "1b84d58e04afc775d62de62d90ba8ffe4eea24544cbe48183f67ca99c225ca36"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_yahtzee/README.md",
-      "bytes": 1424,
-      "sha256": "2d8b65961b914f18abffd9322903bf66ed2f86a63d4ef8b4d11b766693e09922"
+      "bytes": 1403,
+      "sha256": "b0e77b6129e4165a3ae738bb4a4ea4f22943e1f17a21576d7ef82b7aa135bd5a"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_yahtzee/plugin.json",
-      "bytes": 691,
-      "sha256": "25d88c4806324c8159d01388d83f685b9d2ffd279cd313ffb3693c184331d3b1"
+      "bytes": 671,
+      "sha256": "82b205624a07228df2ba11eb4492d0679761eb977cdee6a53cd3c21a4dac40a0"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_yahtzee/worker.py",
-      "bytes": 479,
-      "sha256": "3d66c7ba7084415bde0186d1570556fb1349030974680ba1a9062bea42d29914"
+      "bytes": 469,
+      "sha256": "ea0bd2a632176ae3688224433b434363f5c73dc3995afb9ba82a94b9160171d0"
     },
     {
       "path": "extensions/expansion_pack/games/tests/test_board_games.py",
@@ -1161,13 +1166,13 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/README.md",
-      "bytes": 4253,
-      "sha256": "b2974291899d60bacbeedfbb4e4c55bd6a0c6ed44f5ca312f02d782797201ff2"
+      "bytes": 4204,
+      "sha256": "a2e3791b89272da5e589dabe3961df77220dfd5fbab815dfc84609b04866c65f"
     },
     {
       "path": "extensions/expansion_pack/life_tools/catalog.json",
-      "bytes": 5369,
-      "sha256": "232c7f3a293e9455b68ce7752220e095d9d8ea69b2c9869a34328cfefabb96a5"
+      "bytes": 5157,
+      "sha256": "a84469f91d90d7330352a4e02bd72c813d72d6b8533aebc73dc3cccb624cf47c"
     },
     {
       "path": "extensions/expansion_pack/life_tools/life_engine.py",
@@ -1176,318 +1181,318 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_agenda/README.md",
-      "bytes": 1450,
-      "sha256": "e6515e34c86dbdb5d735e2ca6b0c0ae053428d0d3b05adda8f5321a6b1d3a1ca"
+      "bytes": 1423,
+      "sha256": "a32e1e0c720c65ebb82729fc2eee70324fadd03312374a778cdd9fb9b6bd29a5"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_agenda/plugin.json",
-      "bytes": 429,
-      "sha256": "4318cc9ea09782c2de226c530a2ee95c2db8baa4997995e7b6a7e719b107572a"
+      "bytes": 409,
+      "sha256": "d7d798454b8e037049a61eadbd735f0722635264e91f7049cd41401126353018"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_agenda/worker.py",
-      "bytes": 638,
-      "sha256": "c5ff6d2095e17b819e83a3bb233a78a3559e24f3fd23f18eeed9749be600b03b"
+      "bytes": 622,
+      "sha256": "812357aed62a16b92832b1e8a1cf4727cce7252d96baf85284475d094cc436e7"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_anniversary/README.md",
-      "bytes": 1258,
-      "sha256": "0c76015ed9bd534ad68a83a4db9c68e16e9b2729920305f5d6800ebf6a6e4a26"
+      "bytes": 1231,
+      "sha256": "413c95e5a20eec7023c99fef3a4d2b59f91d174d461a9b9fab60241743909e0e"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_anniversary/plugin.json",
-      "bytes": 437,
-      "sha256": "b48c1bd0a4bf24016f9ebae12c627305d583f5641f8172d0ff277f2033cec883"
+      "bytes": 417,
+      "sha256": "fe0e1ce348e441146fb6287d0a51f39e97f78146525e9b1939606ffbce63bc01"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_anniversary/worker.py",
-      "bytes": 646,
-      "sha256": "4bf53d3123f4f8a67b93fe6b93521bfee5267b11fb17ce2bf68335b321ef9d75"
+      "bytes": 630,
+      "sha256": "c2c731a02aa81f2c70bc5fc290741ae34c822de75e3fe39255b94b4d5f0c8d9e"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_bookmarks/README.md",
-      "bytes": 1278,
-      "sha256": "6be6b7cea47a07645027d04cfceba4c701d6c29302ea25add478d57c3f07d7aa"
+      "bytes": 1251,
+      "sha256": "51a1a16cf20e36f11a3b7df4a932aadbcd02c51e2abca2e1b51417165aac4515"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_bookmarks/plugin.json",
-      "bytes": 432,
-      "sha256": "84650c3aa7787b00f33b2fa5a8b5bd7e9a221e7a3e70f8d3b5a55b4deee3713f"
+      "bytes": 412,
+      "sha256": "7473c6538661b8141ccd59156fdbe0a2f835054ec88c618a5b9b4008d782c5cd"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_bookmarks/worker.py",
-      "bytes": 641,
-      "sha256": "7aecc2c23a878958d2941cc02c65f9c6af3b2439e41413a467d08fbbd0475e7f"
+      "bytes": 625,
+      "sha256": "b39c84d0e45f6b86cf06bca2a6ba5e11aa55d844a04758ece53fd68f373a2064"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_decision_matrix/README.md",
-      "bytes": 1312,
-      "sha256": "984c71bd54ce8fe2d06b0491682676b4abf46bb3726b9a4f6e1fe47c0ba0d046"
+      "bytes": 1285,
+      "sha256": "2b1462c3e78dd35813c4b645ce5b334f2dbd8c03390365a38b8a09ae26254a07"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_decision_matrix/plugin.json",
-      "bytes": 441,
-      "sha256": "8af4334dc35e61dd4c01a65279e1ec66cd44abdb54c1e41a45dcd30ee587a647"
+      "bytes": 421,
+      "sha256": "c3ac20f7a6c44b3b714d2e98eb03b7bdf386fefbcfe8fef466001388ebdbdfdd"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_decision_matrix/worker.py",
-      "bytes": 650,
-      "sha256": "cfc76b3688a81be8bc8411b7dbef1b3ac6a4021ae4fa11312d3e38f5103093fa"
+      "bytes": 634,
+      "sha256": "52d2369a209dbcabc01b8f894eed8fc45e12caf3b7dd9f9de23f2e4975c6fe7e"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_goals/README.md",
-      "bytes": 1218,
-      "sha256": "803103ac7d985a2e0082063e0f6a7d8b7d094cbd40793a47f6e5fea938582243"
+      "bytes": 1191,
+      "sha256": "4e6c8731c4fe69547f569cdc60eb9de1881fba133b7bc43d656cfe42de7497f9"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_goals/plugin.json",
-      "bytes": 410,
-      "sha256": "b497294878b8edcb40c352d34b044394968caa48eaa40af6e11f5807c3b51b5f"
+      "bytes": 390,
+      "sha256": "5aa7627d8671d13dec3ec0f0d8407ba40e0d1aab90d5eb086ee98be2254945ec"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_goals/worker.py",
-      "bytes": 637,
-      "sha256": "edd84cb0d64ed0ae3d463f6d9e62897962b9830baadb7d5ab348f223ddf6b822"
+      "bytes": 621,
+      "sha256": "b02b99aa6bc5c36f63f8bef29d6db70607228efbb6aebf74e8c685c87fe1be75"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_habits/README.md",
-      "bytes": 1210,
-      "sha256": "f3cc8fcb3a3abb3377913369b688b7f0d52a5bb148f5ca53a42df726fc089f23"
+      "bytes": 1183,
+      "sha256": "ff304a3438e2e79c3d6f9992c755ca04c08035fbd6739d9ad340faf8158bbf8e"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_habits/plugin.json",
-      "bytes": 426,
-      "sha256": "d2705d1da467e243f08133c544c3c537ae731824071da84f389dbc06090a8cbf"
+      "bytes": 406,
+      "sha256": "ed9dfe796e327801212242f2fe2f7e8ebec0931079a064a59b62af8c4aba57c0"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_habits/worker.py",
-      "bytes": 638,
-      "sha256": "9d767caaef08bee4574bc4a182979af4ba8a160c8af1a615ad1094d65090bb22"
+      "bytes": 622,
+      "sha256": "d5ba8610f219076dadf4864078b2cb480c0a52dda27f47387e14824730da4820"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_inventory/README.md",
-      "bytes": 1246,
-      "sha256": "a1c206f59a2a56e7764976d65df6da36691b524211e82d731c3a1f39ff069894"
+      "bytes": 1219,
+      "sha256": "e1817dbcabd6d03ff44df54da703d42b61aebfc4c88e514ac0b45b25bc8ee641"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_inventory/plugin.json",
-      "bytes": 438,
-      "sha256": "fc2ac8a0429f95804d280bbc08eab1edbd64badf8fc0c9b99e00debad6abddf5"
+      "bytes": 418,
+      "sha256": "9f83127d7899c436986280e78cda7696d9f2d087446c8c45a5f8cbd878571efa"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_inventory/worker.py",
-      "bytes": 647,
-      "sha256": "959dad07f12afd9f20bde4cfb7f1538f9890b8779b94faa30a10b35d0a11a425"
+      "bytes": 631,
+      "sha256": "cd82ebee8864722f4eb3f945b329b6d597993fe45992277542cae0095d6eb812"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_ledger/README.md",
-      "bytes": 1244,
-      "sha256": "b72966c42ad6e6623e030f2c5b2695d697ee5ce28e584079f83dc5b9f008f920"
+      "bytes": 1217,
+      "sha256": "a720afb65c07172953fd75a2eeddf0978b71068d20dde7b525ef71ab2fa161d9"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_ledger/plugin.json",
-      "bytes": 423,
-      "sha256": "24be60815d233e5685cbc688eeba15b822d8821e48bc1c8ddb93a9c891e8302c"
+      "bytes": 403,
+      "sha256": "646d77c52d6a5b92e6157e5b41bfc14ee9758b92c5dfaf54816857d890a169d7"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_ledger/worker.py",
-      "bytes": 638,
-      "sha256": "f1d7ee10500b4ade22958516f39387800ce9d3c21a4192a8686d70cb7106cf24"
+      "bytes": 622,
+      "sha256": "c1fd9c3fd274c948c1400788c8acb5885a41553023a5de76facff0c3e2836847"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_packing/README.md",
-      "bytes": 1292,
-      "sha256": "b8dbb6d681fa00d777939b61f1e2296094dfabf904f6e92f67ad6ddc7d2ad3c3"
+      "bytes": 1265,
+      "sha256": "f9debf1ed436313a2a3b86661f2e2d61741c39a6ba3e845f6fcab622d2ef6d52"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_packing/plugin.json",
-      "bytes": 430,
-      "sha256": "7dd3bfc87f61b58412390f6613f2e5cf5ece8257b3b76c9980c7ee31b19ae5ce"
+      "bytes": 410,
+      "sha256": "9bf77ff1c62799458ec46badaeb2148c64261cec2244e3f95236664c3986d46e"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_packing/worker.py",
-      "bytes": 645,
-      "sha256": "590f1d31bd6c2a43c3c287da1688d805548ff2dc672ff37608d2a922abe855d8"
+      "bytes": 629,
+      "sha256": "865b74322343005626cf8fa6e281d55ccefff2be5e8b5d08d0415aac56ece0a6"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_pomodoro/README.md",
-      "bytes": 1244,
-      "sha256": "31f195fa4382477b5abe90b35444355bb20a8e0fdf5bdeaf041764799cf4e608"
+      "bytes": 1217,
+      "sha256": "bea03bb6c499a85a6be2503d16b488df56ab7ce7ffdf87b89769e82ea16c9cc0"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_pomodoro/plugin.json",
-      "bytes": 428,
-      "sha256": "e8b52dcce80ceeb58544da45a81d59b142c06260a4d166c756c49490ca1b1b06"
+      "bytes": 408,
+      "sha256": "a5fddd68578b80e86f6c0935891464b1669be5fff7a2d2551485bf9c1dc13dd9"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_pomodoro/worker.py",
-      "bytes": 643,
-      "sha256": "75552b00070e175c1fcd92b0e9ae07a640db3c9613cd55e08ec5d01576fbf09f"
+      "bytes": 627,
+      "sha256": "d0ff5db158f3533480dc95a3cd3192295f6c4a075ae02d6bcba0efc47860d390"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_queue/README.md",
-      "bytes": 1422,
-      "sha256": "b2bcea1dc6948f90641be60493d09b21b18ccecfa051e31f358c86d184585bd5"
+      "bytes": 1395,
+      "sha256": "80c0666ff692656d432cff2a4be577ae55c6134ea5d5496735c6e30841913a33"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_queue/plugin.json",
-      "bytes": 422,
-      "sha256": "afe34d1adb7fa73b82456383d15be40eeaced3904fee500348ac1a547bc9bf32"
+      "bytes": 402,
+      "sha256": "b9fca1beee592fd4a774ce140a79081604adfe7ebc58a9b7ec6a3503b074548e"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_queue/worker.py",
-      "bytes": 637,
-      "sha256": "a02c081ec28f8cdbea7aff708d8aa4a3b57bb6ad8c2cf0e8367091bd6511773e"
+      "bytes": 621,
+      "sha256": "62ce7caa525e5e3c280097091396bbb4c85879800d96214331dc6661fdce0d25"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_reading/README.md",
-      "bytes": 1224,
-      "sha256": "2922886a7c9550cd52806f2aeadd48a5714e1f605c128268b70525c45c1f75ca"
+      "bytes": 1197,
+      "sha256": "364dd754b4ce598fcf3ad5456166308292c2d17d2bf6a9d5960d46a7dca5564c"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_reading/plugin.json",
-      "bytes": 424,
-      "sha256": "80fd7b2b426de2962ed9ab91b8beb3057a45054e2d8402fbde6142a4d18b6bad"
+      "bytes": 404,
+      "sha256": "3211c8b5e73b335524d5d2d4d638a7cce5303d7f478eba1dc59ecf51f82ac889"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_reading/worker.py",
-      "bytes": 645,
-      "sha256": "ffd4bbac1eab6c6758b40fd1a6f0ede9e0e39d18155ca788228a8a59f0b04932"
+      "bytes": 629,
+      "sha256": "50e8bd985e6e5cd80b0256dbd66278201d5b4b7cd7ba8125dc199ad0cee30594"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_recipes/README.md",
-      "bytes": 1311,
-      "sha256": "5040e009f524435d4d4f3272dd331010e271ffeacfa9995ba4e01c6b2f4219b5"
+      "bytes": 1284,
+      "sha256": "f684bcc447e71905ff5d56052f1e97c7e6c34a8b4f3de2f718f08a9e08393301"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_recipes/plugin.json",
-      "bytes": 427,
-      "sha256": "3bb344a020efcbc80b591eb58bd7d59065f53c7305b44ca736fa347e174b9177"
+      "bytes": 407,
+      "sha256": "383d273d62f0cbf8aa9efd95a96c086467e0e3259822676d80224a8f65dcab15"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_recipes/worker.py",
-      "bytes": 642,
-      "sha256": "22324d9d5c7757eda3b88ca29727d3d977837b6003a8d119d0e677959dd5540c"
+      "bytes": 626,
+      "sha256": "ddde69b81f0ab4f0b48e55c06f8e498eeebf8f2ab81d2737bf2fec4ec3a06bb3"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_round_robin/README.md",
-      "bytes": 1448,
-      "sha256": "5fe21264b18aa88f50c812abb8fd88b4a637c407627dc994ff0374d6678da0c1"
+      "bytes": 1421,
+      "sha256": "d2cc8e730cb065a96b9626022018a5b3dff5f188bb9ce0472da40b01979399a0"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_round_robin/plugin.json",
-      "bytes": 440,
-      "sha256": "bee359b28a266f7ca8b0c844e41ab676273a85079fe6cd2098cda793e13ec550"
+      "bytes": 420,
+      "sha256": "a36716f7d0bb59bfa2625df12bfc2196c1cda5c81a1b46593b2ff850b2dc42be"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_round_robin/worker.py",
-      "bytes": 649,
-      "sha256": "b3ad1490b01ef3a41f6134147c6e78431bf6904c01f1df077dffe5ec52c2044f"
+      "bytes": 633,
+      "sha256": "6b2aff91ed94661a5acc431894ddcd7c2792608f1b2d94fa9d69d2611c1fb6e4"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_signup/README.md",
-      "bytes": 1430,
-      "sha256": "b6146c197646ce899f8ce462c46bb07d9d8676c0954645e4c00555ad4e0a117d"
+      "bytes": 1403,
+      "sha256": "984199ab8917224885f5c08605ef54cd5d924d4aa5b62cea5a367cc9d6c98abd"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_signup/plugin.json",
-      "bytes": 432,
-      "sha256": "e916df8411fe6620abd6bcb9f0a9d4ea8eab9ed1b584861515e7ee80417f5ff8"
+      "bytes": 412,
+      "sha256": "fb5d16630ad174e1a8296b564685397e342a530ff07c39cf682c47e3512d17e2"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_signup/worker.py",
-      "bytes": 644,
-      "sha256": "82a261be044713692505d6db27e33429232ec0d94f4d78354087a6a7c7973f6b"
+      "bytes": 628,
+      "sha256": "c349eb16f0bde33476aabce0d73bb6d8a06eb96794fe2d3b024b54ea2f88d2da"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_spaced_cards/README.md",
-      "bytes": 1269,
-      "sha256": "a64d4436e3c2edf24040e5acdfc0e309ee0f020fef20e6798545ba60b49a0b26"
+      "bytes": 1242,
+      "sha256": "476ba5bb3b54054e3bc6cf52fc7cf66df1d0017f0c815a9a5cc1e301ea343f23"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_spaced_cards/plugin.json",
-      "bytes": 432,
-      "sha256": "b894159d3779b25ff11b63bab9572fd55f1857b716ef0dbc979afb0588455ec6"
+      "bytes": 412,
+      "sha256": "cf2a19d4d17136e583086503a96cc199c4fbbff102ef3395c0f843af99ac7895"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_spaced_cards/worker.py",
-      "bytes": 647,
-      "sha256": "3fd26a9bba282e247b751c3df44517db97bb0be27f56a17ffacb6185a7511dec"
+      "bytes": 631,
+      "sha256": "101c722b5c291f858729bab483602321587b0daf72bae18c7fe8b5c756804aec"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_split_bill/README.md",
-      "bytes": 1477,
-      "sha256": "27c43bf0438f9c182dce590002260a18fee60231582df46a097c4c94ef3bf8aa"
+      "bytes": 1450,
+      "sha256": "e8c360159ee46d0fc680ebf5c8f393ddd3ad0471aa8ea993cffd3a4f3351ec95"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_split_bill/plugin.json",
-      "bytes": 428,
-      "sha256": "cc4ad74ff86005e8f8989719ebda688a76bbea911c3dc4a2d67a2674afc3a81d"
+      "bytes": 408,
+      "sha256": "29bd0d8bb2cb16c67a5370db2b1529f6799fd337849981d3e6403140d00cdb6b"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_split_bill/worker.py",
-      "bytes": 644,
-      "sha256": "f884ddb25ba57dd60980193b4f63d9c754e31cde3bf084cdfe9720ac2589ef2f"
+      "bytes": 628,
+      "sha256": "275c4a288691146e315dee23ac38a3bd1a1deaeceabac7cd07a62d5bbf4a0a2c"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_time_budget/README.md",
-      "bytes": 1250,
-      "sha256": "31a2261f1ec22924429eccfba391ead686eccbe65dca9fda77dd9f828275a77c"
+      "bytes": 1223,
+      "sha256": "b4cb6cc863e073c659a97524e26d9a6c31af19462acfd8c90d3d2e8ca7217315"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_time_budget/plugin.json",
-      "bytes": 431,
-      "sha256": "c77369c6d294b3ea54c8524e12c886290cb25f86858f60379b589fd511dc67e5"
+      "bytes": 411,
+      "sha256": "3a53d7778c825696f27fcb07da4b9c766d00826d9cf99d008da8d7d78fc24e98"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_time_budget/worker.py",
-      "bytes": 643,
-      "sha256": "ae9d35b6d29deb2c7cdbf718a85c36792bd135ede2ac96f484ecb1dc978ac641"
+      "bytes": 627,
+      "sha256": "ffe64561f3661a7c26fee2b8fdbf2ff65d370acbce930c3f8bc016ed556b66b0"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_watchlist/README.md",
-      "bytes": 1221,
-      "sha256": "4e681916060c60e37cf5f82da64799fc8eb86a5a8de680e352d7c8622fd73223"
+      "bytes": 1194,
+      "sha256": "eec262493f4472031ed005af191277e386a9fb0186d9ac698a0463c60ae06921"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_watchlist/plugin.json",
-      "bytes": 426,
-      "sha256": "6ba6759eb41708eb77c9e6e5cf312fda6daeded2662999659e8bebd17fc0185c"
+      "bytes": 406,
+      "sha256": "a7c88b8acd12effa1bd621f4ed2a526af269088a1b16971baf9afce35c5d47b5"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_watchlist/worker.py",
-      "bytes": 644,
-      "sha256": "512c80a4d69d9f802bf0c8adb6843c8dcecd9a615ad71821789a93a89d57eb14"
+      "bytes": 628,
+      "sha256": "8029a4e4eccd6791054d3678c5924f8fc24546c6b20984598758258db688f553"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_wiki/README.md",
-      "bytes": 1481,
-      "sha256": "0f94af586b4d68a233cd431bfe0872502d1cbcfb10e3bb3e4c0a1b8668ea654b"
+      "bytes": 1454,
+      "sha256": "fd54697921be5e957998dcf9c742d8dfb7559cd2da4afcf087007cff5c994742"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_wiki/plugin.json",
-      "bytes": 435,
-      "sha256": "e7d605d826ca8277ee4255ccc2beff6ecb6ebdf4e68782104902e816a1076041"
+      "bytes": 415,
+      "sha256": "28525b5edbc720689920fb9768ead36505108bf7ea71f5ff6ddd6224f32a3bc6"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_wiki/worker.py",
-      "bytes": 639,
-      "sha256": "8425cd73ca561fca9dc236ea5f72441e1c6b25525bd67d2fe3aadfc4252abf57"
+      "bytes": 623,
+      "sha256": "a3dabd91c216a03a6d17d0af1cfa032708594d4fdc5af0d5a93b447087c4cdce"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_wishlist/README.md",
-      "bytes": 1230,
-      "sha256": "d99c5ae37af812c1cacda0707159b4f60c366f15097be6d8e79402f46da9c03c"
+      "bytes": 1203,
+      "sha256": "1d4a5207cd180b0d5d4f5e0734aa64f60d0ed711368ffded66f76a9051a234a9"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_wishlist/plugin.json",
-      "bytes": 427,
-      "sha256": "81b6061e5d1559280824fc9c07c893fb5750c9afab37812c080772b4b8f2b212"
+      "bytes": 407,
+      "sha256": "0fcb0a7865298f271d84a8173464304e2ba02b796b8574d1267cf8b55103d1c1"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_wishlist/worker.py",
-      "bytes": 643,
-      "sha256": "48bd7ce3f299f93b76cd313f69139038952934287e6eb3c3f36f3500efa1e7d2"
+      "bytes": 627,
+      "sha256": "e0c743b26aadaded3256c649b3582577fa4b994f33d218b03baa632f43473f91"
     },
     {
       "path": "extensions/expansion_pack/life_tools/tests/test_life_tools.py",
@@ -1501,8 +1506,8 @@
     },
     {
       "path": "extensions/interaction_pack/LICENSE",
-      "bytes": 1085,
-      "sha256": "28ca83024584d7ea2b6a642ca229356d50d5eaf58a10323d482c355fbc2099fa"
+      "bytes": 1064,
+      "sha256": "eec0dcba58f6d4e92d98f2fa3a61f86235e1b322aa512bc40daa8886a4f9cfb3"
     },
     {
       "path": "extensions/interaction_pack/README.md",
@@ -1526,8 +1531,8 @@
     },
     {
       "path": "extensions/interaction_pack/catalog.json",
-      "bytes": 13851,
-      "sha256": "8470124d366af687c76bc39e155f4dce747d2fb457016f6cfc998c648d2611c0"
+      "bytes": 13509,
+      "sha256": "d15a88056863a6369573d67f2b9d21d9d1a56212227c9601096f441e7551db10"
     },
     {
       "path": "extensions/interaction_pack/common.py",
@@ -1546,183 +1551,183 @@
     },
     {
       "path": "extensions/interaction_pack/plugins/i_auction/README.md",
-      "bytes": 709,
-      "sha256": "c7774c38e675dc8d6492ce9a7f4ddb60553b256a14f2b0ccb9ff2607ebb44b24"
+      "bytes": 704,
+      "sha256": "fe52bb63a56f499f63b1b80e17707be5a38367fe3f1f7442bc872f12b028abe8"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_auction/plugin.json",
-      "bytes": 845,
-      "sha256": "c9d52ace87dd10b07ddb54d50e50b5a401e6d58fa36d251b87bc12cd90f6bb3d"
+      "bytes": 818,
+      "sha256": "b6601453fd5f23c23c899f3810cbc75108d8a9433f699a8c98cc23fd015d127f"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_auction/worker.py",
-      "bytes": 198,
-      "sha256": "08c705d28329834fa29fb6b186df0171c0795441b86a199624bf19bf10e50f5a"
+      "bytes": 192,
+      "sha256": "08a7708b4f06f389d6dbde5b153d1b2449f059366162df0adb3604f3a37f8607"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_buzzer/README.md",
-      "bytes": 641,
-      "sha256": "2952bdf1ab16c8582e856b19dac69ccbb0f302804cade6e9e084d80225a3b669"
+      "bytes": 636,
+      "sha256": "9441bdce15e5d4cd71ae0984b85b7ada6202405ddc8c17bf5c9028f74e9304f4"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_buzzer/plugin.json",
-      "bytes": 594,
-      "sha256": "4eace96e7e1e35aa077dd796867cacac5a6f3bc12423c6a07e1954881812cc01"
+      "bytes": 575,
+      "sha256": "f4e59113e920f87d8d6eb4a74c43ab33c7245df48fa53e8485b8a8f6804031f9"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_buzzer/worker.py",
-      "bytes": 197,
-      "sha256": "57f94337d60d7f0c5a9a7120a3f859065be10a9e1f7bf56d2124a30463b7d454"
+      "bytes": 191,
+      "sha256": "24e90cb3070f1caae27e2728507b44a369aa7a2bee503004c7354f1c00a1c425"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_dots/README.md",
-      "bytes": 666,
-      "sha256": "98a2e35259aba287e506d5c0ce0a97a2141789a648abd66465300f1fb677b329"
+      "bytes": 661,
+      "sha256": "322bf4c72ede9091bc5944fe6885c901c511a31003c51f29c1d8e0c136eca53e"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_dots/plugin.json",
-      "bytes": 617,
-      "sha256": "a4b46bd8a930b8393d270124e4c960009423ead2c4da93965d02e2f9222c1870"
+      "bytes": 598,
+      "sha256": "3af8ac5636170aa4ff7c819daf37e1920bc53d5366822cda2a339a3b36eab440"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_dots/worker.py",
-      "bytes": 195,
-      "sha256": "9d93e2fc9f1e76baefd015796422578e768a3d0e42ade830f482efb613687c72"
+      "bytes": 189,
+      "sha256": "da95f1d9984773a9ac79672449d6af51f8c2fe97cabd0e4ee7dcb394e88e099d"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_guess/README.md",
-      "bytes": 680,
-      "sha256": "30bdcf701cb0b019d030bac18e2ee4cb9d26eaafdfe8b2629eeb0387ed17a1ac"
+      "bytes": 675,
+      "sha256": "09762ac9456bf0c7538fd75b8724c81b67f4e1f77ba314273ba391d3a1852da2"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_guess/plugin.json",
-      "bytes": 632,
-      "sha256": "28e8cf4f55a74421a762cd77e6ba623c28e1ca1af56dfe46f28a697f765c41ab"
+      "bytes": 613,
+      "sha256": "ab82c1c0e69fb09025a31a8417e1c261b8d120b39179d4b50fd66c2ac71ead2b"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_guess/worker.py",
-      "bytes": 196,
-      "sha256": "558d7b611afeff212acaa957bc7118fb59187d98ffb2f1b4caf2799a462329dc"
+      "bytes": 190,
+      "sha256": "5ac6353f75e9b6823398f857acf050d61fcb7d3498b62a5f1a41f50718f2df56"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_nim/README.md",
-      "bytes": 640,
-      "sha256": "c90df6b8b6fa2d781fb91b4f9e4d9508d56da0be40d87bb5e9e90eab18e86bd1"
+      "bytes": 635,
+      "sha256": "07c9927cec740e82788964ca1479aaec60d8b78813173b3b2852274f3ef24e94"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_nim/plugin.json",
-      "bytes": 766,
-      "sha256": "73650fbb7b35ef53cc89e579fd7ea0da4bfc3ac00d3798457e341608a095c142"
+      "bytes": 739,
+      "sha256": "b82e56fcd0a97e371249dbcf9f729666461fbfbd5195d1ea539b62550027f458"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_nim/worker.py",
-      "bytes": 194,
-      "sha256": "4b36910f13c949129ab0b3703d9c12750abf890a0126465ad8a088992abc0fbb"
+      "bytes": 188,
+      "sha256": "7d92ac3eae839328287a13efe4d5335c6e53d2f7f8756423521a7c50198f5575"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_set/README.md",
-      "bytes": 716,
-      "sha256": "5734f31209a61edf27ee8e54b3b9514d665a90345d3d3fd76bd4e3961e30fe21"
+      "bytes": 711,
+      "sha256": "8b92fcb9ee2093584a768e356afdd59487d0390be9445c80f8163f4c99504704"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_set/plugin.json",
-      "bytes": 666,
-      "sha256": "6077dc827360f487536da38a0ef497f699b194d3f07d441fdd444e196d8fff05"
+      "bytes": 647,
+      "sha256": "4afe7e7fc1687985a7de9112ab98e82066cfca63b9019fa84ad52baf713a9f6d"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_set/worker.py",
-      "bytes": 194,
-      "sha256": "be0f98a38b2a82cb2dfea38eeabf26c32cb85480a6bc341df586db103277d5ee"
+      "bytes": 188,
+      "sha256": "f632ebd093b471f9293b42f8bfd94381370eb9c729538636fee66188285ee742"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_story/README.md",
-      "bytes": 634,
-      "sha256": "397782c9c43b24eb43236cba5a0eebb85d6eabd0aaa385b045713530374e3a04"
+      "bytes": 629,
+      "sha256": "9a43b57b45cbba166598dab14a99babb8b4b9ac4c945ac98fdd20c7d9b12266a"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_story/plugin.json",
-      "bytes": 586,
-      "sha256": "d8c4ea3059f4e5697f6291c3da1fce293e52c9fd5213fcb1d8fc1ee4567d9a97"
+      "bytes": 567,
+      "sha256": "f6167477d26cfc76b6b1bd1d7b183fc03edb5fe2f6779af2a2fc919a731371c4"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_story/worker.py",
-      "bytes": 196,
-      "sha256": "042274c989648d71532563a5aafdfcc43c4b83bfa4b84133c8c3bcb7de72fa21"
+      "bytes": 190,
+      "sha256": "d2e4ad13db0382908bcba0c96e06d02f6ee80c7ca2819e774e6ce0527be97e70"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_teams/README.md",
-      "bytes": 637,
-      "sha256": "0dbb60bb1bba81d012e05933b501af2de5e08a381447cc08a78e359359ab3b69"
+      "bytes": 632,
+      "sha256": "b35b7a90065bc46b46efc6afe176abdeafe03cc23767aa7be836fddfcfbb4a10"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_teams/plugin.json",
-      "bytes": 589,
-      "sha256": "bffe17aac997ea253200f8508618791c8e3ec39bd8c102e8d8eab72307cd5fd7"
+      "bytes": 570,
+      "sha256": "773fc653a0e1d0292cc3f236dfea1a714e9038a54699e9e3c3431cd69ff4241e"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_teams/worker.py",
-      "bytes": 196,
-      "sha256": "763eef7d4f60ee11f71b878ec5484249e0abdf480795cb523945de5bd786037b"
+      "bytes": 190,
+      "sha256": "7b40f5e20ce1674d338ae8f4768da5ea8dcc19c6ad0515628bed889158e9dc3a"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_topics/README.md",
-      "bytes": 636,
-      "sha256": "ac752afa19cf12a0945bc81138020501f0cbd605c90e5622a8169537781c5505"
+      "bytes": 631,
+      "sha256": "cab08366996acd3084cc9db24c1214398bb0a5ce7781fbfdf79e366e71dc59ca"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_topics/plugin.json",
-      "bytes": 589,
-      "sha256": "852b3e28177531af4458413cd9f5ea7afe6a60e884ddc07fab86198dacf51f5a"
+      "bytes": 570,
+      "sha256": "f391e1adb67bdf5be79efea226fe4f08b433dd6ec44e0c3c502f66f503d795f8"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_topics/worker.py",
-      "bytes": 197,
-      "sha256": "af51dd740d64e6df95e41ab8283c31396195725dc14e5e42cadd2efce3537ece"
+      "bytes": 191,
+      "sha256": "446181e08fdd40323c64f5ec54f63a5ebb07239de8b206a8408f2e76c8bf97c7"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_truth/README.md",
-      "bytes": 664,
-      "sha256": "1d058ac537b3df5a1480eebf011f54cf132012c9c98dd5c26a97f6f39ce56013"
+      "bytes": 659,
+      "sha256": "ddf57d342aadb73fae652acab13d4cdf8c76b869e3e9b9e4bba97f3577e64a9e"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_truth/plugin.json",
-      "bytes": 616,
-      "sha256": "24317a61f9dd9dea5e731ab5a5d10c8c9c53ccc7fcf84f46dc1eb060e2e8eec1"
+      "bytes": 597,
+      "sha256": "922b56320787c43901c86b9a3944ec200e91aff0a1d1f272cad6d1f163160817"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_truth/worker.py",
-      "bytes": 196,
-      "sha256": "a677dba617f86d2b19f0c8f4cf2b47dd39c1e4b797ee920415f0ec2e65b8daa5"
+      "bytes": 190,
+      "sha256": "ad2316f42e61f017b8c5f98f2e84250ecdc9aae6ec510d16649d15e2658c193d"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_turtle/README.md",
-      "bytes": 704,
-      "sha256": "d46b867a486e642d4ada4ec3e9f4dccbb8f0b38dea5fbe3f3f6c6e2afc21bbc4"
+      "bytes": 699,
+      "sha256": "41b74b2346735aa64439da63142baf14aca5f2b956d3718a012d270b444cee4d"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_turtle/plugin.json",
-      "bytes": 657,
-      "sha256": "96f72053f2ed5e69daf890a3d9f4f96c379518b51d8c63168cbaed1057fe14b7"
+      "bytes": 638,
+      "sha256": "43ffcc47a4977ec707d441ebbeb539c4df5eb6ad8afb3581250d6f5bdeca1799"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_turtle/worker.py",
-      "bytes": 197,
-      "sha256": "e8b2bf8dd5e444a6bd1d0c5fd2c89485c01da4b73365c40976b85f96dd74e707"
+      "bytes": 191,
+      "sha256": "bace299cad4711f939ce2c488abd6c6907c751797917f325cdfcdee180ced642"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_undercover/README.md",
-      "bytes": 716,
-      "sha256": "47d0e943ac1f73dbdd453feb3657a1ad0187bf3e41e034e50558832dea190fe0"
+      "bytes": 711,
+      "sha256": "edb32f5786ef8d18301134822fe1892b0f2642e443c0e1fb4c607a6b47be1d0f"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_undercover/plugin.json",
-      "bytes": 673,
-      "sha256": "f9e6ec55e88de29054a92d745082b8d428c017a28e7fed2c6b343607abdca67e"
+      "bytes": 654,
+      "sha256": "73cf095de589da7c9349d4024f64c1e96e7f2672fd4b4d256044e74ef94ea73b"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_undercover/worker.py",
-      "bytes": 201,
-      "sha256": "fba0801c8a4737086092ba787f3847d0b4ecbdbbc1255eebac5fddc4ab662491"
+      "bytes": 195,
+      "sha256": "4f0089dfd0c9d4a05390eb3637c6ebfc1e0c9c1d49271f10330c16d69c825776"
     },
     {
       "path": "extensions/interaction_pack/social.py",
@@ -1746,88 +1751,88 @@
     },
     {
       "path": "extensions/maibot_pack/build_pack.py",
-      "bytes": 5433,
-      "sha256": "7582d2358e495ef03128a9580913f5eb068020447778cf23a7eb2ff999b071f7"
+      "bytes": 5336,
+      "sha256": "256f231ec5605b75950c400ec97bd0da307f2254a0ec18a3474dead313b7314b"
     },
     {
       "path": "extensions/maibot_pack/local_engine.py",
-      "bytes": 19457,
-      "sha256": "9722a47aee0076baf79998feec5bbb98c50a6b7d70218410db7448fe3dcbe3d1"
+      "bytes": 19218,
+      "sha256": "c1f7fcd091bd20c039d76bdf4ccc13b8bd8d8a209b3b114ea68795897a51dc1d"
     },
     {
       "path": "extensions/maibot_pack/plugins/answer_book/README.md",
-      "bytes": 506,
-      "sha256": "eb47410216dfaeb7fdc7bbb37f689a3758339ea7348358172806619fc0350c80"
+      "bytes": 499,
+      "sha256": "9df15d0fe82dca0aecfab148b2ec26903b9e3620456fc45bc62c023424af8326"
     },
     {
       "path": "extensions/maibot_pack/plugins/answer_book/plugin.json",
-      "bytes": 237,
-      "sha256": "7702679440ff81860e5d5b70969de6085875f80e085dd1a3df029708893c827b"
+      "bytes": 226,
+      "sha256": "d77c075d75f4b962cb9391250307aadf762f185c4a0cdc1c3e877312316603cd"
     },
     {
       "path": "extensions/maibot_pack/plugins/answer_book/worker.py",
-      "bytes": 550,
-      "sha256": "e94a81cf8dfb1ea225e05641f49dc32832a510994fef49ee5ba9ef929dd63b50"
+      "bytes": 539,
+      "sha256": "831a79687b10b985e9f6a2cb26dd8bf622c9d96da63398232a8a0a7c09f88453"
     },
     {
       "path": "extensions/maibot_pack/plugins/daily_greetings/README.md",
-      "bytes": 559,
-      "sha256": "aad62f2460353873c86f94d2b3dccc197995129d0b5a1ec2f19590017a763fdc"
+      "bytes": 552,
+      "sha256": "f3f7c20a56333ba252ab00ecc3b2be2678d88e15ab3340f1ac4ff61fd4115861"
     },
     {
       "path": "extensions/maibot_pack/plugins/daily_greetings/plugin.json",
-      "bytes": 265,
-      "sha256": "d1115b7e47676ceeb5df1ccd91528c5eb645a2afa853cdce4c6aef76f0d15dc7"
+      "bytes": 253,
+      "sha256": "4f8d223b57b3b74358ac94182023c2bd74aaf3c519f603cc5a3b887987ba7ab9"
     },
     {
       "path": "extensions/maibot_pack/plugins/daily_greetings/worker.py",
-      "bytes": 558,
-      "sha256": "6328e4ab2dda9994d4be582c9da54827634ad81aea50b4adec7417582760dc16"
+      "bytes": 547,
+      "sha256": "964e261f928d18fb0085ceec9e7725a2e7e51dce18ffcc3452a38fc586ac6ce1"
     },
     {
       "path": "extensions/maibot_pack/plugins/daily_luck/README.md",
-      "bytes": 529,
-      "sha256": "c78d181d8b6131dc4f70274ea9556b4534f7efa0c08457747f2bd43b0a635303"
+      "bytes": 522,
+      "sha256": "785f64bc0eaf0bd47129122884a848fe9aee79c5973166744e2663ff69e6f73a"
     },
     {
       "path": "extensions/maibot_pack/plugins/daily_luck/plugin.json",
-      "bytes": 251,
-      "sha256": "80c7ca9b0296062c36d20a55c2dd00d516b8d340c981f42e8668cf0f544a2910"
+      "bytes": 240,
+      "sha256": "0e6ace0ea5703d982558b58072b4e77d0bc0165b30878bf6ad78bd858b61521c"
     },
     {
       "path": "extensions/maibot_pack/plugins/daily_luck/worker.py",
-      "bytes": 549,
-      "sha256": "7fc276c1c3f943ec080212f7cea927e107d1e853b80d55209e7b09e7ba76fa68"
+      "bytes": 538,
+      "sha256": "04e48310e20e3d5925e35d9fb348ac8901868f5b86c0f0bf4fc76c1c9210f241"
     },
     {
       "path": "extensions/maibot_pack/plugins/decision/README.md",
-      "bytes": 526,
-      "sha256": "3fcf20445f32c62f033b723a89c2e4fc145f46050499abab8f2f8a703eb704c3"
+      "bytes": 519,
+      "sha256": "67d0183ea053294c5249eb62794440620177c93020d70e07219fa886118b0124"
     },
     {
       "path": "extensions/maibot_pack/plugins/decision/plugin.json",
-      "bytes": 266,
-      "sha256": "21cb585683b7ccc3458efb9b64760f80002a70733440241a3b7a54d06881e67c"
+      "bytes": 253,
+      "sha256": "aff5a374679537712c85ce6a53eaf15282aa3c5fb883619bf6ed8a85c25aa839"
     },
     {
       "path": "extensions/maibot_pack/plugins/decision/worker.py",
-      "bytes": 565,
-      "sha256": "7ad1864703ba1e28787b1292fdd78a3873891d19cfd997f115fee111ea421603"
+      "bytes": 554,
+      "sha256": "ca18e5bb9bdb86aedf8a61fc05dc792f48a8cc48d3b9b2afe41e852d7c6db609"
     },
     {
       "path": "extensions/maibot_pack/plugins/f1_info/README.md",
-      "bytes": 708,
-      "sha256": "ee5abb144c3378ba12d6bee41586d9103c20a24273aa695ef01106ae8ce09b58"
+      "bytes": 698,
+      "sha256": "03d835dc40d6f98764869b14301afc49113da0a6095514b73b2f81cd70781a4d"
     },
     {
       "path": "extensions/maibot_pack/plugins/f1_info/_net.py",
-      "bytes": 4913,
-      "sha256": "81bf4f1f37fc4e0fa142d5b7367bcd3b9d49156a4d06faae31cb1dd2d60ce0dc"
+      "bytes": 4800,
+      "sha256": "2f66de41c4023bbd10ab6cbfc2ddca985bdb517fa2bd9d4fbbe09b032a3355ad"
     },
     {
       "path": "extensions/maibot_pack/plugins/f1_info/plugin.json",
-      "bytes": 637,
-      "sha256": "d006a0e7d790582430332a68976442c5bc39cedb254602393d95f04ee6fc1559"
+      "bytes": 608,
+      "sha256": "7f75ddfa2407b135cb6e0393df6df80cb76acdf4e80566f4f970cd52e52d2590"
     },
     {
       "path": "extensions/maibot_pack/plugins/f1_info/worker.py",
@@ -1836,18 +1841,18 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/game_news/README.md",
-      "bytes": 543,
-      "sha256": "14bb349ea386383e9941b53329ad2120dc633c268e125c5652669183fde27553"
+      "bytes": 534,
+      "sha256": "f8ff7ac9c0a970b47204d723189e18605467105ca23172cf7987f150846eb5d6"
     },
     {
       "path": "extensions/maibot_pack/plugins/game_news/_net.py",
-      "bytes": 4913,
-      "sha256": "81bf4f1f37fc4e0fa142d5b7367bcd3b9d49156a4d06faae31cb1dd2d60ce0dc"
+      "bytes": 4800,
+      "sha256": "2f66de41c4023bbd10ab6cbfc2ddca985bdb517fa2bd9d4fbbe09b032a3355ad"
     },
     {
       "path": "extensions/maibot_pack/plugins/game_news/plugin.json",
-      "bytes": 414,
-      "sha256": "e877e6bcb655498208e54ba7ce4a0771764dff746ed279b31f1967d792d0b578"
+      "bytes": 394,
+      "sha256": "a13891329b5dcf14801656e0fb71688adfe00ded17a5fb9415f670bef5202fd6"
     },
     {
       "path": "extensions/maibot_pack/plugins/game_news/worker.py",
@@ -1856,138 +1861,138 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/guess_number/README.md",
-      "bytes": 553,
-      "sha256": "831166639af5a2afb94c3b2c3bc8865a490c056613885e2b899d808749df4188"
+      "bytes": 546,
+      "sha256": "5ae5ad858fc915b2257c7c7b7383cc102154ca88e73f44414ee3f2dab9b7907f"
     },
     {
       "path": "extensions/maibot_pack/plugins/guess_number/plugin.json",
-      "bytes": 416,
-      "sha256": "68470fff795a4c971335f2b73ca9a73a022711d8e438cec38794bfa596f316d6"
+      "bytes": 396,
+      "sha256": "f633e1ea3c8a586a91f50559e3619286313cf092cf2637e74a9d6ee334cd5a55"
     },
     {
       "path": "extensions/maibot_pack/plugins/guess_number/worker.py",
-      "bytes": 548,
-      "sha256": "63d858dbf7b17d0f60b5634f8deb5b6162a8c8749cd0bf32165a9e2a5283c0c9"
+      "bytes": 537,
+      "sha256": "ea318e947c8de91eaef84e417cf43d09db8963773daa20982ce57695ea531f17"
     },
     {
       "path": "extensions/maibot_pack/plugins/polls/README.md",
-      "bytes": 622,
-      "sha256": "cd23d72fc11aa23ba6399fff992349956dd173214ea4ae49463bd9f8030a85e9"
+      "bytes": 615,
+      "sha256": "440475d727872250f5acb81a9adb443260013b825a6130c94a49263c809ce781"
     },
     {
       "path": "extensions/maibot_pack/plugins/polls/plugin.json",
-      "bytes": 370,
-      "sha256": "a7ab05cc990961e046cdf70ec05416f83184241ed4fb0004c241ff39166f4277"
+      "bytes": 352,
+      "sha256": "4d893d184d3d5fde3b19b9857bca111c15112bb014a3686021dd7d679b89327a"
     },
     {
       "path": "extensions/maibot_pack/plugins/polls/worker.py",
-      "bytes": 538,
-      "sha256": "54548a08c13744d13ab4db8c700771230f1218d6d74104347e984bd22da9eb1c"
+      "bytes": 527,
+      "sha256": "2d4d0acc723c2b1b61e80c17b1315518dee08e4ab50b09a3c4a72300d984fae1"
     },
     {
       "path": "extensions/maibot_pack/plugins/quotes/README.md",
-      "bytes": 631,
-      "sha256": "98ffb1de68a95cb91e53c45db7d3b3f70624ea2fbb34b5e14aad6a90884a07bf"
+      "bytes": 624,
+      "sha256": "b817dbc50fd133c5a2987ee6e96b748cd9a490fff53d31054094e531ea3fd834"
     },
     {
       "path": "extensions/maibot_pack/plugins/quotes/plugin.json",
-      "bytes": 422,
-      "sha256": "3320a35403779a01269b3af3e765440796c787165a211ad6973af8acdc1a6bdc"
+      "bytes": 402,
+      "sha256": "6c08d12a8a776b1fe5e2d039a3b7b9391bba6c92e890709fdb1c8e9d54db4142"
     },
     {
       "path": "extensions/maibot_pack/plugins/quotes/worker.py",
-      "bytes": 539,
-      "sha256": "59b5cd9b63e5622e8034ad777db19b471567c137e0d7ab4fa360f7a3f11f7e9e"
+      "bytes": 528,
+      "sha256": "3c87f61f7bd744781dda9a4e15882abdaf6cbf0f7a377173f0af08b2a8c8075a"
     },
     {
       "path": "extensions/maibot_pack/plugins/rps/README.md",
-      "bytes": 497,
-      "sha256": "2a968fb1a6e05d1d9810513d6109e3a80247993fc82c75f88b33d8de5cf4184e"
+      "bytes": 490,
+      "sha256": "d183c95fd66e1724a707b482a59677dd2c513fcf0236368a3750eca798158ae5"
     },
     {
       "path": "extensions/maibot_pack/plugins/rps/plugin.json",
-      "bytes": 220,
-      "sha256": "338a82066c2badeebd6064f8918fc6e4e62d18b6eb166e24fcfa580f0fa33c02"
+      "bytes": 209,
+      "sha256": "6c914c4802771b43832f80cfeaccb8adf39d681b2ee57318c65a0b8561c93037"
     },
     {
       "path": "extensions/maibot_pack/plugins/rps/worker.py",
-      "bytes": 536,
-      "sha256": "20acc82a9fdaf9c486d8669e10f422cef13cd854ed93f6bca51c1ab8ce229ae0"
+      "bytes": 525,
+      "sha256": "62cc8f4d047a37a221da2e1139c7cb7284f64692f74806b66abdc3fa9ba37e22"
     },
     {
       "path": "extensions/maibot_pack/plugins/tarot/README.md",
-      "bytes": 537,
-      "sha256": "0b4bde3c2666a316bca228e3211115c16d2c6ff930d0ae2088b52e9703f8b955"
+      "bytes": 530,
+      "sha256": "33c579c9a2c1a6381aa09690e9ba6256e0d486413737780106aed830980030b0"
     },
     {
       "path": "extensions/maibot_pack/plugins/tarot/plugin.json",
-      "bytes": 260,
-      "sha256": "2e521bcfe8ae40cd6b6fd1b1937f4e2245ca78b7574942b0e8abbb10a70ca4e6"
+      "bytes": 249,
+      "sha256": "998a06fee19902cabff445bd7867565eecdc10c68142099c36f7032246e1ebbe"
     },
     {
       "path": "extensions/maibot_pack/plugins/tarot/worker.py",
-      "bytes": 538,
-      "sha256": "ba49695dd6bdbfb673a03cc0c52692138ccb4639cedcbb6452d9f992505fbdba"
+      "bytes": 527,
+      "sha256": "25225ec062be3a5587638e99a4587b8b857cb300deee75f7db68ba105514ddb5"
     },
     {
       "path": "extensions/maibot_pack/plugins/text_tools/README.md",
-      "bytes": 618,
-      "sha256": "b982c8a6fda0493da138e5e57f69b1cd92567122ee5a8d3bafafc2d4e38411f0"
+      "bytes": 611,
+      "sha256": "09aa0906d179bcb73c06f4b5f1bf9d66da6987cefcc524851523004a15fe8aa1"
     },
     {
       "path": "extensions/maibot_pack/plugins/text_tools/plugin.json",
-      "bytes": 328,
-      "sha256": "d6ab017c43e7af2c4e06ddc1615124da5b873a21143391a960b541711e2613c9"
+      "bytes": 312,
+      "sha256": "cf2be288d08397a026c8b6d2ec9a285c5a443b8ebe8d9cff1e419cdf8a92e9aa"
     },
     {
       "path": "extensions/maibot_pack/plugins/text_tools/worker.py",
-      "bytes": 606,
-      "sha256": "c5a1ab536c7066a2bb3bac0cc27af300fb863903b6f96aaf9547758b205131fe"
+      "bytes": 595,
+      "sha256": "fc8a6a8c053f7ffac68e64f76115ad32afd17e3d65d8b9c60b17cd8c5a31fa12"
     },
     {
       "path": "extensions/maibot_pack/plugins/time_tools/README.md",
-      "bytes": 606,
-      "sha256": "a3b7b16589ea1c1df600ac5cf595f38f8ed40496c08c2cfaa08e2fcf71a02443"
+      "bytes": 599,
+      "sha256": "b90da80efa75cd95b9d24cc5f213eaec41b0c5ec7b29771fe4a87f6ecc11096b"
     },
     {
       "path": "extensions/maibot_pack/plugins/time_tools/plugin.json",
-      "bytes": 273,
-      "sha256": "d57eaf3e181bfea8aea5957c11ccf2a9e87d557810cb0de7d0e95422e0fa28cc"
+      "bytes": 261,
+      "sha256": "8ae17f332ef91dd41f9d349167d1a6c196e09acfdf1acab533b705f714e1d3fc"
     },
     {
       "path": "extensions/maibot_pack/plugins/time_tools/worker.py",
-      "bytes": 553,
-      "sha256": "2811b96bb2f7a4a0a8ed345b4fbfbcd610d04709d8ac694c5058f37901e06956"
+      "bytes": 542,
+      "sha256": "a672290d025f168c172644a8ca366ccf2dd0cd6b2bd53ff102f7710b5466f7b6"
     },
     {
       "path": "extensions/maibot_pack/plugins/todo_notes/README.md",
-      "bytes": 661,
-      "sha256": "37a6e60236c0db1f9f4ad4d33a8fd824c85a07837a66b00b4143745432db73ba"
+      "bytes": 654,
+      "sha256": "0d5c3b4cf367a80aa1d7047eca0f005910fb2ddaec22922581dcb79778f91cf0"
     },
     {
       "path": "extensions/maibot_pack/plugins/todo_notes/plugin.json",
-      "bytes": 448,
-      "sha256": "fa2438c609959baf2be4769b91ecac78bac67d4e7e36852e1a7b66087e3e7fcf"
+      "bytes": 427,
+      "sha256": "31145eb5c0ee50fc013bb838c1580aca07b60500b70927b440a94247e2635e71"
     },
     {
       "path": "extensions/maibot_pack/plugins/todo_notes/worker.py",
-      "bytes": 553,
-      "sha256": "7c961273b1ba19532d810a473858da46c5fe66531d66356c695276d8b5b95c85"
+      "bytes": 542,
+      "sha256": "d9b0b68fe1491ec925574219c46e47428731a9c2fb5bdf59df538f135207656a"
     },
     {
       "path": "extensions/maibot_pack/plugins/wordle/README.md",
-      "bytes": 587,
-      "sha256": "cd28db3547cc57d6dc53fcffd41d22d825ab79cd9cb680e1a763de0f667b1834"
+      "bytes": 580,
+      "sha256": "215c23f5795f4b79480426411db9367852585f75e43096472de7c11e970333f1"
     },
     {
       "path": "extensions/maibot_pack/plugins/wordle/plugin.json",
-      "bytes": 250,
-      "sha256": "dc5d183e09dba571a8c23d1f5ad68041ecf3b30fff2705e12b956625399dc36a"
+      "bytes": 239,
+      "sha256": "1034ad370c6536fc98467dbb3c4d558ceb8270a6c201892711731c9281cf9b60"
     },
     {
       "path": "extensions/maibot_pack/plugins/wordle/worker.py",
-      "bytes": 539,
-      "sha256": "152b0ee15f6f29b12f82102bea42faff082301933e4f361ab31cf18c91cf0f66"
+      "bytes": 528,
+      "sha256": "625fbfe081c2845f46519b903a4760776a9f4fd84dfd551716e2b7e3cb3f47e4"
     },
     {
       "path": "extensions/maibot_pack/tests/test_mai_pack.py",
@@ -1996,8 +2001,8 @@
     },
     {
       "path": "extensions/market2_pack/LICENSE",
-      "bytes": 1085,
-      "sha256": "28ca83024584d7ea2b6a642ca229356d50d5eaf58a10323d482c355fbc2099fa"
+      "bytes": 1064,
+      "sha256": "eec0dcba58f6d4e92d98f2fa3a61f86235e1b322aa512bc40daa8886a4f9cfb3"
     },
     {
       "path": "extensions/market2_pack/README.md",
@@ -2021,8 +2026,8 @@
     },
     {
       "path": "extensions/market2_pack/local_catalog.json",
-      "bytes": 2408,
-      "sha256": "cc4e0d6e4ad9cb2971446c636d010d853d14e7b05cc7509d8c76eaa9bdefbe54"
+      "bytes": 2321,
+      "sha256": "a990e627ed936fad3ad4ee3217546dbe2b8e7945627dda18aa063ae800dc1e12"
     },
     {
       "path": "extensions/market2_pack/mahjong_engine.py",
@@ -2031,8 +2036,8 @@
     },
     {
       "path": "extensions/market2_pack/network_catalog.json",
-      "bytes": 5362,
-      "sha256": "67de4871a6d6f024d2ea24c5db35052f6ded2501524dcb16bf2beec61554d90e"
+      "bytes": 5175,
+      "sha256": "d3db705ed19a21e8a7ab16bb31e53ec0f87b73cd1f5287c90cefbdead0117ffb"
     },
     {
       "path": "extensions/market2_pack/network_engine.py",
@@ -2041,48 +2046,48 @@
     },
     {
       "path": "extensions/market2_pack/plugins/m_abbr/README.md",
-      "bytes": 3108,
-      "sha256": "ff116ab71266d789585409fb2a968aa02dbbbf2b204fa22e3bd9b4750fceadf5"
+      "bytes": 3073,
+      "sha256": "8a40d223b8bf12790c1667a6c77a1d67f79258cbc9b8d90945e59a3ceb688372"
     },
     {
       "path": "extensions/market2_pack/plugins/m_abbr/plugin.json",
-      "bytes": 628,
-      "sha256": "d6caeab838fc241e582b8e6fddf27cb7967ad7f2d0269d54b253e19d20b1a95a"
+      "bytes": 600,
+      "sha256": "0130d46dca02b3df0527fc9d5def6de7ea85b39f5864f1298911fb3a9eb3e9dd"
     },
     {
       "path": "extensions/market2_pack/plugins/m_abbr/worker.py",
-      "bytes": 718,
-      "sha256": "e13c0512b72473f66e90ec16c19e19ff715a1f42155fd7c52f66b1b1d47a8aca"
+      "bytes": 701,
+      "sha256": "a9b009d9d8fe44314f8957a95a134a0a8f2ea98e31a3c7442a061e78176eb6ff"
     },
     {
       "path": "extensions/market2_pack/plugins/m_bangumi/README.md",
-      "bytes": 3317,
-      "sha256": "e707a7240555712dd354989766094df72da3924228869c54bf4256e2d536e6e3"
+      "bytes": 3278,
+      "sha256": "61b1660ee889143ed186c274138d0d3cd830bc5ad7b4f6e4bb2ed5c9ad92a8ed"
     },
     {
       "path": "extensions/market2_pack/plugins/m_bangumi/plugin.json",
-      "bytes": 985,
-      "sha256": "606ec98fd4026a9237d0c88f95c2ec2b531563201dc8947af08001dc7a7a2522"
+      "bytes": 941,
+      "sha256": "674d935e43b82eb8dd15304de4d30600d4f302118b3b5cab98f33bfc1f16c110"
     },
     {
       "path": "extensions/market2_pack/plugins/m_bangumi/worker.py",
-      "bytes": 721,
-      "sha256": "bbc7a86731b74e95c360bc04108a00aa475a1566ca56f37d1479379867f812ef"
+      "bytes": 704,
+      "sha256": "31def9448e72472789adb13086d29ba30b5a761308339adf5baf7328b9bbffee"
     },
     {
       "path": "extensions/market2_pack/plugins/m_bing/README.md",
-      "bytes": 3146,
-      "sha256": "eaba2854f2c99acb864cf1e532fe7d709312d7cab3d7319589d818e958381ff8"
+      "bytes": 3111,
+      "sha256": "14a619bbe166a32eb088e9d346a6160b52cfad7b2914f0ff6ad1c2e97ee05968"
     },
     {
       "path": "extensions/market2_pack/plugins/m_bing/plugin.json",
-      "bytes": 682,
-      "sha256": "432b2703619c2ab6557d830438e29a8d74f4fbabfc05a13488677581125e0126"
+      "bytes": 650,
+      "sha256": "73a599db45ebe0110b7934a89078b05ba51ab7a9b172ce3c9d768aa2ea4bc8de"
     },
     {
       "path": "extensions/market2_pack/plugins/m_bing/worker.py",
-      "bytes": 718,
-      "sha256": "b9a6252aea0064a505357a77f032431948437f81cbadc1a9b7941e5c165fd5e9"
+      "bytes": 701,
+      "sha256": "5f9ec4595a9c6ea072427ed62697f2e5cde93397f2b72d3ffaefdf7f3ac8bc72"
     },
     {
       "path": "extensions/market2_pack/plugins/m_ics/README.md",
@@ -2091,13 +2096,13 @@
     },
     {
       "path": "extensions/market2_pack/plugins/m_ics/plugin.json",
-      "bytes": 818,
-      "sha256": "4b3e2f790458a57fa8cd2eac740eded04e978cf8c586de03d6bf3679ddea1671"
+      "bytes": 782,
+      "sha256": "5f9c71af2ac43f15a4913e1bbf876c1141e6aa07071069fb18ddc088c9ba45c3"
     },
     {
       "path": "extensions/market2_pack/plugins/m_ics/worker.py",
-      "bytes": 610,
-      "sha256": "ac4cfef17ccc963b76a68ca8fc8cf7017907feb7e78c815d46ea8a7f288eedfa"
+      "bytes": 595,
+      "sha256": "ad705c8f0586c83af62c3b534d7f151754cae6478bfee023affbfc3828ba9e2e"
     },
     {
       "path": "extensions/market2_pack/plugins/m_mahjong/README.md",
@@ -2106,28 +2111,28 @@
     },
     {
       "path": "extensions/market2_pack/plugins/m_mahjong/plugin.json",
-      "bytes": 980,
-      "sha256": "018dee06821152ea8243e11cf3534e608dd3a759844c228bd8eaf8904c653c02"
+      "bytes": 937,
+      "sha256": "2a3182def0c251bd3b2e576b8f062c8c00aabe2a0d49512e8fd76d9ac4c2fd55"
     },
     {
       "path": "extensions/market2_pack/plugins/m_mahjong/worker.py",
-      "bytes": 645,
-      "sha256": "f7c10733dac74b7c9e20dea22b639821da68f8cfa4609bb0882762b5d2207f43"
+      "bytes": 630,
+      "sha256": "dfd7e2a734b808a9d89781248333f0ba0b1ffae768161753a5bc7343c8a60bf3"
     },
     {
       "path": "extensions/market2_pack/plugins/m_rss/README.md",
-      "bytes": 3579,
-      "sha256": "8801ce70b963819d61b088d6f9b14bbdb97642122d14d802e253fcf41448ef05"
+      "bytes": 3539,
+      "sha256": "e7f27c29e652c68e80cf4f4953366ea5bdfac0e2530124f98a67869e724d5efd"
     },
     {
       "path": "extensions/market2_pack/plugins/m_rss/plugin.json",
-      "bytes": 994,
-      "sha256": "fa0bb313c3e42efe37cb86aa5edd8153289727dda48aff976ae4e2719846e03b"
+      "bytes": 950,
+      "sha256": "f8a02163208b6336bcfca0268cf606a67cadf2e5c36e8a4cbd8e73b1f84521a2"
     },
     {
       "path": "extensions/market2_pack/plugins/m_rss/worker.py",
-      "bytes": 717,
-      "sha256": "6a664a5d1abb5ae52dfd49061bd293c11861e63dcfbbe66150a3469c52eaef84"
+      "bytes": 700,
+      "sha256": "642adaf63c9131872cbc0b404893e167ade48427a7e7288425dc39d5243030fe"
     },
     {
       "path": "extensions/market2_pack/plugins/m_uno/README.md",
@@ -2146,18 +2151,18 @@
     },
     {
       "path": "extensions/market2_pack/plugins/m_webtext/README.md",
-      "bytes": 3129,
-      "sha256": "3e372bedcec4e9b025282f63e23bf3b8a1a6473304bb1eada4f47130bf527c9a"
+      "bytes": 3095,
+      "sha256": "e4bed6c3b091ac9cf6d19e7af3137663ce563ecee0f01e51918c36861f9ca709"
     },
     {
       "path": "extensions/market2_pack/plugins/m_webtext/plugin.json",
-      "bytes": 628,
-      "sha256": "78a87e7b7cf5b9284fdaa25b95ed8cfcc00c79176e170ad73cf50923257f3038"
+      "bytes": 600,
+      "sha256": "408f4673b4cc42cff325d1be3b96dc067db8540e35c61153ccdfa1c04cbdd1e6"
     },
     {
       "path": "extensions/market2_pack/plugins/m_webtext/worker.py",
-      "bytes": 721,
-      "sha256": "0b3e6db86e13d5a07b40fbddaee47bc86b6a81f343a3bea7d04e2c469cc8667d"
+      "bytes": 704,
+      "sha256": "4628fd0e933e5619380498ff47d8250661a8d665dbfe204f2ee8ec16ba47c780"
     },
     {
       "path": "extensions/market2_pack/safe_net.py",
@@ -2206,8 +2211,8 @@
     },
     {
       "path": "pyproject.toml",
-      "bytes": 843,
-      "sha256": "4d0e310b3cbf9e61b6c826311598a58509611d3608ad4d0651b8947522090b4d"
+      "bytes": 817,
+      "sha256": "1288fd2b723decb1f6897b1c9cc0c3d69bbb8d34f961528e1175444750725914"
     },
     {
       "path": "requirements.txt",
@@ -2221,8 +2226,8 @@
     },
     {
       "path": "scripts/build_release.py",
-      "bytes": 9469,
-      "sha256": "56cffd1b44938160f60ae080c811eba310d7cd0d8c67af1b3788f2b93ce5879b"
+      "bytes": 9624,
+      "sha256": "a5b157e34404bd2e5085df576271bcc4beeb6b6030666d5327ffdb0205c27e3a"
     },
     {
       "path": "scripts/init_instance.py",
@@ -2291,8 +2296,8 @@
     },
     {
       "path": "tests/test_release.py",
-      "bytes": 8981,
-      "sha256": "56e6e7bd900a9271f626496d2c422e39d51b67d27899f93755f16d006f66f5d0"
+      "bytes": 9137,
+      "sha256": "106f778a8874dbc13e5976e43e6aa959e7609807d954dccb58b765385a5aa6ef"
     },
     {
       "path": "tests/test_resource_api.py",
@@ -2326,8 +2331,8 @@
     },
     {
       "path": "windows/README.md",
-      "bytes": 7356,
-      "sha256": "3fc3d61bfc8ebd579d72f1608e6c5211f8fe12f8d302b8e562070edb6b188a41"
+      "bytes": 7354,
+      "sha256": "aab70d753e756df81bceed1ca3f7bda26ab28d5e13b262e31d7d1c87a2b649e0"
     },
     {
       "path": "windows/build_windows.py",
@@ -2356,8 +2361,8 @@
     },
     {
       "path": "yukino_core/__init__.py",
-      "bytes": 23,
-      "sha256": "e1ab1c52349e22122c31b62e85ec87ed251bef67b64fc894497ef5b5057ac564"
+      "bytes": 22,
+      "sha256": "8c595bc442454b41b8e0b13ec975d54b05c0080d49fcdc980e4e44db4ff6ce97"
     },
     {
       "path": "yukino_core/__main__.py",
@@ -2446,13 +2451,13 @@
     },
     {
       "path": "yukino_core/static/index.html",
-      "bytes": 36132,
-      "sha256": "9714b3c64e6afae67955f335df6936df7a6132a9848ad5f96a9ee6b630cbcf20"
+      "bytes": 35994,
+      "sha256": "dde90dc109da13db83b4f10aafa9bfe75170d09fc0a573887bc1da2458cfb776"
     },
     {
       "path": "yukino_core/static/style.css",
-      "bytes": 53170,
-      "sha256": "87ba16f3ddcad452356074dfb986295370c314656304ec51c1fb88569b5c4e8c"
+      "bytes": 53132,
+      "sha256": "d9eaddc596bbad4c12ecabc6f2f733ea095e0da1ed89d0a87291010123c1e9b6"
     },
     {
       "path": "yukino_core/store.py",

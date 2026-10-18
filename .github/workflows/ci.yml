@@ -30,7 +30,10 @@ jobs:
       - name: Mai reference tests
         run: python -m unittest discover -s extensions/maibot_pack/tests -v
       - name: Expansion tests
-        run: python -m unittest discover -s extensions/expansion_pack/tests -v
+        run: |
+          python -m unittest discover -s extensions/expansion_pack/dev_tools/tests -v
+          python -m unittest discover -s extensions/expansion_pack/life_tools/tests -v
+          python -m unittest discover -s extensions/expansion_pack/games/tests -v
       - name: Market tests
         run: python -m unittest discover -s extensions/market2_pack/tests -v
       - name: Interaction tests

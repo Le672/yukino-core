@@ -119,7 +119,7 @@ python -m unittest discover -s windows/tests -v
 python scripts/build_release.py --output ./dist/source
 ```
 
-各扩展包在 `extensions/<包名>/tests` 有独立测试，`build_pack.py --output <新目录>` 生成单插件 ZIP。Windows 构建步骤见 [Windows 说明](windows/README.md)。GitHub Actions 检查核心、启动器、五组插件与白名单打包。
+各扩展包的 README 给出独立测试位置；实用扩展的测试分为 `dev_tools/tests`、`life_tools/tests` 和 `games/tests`。`build_pack.py --output <新目录>` 生成单插件 ZIP。Windows 构建步骤见 [Windows 说明](windows/README.md)。GitHub Actions 检查核心、启动器、五组插件与白名单打包。
 
 ## 许可与来源
 

@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ROOT_FILES = (
     "pyproject.toml", "requirements.txt", "Dockerfile", "LICENSE", "README.md", "ARCHITECTURE.md",
     "THIRD_PARTY_NOTICES.md", "CHANGELOG.md", "config.example.json",
-    ".env.example", "compose.release.yaml",
+    ".env.example", "compose.release.yaml", ".gitattributes",
 )
 RELEASE_SCRIPTS = ("init_instance.py", "run.py", "build_release.py")
 SOURCE_DIRECTORIES = (
@@ -87,8 +87,9 @@ def add_file(files: dict[str, bytes], root: Path, path: Path) -> None:
         raise ValueError("发现私人部署标记，请先移除再发行：" + relative)
     if relative.startswith("yukino_core/static/"):
         decoded = decoded.replace("brand-logo.png", "brand-logo.svg").replace('type="image/png"', 'type="image/svg+xml"')
-        payload = decoded.encode("utf-8")
-    files[relative] = payload
+    # Match Git's LF checkout on every OS so named archives and repository
+    # files have the same bytes, including after a Windows clone.
+    files[relative] = decoded.replace("\r\n", "\n").encode("utf-8")
 
 
 def collect_files(root: Path) -> tuple[dict[str, bytes], str]:

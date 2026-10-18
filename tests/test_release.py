@@ -94,7 +94,9 @@ class ReleaseTests(unittest.TestCase):
                 path = root / name
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_text("{}", encoding="utf-8")
+            (root / "windows/README.md").write_bytes(b"\xef\xbb\xbf# Windows\r\n")
             files, _ = builder.collect_files(root)
+            self.assertEqual(files["windows/README.md"], b"# Windows\n")
             for name in allowed:
                 self.assertIn(name, files)
             for name in excluded:
