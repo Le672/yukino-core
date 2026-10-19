@@ -60,9 +60,9 @@ class AtspiDesktop:
     def text(self, node):
         interface = node.get_text_iface()
         if interface:
-            count = interface.get_character_count()
+            count = self.api.Text.get_character_count(interface)
             if count > 16000: raise UiError('Visible text exceeds the read limit')
-            return interface.get_text(0, count)
+            return self.api.Text.get_text(interface, 0, count)
         return node.get_name() or ''
 
     def ready(self):
@@ -81,9 +81,9 @@ class AtspiDesktop:
     def activate(self, node):
         action = node.get_action_iface()
         if not action: raise UiError('This control has no accessible action')
-        choices = [i for i in range(action.get_n_actions()) if action.get_action_name(i).lower() in ('click', 'press', 'activate')]
+        choices = [i for i in range(self.api.Action.get_n_actions(action)) if self.api.Action.get_action_name(action, i).lower() in ('click', 'press', 'activate')]
         if len(choices) != 1: raise UiError('The accessible click action is ambiguous')
-        if not action.do_action(choices[0]): raise UiError('The desktop rejected the click')
+        if not self.api.Action.do_action(action, choices[0]): raise UiError('The desktop rejected the click')
 
     def select(self, binding):
         if not self.ready(): raise UiError('QQ is not logged in, blocked or not calibrated')
@@ -124,7 +124,7 @@ class AtspiDesktop:
         editor = self.find(root, binding['editor'])
         if self.text(editor): raise UiError('An existing draft is present; it was not overwritten')
         editable = editor.get_editable_text_iface()
-        if not editable or not editable.set_text_contents(text): raise UiError('Cannot enter text through accessibility')
+        if not editable or not self.api.EditableText.set_text_contents(editable, text): raise UiError('Cannot enter text through accessibility')
         if self.text(editor) != text: raise UiError('Draft readback does not match; no send was attempted')
         # Recheck target and login immediately before the one permitted click.
         if not self.ready(): raise UiError('QQ state changed before sending')

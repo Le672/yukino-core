@@ -48,6 +48,8 @@ python3 -m qq_desktop serve --config config.json --data ./data
 
 不要在未通过真实账号收发验收前替换正式OneBot地址。核心在Docker内时，不能直接把自身127.0.0.1当宿主机；后续切换应使用同一私有容器网络与鉴权配置。
 
+容器的 `/data/session-env.json` 只保存DISPLAY、D-Bus地址与HOME，供同一容器内的校准进程恢复桌面会话环境；不包含QQ或OneBot令牌。不要在机器人操作同一窗口时同时手工编辑聊天。
+
 ## 验证
 
 ```sh

@@ -22,11 +22,18 @@ try:
     else:
         root=desktop.api.get_desktop(0)
         names=[root.get_child_at_index(i).get_name() for i in range(root.get_child_count())]
+        try:
+            print(json.dumps(desktop.inspect()[:80]),file=sys.stderr)
+            node=desktop.find(desktop.app(),cfg['identity'])
+            print('IDENTITY_TEXT',repr(desktop.text(node)),file=sys.stderr)
+        except Exception:
+            import traceback
+            traceback.print_exc()
         raise RuntimeError('Fixture accessibility did not become ready; apps='+repr(names))
     before=desktop.snapshot(b);assert len(before)==1 and before[0]['text']=='existing history',before
     key=desktop.send(b,'中文 desktop input and click')
     after=desktop.snapshot(b);assert len(after)==2 and after[-1]['key']==key and after[-1]['text']=='中文 desktop input and click'
-    editor=desktop.find(desktop.app(),b['editor']);editor.get_editable_text_iface().set_text_contents('do not overwrite this draft')
+    editor=desktop.find(desktop.app(),b['editor']);desktop.api.EditableText.set_text_contents(editor.get_editable_text_iface(),'do not overwrite this draft')
     try:desktop.send(b,'must not be sent')
     except UiError:pass
     else:raise AssertionError('Existing draft was overwritten')

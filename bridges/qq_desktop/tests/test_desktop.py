@@ -21,7 +21,7 @@ class Node:
     def get_action_name(self,index):return 'click'
     def do_action(self,index):self.click();return True
     def get_editable_text_iface(self):return self
-    def set_text_contents(self,text):self.value=text;return True
+    def set_text_contents(self,text):self.value=getattr(self,'transform',lambda value:value)(text);return True
 
 
 def row(key,sender,text):return Node(key=key,children=[Node('sender',sender),Node('body',text)])
@@ -37,6 +37,9 @@ class DesktopTests(unittest.TestCase):
         self.root=Node('QQ',children=[Node('10001'),Node('contact',click=lambda:None),Node('header'),self.history,self.editor,Node('send',click=sent)])
         self.desktop=AtspiDesktop.__new__(AtspiDesktop);self.desktop.config=self.cfg
         class API:
+            Text=Node
+            Action=Node
+            EditableText=Node
             def __init__(self,root):self.root=root
             def get_desktop(self,index):return Node(children=[self.root])
         self.desktop.api=API(self.root)
@@ -71,8 +74,7 @@ class DesktopTests(unittest.TestCase):
         self.assertFalse(self.desktop.ready())
         with self.assertRaises(UiError):self.desktop.send(self.binding,'no')
     def test_changed_draft_readback_cannot_trigger_send(self):
-        def changed(value):self.editor.value='different';return True
-        self.editor.set_text_contents=changed
+        self.editor.transform=lambda value:'different'
         with self.assertRaises(UiError):self.desktop.send(self.binding,'no')
         self.assertEqual(self.clicks,0)
 

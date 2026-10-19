@@ -2,6 +2,12 @@
 set -eu
 export HOME=/data/home
 mkdir -p /data/qq-profile /data/bridge "$HOME"
+python3 - <<'PY'
+import json,os
+fd=os.open('/data/session-env.json',os.O_WRONLY|os.O_CREAT|os.O_TRUNC,0o600)
+with os.fdopen(fd,'w') as f:
+    json.dump({key:os.environ.get(key,'') for key in ('DISPLAY','DBUS_SESSION_BUS_ADDRESS','HOME')},f)
+PY
 Xvfb :98 -screen 0 1280x800x24 -nolisten tcp &
 XVFB_PID=$!
 trap 'kill "$XVFB_PID" ${QQ_PID:-} ${VNC_PID:-} ${WEB_PID:-} 2>/dev/null || true' EXIT INT TERM
