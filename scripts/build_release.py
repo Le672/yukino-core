@@ -1,7 +1,7 @@
 """Build a deterministic, allowlisted source release, never a VPS backup.
 
 Only core Python, text UI, tests, release tools and documentation are included,
-along with the named Windows tooling, example and five text-only plugin packs.
+along with the named Windows tooling, example and six text-only plugin packs.
 Runtime settings, user resources, optional deployment integrations and the private
 deployment logo are excluded. Text UI references are changed only in the archive.
 """
@@ -22,13 +22,13 @@ ROOT = Path(__file__).resolve().parent.parent
 ROOT_FILES = (
     "pyproject.toml", "requirements.txt", "Dockerfile", "LICENSE", "README.md", "ARCHITECTURE.md",
     "THIRD_PARTY_NOTICES.md", "CHANGELOG.md", "config.example.json",
-    ".env.example", "compose.release.yaml", ".gitattributes",
+    ".env.example", "compose.release.yaml", ".gitattributes", "resources/banter.zh-CN.json",
 )
-RELEASE_SCRIPTS = ("init_instance.py", "run.py", "build_release.py")
+RELEASE_SCRIPTS = ("init_instance.py", "run.py", "build_release.py", "import_banter.py")
 SOURCE_DIRECTORIES = (
     "windows", "examples/plugins/hello_counter", "extensions/community_pack",
     "extensions/maibot_pack", "extensions/expansion_pack", "extensions/market2_pack",
-    "extensions/interaction_pack", ".github/workflows",
+    "extensions/interaction_pack", "extensions/social_pack", ".github/workflows",
 )
 TEXT_SUFFIXES = {".py", ".json", ".md", ".txt", ".yml", ".yaml"}
 FORBIDDEN_PARTS = {"__pycache__", ".git", ".venv", "node_modules", "data", "credentials", "backups", "evidence", "dist", "build"}
@@ -141,7 +141,7 @@ def build(root: Path, output: Path) -> dict:
         "logo": "generated Y letter SVG; private deployment image excluded",
         "optional_integrations_included": False,
         "windows_build_tools_included": True,
-        "external_plugin_source_packs": ["community_pack", "maibot_pack", "expansion_pack", "market2_pack", "interaction_pack"],
+        "external_plugin_source_packs": ["community_pack", "maibot_pack", "expansion_pack", "market2_pack", "interaction_pack", "social_pack"],
         "licensing_status": "review_required_see_docs_LICENSE_REVIEW",
         "omitted": ["runtime data and tokens", "user persona and histories", "QQ accounts",
                     "meme image packs", "private logo", "MaiBot databases", "deployment integrations"],

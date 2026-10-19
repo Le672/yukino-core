@@ -6,6 +6,7 @@ import re
 import string
 
 from .transport import OneBotError
+from .banter_bank import MAX_POKE_LINES
 
 
 NOTICE_PLUGINS = [
@@ -59,8 +60,8 @@ def validate_notice_setting(key, value):
             raise ValueError("群范围须为最多200个有效数字群号。")
     if key == "templates":
         lines = [line.strip() for line in value.splitlines() if line.strip()]
-        if not lines or len(lines) > 30 or any(len(line) > 500 for line in lines):
-            raise ValueError("请填写1—30条回复模板，每条最多500字。")
+        if not lines or len(lines) > MAX_POKE_LINES or any(len(line) > 500 for line in lines):
+            raise ValueError("请填写1—100条回复模板，每条最多500字，总计最多6000字符。")
         try:
             for line in lines:
                 for _, field, spec, conversion in string.Formatter().parse(line):

@@ -1,0 +1,8 @@
+{
+  "id": "s_nonogram",
+  "name": "5×5唯一解数织",
+  "description": "原创生成的黑白数织，行列线索、涂黑标空、提示检查和个人持久存档。",
+  "commands": ["/数织"],
+  "worker": "worker.py",
+  "config_schema": []
+}

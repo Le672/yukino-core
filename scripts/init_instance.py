@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import secrets
+import sys
 
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -27,6 +28,12 @@ def initialize(data: Path, *, docker: bool = False) -> dict:
     if any((data / name).exists() for name in private_files) or (data / "resources" / "curated.json").exists():
         raise FileExistsError("目标已存在实例配置；请使用原配置，或选择一个新的空数据目录。")
     config = json.loads((ROOT / "config.example.json").read_text(encoding="utf-8-sig"))
+    # The built-in copy bank contains only project-authored public sentences.
+    # Existing instances are rejected above and are never silently overwritten.
+    if (ROOT / "resources/banter.zh-CN.json").is_file():
+        sys.path.insert(0, str(ROOT))
+        from yukino_core.banter_bank import load_bank, merge_banter
+        config, _ = merge_banter(config, load_bank(ROOT / "resources/banter.zh-CN.json"))
     tokens = {name: secrets.token_urlsafe(32) for name in ("admin_token", "onebot_token", "provider_token")}
     connections = {
         "onebot_url": "ws://host.docker.internal:3001" if docker else "ws://127.0.0.1:3001",

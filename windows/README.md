@@ -25,7 +25,7 @@
 
 ## 插件
 
-0.6.2 Windows build 2 内置 16 个原生功能，并附带 109 个普通进程插件（社区 11 个、麦麦功能参考 15 个、实用扩展 63 个、第二批市场功能参考 8 个、互动扩展 12 个），新实例共 125 项。109 个外部插件首次启动安装并启用，原生群通知中除戳一戳以外的五项默认关闭。它们使用同一份 Yukino 源码，不等于支持直接安装麦麦 SDK 插件。每个 ZIP、SHA-256 和推荐参数保存在 `plugin-packages`；插件运行期间仍受内核 worker 数量限制，默认 8 个。
+0.6.3 Windows build 2 内置 16 个原生功能，并附带 119 个普通进程插件（社区 11 个、麦麦功能参考 15 个、实用扩展 63 个、第二批市场功能参考 8 个、互动扩展 12 个、新增社交解谜与查询 10 个），新实例共 135 项。119 个外部插件首次启动安装并启用，原生群通知中除戳一戳以外的五项默认关闭。它们使用同一份 Yukino 源码，不等于支持直接安装麦麦 SDK 插件。每个 ZIP、SHA-256 和推荐参数保存在 `plugin-packages`；插件运行期间仍受内核 worker 数量限制，默认 8 个。
 
 各插件的完整说明可直接在根目录 `plugin-help` 中阅读，无需逐个解压安装ZIP。
 
@@ -58,13 +58,14 @@ python extensions/maibot_pack/build_pack.py --output ./dist/mai-pack
 python extensions/expansion_pack/build_pack.py --output ./dist/expansion-pack
 python extensions/market2_pack/build_pack.py --output ./dist/market2-pack
 python extensions/interaction_pack/build_pack.py --output ./dist/interaction-pack
-python windows/build_windows.py --core-source ./dist/source/yukino-core-0.6.2-source.zip --cache ./windows-cache --plugins ./dist/community-pack --plugins ./dist/mai-pack --plugins ./dist/expansion-pack --plugins ./dist/market2-pack --plugins ./dist/interaction-pack --build-number 2 --output ./dist/windows-062
+python extensions/social_pack/build_pack.py --output ./dist/social-pack
+python windows/build_windows.py --core-source ./dist/source/yukino-core-0.6.3-source.zip --cache ./windows-cache --plugins ./dist/community-pack --plugins ./dist/mai-pack --plugins ./dist/expansion-pack --plugins ./dist/market2-pack --plugins ./dist/interaction-pack --plugins ./dist/social-pack --build-number 2 --output ./dist/windows-063
 ```
 
 0.6.0包含戳一戳等六项原生通知互动，具体开关在「插件管理 → 配置参数」，见应用目录`app/docs/NOTICE_INTERACTIONS.md`。通用新实例默认仅开启戳一戳，其他五类群通知可分别开启；只有平台连接和QQ接收已配置并启用后，真实事件才会进入内核。
 
 发行目录名、版本与内置插件数从冻结源码读取。每个外部插件的用法保存在`plugin-help/<插件ID>.md`；互动包的完整规则也随单插件说明提供。升级应在新目录解压，停止旧实例后迁移整个`data`，保留旧目录以便回退；不要把旧`app`或`windows`代码覆盖进新版。
 
-五个插件目录均须含构建后生成的 `pack-manifest.json` 和对应ZIP。核心源码ZIP使用项目白名单发行工具生成。使用已保存的 dependency-lock.json 及其校验值恢复相同缓存，不要用浮动的新依赖冒充同一构建。
+六个插件目录均须含构建后生成的 `pack-manifest.json` 和对应ZIP。核心源码ZIP使用项目白名单发行工具生成。使用已保存的 dependency-lock.json 及其校验值恢复相同缓存，不要用浮动的新依赖冒充同一构建。
 
 

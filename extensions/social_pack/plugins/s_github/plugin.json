@@ -1,0 +1,35 @@
+{
+  "id": "s_github",
+  "name": "GitHub正式发行",
+  "description": "查询指定仓库最新正式 Release，最多展示5个附件链接，不下载执行。",
+  "commands": [
+    "/GitHub发行"
+  ],
+  "worker": "worker.py",
+  "config_schema": [
+    {
+      "key": "cache_seconds",
+      "type": "integer",
+      "label": "成功结果缓存秒数（0表示禁用）",
+      "default": 300,
+      "min": 0,
+      "max": 3600
+    },
+    {
+      "key": "timeout_seconds",
+      "type": "integer",
+      "label": "每次请求网络总预算（秒）",
+      "default": 15,
+      "min": 1,
+      "max": 15
+    },
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "回复字符上限",
+      "default": 4000,
+      "min": 500,
+      "max": 6000
+    }
+  ]
+}

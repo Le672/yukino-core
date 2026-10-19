@@ -72,7 +72,7 @@ Windows 打包插件有安装记录：用户停用或移除的旧插件不会因
 Windows：
 
 ```powershell
-Get-FileHash .\YukinoCore-0.6.2-Windows-x64-build2-portable.zip -Algorithm SHA256
+Get-FileHash .\YukinoCore-0.6.3-Windows-x64-build2-portable.zip -Algorithm SHA256
 ```
 
 Linux：

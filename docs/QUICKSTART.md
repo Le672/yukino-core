@@ -1,4 +1,4 @@
-# Yukino Core 0.6.2
+# Yukino Core 0.6.3
 
 Yukino Core 是一个通过 OneBot 连接 QQ 的 Python 内核，附带浏览器控制台。先启动控制台，再配置 QQ 连接、模型服务、人设、消息策略、记忆、插件和资源。首次实例不绑定任何 QQ 账号，也不预装私人聊天和表情素材。
 

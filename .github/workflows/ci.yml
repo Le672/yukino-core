@@ -38,6 +38,8 @@ jobs:
         run: python -m unittest discover -s extensions/market2_pack/tests -v
       - name: Interaction tests
         run: python -m unittest discover -s extensions/interaction_pack/tests -v
+      - name: Social and puzzle tests
+        run: python -m unittest discover -s extensions/social_pack/tests -v
       - name: Build source package
         run: python scripts/build_release.py --output ./dist/source
       - name: Build individual plugins
@@ -47,3 +49,4 @@ jobs:
           python extensions/expansion_pack/build_pack.py --output ./dist/expansion-pack
           python extensions/market2_pack/build_pack.py --output ./dist/market2-pack
           python extensions/interaction_pack/build_pack.py --output ./dist/interaction-pack
+          python extensions/social_pack/build_pack.py --output ./dist/social-pack

@@ -1,0 +1,43 @@
+{
+  "id": "s_sleep",
+  "name": "私人睡眠时段",
+  "description": "本人私聊登记手动起止时段与时长统计，不推断真实睡眠及健康。",
+  "commands": [
+    "/睡眠"
+  ],
+  "worker": "worker.py",
+  "config_schema": [
+    {
+      "key": "max_per_user",
+      "type": "integer",
+      "label": "每人保留记录上限（漂流瓶跨群合计）",
+      "min": 1,
+      "max": 500,
+      "default": 50
+    },
+    {
+      "key": "max_records",
+      "type": "integer",
+      "label": "本插件总记录上限",
+      "min": 1,
+      "max": 10000,
+      "default": 2000
+    },
+    {
+      "key": "max_text_length",
+      "type": "integer",
+      "label": "正文字数上限",
+      "min": 1,
+      "max": 1000,
+      "default": 500
+    },
+    {
+      "key": "retention_days",
+      "type": "integer",
+      "label": "旧记录保留天数（时光信从到期后计算）",
+      "min": 1,
+      "max": 730,
+      "default": 365
+    }
+  ]
+}

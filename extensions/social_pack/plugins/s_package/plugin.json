@@ -1,0 +1,35 @@
+{
+  "id": "s_package",
+  "name": "PyPI与npm包版本",
+  "description": "查询 PyPI/npm 包的注册表最新版本、简介、许可证字段和运行环境要求。",
+  "commands": [
+    "/包版本"
+  ],
+  "worker": "worker.py",
+  "config_schema": [
+    {
+      "key": "cache_seconds",
+      "type": "integer",
+      "label": "成功结果缓存秒数（0表示禁用）",
+      "default": 300,
+      "min": 0,
+      "max": 3600
+    },
+    {
+      "key": "timeout_seconds",
+      "type": "integer",
+      "label": "每次请求网络总预算（秒）",
+      "default": 15,
+      "min": 1,
+      "max": 15
+    },
+    {
+      "key": "max_output_chars",
+      "type": "integer",
+      "label": "回复字符上限",
+      "default": 4000,
+      "min": 500,
+      "max": 6000
+    }
+  ]
+}

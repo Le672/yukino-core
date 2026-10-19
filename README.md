@@ -2,7 +2,7 @@
 
 带 Web 控制台、多模型支持和独立插件系统的轻量 QQ 机器人内核。支持 Windows、Linux 与 Docker，通过 **OneBot v11 正向 WebSocket** 连接 NapCat 等平台实现。
 
-[下载 0.6.2](https://github.com/Le672/yukino-core/releases/tag/v0.6.2) · [安装与使用](docs/QUICKSTART.md) · [插件开发](docs/PLUGIN_AUTHORING.md) · [更新记录](CHANGELOG.md) · [MIT License](LICENSE)
+[下载 0.6.3](https://github.com/Le672/yukino-core/releases/tag/v0.6.3) · [安装与使用](docs/QUICKSTART.md) · [插件开发](docs/PLUGIN_AUTHORING.md) · [更新记录](CHANGELOG.md) · [MIT License](LICENSE)
 
 ## 功能
 
@@ -10,7 +10,7 @@
 - **模型**：OpenAI 兼容 Chat Completions、OpenAI Responses、Anthropic Messages、Gemini、Ollama、可选 ChatGPT 网页桥。
 - **对话**：私聊与群聊、@ / 引用 / 名称触发、黑白名单、上下文、消息合并、冷却、队列、图片表情和知识检索。
 - **管理与互动**：全局主人、群管理、提醒、关键词回复、戳一戳、欢迎、退群、管理员 / 头衔 / 名片通知，共 **16 项原生功能**。
-- **扩展**：**109 个外部插件**，覆盖 F1、签到、查询、开发工具、生活记录和文字游戏；每项都有源码、独立 ZIP 和用法。
+- **扩展**：**119 个外部插件**，覆盖 F1、签到、查询、开发工具、生活记录和文字游戏；每项都有源码、独立 ZIP 和用法。
 
 普通指令无需模型；模型对话需要自己的可用服务。核心不捆绑 QQ 客户端、模型账号、浏览器会话或表情素材。
 
@@ -20,9 +20,9 @@
 
 | 文件 | 用途 |
 | --- | --- |
-| `YukinoCore-0.6.2-Windows-x64-build2-portable.zip` | Windows 10/11 x64，内置 Python、依赖和 109 个扩展，解压双击启动 |
-| `yukino-core-0.6.2-source.zip` | 通用源码，包含核心、文档、测试、全部普通插件源码和 Windows 构建工具 |
-| `yukino-plugins-109-1.0.0.zip` | 五组共 109 个单插件安装 ZIP、清单和使用说明，供源码 / Docker 实例按需安装 |
+| `YukinoCore-0.6.3-Windows-x64-build2-portable.zip` | Windows 10/11 x64，内置 Python、依赖和 119 个扩展，解压双击启动 |
+| `yukino-core-0.6.3-source.zip` | 通用源码，包含核心、文档、测试、全部普通插件源码与132条互动文案和 Windows 构建工具 |
+| `yukino-plugins-119-1.0.0.zip` | 六组共 119 个单插件安装 ZIP、清单和使用说明，供源码 / Docker 实例按需安装 |
 | `SHA256SUMS.txt` | 发布附件的 SHA-256 校验值 |
 
 GitHub 自动生成的 “Source code” 也能用于开发；想复核发布清单时下载带 `release-manifest.json` 的命名源码包。
@@ -34,7 +34,7 @@ GitHub 自动生成的 “Source code” 也能用于开发；想复核发布清
 3. 双击 **`Show-Token.cmd`**，使用本机生成的管理令牌登录。
 4. 按下方步骤配置 QQ 和模型，再启用接收。停止时双击 **`Stop.cmd`**。
 
-无需安装 Python 或 Docker。关闭浏览器后核心继续运行，电脑关机或休眠后本地机器人停止处理。新实例有 125 项功能，其中戳一戳和 109 个扩展默认启用，其他五种群通知默认关闭；实际触发还受 QQ 接收、群范围和权限控制。
+无需安装 Python 或 Docker。关闭浏览器后核心继续运行，电脑关机或休眠后本地机器人停止处理。新实例有 135 项功能，其中戳一戳和 119 个扩展默认启用，其他五种群通知默认关闭；实际触发还受 QQ 接收、群范围和权限控制。
 
 完整操作、升级和离线构建见 [Windows 使用说明](windows/README.md)。
 
@@ -92,6 +92,7 @@ ssh -N -L 18001:127.0.0.1:18001 your-user@your-server
 | 实用扩展 | 63 | [开发工具、生活协作、文字游戏](docs/EXPANSION_PLUGINS.md) |
 | 第二批市场扩展 | 8 | [RSS、Bangumi、课表、UNO、麻将等](extensions/market2_pack/README.md) |
 | 互动扩展 | 12 | [海龟汤、抢答、续写、谁是卧底、棋类等](docs/INTERACTION_PLUGINS.md) |
+| 社交解谜与查询 | 10 | [漂流瓶、时光信、数独、远征、搭话、版本查询等](extensions/social_pack/README.md) |
 
 Windows 便携版首次启动自动安装上述扩展。源码 / Docker 用户解压插件合集，在「插件管理 → 从本地 ZIP 安装」选择里面的**单插件 ZIP**，再启用。合集外层 ZIP 不是单插件安装包。联网插件可能需要自己的 API Key、服务地址或网络条件，详见各插件说明。
 
@@ -104,7 +105,7 @@ Windows 便携版首次启动自动安装上述扩展。源码 / Docker 用户�
 - [完整安装与首次配置](docs/QUICKSTART.md)
 - [配置字段、数据与全局主人](docs/CONFIGURATION.md)
 - [备份、更新、恢复与故障排查](docs/OPERATIONS.md)
-- [原生通知互动](docs/NOTICE_INTERACTIONS.md)
+- [原生通知互动](docs/NOTICE_INTERACTIONS.md) · [132条戳一戳与搭话文案](docs/BANTER_COPY.md)
 - [插件接口](docs/PLUGINS.md) · [插件开发教程](docs/PLUGIN_AUTHORING.md)
 - [架构](ARCHITECTURE.md) · [构建与发行](docs/RELEASE.md)
 
@@ -119,7 +120,7 @@ python -m unittest discover -s windows/tests -v
 python scripts/build_release.py --output ./dist/source
 ```
 
-各扩展包的 README 给出独立测试位置；实用扩展的测试分为 `dev_tools/tests`、`life_tools/tests` 和 `games/tests`。`build_pack.py --output <新目录>` 生成单插件 ZIP。Windows 构建步骤见 [Windows 说明](windows/README.md)。GitHub Actions 检查核心、启动器、五组插件与白名单打包。
+各扩展包的 README 给出独立测试位置；实用扩展的测试分为 `dev_tools/tests`、`life_tools/tests` 和 `games/tests`。`build_pack.py --output <新目录>` 生成单插件 ZIP。Windows 构建步骤见 [Windows 说明](windows/README.md)。GitHub Actions 检查核心、启动器、六组插件与白名单打包。
 
 ## 许可与来源
 

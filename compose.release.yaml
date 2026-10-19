@@ -1,7 +1,7 @@
 name: yukino-core
 services:
   core:
-    image: yukino-core:0.6.2
+    image: yukino-core:0.6.3
     build:
       context: .
       dockerfile: Dockerfile

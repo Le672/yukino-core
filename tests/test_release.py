@@ -30,6 +30,7 @@ class ReleaseTests(unittest.TestCase):
     def fixture(self, root: Path) -> None:
         root.mkdir(parents=True, exist_ok=True)
         for name in builder.ROOT_FILES:
+            (root / name).parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(ROOT / name, root / name)
         for name in builder.RELEASE_SCRIPTS:
             destination = root / "scripts" / name

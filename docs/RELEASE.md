@@ -1,6 +1,6 @@
 # 构建与发行
 
-当前公开版本：0.6.2。仓库包含核心、控制台、测试、Windows 工具、示例，以及五组共 109 个普通插件的源码。`integrations` 下的私人侧车不在公共仓库与发行包内。
+当前公开版本：0.6.3。仓库包含核心、控制台、测试、Windows 工具、示例，以及六组共 119 个普通插件的源码。`integrations` 下的私人侧车不在公共仓库与发行包内。
 
 ## 通用源码包
 
@@ -22,9 +22,10 @@ python extensions/maibot_pack/build_pack.py --output ./dist/mai-pack
 python extensions/expansion_pack/build_pack.py --output ./dist/expansion-pack
 python extensions/market2_pack/build_pack.py --output ./dist/market2-pack
 python extensions/interaction_pack/build_pack.py --output ./dist/interaction-pack
+python extensions/social_pack/build_pack.py --output ./dist/social-pack
 ```
 
-依次为 11、15、63、8、12 项。各目录的 `pack-manifest.json` 记录插件 ID、ZIP、哈希与推荐参数。发布合集时保留这五组目录、每项 ZIP、校验文件和包说明；合集本身不是可直接上传面板的单插件 ZIP。Windows 工具可以读取这五个目录并捆绑安装。
+依次为 11、15、63、8、12、10 项。各目录的 `pack-manifest.json` 记录插件 ID、ZIP、哈希与推荐参数。发布合集时保留这六组目录、每项 ZIP、校验文件和包说明；合集本身不是可直接上传面板的单插件 ZIP。Windows 工具可以读取这六个目录并捆绑安装。
 
 外部 worker 的测试分别在各组 `tests` 目录，用单独的 `python -m unittest discover -s <目录> -v` 执行，避免不同功能包的同名模块相互遮蔽。
 
@@ -32,7 +33,7 @@ python extensions/interaction_pack/build_pack.py --output ./dist/interaction-pac
 
 见 [Windows 构建步骤](../windows/README.md)。工具验证 Python 官方运行时与 wheel 的 SHA-256，输出固定依赖清单、CPython SPDX、逐 wheel 许可文件和整个包的 manifest。公开包没有 `data`；首次运行才创建随机管理令牌、空 QQ / 模型与插件状态。
 
-0.6.2 公开便携包为 Windows build 2，包含 16 原生功能与 109 外部插件。私聊 / 群聊、外部模型和通知事件是否可用，仍需在使用者配置自己的服务后实测。
+0.6.3 公开便携包为 Windows build 2，包含 16 原生功能与 119 外部插件。私聊 / 群聊、外部模型和通知事件是否可用，仍需在使用者配置自己的服务后实测。
 
 ## 发布前检查
 
