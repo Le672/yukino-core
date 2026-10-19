@@ -8,6 +8,7 @@ box=Gtk.Box(orientation=Gtk.Orientation.VERTICAL,spacing=8);window.add(box)
 box.pack_start(Gtk.Label(label='10001'),False,False,0)
 contact=Gtk.Button(label='Contact 10002');box.pack_start(contact,False,False,0)
 box.pack_start(Gtk.Label(label='Conversation 10002'),False,False,0)
+target_id=Gtk.Label(label='10002');target_id.get_accessible().set_name('Target identity');box.pack_start(target_id,False,False,0)
 history=Gtk.ListBox();history.get_accessible().set_name('Messages');box.pack_start(history,True,True,0)
 editor=Gtk.Entry();editor.get_accessible().set_name('Composer');box.pack_start(editor,False,False,0)
 send=Gtk.Button(label='Send');box.pack_start(send,False,False,0)
@@ -16,6 +17,7 @@ def append(sender,text):
     global counter
     counter+=1;row=Gtk.ListBoxRow();row.get_accessible().set_description('message:'+str(counter))
     content=Gtk.Box(orientation=Gtk.Orientation.VERTICAL);content.pack_start(Gtk.Label(label=sender),False,False,0);content.pack_start(Gtk.Label(label=text),False,False,0)
+    sender_id=Gtk.Label(label='10001' if sender=='Me' else '10002');sender_id.get_accessible().set_name('Sender identity');content.pack_start(sender_id,False,False,0)
     row.add(content);history.add(row);history.show_all()
 def on_send(button):
     text=editor.get_text()

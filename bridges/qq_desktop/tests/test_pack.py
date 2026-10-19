@@ -22,7 +22,7 @@ class SourceTests(unittest.TestCase):
             with zipfile.ZipFile(report['archive']) as z:
                 self.assertFalse(any('/data/' in n or n.endswith(('.env','.deb')) for n in z.namelist()))
                 self.assertNotIn(b'private-secret-marker',b''.join(z.read(n) for n in z.namelist()))
-                m=json.loads(z.read('YukinoQQDesktop-0.1.0a1/source-manifest.json'));self.assertFalse(m['qq_client_included'])
+                m=json.loads(z.read('YukinoQQDesktop-'+builder.VERSION+'/source-manifest.json'));self.assertFalse(m['qq_client_included'])
             with self.assertRaises(FileExistsError):builder.build(root,Path(t)/'out')
 
 

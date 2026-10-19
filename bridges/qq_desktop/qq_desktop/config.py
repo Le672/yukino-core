@@ -44,13 +44,10 @@ def validate(raw):
     for entry in raw.get('bindings', []):
         require(isinstance(entry, dict) and entry.get('kind') in ('private', 'group'), 'Invalid conversation binding')
         b = dict(entry); numeric(b['id'])
-        for key in ('contact', 'header', 'history', 'editor', 'send', 'body', 'sender'):
-            b[key] = selector(b[key])
+        for key in ('contact', 'header', 'target_identity', 'history', 'editor', 'send', 'body', 'sender_id'):
+            b[key] = selector(b.get(key))
         require(b.get('row_key', 'accessible_id') in ('accessible_id', 'description', 'name'), 'Invalid stable row key source')
         b.setdefault('row_key', 'accessible_id')
-        require(isinstance(b.get('senders'), dict) and 1 <= len(b['senders']) <= 500, 'Explicit sender-name-to-ID bindings required')
-        require(all(isinstance(k, str) and 0 < len(k) <= 100 for k in b['senders']), 'Invalid sender label')
-        for uid in b['senders'].values(): numeric(uid)
         b.setdefault('verified', False)
         require(type(b['verified']) is bool, 'verified must be boolean')
         bindings.append(b)

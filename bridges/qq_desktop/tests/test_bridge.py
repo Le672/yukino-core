@@ -15,8 +15,8 @@ from qq_desktop.server import create_app
 TOKEN='desktop-fixture-token-at-least-32-characters'
 
 def config():
-    b={'kind':'private','id':'10002','verified':True,'senders':{'Me':'10001','Peer':'10002'},'row_key':'description'}
-    for key in ('contact','header','history','editor','send','body','sender'):b[key]={'name':key}
+    b={'kind':'private','id':'10002','verified':True,'row_key':'description'}
+    for key in ('contact','header','target_identity','history','editor','send','body','sender_id'):b[key]={'name':key}
     return validate({'enabled':True,'self_id':'10001','identity':{'name':'10001'},'bindings':[b]})
 
 class Driver:
@@ -37,7 +37,9 @@ class ConfigTests(unittest.TestCase):
             with self.subTest(patch=patch),self.assertRaises((ValueError,TypeError)):validate({**config(),**patch})
     def test_duplicate_unverified_and_invalid_paths(self):
         c=config();b=c['bindings'][0]
-        for bindings in ([b,b],[{**b,'verified':False}],[{**b,'id':'not-number'}],[{**b,'contact':{'path':[-1]}}]):
+        for bindings in ([b,b],[{**b,'verified':False}],[{**b,'id':'not-number'}],[{**b,'contact':{'path':[-1]}}],
+                         [{k:v for k,v in b.items() if k!='sender_id'}],
+                         [{k:v for k,v in b.items() if k!='target_identity'}]):
             with self.subTest(bindings=bindings),self.assertRaises(ValueError):validate({**c,'bindings':bindings})
     def test_segments_never_silently_drop_media_or_parse_cq(self):
         self.assertEqual(plain_message([{'type':'text','data':{'text':'中文\ntext'}}]),'中文\ntext')

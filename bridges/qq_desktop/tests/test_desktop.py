@@ -24,7 +24,9 @@ class Node:
     def set_text_contents(self,text):self.value=getattr(self,'transform',lambda value:value)(text);return True
 
 
-def row(key,sender,text):return Node(key=key,children=[Node('sender',sender),Node('body',text)])
+def row(key,sender,text,uid=None):
+    uid=uid or ('10001' if sender=='Me' else '10002' if sender=='Peer' else '10003')
+    return Node(key=key,children=[Node('sender',sender),Node('body',text),Node('sender_id',uid)])
 
 
 class DesktopTests(unittest.TestCase):
@@ -34,7 +36,7 @@ class DesktopTests(unittest.TestCase):
         self.editor=Node('editor','');self.clicks=0
         def sent():
             self.clicks+=1;self.history.children.append(row('r'+str(self.clicks+1),'Me',self.editor.value));self.editor.value=''
-        self.root=Node('QQ',children=[Node('10001'),Node('contact',click=lambda:None),Node('header'),self.history,self.editor,Node('send',click=sent)])
+        self.root=Node('QQ',children=[Node('10001'),Node('contact',click=lambda:None),Node('header'),self.history,self.editor,Node('send',click=sent),Node('target_identity','10002')])
         self.desktop=AtspiDesktop.__new__(AtspiDesktop);self.desktop.config=self.cfg
         class API:
             Text=Node
@@ -76,6 +78,14 @@ class DesktopTests(unittest.TestCase):
     def test_changed_draft_readback_cannot_trigger_send(self):
         self.editor.transform=lambda value:'different'
         with self.assertRaises(UiError):self.desktop.send(self.binding,'no')
+        self.assertEqual(self.clicks,0)
+    def test_nickname_cannot_impersonate_numeric_sender_or_target(self):
+        self.history.children=[row('rename','Me','nickname is not identity',uid='10002')]
+        self.assertEqual(self.desktop.snapshot(self.binding)[0]['user_id'],'10002')
+        self.history.children[0].children[-1].value='Me'
+        with self.assertRaises(UiError):self.desktop.snapshot(self.binding)
+        self.root.children[-1].value='10003'
+        with self.assertRaises(UiError):self.desktop.send(self.binding,'must not send to another target')
         self.assertEqual(self.clicks,0)
 
 

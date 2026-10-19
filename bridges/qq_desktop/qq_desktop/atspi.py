@@ -1,5 +1,6 @@
 """Only operating-system accessibility APIs; no injection, CDP or QQ private API."""
 import hashlib
+import re
 import time
 
 
@@ -94,6 +95,8 @@ class AtspiDesktop:
         for _ in range(20):
             try:
                 root = self.app(); self.find(root, binding['header'])
+                if self.text(self.find(root,binding['target_identity'])).strip()!=binding['id']:
+                    raise UiError('Visible numeric conversation identity does not match the binding')
                 return root
             except UiError: time.sleep(.05)
         raise UiError('Conversation header did not match the binding')
@@ -101,14 +104,18 @@ class AtspiDesktop:
     def snapshot(self, binding, navigate=True):
         root = self.select(binding) if navigate else self.app()
         self.find(root, binding['header'])
+        if self.text(self.find(root,binding['target_identity'])).strip()!=binding['id']:
+            raise UiError('Visible numeric conversation identity changed')
         history = self.find(root, binding['history'])
         if history.get_child_count() > 500: raise UiError('Visible history exceeds 500 rows')
         result = []
         for i in range(history.get_child_count()):
             row = history.get_child_at_index(i)
-            sender = self.text(self.find(row, binding['sender'])).strip()
-            uid = binding['senders'].get(sender)
-            if not uid: raise UiError('A visible sender has no verified numeric identity binding')
+            uid = self.text(self.find(row, binding['sender_id'])).strip()
+            if not re.fullmatch(r'[1-9][0-9]{3,19}',uid):
+                raise UiError('A genuine visible numeric sender field is required; nicknames are not identities')
+            if binding['kind']=='private' and uid not in (binding['id'],self.config['self_id']):
+                raise UiError('Visible sender does not belong to the verified private conversation')
             text = self.text(self.find(row, binding['body']))
             source = {'accessible_id': row.get_accessible_id, 'description': row.get_description, 'name': row.get_name}[binding['row_key']]()
             if not source: raise UiError('Stable visible message key is missing; calibrate row_key')
@@ -129,6 +136,8 @@ class AtspiDesktop:
         # Recheck target and login immediately before the one permitted click.
         if not self.ready(): raise UiError('QQ state changed before sending')
         root = self.app(); self.find(root, binding['header'])
+        if self.text(self.find(root,binding['target_identity'])).strip()!=binding['id']:
+            raise UiError('Visible numeric target changed before sending')
         try:
             self.activate(self.find(root, binding['send']))
             for _ in range(40):

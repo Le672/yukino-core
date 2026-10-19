@@ -8,6 +8,7 @@ import time
 import uuid
 
 from .atspi import UiError, UiUncertain
+from . import __version__
 
 
 class Store:
@@ -137,7 +138,7 @@ class Bridge:
 
     async def action(self,name,params):
         if name=='get_status':return await self.status()
-        if name=='get_version_info':return {'app_name':'yukino-qq-desktop','app_version':'0.1.0a1','protocol_version':'v11','experimental':True}
+        if name=='get_version_info':return {'app_name':'yukino-qq-desktop','app_version':__version__,'protocol_version':'v11','experimental':True}
         if name in ('can_send_image','can_send_record'):return {'yes':False}
         if name=='get_login_info':
             if not (await self.status())['online']:raise UiError('QQ login/account identity has not been verified')
