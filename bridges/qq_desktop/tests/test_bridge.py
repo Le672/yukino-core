@@ -90,8 +90,11 @@ class BridgeTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(await self.bridge.action('get_friend_list',{}),[])
     async def test_send_cooldown_does_not_send_twice(self):
         await self.bridge.send('private','10002','one')
-        with self.assertRaises(ValueError):await self.bridge.send('private','10002','two')
+        with self.assertRaises(ValueError):await self.bridge.send('private','10002','two','cooldown-call')
         self.assertEqual(len(self.driver.sent),1)
+        self.bridge.last_send=0
+        await self.bridge.send('private','10002','two','cooldown-call')
+        self.assertEqual(len(self.driver.sent),2)
 
 
 class ProtocolTests(unittest.IsolatedAsyncioTestCase):

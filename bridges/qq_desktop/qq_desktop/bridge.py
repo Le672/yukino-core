@@ -34,12 +34,17 @@ class Store:
             self.db.execute('DELETE FROM seen WHERE id IN (SELECT id FROM seen ORDER BY id DESC LIMIT -1 OFFSET 12000)')
         return row.lastrowid, True
 
-    def reserve(self, key, digest):
+    def lookup(self, key, digest):
         row = self.db.execute('SELECT digest,status,id FROM sends WHERE key=?', (key,)).fetchone()
         if row:
             if row[0] != digest: raise ValueError('Idempotency key already used for different content')
             if row[1] == 'confirmed': return row[2]
             raise UiUncertain('Previous attempt did not have a confirmed result; it was not resent')
+        return None
+
+    def reserve(self, key, digest):
+        old=self.lookup(key,digest)
+        if old is not None:return old
         with self.db:
             self.db.execute('DELETE FROM sends WHERE at<?', (time.time()-7*86400,))
             if self.db.execute('SELECT count(*) FROM sends').fetchone()[0] >= 2000:
@@ -99,10 +104,11 @@ class Bridge:
         digest=hashlib.sha256(json.dumps([kind,str(target),text],ensure_ascii=False).encode()).hexdigest()
         async with self.lock:
             if not self.config['enabled'] or not await self.ui('ready'): raise UiError('QQ is offline or not calibrated')
-            old=self.store.reserve(key,digest)
+            old=self.store.lookup(key,digest)
             if old is not None:return {'message_id':old,'ui_confirmed':True,'reused':True}
             if time.monotonic()-self.last_send<self.config['send_interval_seconds']:
                 raise ValueError('Desktop send cooldown is active')
+            self.store.reserve(key,digest)
             self.last_send=time.monotonic()
             rowkey=await self.ui('send',binding,text)
             mid,_=self.store.observe(kind+':'+str(target),'out:'+rowkey)
