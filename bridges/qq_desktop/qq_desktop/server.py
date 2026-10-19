@@ -21,7 +21,8 @@ def create_app(bridge,token):
         if len(sockets)>=4:raise web.HTTPTooManyRequests()
         socket=web.WebSocketResponse(heartbeat=30,max_msg_size=65536);await socket.prepare(request)
         sockets[socket]=request.path!='/api'
-        await socket.send_json({'time':int(time.time()),'self_id':int(bridge.config.get('self_id','0')),'post_type':'meta_event','meta_event_type':'lifecycle','sub_type':'connect'})
+        if sockets[socket]:
+            await socket.send_json({'time':int(time.time()),'self_id':int(bridge.config.get('self_id','0')),'post_type':'meta_event','meta_event_type':'lifecycle','sub_type':'connect'})
         try:
             async for message in socket:
                 if message.type!=WSMsgType.TEXT:continue

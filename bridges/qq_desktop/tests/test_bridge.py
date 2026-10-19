@@ -103,11 +103,11 @@ class ProtocolTests(unittest.IsolatedAsyncioTestCase):
         for headers,status in (({},401),({'Authorization':'Bearer wrong'},401),({'Authorization':'Bearer '+TOKEN,'Origin':'https://example.com'},403)):
             with self.subTest(headers=list(headers)),self.assertRaises(WSServerHandshakeError) as error:await self.client.ws_connect('/',headers=headers)
             self.assertEqual(error.exception.status,status)
-        ws=await self.client.ws_connect('/api',headers={'Authorization':'Bearer '+TOKEN});self.assertEqual((await ws.receive_json())['meta_event_type'],'lifecycle')
+        ws=await self.client.ws_connect('/api',headers={'Authorization':'Bearer '+TOKEN})
         await ws.send_json({'action':'get_status','echo':{'request':3}});result=await ws.receive_json()
         self.assertEqual(result['retcode'],0);self.assertEqual(result['echo'],{'request':3});self.assertTrue(result['data']['online']);await ws.close()
     async def test_unsupported_media_and_uncertain_status(self):
-        ws=await self.client.ws_connect('/api',headers={'Authorization':'Bearer '+TOKEN});await ws.receive_json()
+        ws=await self.client.ws_connect('/api',headers={'Authorization':'Bearer '+TOKEN})
         for action,params,code in [('delete_msg',{},1404),('send_private_msg',{'user_id':10002,'message':[{'type':'image','data':{'file':'x'}}]},1400)]:
             await ws.send_json({'action':action,'params':params});self.assertEqual((await ws.receive_json())['retcode'],code)
         self.driver.failure=UiUncertain('send uncertain')

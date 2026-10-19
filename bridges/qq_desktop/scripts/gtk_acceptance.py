@@ -10,7 +10,7 @@ from qq_desktop.config import validate
 
 p=subprocess.Popen([sys.executable,str(Path(__file__).with_name('gtk_fixture.py'))],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
 try:
-    cfg={'enabled':True,'app_name':'YukinoDesktopFixture','self_id':'10001','identity':{'name':'10001'},'bindings':[]}
+    cfg={'enabled':True,'app_name':'yukino-desktop-fixture','self_id':'10001','identity':{'name':'10001'},'bindings':[]}
     b={'kind':'private','id':'10002','verified':True,'contact':{'name':'Contact 10002'},'header':{'name':'Conversation 10002'},
        'history':{'name':'Messages'},'editor':{'name':'Composer'},'send':{'name':'Send'},'sender':{'path':[0,0]},'body':{'path':[0,1]},
        'row_key':'description','senders':{'Me':'10001','Peer':'10002'}}
