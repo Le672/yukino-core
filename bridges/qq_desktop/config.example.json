@@ -2,7 +2,7 @@
   "enabled": false,
   "host": "127.0.0.1",
   "port": 3002,
-  "app_name": "QQ",
+  "app_name": "qq",
   "poll_seconds": 2,
   "send_interval_seconds": 2,
   "bindings": []

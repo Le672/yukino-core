@@ -44,6 +44,16 @@ python3 -m qq_desktop serve --config config.json --data ./data
 
 见 `compose.example.yaml`。从[腾讯官网](https://im.qq.com/linuxqq/index.shtml)取得官方下载地址，记录下载文件SHA-256；设置固定Ubuntu镜像digest、URL与文件hash再构建。官方QQ文件仅在使用者本机构建中下载，不随本仓库发布。`private.env`只存随机 `QQ_DESKTOP_TOKEN`，禁止提交；`data/config.json`需设置容器内 `host=0.0.0.0`、`allow_network_bind=true`，宿主机映射仍只监听127.0.0.1。`data`的运行UID为10001。
 
+`client-lock.example.json`记录本次实际下载并核对的腾讯原始deb与Ubuntu镜像digest，不含客户端本体。Linux源码目录可执行：
+
+```sh
+sudo python3 scripts/init_instance.py
+sudo docker compose --env-file client.env -f compose.example.yaml build
+sudo docker compose --env-file client.env -f compose.example.yaml up -d
+```
+
+初始化会生成随机私密令牌和禁用状态配置，遇到已有data/private.env会拒绝覆盖。样例锁定链接可能随厂商更新失效，换版本时必须重新核对文件来源和hash；没有从第三方打包客户端兜底。
+
 候选接口 `ws://127.0.0.1:18002/`；桌面 `http://127.0.0.1:16081/vnc.html`，远程使用SSH隧道。VNC只应在隧道内访问。QQ配置、日志、令牌和界面检查文件全部保留在私有data。Docker使用无沙盒QQ启动标志以适应容器，故额外采用普通用户、资源限额和隔离数据目录；不与原NapCat共用登录资料。
 
 不要在未通过真实账号收发验收前替换正式OneBot地址。核心在Docker内时，不能直接把自身127.0.0.1当宿主机；后续切换应使用同一私有容器网络与鉴权配置。
@@ -59,5 +69,7 @@ python3 scripts/gtk_acceptance.py
 ```
 
 协议/状态测试与GTK无障碍控件验收不等于QQ实机验收。账号限制解除后，仍须验证真实界面选择器、发送者映射、消息行标识、收发、重启去重及超时不重发。
+
+只打包本适配器源码与许可、不含QQ客户端和实例数据：`python3 scripts/build_source.py --output ./dist/source`。
 
 接口参考[OneBot 11](https://github.com/botuniverse/onebot-11/blob/master/communication/ws.md)，系统界面操作参考[GNOME AT-SPI](https://gnome.pages.gitlab.gnome.org/at-spi2-core/libatspi/class.Accessible.html)。本目录遵循仓库MIT许可；操作系统组件和QQ保留各自许可。

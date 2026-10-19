@@ -20,7 +20,7 @@ RUN useradd --create-home --uid 10001 bridge && mkdir /data && chown bridge:brid
 COPY qq_desktop /app/qq_desktop
 COPY tests /app/tests
 COPY scripts /app/scripts
-COPY config.example.json /app/config.example.json
+COPY config.example.json client-lock.example.json binding.example.json /app/
 RUN chmod +x /app/scripts/*.sh
 USER bridge
 WORKDIR /app

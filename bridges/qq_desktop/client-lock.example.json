@@ -1,0 +1,10 @@
+{
+  "qq_version": "3.2.34-53644",
+  "architecture": "amd64",
+  "official_configuration_url": "https://qq-web.cdn-go.cn/im.qq.com_new/latest/rainbow/pcConfig.json",
+  "QQ_DEB_URL": "https://qqdl.gtimg.cn/qqfile/QQNT/9.9.36/beta/9ee04bef/linuxqq_3.2.34-53644_amd64.deb",
+  "QQ_DEB_SHA256": "436c65e1dd28422e128a21cbddb5fe4e2e6c079d7f27fec2541e014d38cc336e",
+  "BASE_IMAGE": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+  "checked_date": "2026-10-19",
+  "client_binary_included": false
+}

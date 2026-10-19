@@ -31,7 +31,7 @@ def validate(raw):
     require(isinstance(raw, dict), 'Configuration must be an object')
     out = dict(raw)
     out.setdefault('host', '127.0.0.1'); out.setdefault('port', 3002)
-    out.setdefault('enabled', False); out.setdefault('app_name', 'QQ')
+    out.setdefault('enabled', False); out.setdefault('app_name', 'qq')
     out.setdefault('poll_seconds', 2); out.setdefault('send_interval_seconds', 2)
     require(type(out['enabled']) is bool, 'enabled must be boolean')
     require(out['host'] in ('127.0.0.1', '::1') or raw.get('allow_network_bind') is True, 'Non-loopback bind requires explicit configuration')
