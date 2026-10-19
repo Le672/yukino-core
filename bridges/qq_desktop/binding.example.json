@@ -9,7 +9,7 @@
   "history": {"name": "Messages"},
   "editor": {"name": "Composer"},
   "send": {"name": "Send", "role": "push button"},
-  "body": {"path": [1]},
+  "body": {"path": [0, 1]},
   "sender_id": {"path": [0, 2]},
   "row_key": "description"
 }

@@ -87,6 +87,25 @@ class DesktopTests(unittest.TestCase):
         self.root.children[-1].value='10003'
         with self.assertRaises(UiError):self.desktop.send(self.binding,'must not send to another target')
         self.assertEqual(self.clicks,0)
+    def test_readonly_probe_never_clicks_and_restores_driver_configuration(self):
+        original=self.desktop.config
+        self.assertTrue(self.desktop.probe({**self.cfg,'enabled':False},self.binding)['numeric_senders_verified'])
+        self.assertIs(self.desktop.config,original);self.assertEqual(self.clicks,0)
+        with self.assertRaises(UiError):self.desktop.probe({**self.cfg,'self_id':'99999'},self.binding)
+        self.assertIs(self.desktop.config,original);self.assertEqual(self.clicks,0)
+    def test_attachment_target_change_before_accept_cannot_submit_file(self):
+        m={'verified':True,'kinds':['image']}
+        for k in ('button','dialog','path','accept','row_kind','row_name'):m[k]={'name':k}
+        self.binding['attachments']=m
+        self.history.children[0].children.extend([Node('row_kind','text'),Node('row_name','')])
+        self.accepted=0
+        def accept():self.accepted+=1
+        def open_dialog():
+            self.root.children[-1].value='10003'
+            self.root.children.append(Node('dialog',children=[Node('path',''),Node('accept',click=accept)]))
+        self.root.children.insert(-1,Node('button',click=open_dialog))
+        with self.assertRaises(UiError):self.desktop.send_attachment(self.binding,{'kind':'image','name':'x.png','path':'/media/x.png'})
+        self.assertEqual(self.accepted,0);self.assertEqual(self.editor.value,'')
 
 
 if __name__=='__main__':unittest.main()

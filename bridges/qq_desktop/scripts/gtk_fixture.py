@@ -1,5 +1,6 @@
 """Controlled local desktop fixture: it never connects to QQ or any account."""
 import gi
+from pathlib import Path
 gi.require_version('Gtk','3.0')
 from gi.repository import Gtk,GLib
 GLib.set_prgname('yukino-desktop-fixture');GLib.set_application_name('YukinoDesktopFixture')
@@ -12,15 +13,29 @@ target_id=Gtk.Label(label='10002');target_id.get_accessible().set_name('Target i
 history=Gtk.ListBox();history.get_accessible().set_name('Messages');box.pack_start(history,True,True,0)
 editor=Gtk.Entry();editor.get_accessible().set_name('Composer');box.pack_start(editor,False,False,0)
 send=Gtk.Button(label='Send');box.pack_start(send,False,False,0)
+attach=Gtk.Button(label='Attach');box.pack_start(attach,False,False,0)
 counter=0
-def append(sender,text):
+def append(sender,text,kind='text',name='',path=''):
     global counter
     counter+=1;row=Gtk.ListBoxRow();row.get_accessible().set_description('message:'+str(counter))
     content=Gtk.Box(orientation=Gtk.Orientation.VERTICAL);content.pack_start(Gtk.Label(label=sender),False,False,0);content.pack_start(Gtk.Label(label=text),False,False,0)
     sender_id=Gtk.Label(label='10001' if sender=='Me' else '10002');sender_id.get_accessible().set_name('Sender identity');content.pack_start(sender_id,False,False,0)
+    for field,value in (('Attachment kind',kind),('Attachment name',name),('Downloaded path',path)):
+        label=Gtk.Label(label=value);label.get_accessible().set_name(field);content.pack_start(label,False,False,0)
     row.add(content);history.add(row);history.show_all()
 def on_send(button):
     text=editor.get_text()
     if text:append('Me',text);editor.set_text('')
 send.connect('clicked',on_send);window.connect('destroy',Gtk.main_quit)
+def choose_file(button):
+    dialog=Gtk.Dialog(title='Attachment picker',transient_for=window,modal=True)
+    entry=Gtk.Entry();entry.get_accessible().set_name('Attachment path');dialog.get_content_area().add(entry)
+    accept=dialog.add_button('Open attachment',Gtk.ResponseType.OK)
+    def response(widget,value):
+        if value==Gtk.ResponseType.OK:
+            path=Path(entry.get_text())
+            if path.is_file():append('Me','',kind='image' if path.suffix.lower() in ('.png','.jpg','.gif','.webp') else 'file',name=path.name,path=str(path))
+        dialog.destroy()
+    dialog.connect('response',response);dialog.show_all()
+attach.connect('clicked',choose_file)
 append('Peer','existing history');window.show_all();Gtk.main()

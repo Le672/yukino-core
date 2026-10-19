@@ -7,8 +7,8 @@ from aiohttp import web,WSMsgType
 from .atspi import UiError,UiUncertain
 
 
-def create_app(bridge,token):
-    sockets={}; app=web.Application(client_max_size=65536)
+def create_app(bridge,token,config_path=None):
+    sockets={}; app=web.Application(client_max_size=131072)
     def authorized(request):
         return hmac.compare_digest(request.headers.get('Authorization','').encode(),('Bearer '+token).encode())
 
@@ -19,7 +19,7 @@ def create_app(bridge,token):
         if not authorized(request):raise web.HTTPUnauthorized()
         if request.headers.get('Origin'):raise web.HTTPForbidden(text='Browser origins are not accepted')
         if len(sockets)>=4:raise web.HTTPTooManyRequests()
-        socket=web.WebSocketResponse(heartbeat=30,max_msg_size=65536);await socket.prepare(request)
+        socket=web.WebSocketResponse(heartbeat=30,max_msg_size=12*1024*1024);await socket.prepare(request)
         sockets[socket]=request.path!='/api'
         if sockets[socket]:
             await socket.send_json({'time':int(time.time()),'self_id':int(bridge.config.get('self_id','0')),'post_type':'meta_event','meta_event_type':'lifecycle','sub_type':'connect'})
@@ -47,10 +47,16 @@ def create_app(bridge,token):
         return socket
 
     async def poller():
+        last_heartbeat=0
         while True:
             if any(sockets.values()):
                 try:
                     events=await bridge.poll()
+                    if time.monotonic()-last_heartbeat>=bridge.config['heartbeat_seconds']:
+                        events.append({'time':int(time.time()),'self_id':int(bridge.config.get('self_id','0')),
+                            'post_type':'meta_event','meta_event_type':'heartbeat','status':await bridge.status(),
+                            'interval':bridge.config['heartbeat_seconds']*1000})
+                        last_heartbeat=time.monotonic()
                     for event in events:
                         for socket,wants_events in list(sockets.items()):
                             if wants_events and not socket.closed:
@@ -60,13 +66,16 @@ def create_app(bridge,token):
                 except Exception as error:bridge.last_error=type(error).__name__
             await asyncio.sleep(bridge.config['poll_seconds'])
 
-    async def start(app):app['poll_task']=asyncio.create_task(poller())
+    task_key=web.AppKey('desktop_poll_task',asyncio.Task)
+    async def start(app):app[task_key]=asyncio.create_task(poller())
     async def stop(app):
-        app['poll_task'].cancel()
-        with contextlib.suppress(asyncio.CancelledError):await app['poll_task']
+        app[task_key].cancel()
+        with contextlib.suppress(asyncio.CancelledError):await app[task_key]
         for socket in list(sockets):await socket.close()
         await bridge.close()
     app.router.add_get('/healthz',health)
     for path in ('/','/api','/event'):app.router.add_get(path,ws)
+    from .console import install_console
+    install_console(app,bridge,token,config_path)
     app.on_startup.append(start);app.on_cleanup.append(stop)
     return app

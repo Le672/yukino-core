@@ -2,6 +2,7 @@
 import hashlib
 import re
 import time
+from .config import validate
 
 
 class UiError(RuntimeError):
@@ -117,10 +118,21 @@ class AtspiDesktop:
             if binding['kind']=='private' and uid not in (binding['id'],self.config['self_id']):
                 raise UiError('Visible sender does not belong to the verified private conversation')
             text = self.text(self.find(row, binding['body']))
+            attachment=None
+            if 'attachments' in binding:
+                m=binding['attachments'];kind=self.text(self.find(row,m['row_kind'])).strip()
+                if kind not in ('text','image','file'):raise UiError('Unknown attachment kind; recalibrate the genuine row kind field')
+                if kind!='text':
+                    attachment={'kind':kind,'name':self.text(self.find(row,m['row_name'])).strip()}
+                    if not attachment['name']:raise UiError('Attachment has no visible filename')
+                    if 'row_path' in m:attachment['path']=self.text(self.find(row,m['row_path'])).strip()
             source = {'accessible_id': row.get_accessible_id, 'description': row.get_description, 'name': row.get_name}[binding['row_key']]()
             if not source: raise UiError('Stable visible message key is missing; calibrate row_key')
-            key = hashlib.sha256((source + '\0' + uid + '\0' + text).encode()).hexdigest()
-            result.append({'key': key, 'user_id': uid, 'text': text})
+            signature='' if attachment is None else attachment['kind']+'\0'+attachment['name']
+            key = hashlib.sha256((source + '\0' + uid + '\0' + text+'\0'+signature).encode()).hexdigest()
+            message={'key': key, 'user_id': uid, 'text': text}
+            if attachment:message['attachment']=attachment
+            result.append(message)
         if len({m['key'] for m in result}) != len(result):
             raise UiError('Visible message keys are ambiguous; no event was inferred')
         return result
@@ -150,8 +162,62 @@ class AtspiDesktop:
             raise UiUncertain('Send may have reached QQ; it will not be retried automatically') from None
         raise UiUncertain('No unique outgoing UI row appeared; delivery is uncertain and was not retried')
 
+    def send_attachment(self,binding,record):
+        m=binding.get('attachments',{})
+        if not m.get('verified') or record['kind'] not in m.get('kinds',[]):raise UiError('Attachment flow is not calibrated for this conversation')
+        root=self.select(binding)
+        if self.text(self.find(root,binding['editor'])):raise UiError('An existing draft is present; it was not overwritten')
+        before={r['key'] for r in self.snapshot(binding,navigate=False)}
+        self.activate(self.find(root,m['button']))
+        dialog=None
+        for _ in range(40):
+            try:dialog=self.find(self.app(),m['dialog']);break
+            except UiError:time.sleep(.05)
+        if dialog is None:raise UiError('Calibrated file chooser did not open; no file was accepted')
+        entry=self.find(dialog,m['path']);editable=entry.get_editable_text_iface()
+        if not editable or not self.api.EditableText.set_text_contents(editable,record['path']):raise UiError('File chooser rejected the media path')
+        if self.text(entry)!=record['path']:raise UiError('File path readback changed; no file was accepted')
+        # Accept may send immediately in some clients. Everything after it is
+        # considered uncertain until a unique outgoing attachment is observed.
+        if not self.ready():raise UiError('QQ identity changed while choosing a file')
+        if self.text(self.find(self.app(),binding['target_identity'])).strip()!=binding['id']:raise UiError('Target changed while choosing a file')
+        try:
+            self.activate(self.find(dialog,m['accept']))
+            if 'final_send' in m:
+                control=None
+                for _ in range(40):
+                    try:control=self.find(self.app(),m['final_send']);break
+                    except UiError:time.sleep(.05)
+                if control is None:raise UiError('Attachment confirmation is missing')
+                if not self.ready() or self.text(self.find(self.app(),binding['target_identity'])).strip()!=binding['id']:raise UiError('Identity changed before attachment confirmation')
+                self.activate(control)
+            for _ in range(60):
+                rows=self.snapshot(binding,navigate=False)
+                found=[r for r in rows if r['key'] not in before and r['user_id']==self.config['self_id']
+                       and r.get('attachment',{}).get('kind')==record['kind']
+                       and r.get('attachment',{}).get('name')==record['name']]
+                if len(found)==1:return found[0]['key']
+                if len(found)>1:break
+                time.sleep(.1)
+        except Exception:raise UiUncertain('Attachment may have been submitted; it was not resent') from None
+        raise UiUncertain('No unique outgoing attachment appeared; it was not resent')
+
     def inspect(self):
         root = self.app()
-        return [{'path': p, 'role': n.get_role_name(), 'name': (n.get_name() or '')[:500],
-                 'description': (n.get_description() or '')[:500], 'accessible_id': n.get_accessible_id() or ''}
-                for n, p in self.walk(root)]
+        result=[]
+        for n,p in self.walk(root):
+            try:value=self.text(n)[:500]
+            except Exception:value=''
+            result.append({'path':p,'role':n.get_role_name(),'name':(n.get_name() or '')[:500],
+                'text':value,'description':(n.get_description() or '')[:500],'accessible_id':n.get_accessible_id() or ''})
+        return result
+
+    def probe(self,config,binding=None):
+        """Read the currently visible conversation; never navigate or send."""
+        original=self.config
+        try:
+            self.config=validate({**config,'enabled':True})
+            if not self.ready():raise UiError('The visible self QQ identity is missing or mismatched')
+            rows=[] if binding is None else self.snapshot(binding,navigate=False)
+            return {'identity_verified':True,'visible_rows':len(rows),'numeric_senders_verified':binding is not None}
+        finally:self.config=original

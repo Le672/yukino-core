@@ -9,6 +9,7 @@ import uuid
 
 from .atspi import UiError, UiUncertain
 from . import __version__
+from .media import MediaStore,image_extension
 
 
 class Store:
@@ -77,10 +78,12 @@ class Bridge:
     def __init__(self,config,driver,directory):
         self.config,self.driver=config,driver
         self.store=Store(directory)
+        self.media=MediaStore(Path(directory)/'media')
         self.lock=asyncio.Lock()
         self.executor=ThreadPoolExecutor(max_workers=1,thread_name_prefix='qq-desktop-ui')
         self.seeded=set(); self.next_binding=0; self.last_send=0
-        self.last_error=''; self.events=[]
+        self.last_error='';self.started=time.time()
+        self.metrics={'polls':0,'events':0,'sends_confirmed':0,'sends_uncertain':0}
 
     async def ui(self,method,*args):
         return await asyncio.get_running_loop().run_in_executor(self.executor,getattr(self.driver,method),*args)
@@ -98,22 +101,37 @@ class Bridge:
         return found[0]
 
     async def send(self,kind,target,message,key=None):
-        text=plain_message(message)
+        media=None
+        if isinstance(message,list) and len(message)==1 and isinstance(message[0],dict) and message[0].get('type') in ('image','file'):
+            media=message[0];data=media.get('data')
+            if not isinstance(data,dict) or not isinstance(data.get('file'),str) or not set(data)<={'file','name'}:raise ValueError('Invalid attachment data')
+            text=None
+        else:text=plain_message(message)
         binding=self.binding(kind,target)
         if key is not None and (not isinstance(key,str) or not 1<=len(key)<=128): raise ValueError('Invalid idempotency key')
         key=key or str(uuid.uuid4())
-        digest=hashlib.sha256(json.dumps([kind,str(target),text],ensure_ascii=False).encode()).hexdigest()
         async with self.lock:
             if not self.config['enabled'] or not await self.ui('ready'): raise UiError('QQ is offline or not calibrated')
+            if media:
+                m=binding.get('attachments',{})
+                if not m.get('verified') or media['type'] not in m.get('kinds',[]):raise UiError('Attachment flow has not been calibrated for this conversation')
+                record=await asyncio.to_thread(self.media.prepare,media['data']['file'],media['type'],media['data'].get('name'))
+                content=[media['type'],record['id']]
+            else:content=text
+            digest=hashlib.sha256(json.dumps([kind,str(target),content],ensure_ascii=False).encode()).hexdigest()
             old=self.store.lookup(key,digest)
             if old is not None:return {'message_id':old,'ui_confirmed':True,'reused':True}
             if time.monotonic()-self.last_send<self.config['send_interval_seconds']:
                 raise ValueError('Desktop send cooldown is active')
             self.store.reserve(key,digest)
             self.last_send=time.monotonic()
-            rowkey=await self.ui('send',binding,text)
+            try:rowkey=await self.ui('send_attachment',binding,record) if media else await self.ui('send',binding,text)
+            except UiUncertain:
+                self.metrics['sends_uncertain']+=1
+                raise
             mid,_=self.store.observe(kind+':'+str(target),'out:'+rowkey)
             self.store.complete(key,mid)
+            self.metrics['sends_confirmed']+=1
             return {'message_id':mid,'ui_confirmed':True,'recipient_receipt_verified':False}
 
     async def poll(self):
@@ -123,23 +141,59 @@ class Bridge:
             binding=self.config['bindings'][self.next_binding%len(self.config['bindings'])]
             self.next_binding+=1
             rows=await self.ui('snapshot',binding)
+            self.metrics['polls']+=1
             scope=binding['kind']+':'+binding['id']; first=scope not in self.seeded; result=[]
             for row in rows:
                 mid,new=self.store.observe(scope,row['key'])
                 if first or not new or row['user_id']==self.config['self_id']:continue
+                segments=[{'type':'text','data':{'text':row['text']}}] if row['text'] else []
+                attachment=row.get('attachment');attachment_state=None
+                if attachment:
+                    attachment_state={'kind':attachment['kind'],'name':attachment['name'],'download_available':False}
+                    try:
+                        record=await asyncio.to_thread(self.media.observed,attachment.get('path'),attachment['kind'])
+                        segments.append({'type':attachment['kind'],'data':{'file':record['id'],'name':record['name'],'size':record['size'],'ui_local_media':True}})
+                        attachment_state.update(download_available=True,media_id=record['id'])
+                    except (ValueError,OSError):
+                        segments.append({'type':'text','data':{'text':'['+('图片' if attachment['kind']=='image' else '文件')+'：'+attachment['name']+'，未读取到已下载文件]'}})
                 e={'time':int(time.time()),'self_id':int(self.config['self_id']),'post_type':'message',
                    'message_type':binding['kind'],'sub_type':'friend' if binding['kind']=='private' else 'normal',
-                   'message_id':mid,'user_id':int(row['user_id']),'message':[{'type':'text','data':{'text':row['text']}}],
+                   'message_id':mid,'user_id':int(row['user_id']),'message':segments,
                    'raw_message':row['text'],'font':0,'sender':{'user_id':int(row['user_id'])},'ui_observed':True}
                 if binding['kind']=='group':e['group_id']=int(binding['id'])
+                if attachment_state:e['ui_attachment']=attachment_state
                 result.append(e)
             self.seeded.add(scope)
+            self.metrics['events']+=len(result)
             return result
+
+    async def capabilities(self):
+        status=await self.status();online=status['online']
+        flows=[b for b in self.config['bindings'] if b['verified'] and b.get('attachments',{}).get('verified')]
+        return {'experimental':True,'version':__version__,'status':status,
+            'text':{'implemented':True,'ready':online},
+            'image':{'implemented':True,'ready':online and any('image' in b['attachments']['kinds'] for b in flows)},
+            'file':{'implemented':True,'ready':online and any('file' in b['attachments']['kinds'] for b in flows)},
+            'receive_media':{'implemented':True,'requires':'genuine row fields and downloaded file under media/inbox'},
+            'unsupported':['video','record','forward','recall','poke','group_admin'],
+            'real_qq_roundtrip_verified':False,'uptime_seconds':int(time.time()-self.started),'metrics':dict(self.metrics)}
 
     async def action(self,name,params):
         if name=='get_status':return await self.status()
         if name=='get_version_info':return {'app_name':'yukino-qq-desktop','app_version':__version__,'protocol_version':'v11','experimental':True}
-        if name in ('can_send_image','can_send_record'):return {'yes':False}
+        if name=='get_capabilities':return await self.capabilities()
+        if name=='can_send_image':return {'yes':(await self.capabilities())['image']['ready']}
+        if name=='can_send_record':return {'yes':False}
+        if name=='get_image':
+            record=await asyncio.to_thread(self.media.get,params.get('file'))
+            image_extension(Path(record['path']).read_bytes())
+            return {'file':record['path'],'size':record['size'],'filename':record['name'],
+                    'media_id':record['id'],'download_endpoint':'/console/api/media/'+record['id'],'requires_bearer_auth':True}
+        if name in ('upload_private_file','upload_group_file'):
+            if not set(params)<={'file','name','user_id','group_id','idempotency_key'}:raise NotImplementedError('File folders and extra upload options are not supported')
+            kind='private' if name=='upload_private_file' else 'group'
+            return await self.send(kind,params.get('user_id' if kind=='private' else 'group_id'),
+                [{'type':'file','data':{k:params[k] for k in ('file','name') if k in params}}],params.get('idempotency_key'))
         if name=='get_login_info':
             if not (await self.status())['online']:raise UiError('QQ login/account identity has not been verified')
             return {'user_id':int(self.config['self_id']),'nickname':self.config.get('nickname','')}

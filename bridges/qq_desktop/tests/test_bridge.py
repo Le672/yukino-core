@@ -113,7 +113,7 @@ class ProtocolTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(result['retcode'],0);self.assertEqual(result['echo'],{'request':3});self.assertTrue(result['data']['online']);await ws.close()
     async def test_unsupported_media_and_uncertain_status(self):
         ws=await self.client.ws_connect('/api',headers={'Authorization':'Bearer '+TOKEN})
-        for action,params,code in [('delete_msg',{},1404),('send_private_msg',{'user_id':10002,'message':[{'type':'image','data':{'file':'x'}}]},1400)]:
+        for action,params,code in [('delete_msg',{},1404),('send_private_msg',{'user_id':10002,'message':[{'type':'image','data':{'file':'x'}}]},1503)]:
             await ws.send_json({'action':action,'params':params});self.assertEqual((await ws.receive_json())['retcode'],code)
         self.driver.failure=UiUncertain('send uncertain')
         await ws.send_json({'action':'send_private_msg','params':{'user_id':10002,'message':'one'}});result=await ws.receive_json()

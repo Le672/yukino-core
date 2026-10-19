@@ -6,7 +6,7 @@ from pathlib import Path
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='0.1.0a2'
+VERSION='0.1.0a3'
 FILES=('README.md','pyproject.toml','Dockerfile','Dockerfile.fixture','compose.example.yaml',
        'config.example.json','binding.example.json','client-lock.example.json','.gitignore','.dockerignore')
 
@@ -15,7 +15,8 @@ def build(root,output):
     root=Path(root).resolve();output=Path(output).resolve();files={}
     paths=[root/name for name in FILES]
     for folder in ('qq_desktop','scripts','tests'):
-        paths.extend(p for p in (root/folder).rglob('*') if p.suffix in ('.py','.sh') and '__pycache__' not in p.parts)
+        paths.extend(p for p in (root/folder).rglob('*') if (p.suffix in ('.py','.sh') or
+            (p.parent==root/'qq_desktop/static' and p.suffix in ('.html','.js','.css'))) and '__pycache__' not in p.parts)
     for path in paths:
         if (not path.is_file() or path.is_symlink() or not path.resolve().is_relative_to(root)
                 or any(p.is_symlink() for p in path.parents if p!=root.parent) or path.stat().st_size>2_000_000):

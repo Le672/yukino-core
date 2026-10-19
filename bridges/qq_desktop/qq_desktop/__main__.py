@@ -31,7 +31,7 @@ def main():
     from aiohttp import web
     from .bridge import Bridge
     from .server import create_app
-    web.run_app(create_app(Bridge(cfg,driver,args.data),token_from_environment()),host=cfg['host'],port=cfg['port'],access_log=None,print=None)
+    web.run_app(create_app(Bridge(cfg,driver,args.data),token_from_environment(),args.config),host=cfg['host'],port=cfg['port'],access_log=None,print=None)
 
 
 if __name__=='__main__':main()

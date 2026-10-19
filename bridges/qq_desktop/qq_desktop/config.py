@@ -50,9 +50,21 @@ def validate(raw):
         b.setdefault('row_key', 'accessible_id')
         b.setdefault('verified', False)
         require(type(b['verified']) is bool, 'verified must be boolean')
+        if 'attachments' in b:
+            m=b['attachments'];require(isinstance(m,dict),'Invalid attachment calibration')
+            for key in ('button','dialog','path','accept','row_name','row_kind'):
+                m[key]=selector(m.get(key))
+            for key in ('final_send','row_path'):
+                if key in m:m[key]=selector(m[key])
+            require(type(m.get('verified',False)) is bool,'Invalid attachment verified flag')
+            m.setdefault('verified',False)
+            kinds=m.get('kinds',[])
+            require(isinstance(kinds,list) and kinds and set(kinds)<= {'image','file'} and len(set(kinds))==len(kinds),'Attachment kinds must be image/file')
         bindings.append(b)
     require(len({(b['kind'], b['id']) for b in bindings}) == len(bindings), 'Duplicate conversation bindings')
     out['bindings'] = bindings
+    out.setdefault('heartbeat_seconds',15)
+    require(type(out['heartbeat_seconds']) is int and 5<=out['heartbeat_seconds']<=60,'Heartbeat interval must be 5..60 seconds')
     out.setdefault('blocked_labels', ['二维码登录', '安全验证', '账号安全限制'])
     require(isinstance(out['blocked_labels'], list) and len(out['blocked_labels']) <= 30 and
             all(isinstance(s, str) and 0 < len(s) <= 200 for s in out['blocked_labels']), 'Invalid blocked labels')
