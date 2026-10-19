@@ -1,0 +1,40 @@
+name: Check experimental QQ desktop bridge
+on:
+  push:
+    paths: ['bridges/qq_desktop/**', '.github/workflows/qq-desktop.yml']
+  pull_request:
+    paths: ['bridges/qq_desktop/**', '.github/workflows/qq-desktop.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  protocol:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.12', '3.14']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: bridges/qq_desktop
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install 'aiohttp>=3.12,<4'
+      - run: python -m unittest discover -s tests -v
+  actual-gtk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install system accessibility bindings
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-gi python3-aiohttp gir1.2-atspi-2.0 gir1.2-gtk-3.0 at-spi2-core dbus-x11 xvfb
+      - name: Actual text entry and click on a controlled GTK window
+        working-directory: bridges/qq_desktop
+        run: dbus-run-session -- xvfb-run -a /usr/bin/python3 scripts/gtk_acceptance.py

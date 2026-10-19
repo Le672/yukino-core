@@ -1,0 +1,19 @@
+services:
+  qq-desktop:
+    build:
+      context: .
+      args:
+        BASE_IMAGE: ${BASE_IMAGE:?Use an inspected Ubuntu 24.04 image digest}
+        QQ_DEB_URL: ${QQ_DEB_URL:?Use the official download URL}
+        QQ_DEB_SHA256: ${QQ_DEB_SHA256:?Pin the downloaded file hash}
+    image: yukino-qq-desktop:0.1.0a1
+    restart: unless-stopped
+    env_file: [private.env]
+    volumes: [./data:/data]
+    ports:
+      - "127.0.0.1:18002:3002"
+      - "127.0.0.1:16081:6080"
+    shm_size: 256m
+    pids_limit: 256
+    mem_limit: 1500m
+    cpus: 1.5

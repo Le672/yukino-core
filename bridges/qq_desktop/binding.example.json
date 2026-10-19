@@ -1,0 +1,15 @@
+{
+  "kind": "private",
+  "id": "10002",
+  "label": "Replace with a manually verified conversation",
+  "verified": false,
+  "contact": {"name": "Contact 10002", "role": "push button"},
+  "header": {"name": "Conversation 10002"},
+  "history": {"name": "Messages"},
+  "editor": {"name": "Composer"},
+  "send": {"name": "Send", "role": "push button"},
+  "body": {"path": [1]},
+  "sender": {"path": [0]},
+  "row_key": "description",
+  "senders": {"My account": "10001", "Contact": "10002"}
+}

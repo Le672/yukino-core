@@ -1,0 +1,11 @@
+data
+config.json
+*.env
+*.deb
+*.AppImage
+__pycache__
+**/__pycache__
+*.pyc
+*.sqlite3*
+private-*.json
+*.egg-info
