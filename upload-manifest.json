@@ -1,43 +1,42 @@
 {
-  "tag": "v0.6.2",
-  "release_id": 416280431,
-  "source_commit": "7a461eb9dd6b0cc424538844cffec98f265aa759",
-  "verified_run_id": 39104710682,
+  "tag": "v0.6.3",
+  "source_commit": "4dca804bf07990f2ba24f77fff2c879daf750472",
+  "verified_run_id": 39190668694,
   "files": [
     {
-      "name": "yukino-core-0.6.2-release-manifest.json",
-      "bytes": 94521,
-      "sha256": "e03f022fe6385c391854631505189faf043cc6c1c4e6ff9c8283972205e07275"
+      "name": "yukino-core-0.6.3-release-manifest.json",
+      "bytes": 103513,
+      "sha256": "949470a04dad4c7fe5d9d4433ca8a109aae76d12886154deeba991608c995056"
     },
     {
-      "name": "yukino-core-0.6.2-source.zip",
-      "bytes": 837319,
-      "sha256": "42fbce148538f7e63849bd8d24ac4104530c3d701760abe8bb192f85e115ffdb"
+      "name": "yukino-core-0.6.3-source.zip",
+      "bytes": 922400,
+      "sha256": "12e3f86f04b982d979ea76c07aecb62efbbfee4202a148101a3d9fb32a976acb"
     },
     {
-      "name": "yukino-core-0.6.2-windows-manifest.json",
-      "bytes": 337517,
-      "sha256": "77250f83f96170fd2ad84ca2e031f79ecda8ef4912b3edbdc5b6c1962113251e"
+      "name": "yukino-core-0.6.3-windows-manifest.json",
+      "bytes": 350071,
+      "sha256": "da8f230d34311e54a69450d047bb78f0494622808059c429097ad29983ff7cd3"
     },
     {
-      "name": "yukino-plugins-109-1.0.0-catalog.json",
-      "bytes": 32567,
-      "sha256": "0db197505cf55fa3ff20d13a9d84d83d7c4fd122de76e47b6dc85c4db16ea7d7"
+      "name": "yukino-plugins-119-1.0.0-catalog.json",
+      "bytes": 35425,
+      "sha256": "00ccba18ed3295b8f9c3e459f32bfbd5054098e7da791868fe975d0b2d81d3eb"
     },
     {
-      "name": "yukino-plugins-109-1.0.0.zip",
-      "bytes": 2455755,
-      "sha256": "efa9e2212d57c2be205586eec37eaeed09779c7bd738549f7b7fb6b87db2c3fa"
+      "name": "yukino-plugins-119-1.0.0.zip",
+      "bytes": 2660592,
+      "sha256": "379bcab05e5d41f2e14383637040211764855f05f00458a9d8449d4cb84cabbd"
     },
     {
-      "name": "YukinoCore-0.6.2-Windows-x64-build2-portable.zip",
-      "bytes": 23982421,
-      "sha256": "e920d82c30d6ef94babe591e3f0315c47730602efdbfece79bca7eb8e4428972"
+      "name": "YukinoCore-0.6.3-Windows-x64-build2-portable.zip",
+      "bytes": 24207810,
+      "sha256": "f35a1547af9cbaf602dd180d4fc51f189e8450632f258698eb623e25fd915812"
     },
     {
       "name": "SHA256SUMS.txt",
       "bytes": 627,
-      "sha256": "138a2a5054ebed55673acf0f505fa93f22fde2333760edc1b2b2fd858b92da4b"
+      "sha256": "1d1b708f4ad897a2f673ce465657118ba474d329838f5dae633c5f5e854b1295"
     }
   ]
 }

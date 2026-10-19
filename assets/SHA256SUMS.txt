@@ -1,6 +1,6 @@
-e03f022fe6385c391854631505189faf043cc6c1c4e6ff9c8283972205e07275  yukino-core-0.6.2-release-manifest.json
-42fbce148538f7e63849bd8d24ac4104530c3d701760abe8bb192f85e115ffdb  yukino-core-0.6.2-source.zip
-77250f83f96170fd2ad84ca2e031f79ecda8ef4912b3edbdc5b6c1962113251e  yukino-core-0.6.2-windows-manifest.json
-0db197505cf55fa3ff20d13a9d84d83d7c4fd122de76e47b6dc85c4db16ea7d7  yukino-plugins-109-1.0.0-catalog.json
-efa9e2212d57c2be205586eec37eaeed09779c7bd738549f7b7fb6b87db2c3fa  yukino-plugins-109-1.0.0.zip
-e920d82c30d6ef94babe591e3f0315c47730602efdbfece79bca7eb8e4428972  YukinoCore-0.6.2-Windows-x64-build2-portable.zip
+949470a04dad4c7fe5d9d4433ca8a109aae76d12886154deeba991608c995056  yukino-core-0.6.3-release-manifest.json
+12e3f86f04b982d979ea76c07aecb62efbbfee4202a148101a3d9fb32a976acb  yukino-core-0.6.3-source.zip
+da8f230d34311e54a69450d047bb78f0494622808059c429097ad29983ff7cd3  yukino-core-0.6.3-windows-manifest.json
+00ccba18ed3295b8f9c3e459f32bfbd5054098e7da791868fe975d0b2d81d3eb  yukino-plugins-119-1.0.0-catalog.json
+379bcab05e5d41f2e14383637040211764855f05f00458a9d8449d4cb84cabbd  yukino-plugins-119-1.0.0.zip
+f35a1547af9cbaf602dd180d4fc51f189e8450632f258698eb623e25fd915812  YukinoCore-0.6.3-Windows-x64-build2-portable.zip

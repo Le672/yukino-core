@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "core_release": "0.6.2",
-  "count": 109,
+  "core_release": "0.6.3",
+  "count": 119,
   "plugins": [
     {
       "pack": "community-pack",
@@ -1131,6 +1131,106 @@
       ],
       "archive": "market2-pack/m_webtext-1.0.0.zip",
       "sha256": "b6692f35ea1bbf8c0e40e10f105043bc46ad950eb04a13627f065d10f2dfa2a8"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_banter",
+      "name": "傲娇搭话文案",
+      "commands": [
+        "/搭话"
+      ],
+      "archive": "social-pack/s_banter-1.0.0.zip",
+      "sha256": "09e628c3c5367d25c5c3e9645047be4f50b875cbb81874aae7ad0e1e7fde1749"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_bottle",
+      "name": "本群漂流瓶",
+      "commands": [
+        "/漂流瓶"
+      ],
+      "archive": "social-pack/s_bottle-1.0.0.zip",
+      "sha256": "c333ca66c0870ed50ad4ebcf87187e74abe8f950b66db3a18214910fdebed955"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_capsule",
+      "name": "私人时光信",
+      "commands": [
+        "/时光信"
+      ],
+      "archive": "social-pack/s_capsule-1.0.0.zip",
+      "sha256": "0c8350897cfdf3f3c0ef3330f400d5dd5e2c725f54a91d6d898db3bc7e128e67"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_expedition",
+      "name": "雾港邮路口袋远征",
+      "commands": [
+        "/远征"
+      ],
+      "archive": "social-pack/s_expedition-1.0.0.zip",
+      "sha256": "d7d7962978b8ec9f0726e315b27c0395ba664695809b7c1aaf8c3c30e29baf19"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_github",
+      "name": "GitHub正式发行",
+      "commands": [
+        "/GitHub发行"
+      ],
+      "archive": "social-pack/s_github-1.0.0.zip",
+      "sha256": "bc92d872430632ee29e15c5f76f09dcceb1d31fba8198791e5a9a9534da9b03b"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_mood",
+      "name": "私人心情日志",
+      "commands": [
+        "/心情"
+      ],
+      "archive": "social-pack/s_mood-1.0.0.zip",
+      "sha256": "270e2cc8faa15825b7e482ea7e92196bec9b508530635602375fe414a8519cc8"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_nonogram",
+      "name": "5×5唯一解数织",
+      "commands": [
+        "/数织"
+      ],
+      "archive": "social-pack/s_nonogram-1.0.0.zip",
+      "sha256": "b12db70ecd8df0f57e18fbcb61f912726d5b5b067a54ca78a7c218de04ad16a1"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_package",
+      "name": "PyPI与npm包版本",
+      "commands": [
+        "/包版本"
+      ],
+      "archive": "social-pack/s_package-1.0.0.zip",
+      "sha256": "3ebe62b47e797037de46aaf1dfd9fba4983267d9102c91f1f7bcee17b44cf59b"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_sleep",
+      "name": "私人睡眠时段",
+      "commands": [
+        "/睡眠"
+      ],
+      "archive": "social-pack/s_sleep-1.0.0.zip",
+      "sha256": "37e21c1d41b4fa777480bd55285f68f4740e8df9799229de02634611a603997b"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_sudoku",
+      "name": "4×4唯一解数独",
+      "commands": [
+        "/数独"
+      ],
+      "archive": "social-pack/s_sudoku-1.0.0.zip",
+      "sha256": "f71dcc82bf3f57f23d583935acb803684ad6da12bb5ce5adc2ed5c9a4e5feefe"
     }
   ]
 }
