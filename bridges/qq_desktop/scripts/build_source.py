@@ -6,7 +6,7 @@ from pathlib import Path
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='0.1.0a3'
+VERSION='0.1.0a4'
 FILES=('README.md','pyproject.toml','Dockerfile','Dockerfile.fixture','compose.example.yaml',
        'config.example.json','binding.example.json','client-lock.example.json','.gitignore','.dockerignore')
 

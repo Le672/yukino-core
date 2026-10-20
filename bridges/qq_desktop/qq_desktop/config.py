@@ -59,7 +59,15 @@ def validate(raw):
             require(type(m.get('verified',False)) is bool,'Invalid attachment verified flag')
             m.setdefault('verified',False)
             kinds=m.get('kinds',[])
-            require(isinstance(kinds,list) and kinds and set(kinds)<= {'image','file'} and len(set(kinds))==len(kinds),'Attachment kinds must be image/file')
+            require(isinstance(kinds,list) and kinds and all(isinstance(k,str) for k in kinds) and set(kinds)<= {'image','file','video'} and len(set(kinds))==len(kinds),'Attachment kinds must be image/file/video')
+        if 'notices' in b:
+            n=b['notices'];require(isinstance(n,dict),'Invalid notice calibration')
+            for key in ('row_type','actor_id','target_id'):n[key]=selector(n.get(key))
+            require(type(n.get('verified',False)) is bool,'Invalid notice verified flag')
+            n.setdefault('verified',False)
+            require(all(n[k]!=b['body'] for k in ('row_type','actor_id','target_id')) and
+                    len({json.dumps(n[k],sort_keys=True) for k in ('row_type','actor_id','target_id')})==3,
+                    'Notice kind and numeric identities must use distinct genuine fields, never the message body')
         bindings.append(b)
     require(len({(b['kind'], b['id']) for b in bindings}) == len(bindings), 'Duplicate conversation bindings')
     out['bindings'] = bindings

@@ -9,10 +9,12 @@ from qq_desktop.atspi import UiError,UiUncertain
 from test_bridge import config,Driver
 
 PNG=base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+aD1sAAAAASUVORK5CYII=')
+# Container-header fixture, not a playable/codec acceptance sample.
+MP4=(24).to_bytes(4,'big')+b'ftypisom'+bytes(4)+b'isommp42'+(8).to_bytes(4,'big')+b'mdat'
 
 
 def calibrated():
-    c=config();c['bindings'][0]['attachments']={'verified':True,'kinds':['image','file']}
+    c=config();c['bindings'][0]['attachments']={'verified':True,'kinds':['image','file','video']}
     return c
 
 
@@ -49,6 +51,14 @@ class MediaTests(unittest.TestCase):
         try:link.symlink_to(p)
         except OSError:self.skipTest('Symlink privilege unavailable')
         with self.assertRaises(ValueError):self.store.observed(str(link),'image')
+    def test_mp4_handle_revalidates_kind_and_does_not_accept_renamed_bytes(self):
+        record=self.store.ingest(MP4,'video','small.mp4')
+        self.assertEqual(self.store.prepare(record['id'],'video')['mime'],'video/mp4')
+        for raw,name in ((PNG,'fake.mp4'),(MP4,'wrong.txt'),(b'\xff\xff\xff\xffftypisom'+bytes(20),'x.mp4')):
+            with self.subTest(name=name),self.assertRaises(ValueError):self.store.ingest(raw,'video',name)
+        archive=self.store.ingest(b'PK\x05\x06'+bytes(18),'file','x.zip')
+        with self.assertRaises(ValueError):self.store.prepare(archive['id'],'video')
+        with self.assertRaises(ValueError):self.store.ingest(MP4+b'x'*(8*1024*1024),'video','big.mp4')
 
 
 class MediaDriver(Driver):
@@ -92,6 +102,26 @@ class MediaBridgeTests(unittest.IsolatedAsyncioTestCase):
         await self.bridge.poll();self.driver.rows=[{'key':'missing','user_id':'10002','text':'','attachment':{'kind':'image','name':'not-downloaded.png'}}]
         event=(await self.bridge.poll())[0];self.assertFalse(event['ui_attachment']['download_available'])
         self.assertEqual(event['message'][0]['type'],'text')
+    async def test_video_send_is_calibrated_idempotent_and_uncertain_is_not_retried(self):
+        r=self.bridge.media.ingest(MP4,'video','small.mp4');segment=[{'type':'video','data':{'file':r['id']}}]
+        self.assertTrue((await self.bridge.capabilities())['video']['ready'])
+        await self.bridge.send('private','10002',segment,'video-1');await self.bridge.send('private','10002',segment,'video-1')
+        self.assertEqual(len(self.driver.sent),1);self.bridge.last_send=0;self.driver.failure=UiUncertain('video uncertain')
+        for _ in range(2):
+            with self.assertRaises(UiUncertain):await self.bridge.send('private','10002',segment,'video-2')
+        self.assertEqual(len(self.driver.sent),2)
+    async def test_video_requires_its_own_calibrated_kind(self):
+        self.bridge.config['bindings'][0]['attachments']['kinds']=['image','file']
+        self.assertFalse((await self.bridge.capabilities())['video']['ready'])
+        with self.assertRaises(UiError):await self.bridge.send('private','10002',[{'type':'video','data':{'file':'not-a-handle'}}])
+        self.assertEqual(self.driver.sent,[])
+    async def test_received_video_exposes_private_handle_and_missing_video_stays_text(self):
+        await self.bridge.poll();p=self.bridge.media.root/'inbox'/'small.mp4';p.write_bytes(MP4)
+        self.driver.rows=[{'key':'video-row','user_id':'10002','text':'','attachment':{'kind':'video','name':'small.mp4','path':str(p)}}]
+        e=(await self.bridge.poll())[0];self.assertEqual(e['message'][0]['type'],'video')
+        self.assertTrue(e['ui_attachment']['download_available'])
+        self.driver.rows.append({'key':'missing-video','user_id':'10002','text':'','attachment':{'kind':'video','name':'later.mp4'}})
+        e=(await self.bridge.poll())[0];self.assertEqual(e['message'][0]['type'],'text');self.assertIn('视频',e['message'][0]['data']['text'])
 
 
 if __name__=='__main__':unittest.main()

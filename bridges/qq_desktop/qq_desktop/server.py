@@ -21,6 +21,8 @@ def create_app(bridge,token,config_path=None):
         if len(sockets)>=4:raise web.HTTPTooManyRequests()
         socket=web.WebSocketResponse(heartbeat=30,max_msg_size=12*1024*1024);await socket.prepare(request)
         sockets[socket]=request.path!='/api'
+        bridge.connections['api']=sum(not v for v in sockets.values())
+        bridge.connections['events']=sum(sockets.values())
         if sockets[socket]:
             await socket.send_json({'time':int(time.time()),'self_id':int(bridge.config.get('self_id','0')),'post_type':'meta_event','meta_event_type':'lifecycle','sub_type':'connect'})
         try:
@@ -43,7 +45,10 @@ def create_app(bridge,token,config_path=None):
                 except UiError as error:response={'status':'failed','retcode':1503,'data':None,'echo':echo,'wording':str(error)[:200]}
                 except Exception:response={'status':'failed','retcode':1500,'data':None,'echo':echo,'wording':'Desktop adapter failed; no automatic retry'}
                 await socket.send_json(response)
-        finally:sockets.pop(socket,None)
+        finally:
+            sockets.pop(socket,None)
+            bridge.connections['api']=sum(not v for v in sockets.values())
+            bridge.connections['events']=sum(sockets.values())
         return socket
 
     async def poller():

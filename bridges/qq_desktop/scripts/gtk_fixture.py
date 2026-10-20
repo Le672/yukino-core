@@ -14,13 +14,15 @@ history=Gtk.ListBox();history.get_accessible().set_name('Messages');box.pack_sta
 editor=Gtk.Entry();editor.get_accessible().set_name('Composer');box.pack_start(editor,False,False,0)
 send=Gtk.Button(label='Send');box.pack_start(send,False,False,0)
 attach=Gtk.Button(label='Attach');box.pack_start(attach,False,False,0)
+poke=Gtk.Button(label='Fixture poke');box.pack_start(poke,False,False,0)
 counter=0
-def append(sender,text,kind='text',name='',path=''):
+def append(sender,text,kind='text',name='',path='',notice=False):
     global counter
     counter+=1;row=Gtk.ListBoxRow();row.get_accessible().set_description('message:'+str(counter))
     content=Gtk.Box(orientation=Gtk.Orientation.VERTICAL);content.pack_start(Gtk.Label(label=sender),False,False,0);content.pack_start(Gtk.Label(label=text),False,False,0)
     sender_id=Gtk.Label(label='10001' if sender=='Me' else '10002');sender_id.get_accessible().set_name('Sender identity');content.pack_start(sender_id,False,False,0)
-    for field,value in (('Attachment kind',kind),('Attachment name',name),('Downloaded path',path)):
+    for field,value in (('Attachment kind',kind),('Attachment name',name),('Downloaded path',path),
+                        ('System row type','poke' if notice else 'message'),('Poke actor','10002' if notice else ''),('Poke target','10001' if notice else '')):
         label=Gtk.Label(label=value);label.get_accessible().set_name(field);content.pack_start(label,False,False,0)
     row.add(content);history.add(row);history.show_all()
 def on_send(button):
@@ -34,8 +36,9 @@ def choose_file(button):
     def response(widget,value):
         if value==Gtk.ResponseType.OK:
             path=Path(entry.get_text())
-            if path.is_file():append('Me','',kind='image' if path.suffix.lower() in ('.png','.jpg','.gif','.webp') else 'file',name=path.name,path=str(path))
+            if path.is_file():append('Me','',kind='image' if path.suffix.lower() in ('.png','.jpg','.gif','.webp') else 'video' if path.suffix.lower()=='.mp4' else 'file',name=path.name,path=str(path))
         dialog.destroy()
     dialog.connect('response',response);dialog.show_all()
 attach.connect('clicked',choose_file)
+poke.connect('clicked',lambda button:append('Peer','',notice=True))
 append('Peer','existing history');window.show_all();Gtk.main()

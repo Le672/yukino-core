@@ -62,14 +62,16 @@ class Calibration:
             for b in cfg.get('bindings',[]):
                 b['verified']=False
                 if 'attachments' in b:b['attachments']['verified']=False
+                if 'notices' in b:b['notices']['verified']=False
             cfg=validate(cfg);self.install(cfg)
             return {'config':cfg,'revision':revision(cfg),'saved_disabled':True}
 
-    async def verify(self,index,expected,attachments_reviewed=False):
+    async def verify(self,index,expected,attachments_reviewed=False,notices_reviewed=False):
         async with self.bridge.lock:
             self.match(expected);cfg=copy.deepcopy(self.bridge.config)
             if type(index) is not int or not 0<=index<len(cfg['bindings']):raise ValueError('Select a valid conversation index')
             b=cfg['bindings'][index]
+            if 'notices' in b:b['notices']['verified']=notices_reviewed is True
             result=await self.bridge.ui('probe',cfg,b)
             b['verified']=True
             if 'attachments' in b:b['attachments']['verified']=attachments_reviewed is True
@@ -98,6 +100,7 @@ def install_console(app,bridge,token,config_path=None):
         try:
             if request.method=='GET':
                 if name=='status':return web.json_response({'capabilities':await bridge.capabilities(),'last_error':bridge.last_error,'media':await asyncio.to_thread(bridge.media.stats)})
+                if name=='diagnostics':return web.json_response(await bridge.diagnostics())
                 if name=='config':return web.json_response({'config':bridge.config,'revision':revision(bridge.config),'writable':config_path is not None})
                 if name=='inspect':
                     async with bridge.lock:tree=await bridge.ui('inspect')
@@ -107,7 +110,7 @@ def install_console(app,bridge,token,config_path=None):
                 if not isinstance(value,dict):raise ValueError('Expected object')
                 rev=request.headers.get('X-Config-Revision')
                 if name=='config':data=await controller.draft(value,rev)
-                elif name=='verify':data=await controller.verify(value.get('index'),rev,value.get('attachments_reviewed',False))
+                elif name=='verify':data=await controller.verify(value.get('index'),rev,value.get('attachments_reviewed',False),value.get('notices_reviewed',False))
                 elif name=='state':data=await controller.state(value.get('enabled'),rev)
                 else:raise web.HTTPNotFound()
                 return web.json_response(data)

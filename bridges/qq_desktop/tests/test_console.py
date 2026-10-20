@@ -8,12 +8,13 @@ from qq_desktop.atspi import UiError
 from qq_desktop.bridge import Bridge
 from qq_desktop.server import create_app
 from test_bridge import config,Driver,TOKEN
-from test_media import PNG
+from test_media import PNG,MP4
 
 
 class ConsoleDriver(Driver):
     def __init__(self):super().__init__();self.inspections=0;self.probes=0
     def inspect(self):self.inspections+=1;return [{'name':'private-visible-value','path':[0],'text':'<script>not markup</script>','role':'label'}]
+    def diagnose(self):return {'identity_ready':self.online,'checks':[{'code':'fixture','ok':self.online,'message':'隔离窗口身份匹配' if self.online else '隔离窗口未登录','next_step':'仅测试数据'}],'no_qq_message_sent':True}
     def probe(self,cfg,binding=None):
         self.probes+=1
         if not self.online or cfg.get('self_id')!='10001':raise UiError('QQ identity mismatch')
@@ -66,6 +67,23 @@ class ConsoleTests(unittest.IsolatedAsyncioTestCase):
         self.bridge.config['enabled']=False;ws=await self.client.ws_connect('/event',headers=self.headers)
         self.assertEqual((await ws.receive_json())['meta_event_type'],'lifecycle')
         d=await ws.receive_json(timeout=4);self.assertEqual(d['meta_event_type'],'heartbeat');self.assertFalse(d['status']['online']);self.assertEqual(d['interval'],15000);await ws.close()
+    async def test_diagnostics_requires_auth_tracks_event_connections_and_does_not_send(self):
+        r=await self.client.get('/console/api/diagnostics');self.assertEqual(r.status,401)
+        ws=await self.client.ws_connect('/event',headers=self.headers);await ws.receive_json()
+        r=await self.client.get('/console/api/diagnostics',headers=self.headers);d=await r.json()
+        self.assertEqual(d['connections']['events'],1);self.assertTrue(d['no_navigation']);self.assertEqual(self.driver.sent,[])
+        await ws.close()
+    async def test_notice_verification_is_opt_in_and_save_resets_it(self):
+        d=await self.current();cfg=d['config'];cfg['bindings'][0]['notices']={'verified':True,'row_type':{'name':'System kind'},'actor_id':{'name':'Actor'},'target_id':{'name':'Target'}}
+        r=await self.client.put('/console/api/config',headers=self.headers,json=cfg);self.assertEqual(r.status,200)
+        self.assertFalse((await r.json())['config']['bindings'][0]['notices']['verified'])
+        await self.current();r=await self.client.post('/console/api/verify',headers=self.headers,json={'index':0})
+        self.assertFalse((await r.json())['config']['bindings'][0]['notices']['verified'])
+        await self.current();r=await self.client.post('/console/api/verify',headers=self.headers,json={'index':0,'notices_reviewed':True})
+        self.assertTrue((await r.json())['config']['bindings'][0]['notices']['verified']);self.assertEqual(self.driver.sent,[])
+    async def test_video_upload_is_auth_only_and_does_not_send(self):
+        r=await self.client.post('/console/api/upload?kind=video&name=test.mp4',headers={**self.headers,'Content-Type':'application/octet-stream'},data=MP4)
+        self.assertEqual(r.status,200);d=await r.json();self.assertEqual(d['kind'],'video');self.assertNotIn('path',d);self.assertEqual(self.driver.sent,[])
 
 
 if __name__=='__main__':unittest.main()

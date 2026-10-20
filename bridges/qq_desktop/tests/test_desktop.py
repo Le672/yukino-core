@@ -106,6 +106,40 @@ class DesktopTests(unittest.TestCase):
         self.root.children.insert(-1,Node('button',click=open_dialog))
         with self.assertRaises(UiError):self.desktop.send_attachment(self.binding,{'kind':'image','name':'x.png','path':'/media/x.png'})
         self.assertEqual(self.accepted,0);self.assertEqual(self.editor.value,'')
+    def notice_fields(self):
+        n={'verified':True,'row_type':{'name':'system_kind'},'actor_id':{'name':'actor'},'target_id':{'name':'target'}}
+        self.binding['notices']=n
+        self.history.children[0].children.extend([Node('system_kind','message'),Node('actor',''),Node('target','')])
+        return n
+    def test_system_poke_is_read_only_and_never_guessed_from_chat_text(self):
+        self.notice_fields();r=self.history.children[0];r.children[1].value='10002 戳了戳 10001'
+        self.assertNotIn('notice',self.desktop.snapshot(self.binding)[0])
+        r.children[3].value='poke';r.children[4].value='10002';r.children[5].value='10001'
+        result=self.desktop.snapshot(self.binding)[0]
+        self.assertEqual(result['notice'],'poke');self.assertEqual(result['target_id'],'10001');self.assertEqual(self.clicks,0)
+    def test_poke_numeric_identity_scope_unknown_kind_and_selector_alias_are_rejected(self):
+        n=self.notice_fields();r=self.history.children[0]
+        r.children[3].value='poke';r.children[4].value='nickname';r.children[5].value='10001'
+        with self.assertRaises(UiError):self.desktop.snapshot(self.binding)
+        r.children[4].value='10003'
+        with self.assertRaises(UiError):self.desktop.snapshot(self.binding)
+        r.children[4].value='10002';r.children[3].value='other-event'
+        with self.assertRaises(UiError):self.desktop.snapshot(self.binding)
+        # Different selector syntax that still aliases the body must fail.
+        n['row_type']={'path':[1]};r.children[1].value='poke'
+        with self.assertRaises(UiError):self.desktop.snapshot(self.binding)
+        self.assertEqual(self.clicks,0)
+    def test_first_calibration_accepts_unverified_binding_without_enabling_driver(self):
+        self.binding['verified']=False;self.cfg['enabled']=False;original=self.desktop.config
+        result=self.desktop.probe(self.cfg,self.binding)
+        self.assertTrue(result['identity_verified']);self.assertIs(self.desktop.config,original)
+        self.assertFalse(self.desktop.config['enabled']);self.assertFalse(self.binding['verified']);self.assertEqual(self.clicks,0)
+    def test_diagnostics_is_readonly_and_distinguishes_missing_identity(self):
+        self.assertTrue(self.desktop.diagnose()['identity_ready']);self.assertEqual(self.clicks,0)
+        self.root.children[0].name='99999';d=self.desktop.diagnose()
+        self.assertFalse(d['identity_ready']);self.assertTrue(d['no_qq_message_sent']);self.assertEqual(self.clicks,0)
+        self.root.children.append(Node('安全验证'));d=self.desktop.diagnose()
+        self.assertFalse(next(c['ok'] for c in d['checks'] if c['code']=='login_screen'))
 
 
 if __name__=='__main__':unittest.main()

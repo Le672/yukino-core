@@ -8,7 +8,8 @@ import re
 LIMIT=8*1024*1024
 QUOTA=256*1024*1024
 TYPES={'.png':'image/png','.jpg':'image/jpeg','.gif':'image/gif','.webp':'image/webp',
-       '.pdf':'application/pdf','.zip':'application/zip','.txt':'text/plain','.md':'text/plain','.cbz':'application/zip'}
+       '.pdf':'application/pdf','.zip':'application/zip','.txt':'text/plain','.md':'text/plain','.cbz':'application/zip',
+       '.mp4':'video/mp4'}
 
 
 def image_extension(raw):
@@ -17,6 +18,17 @@ def image_extension(raw):
     if raw.startswith((b'GIF87a',b'GIF89a')):return '.gif'
     if len(raw)>=12 and raw[:4]==b'RIFF' and raw[8:12]==b'WEBP':return '.webp'
     raise ValueError('Expected PNG, JPEG, GIF or WebP image bytes')
+
+
+def video_extension(raw):
+    # Bounded ISO BMFF file-type header check, not a codec/playback guarantee.
+    if len(raw)>=24 and raw[4:8]==b'ftyp':
+        size=int.from_bytes(raw[:4],'big')
+        if 20<=size<=min(len(raw),4096) and size%4==0:
+            brands=[raw[8:12]]+[raw[i:i+4] for i in range(16,size,4)]
+            if set(brands)&{b'isom',b'iso2',b'mp41',b'mp42',b'avc1',b'dash',b'M4V '}:
+                return '.mp4'
+    raise ValueError('Expected an MP4 file with a valid bounded ftyp header')
 
 
 class MediaStore:
@@ -43,14 +55,19 @@ class MediaStore:
             ext=image_extension(raw)
             if name is None:name='image'+ext
             if Path(name).suffix.lower()!=ext:raise ValueError('Image filename and content type disagree')
+        elif kind=='video':
+            ext=video_extension(raw)
+            if name is None:name='video'+ext
+            if Path(name).suffix.lower()!=ext:raise ValueError('Video filename and content type disagree')
         elif kind=='file':
             if not isinstance(name,str):raise ValueError('A file needs a filename')
             ext=Path(name).suffix.lower()
-            if ext not in TYPES:raise ValueError('Allowed files: images, PDF, ZIP/CBZ, TXT/MD')
+            if ext not in TYPES:raise ValueError('Allowed files: images, MP4, PDF, ZIP/CBZ, TXT/MD')
+            if ext=='.mp4':video_extension(raw)
             if ext in ('.png','.jpg','.gif','.webp') and image_extension(raw)!=ext:raise ValueError('Invalid image signature')
             if ext=='.pdf' and not raw.startswith(b'%PDF-'):raise ValueError('Invalid PDF signature')
             if ext in ('.zip','.cbz') and not raw.startswith((b'PK\x03\x04',b'PK\x05\x06',b'PK\x07\x08')):raise ValueError('Invalid ZIP signature')
-        else:raise ValueError('Only image/file media is supported')
+        else:raise ValueError('Only image/file/video media is supported')
         if not isinstance(name,str) or not 1<=len(name)<=100 or name in ('.','..') or any(c in name for c in '/\\:<>|?*\x00\r\n') or name.endswith((' ','.')) or any(ord(c)<32 for c in name):
             raise ValueError('Invalid media filename')
         sha=hashlib.sha256(raw).hexdigest();key=sha+'/'+name
@@ -84,8 +101,8 @@ class MediaStore:
             except (ValueError,base64.binascii.Error):raise ValueError('Invalid Base64 media') from None
             return self.ingest(raw,kind,name)
         record=self.get(reference)
-        if kind=='image':image_extension(Path(record['path']).read_bytes())
-        return {**record,'kind':kind}
+        # Validate again for the requested kind; a ZIP handle cannot become a video.
+        return self.ingest(Path(record['path']).read_bytes(),kind,record['name'])
 
     def observed(self,path,kind):
         """Only a genuinely observed download path under the explicit inbox."""

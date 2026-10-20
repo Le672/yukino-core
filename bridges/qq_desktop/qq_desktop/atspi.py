@@ -2,7 +2,7 @@
 import hashlib
 import re
 import time
-from .config import validate
+from .config import validate,numeric,selector
 
 
 class UiError(RuntimeError):
@@ -112,6 +112,26 @@ class AtspiDesktop:
         result = []
         for i in range(history.get_child_count()):
             row = history.get_child_at_index(i)
+            source = {'accessible_id': row.get_accessible_id, 'description': row.get_description, 'name': row.get_name}[binding['row_key']]()
+            if not source: raise UiError('Stable visible message key is missing; calibrate row_key')
+            notice=binding.get('notices',{})
+            if notice.get('verified'):
+                body=self.find(row,binding['body']);kind_node=self.find(row,notice['row_type'])
+                if kind_node==body:raise UiError('A message body cannot be a system notice kind field')
+                kind=self.text(kind_node).strip()
+                if kind not in ('message','poke'):raise UiError('Unknown system row kind; recalibrate notice fields')
+                if kind=='poke':
+                    actor=self.find(row,notice['actor_id']);target=self.find(row,notice['target_id'])
+                    if actor in (body,kind_node) or target in (body,kind_node,actor):
+                        raise UiError('Notice identities must be separate from user message text')
+                    uid=self.text(actor).strip();target_id=self.text(target).strip()
+                    if not all(re.fullmatch(r'[1-9][0-9]{3,19}',v) for v in (uid,target_id)):
+                        raise UiError('Poke requires genuine numeric actor and target identities')
+                    if binding['kind']=='private' and any(v not in (binding['id'],self.config['self_id']) for v in (uid,target_id)):
+                        raise UiError('Poke identities do not belong to the verified private conversation')
+                    key=hashlib.sha256((source+'\0poke\0'+uid+'\0'+target_id).encode()).hexdigest()
+                    result.append({'key':key,'notice':'poke','user_id':uid,'target_id':target_id,'text':''})
+                    continue
             uid = self.text(self.find(row, binding['sender_id'])).strip()
             if not re.fullmatch(r'[1-9][0-9]{3,19}',uid):
                 raise UiError('A genuine visible numeric sender field is required; nicknames are not identities')
@@ -121,13 +141,11 @@ class AtspiDesktop:
             attachment=None
             if 'attachments' in binding:
                 m=binding['attachments'];kind=self.text(self.find(row,m['row_kind'])).strip()
-                if kind not in ('text','image','file'):raise UiError('Unknown attachment kind; recalibrate the genuine row kind field')
+                if kind not in ('text','image','file','video'):raise UiError('Unknown attachment kind; recalibrate the genuine row kind field')
                 if kind!='text':
                     attachment={'kind':kind,'name':self.text(self.find(row,m['row_name'])).strip()}
                     if not attachment['name']:raise UiError('Attachment has no visible filename')
                     if 'row_path' in m:attachment['path']=self.text(self.find(row,m['row_path'])).strip()
-            source = {'accessible_id': row.get_accessible_id, 'description': row.get_description, 'name': row.get_name}[binding['row_key']]()
-            if not source: raise UiError('Stable visible message key is missing; calibrate row_key')
             signature='' if attachment is None else attachment['kind']+'\0'+attachment['name']
             key = hashlib.sha256((source + '\0' + uid + '\0' + text+'\0'+signature).encode()).hexdigest()
             message={'key': key, 'user_id': uid, 'text': text}
@@ -212,12 +230,38 @@ class AtspiDesktop:
                 'text':value,'description':(n.get_description() or '')[:500],'accessible_id':n.get_accessible_id() or ''})
         return result
 
+    def diagnose(self):
+        """Read-only checks. No login, conversation navigation or send actions."""
+        checks=[]
+        def add(code,ok,message,next_step=''):
+            checks.append({'code':code,'ok':ok,'message':message,'next_step':next_step})
+        try:root=self.app();nodes=list(self.walk(root))
+        except UiError:
+            add('application',False,'未找到唯一的 QQ 可访问窗口','检查官方 QQ 是否运行，以及 app_name 是否与控件树一致。')
+            return {'checks':checks,'identity_ready':False,'no_qq_message_sent':True}
+        add('application',True,'QQ 窗口可以读取')
+        blocked=any(n.get_name() in self.config['blocked_labels'] for n,_ in nodes)
+        add('login_screen',not blocked,'检测到登录或安全验证界面' if blocked else '未发现已配置的登录阻断标记',
+            '账号可用后，在远程桌面手动处理；适配器不会尝试登录。' if blocked else '')
+        identity=False
+        try:
+            identity=bool(self.config.get('self_id')) and self.text(self.find(root,self.config['identity'])).strip()==self.config['self_id']
+        except (UiError,KeyError):pass
+        add('self_identity',identity,'本人数字身份匹配' if identity else '尚未核验本人数字身份',
+            '' if identity else '登录后校准显示本人 QQ 号的独立控件，昵称不能代替。')
+        return {'checks':checks,'identity_ready':identity and not blocked,'visible_nodes':len(nodes),'no_qq_message_sent':True}
+
     def probe(self,config,binding=None):
         """Read the currently visible conversation; never navigate or send."""
         original=self.config
         try:
-            self.config=validate({**config,'enabled':True})
+            # A new binding is intentionally unverified. Read-only calibration
+            # must not require the marks that this very probe is establishing.
+            candidate=validate({**config,'enabled':False})
+            numeric(candidate.get('self_id'));candidate['identity']=selector(candidate.get('identity'))
+            self.config={**candidate,'enabled':True}
             if not self.ready():raise UiError('The visible self QQ identity is missing or mismatched')
             rows=[] if binding is None else self.snapshot(binding,navigate=False)
-            return {'identity_verified':True,'visible_rows':len(rows),'numeric_senders_verified':binding is not None}
+            return {'identity_verified':True,'visible_rows':len(rows),'numeric_senders_verified':binding is not None,
+                    'visible_poke_rows':sum(r.get('notice')=='poke' for r in rows)}
         finally:self.config=original

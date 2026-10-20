@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "yukino-qq-desktop"
-version = "0.1.0a3"
+version = "0.1.0a4"
 description = "Experimental OneBot text adapter for the visible official Linux QQ desktop"
 requires-python = ">=3.12"
 dependencies = ["aiohttp>=3.12,<4"]

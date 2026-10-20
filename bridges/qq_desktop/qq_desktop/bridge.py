@@ -10,6 +10,7 @@ import uuid
 from .atspi import UiError, UiUncertain
 from . import __version__
 from .media import MediaStore,image_extension
+from .config import numeric
 
 
 class Store:
@@ -83,7 +84,8 @@ class Bridge:
         self.executor=ThreadPoolExecutor(max_workers=1,thread_name_prefix='qq-desktop-ui')
         self.seeded=set(); self.next_binding=0; self.last_send=0
         self.last_error='';self.started=time.time()
-        self.metrics={'polls':0,'events':0,'sends_confirmed':0,'sends_uncertain':0}
+        self.metrics={'polls':0,'events':0,'poke_events':0,'sends_confirmed':0,'sends_uncertain':0}
+        self.connections={'api':0,'events':0};self.last_poll_at=None;self.last_event_at=None
 
     async def ui(self,method,*args):
         return await asyncio.get_running_loop().run_in_executor(self.executor,getattr(self.driver,method),*args)
@@ -102,7 +104,7 @@ class Bridge:
 
     async def send(self,kind,target,message,key=None):
         media=None
-        if isinstance(message,list) and len(message)==1 and isinstance(message[0],dict) and message[0].get('type') in ('image','file'):
+        if isinstance(message,list) and len(message)==1 and isinstance(message[0],dict) and message[0].get('type') in ('image','file','video'):
             media=message[0];data=media.get('data')
             if not isinstance(data,dict) or not isinstance(data.get('file'),str) or not set(data)<={'file','name'}:raise ValueError('Invalid attachment data')
             text=None
@@ -141,11 +143,22 @@ class Bridge:
             binding=self.config['bindings'][self.next_binding%len(self.config['bindings'])]
             self.next_binding+=1
             rows=await self.ui('snapshot',binding)
-            self.metrics['polls']+=1
+            self.metrics['polls']+=1;self.last_poll_at=int(time.time())
             scope=binding['kind']+':'+binding['id']; first=scope not in self.seeded; result=[]
             for row in rows:
                 mid,new=self.store.observe(scope,row['key'])
                 if first or not new or row['user_id']==self.config['self_id']:continue
+                if row.get('notice'):
+                    if row['notice']!='poke' or not binding.get('notices',{}).get('verified'):
+                        raise UiError('System notice flow has not been calibrated')
+                    actor=numeric(row['user_id']);target=numeric(row['target_id'])
+                    if binding['kind']=='private' and any(v not in (binding['id'],self.config['self_id']) for v in (actor,target)):
+                        raise UiError('Poke identities do not belong to the verified private conversation')
+                    event={'time':int(time.time()),'self_id':int(self.config['self_id']),'post_type':'notice',
+                           'notice_type':'notify','sub_type':'poke','user_id':int(actor),'target_id':int(target),'ui_observed':True}
+                    if binding['kind']=='group':event['group_id']=int(binding['id'])
+                    result.append(event);self.metrics['poke_events']+=1
+                    continue
                 segments=[{'type':'text','data':{'text':row['text']}}] if row['text'] else []
                 attachment=row.get('attachment');attachment_state=None
                 if attachment:
@@ -155,7 +168,8 @@ class Bridge:
                         segments.append({'type':attachment['kind'],'data':{'file':record['id'],'name':record['name'],'size':record['size'],'ui_local_media':True}})
                         attachment_state.update(download_available=True,media_id=record['id'])
                     except (ValueError,OSError):
-                        segments.append({'type':'text','data':{'text':'['+('图片' if attachment['kind']=='image' else '文件')+'：'+attachment['name']+'，未读取到已下载文件]'}})
+                        label={'image':'图片','file':'文件','video':'视频'}.get(attachment['kind'],'附件')
+                        segments.append({'type':'text','data':{'text':'['+label+'：'+attachment['name']+'，未读取到已下载文件]'}})
                 e={'time':int(time.time()),'self_id':int(self.config['self_id']),'post_type':'message',
                    'message_type':binding['kind'],'sub_type':'friend' if binding['kind']=='private' else 'normal',
                    'message_id':mid,'user_id':int(row['user_id']),'message':segments,
@@ -165,6 +179,7 @@ class Bridge:
                 result.append(e)
             self.seeded.add(scope)
             self.metrics['events']+=len(result)
+            if result:self.last_event_at=int(time.time())
             return result
 
     async def capabilities(self):
@@ -174,14 +189,33 @@ class Bridge:
             'text':{'implemented':True,'ready':online},
             'image':{'implemented':True,'ready':online and any('image' in b['attachments']['kinds'] for b in flows)},
             'file':{'implemented':True,'ready':online and any('file' in b['attachments']['kinds'] for b in flows)},
+            'video':{'implemented':True,'ready':online and any('video' in b['attachments']['kinds'] for b in flows),'formats':['mp4'],'max_bytes':8*1024*1024},
+            'poke_receive':{'implemented':True,'ready':online and any(b['verified'] and b.get('notices',{}).get('verified') for b in self.config['bindings'])},
             'receive_media':{'implemented':True,'requires':'genuine row fields and downloaded file under media/inbox'},
-            'unsupported':['video','record','forward','recall','poke','group_admin'],
+            'unsupported':['record','forward','recall','poke_send','group_admin'],
             'real_qq_roundtrip_verified':False,'uptime_seconds':int(time.time()-self.started),'metrics':dict(self.metrics)}
+
+    async def diagnostics(self):
+        async with self.lock:desktop=await self.ui('diagnose')
+        bindings=self.config['bindings'];verified=sum(b['verified'] for b in bindings)
+        checks=[{'code':'enabled','ok':self.config['enabled'],'message':'已启用自动收发' if self.config['enabled'] else '自动收发已暂停',
+                 'next_step':'' if self.config['enabled'] else '先完成本人身份及会话核验，再启用。'},
+                {'code':'bindings','ok':bool(bindings) and verified==len(bindings),
+                 'message':f'已核验会话 {verified} / {len(bindings)}',
+                 'next_step':'' if bindings and verified==len(bindings) else '在目标会话中校准独立的数字身份字段。'},
+                {'code':'event_subscribers','ok':self.connections['events']>0,
+                 'message':f'OneBot 事件连接 {self.connections["events"]} 个',
+                 'next_step':'' if self.connections['events'] else '机器人内核需连接事件端点，接口连接本身不会订阅消息。'}]
+        return {**desktop,'checks':checks+desktop['checks'],'connections':dict(self.connections),
+                'last_poll_at':self.last_poll_at,'last_event_at':self.last_event_at,
+                'last_error':self.last_error,'no_navigation':True,'no_qq_message_sent':True,
+                'real_qq_roundtrip_verified':False}
 
     async def action(self,name,params):
         if name=='get_status':return await self.status()
         if name=='get_version_info':return {'app_name':'yukino-qq-desktop','app_version':__version__,'protocol_version':'v11','experimental':True}
         if name=='get_capabilities':return await self.capabilities()
+        if name=='get_desktop_diagnostics':return await self.diagnostics()
         if name=='can_send_image':return {'yes':(await self.capabilities())['image']['ready']}
         if name=='can_send_record':return {'yes':False}
         if name=='get_image':
