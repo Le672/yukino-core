@@ -294,6 +294,10 @@ class PluginTests(unittest.IsolatedAsyncioTestCase):
         import_hang = self.worker("import_hang", "import time\ntime.sleep(30)\ndef handle(text,context): return 'late'\n")
         oversized = self.worker("oversized", "def handle(text,context): return 'x'*100000\n")
         noisy = self.worker("noisy", "print('import noise')\ndef handle(text,context):\n    print('handler noise')\n    return '中文正常回复'\n")
+        # This case tests stdout isolation, not a startup deadline. Busy Windows
+        # runners can spend the default two seconds starting a fresh interpreter.
+        # Keep the short deadlines for the deliberately hung/oversized workers.
+        self.config.plugin_settings = {"noisy": {"timeout": 10}}
         self.assertIn("暂时没响应", await self.manager.execute(import_hang, "/x", {}, timeout=.2))
         self.assertIn("暂时没响应", await self.manager.execute(oversized, "/x", {}, timeout=.5))
         self.assertEqual(await self.manager.execute(noisy, "/x", {}), "中文正常回复")
