@@ -18,6 +18,7 @@ BUILTINS = [
     {"id": "sessions", "name": "会话管理", "description": "上下文清空边界，保留原始历史", "commands": ["/新对话"]},
     {"id": "memory", "name": "会话记忆", "description": "分会话保存与删除记忆", "commands": ["/记住", "/记忆", "/忘记"]},
     {"id": "emoji", "name": "表情资源", "description": "查询并发送现有表情图片", "commands": ["/表情"]},
+    {"id": "emoji_collector", "name": "偷表情包", "description": "静默收集聊天表情、引用图片手动收藏，自动去重并存入资源库", "commands": ["/偷表情", "/偷表情包"]},
     {"id": "knowledge", "name": "中文梗与资料", "description": "本地检索已导入的中文梗与知识", "commands": ["/资料", "/梗"]},
     {"id": "dice", "name": "随机骰子", "description": "本地掷骰，无需模型", "commands": ["/骰子"]},
     {"id": "calculator", "name": "计算器", "description": "独立进程的安全算式插件", "commands": ["/计算"], "worker": "calculator.py"},
@@ -31,6 +32,17 @@ COMMON_FIELDS = [dict(key='timeout', type='number', label='执行超时（秒）
                  dict(key='input_max_chars', type='integer', label='输入字符上限', min=100, max=8000, default=4000),
                  dict(key='output_max_chars', type='integer', label='输出字符上限', min=100, max=8000, default=4000)]
 BUILTIN_FIELDS = {
+ 'emoji_collector':[
+    dict(key='auto_collect',type='boolean',label='自动收集聊天中的表情',default=True),
+    dict(key='in_groups',type='boolean',label='允许群聊收集（无需@）',default=True),
+    dict(key='in_private',type='boolean',label='允许私聊收集',default=True),
+    dict(key='stickers_only',type='boolean',label='自动收集仅限标记为表情的图片',default=True),
+    dict(key='per_message_limit',type='integer',label='每条消息最多收集图片数',min=1,max=5,default=3),
+    dict(key='cooldown_seconds',type='integer',label='同会话自动收集间隔（秒）',min=0,max=3600,default=1),
+    dict(key='max_image_mb',type='integer',label='单张图片最大MB',min=1,max=5,default=5),
+    dict(key='daily_limit',type='integer',label='每日收集尝试上限（UTC+8）',min=1,max=10000,default=200),
+    dict(key='max_collected',type='integer',label='累计收集数量上限',min=1,max=10000,default=2000),
+    dict(key='max_total_mb',type='integer',label='累计收集容量上限MB',min=1,max=2048,default=256)],
  'dice':[dict(key='max_count', type='integer', label='最多骰子数', min=1, max=100, default=20),
          dict(key='max_faces', type='integer', label='最大面数', min=2, max=1000000, default=100000)],
  'memory':[dict(key='max_length', type='integer', label='单条记忆字符上限', min=1, max=1000, default=1000),
@@ -131,6 +143,8 @@ class PluginManager:
         command = text.split(maxsplit=1)[0] if text.strip() else ""
         prefix = getattr(self.config, 'data', {}).get('command_prefix', '/')
         if prefix != '/': command = '/' + command[len(prefix):] if command.startswith(prefix) else ''
+        image_command = re.fullmatch(r'(/偷表情(?:包)?)(?:\[(?:图片|表情)\])+', command)
+        if image_command: command = image_command[1]
         aliases = {"/": "/帮助", "/help": "/帮助", "/reset": "/新对话"}
         command = aliases.get(command, command)
         for item in self.items:

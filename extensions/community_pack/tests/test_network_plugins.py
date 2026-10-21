@@ -38,7 +38,7 @@ class NetworkHelpers(unittest.TestCase):
                 folder = ROOT/name
                 manifest = json.loads((folder/'plugin.json').read_text(encoding='utf-8'))
                 self.assertEqual(manifest['id'], name)
-                self.assertEqual(manifest['version'], '1.0.0')
+                self.assertEqual(manifest['version'], '1.0.1' if name=='hot_trends' else '1.0.0')
                 self.assertEqual(manifest['worker'], 'worker.py')
                 self.assertTrue((folder/'README.md').exists())
                 hashes.add(hashlib.sha256((folder/'_net.py').read_bytes()).digest())
@@ -252,20 +252,19 @@ class PluginFormats(unittest.TestCase):
         with mock.patch.object(module.net,'fetch',return_value={'items':[]}):
             self.assertIn('未找到',module.handle('/steam game',{}))
 
-    def test_bili_popular_titles_links_and_not_hot_search(self):
+    def test_bili_popular_returns_titles_only(self):
         module=self.modules['hot_trends']
         payload={'code':0,'data':{'list':[{'title':'<em>真实</em>热门','bvid':'BV1xx411c7mD'}]}}
         with mock.patch.object(module.net,'fetch',return_value=payload):
             reply=module.handle('/热榜 b站',{})
-        self.assertIn('真实热门',reply);self.assertIn('并非热搜榜',reply)
-        self.assertIn('https://www.bilibili.com/video/BV1xx411c7mD/',reply)
+        self.assertEqual(reply,'1. 真实热门')
 
     def test_tieba_ignores_upstream_arbitrary_url(self):
         module=self.modules['hot_trends']
         payload={'data':{'bang_topic':{'topic_list':[{'topic_name':'真实话题','topic_id':123,'topic_url':'https://evil.example'}]}}}
         with mock.patch.object(module.net,'fetch',return_value=payload):
             reply=module.handle('/热榜 贴吧',{})
-        self.assertIn('topic_id=123',reply);self.assertNotIn('evil',reply)
+        self.assertEqual(reply,'1. 真实话题')
 
     def test_hot_source_validation_empty_and_api_risk(self):
         module=self.modules['hot_trends']

@@ -1,8 +1,8 @@
 {
   "id": "hot_trends",
   "name": "热榜查询",
-  "version": "1.0.0",
-  "description": "查询B站热门视频或贴吧热议话题",
+  "version": "1.0.1",
+  "description": "查询B站热门视频或贴吧热议话题，只输出标题",
   "worker": "worker.py",
   "commands": [
     "/热榜"

@@ -22,11 +22,9 @@ def handle(text, context):
                 raise net.LookupFailure('B站限制了公开热门接口')
             items = payload['data']['list']
             for item in items[:limit]:
-                bvid = str(item.get('bvid', ''))
-                if len(bvid) < 6 or not bvid.startswith('BV') or not bvid.isalnum():
-                    continue
-                lines.append(net.clean(item['title'])+'\nhttps://www.bilibili.com/video/'+bvid+'/')
-            heading = 'B站热门视频（公开热门接口顺序，并非热搜榜）'
+                title = net.clean(item.get('title', ''))
+                if title:
+                    lines.append(title)
         elif source == '贴吧':
             payload = net.fetch('https://tieba.baidu.com/hottopic/browse/topicList', ttl=120)
             data = payload.get('data', {})
@@ -34,17 +32,13 @@ def handle(text, context):
             if not isinstance(items, list):
                 raise ValueError()
             for item in items[:limit]:
-                topicid = str(item.get('topic_id', ''))
-                if not topicid.isdigit():
-                    continue
                 name = net.clean(item.get('topic_name', ''), 120)
                 if name:
-                    lines.append(name+'\nhttps://tieba.baidu.com/hottopic/browse/hottopic?topic_id='+topicid)
-            heading = '贴吧热议话题（公开话题榜顺序）'
+                    lines.append(name)
         else:
             return '用法：/热榜 b站 或 /热榜 贴吧'
         if not lines:
             raise net.LookupFailure('公开榜单暂无可解析条目或接口格式已变化')
-        return '\n'.join([heading]+[f'{n}. {line}' for n,line in enumerate(lines,1)]+['查询时间：'+net.local_time()+'；缓存最长2分钟'])
+        return '\n'.join(f'{n}. {line}' for n,line in enumerate(lines,1))
     except Exception as exc:
         return net.failure('热榜', exc)

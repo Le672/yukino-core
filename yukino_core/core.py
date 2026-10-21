@@ -15,6 +15,7 @@ from .provider import ProviderError, build_prompt
 from .transport import OneBotError
 from .native_plugins import NativeExtensions, NATIVE_IDS
 from .notice_plugins import NoticeExtensions
+from .emoji_collector import EmojiCollector
 
 
 def text_segment(text): return [{"type": "text", "data": {"text": text}}]
@@ -92,6 +93,7 @@ class Kernel:
                             local_images=0, image_unavailable=0, notices=0, notice_replied=0)
         self.native = NativeExtensions(self)
         self.notices = NoticeExtensions(self)
+        self.collector = EmojiCollector(self)
 
     async def triggered(self, event):
         cfg = self.config.data
@@ -133,6 +135,11 @@ class Kernel:
                 self.metrics["failures"] += 1
                 if pid: self.plugins.errors[pid] = "事件互动执行失败，请核对参数与数据目录"
                 await self.store.mark_event(event["event_id"], "notice_error", "事件互动执行失败")
+            return
+        collecting = self.collector.observe(event)
+        if collecting and not any(segment.get('type') == 'text' and str(segment.get('data', {}).get('text', '')).strip()
+                                  for segment in event.get('segments', [])):
+            await self.store.mark_event(event['event_id'], 'emoji_observed')
             return
         if not await self.triggered(event):
             self.metrics["ignored"] += 1
@@ -416,7 +423,17 @@ class Kernel:
         sid = event["session_id"]
         group_owner = event["message_type"] != "group" or event["user_id"] in getattr(self.config, 'owner_ids', [self.config.owner_id])
         plugin_settings = self.plugins.settings(item['id'])
-        if item['id'] in NATIVE_IDS:
+        if item['id'] == 'emoji_collector':
+            try:
+                result = await self.collector.handle(event)
+                self.plugins.errors.pop(item['id'], None)
+            except asyncio.CancelledError:
+                raise
+            except Exception:
+                self.plugins.errors[item['id']] = '表情收集暂时不可用，请检查收集记录与资源目录'
+                result = '表情收集暂时不可用，请在插件面板检查设置。'
+            await self.reply(event, result)
+        elif item['id'] in NATIVE_IDS:
             try:
                 result=await self.native.handle(event,item,command)
                 self.plugins.errors.pop(item['id'],None)
@@ -489,10 +506,12 @@ class Kernel:
                     transport={**self.transport.snapshot(), "qq": dict(self.qq_status)}, provider=self.provider.snapshot(),
                     queue=dict(pending=self.pending_count, active=self.active, max=self.config.data["max_pending"]),
                     metrics=dict(self.metrics), plugins=dict(total=len(plugins), enabled=sum(p["enabled"] for p in plugins)),
-                    store=await self.store.stats(), resources=await self.resources.status())
+                    store=await self.store.stats(), resources=await self.resources.status(),
+                    emoji_collection=self.collector.snapshot())
 
     async def close(self):
         self.closing = True
+        await self.collector.close()
         await self.native.close()
         for task in list(self.workers.values()): task.cancel()
         for task in list(self.workers.values()):

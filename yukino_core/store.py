@@ -211,6 +211,17 @@ class Store:
                         str(event.get("display_name", "")), str(event.get("message_id", "")), event_id, now))
         return True
 
+    async def message_event(self, session_id: str, message_id: str) -> dict | None:
+        """Retrieve received segments only from this already-observed conversation."""
+        return await self._run(self._message_event, _session(session_id), str(message_id))
+
+    def _message_event(self, session_id: str, message_id: str) -> dict | None:
+        row = self._connection().execute("""SELECT e.event_json FROM messages m
+            JOIN events e ON e.event_id=m.event_id AND e.session_id=m.session_id
+            WHERE m.session_id=? AND m.message_id=? AND m.role='user'
+            ORDER BY m.id DESC LIMIT 1""", (session_id, message_id)).fetchone()
+        return json.loads(row[0]) if row else None
+
     async def claim_notice_cooldown(self, limits: dict[str, float]) -> bool:
         """Atomically reserve every notice rate limit, including across restart."""
         clean = {str(key)[:200]: float(seconds) for key, seconds in limits.items()
