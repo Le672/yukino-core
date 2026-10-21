@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0",
-  "core_release": "0.6.2",
-  "count": 109,
+  "version": "1.0.1",
+  "core_release": "0.6.4",
+  "count": 119,
   "plugins": [
     {
       "pack": "community-pack",
@@ -13,7 +13,7 @@
         "/好感榜"
       ],
       "archive": "community-pack/affinity-1.0.0.zip",
-      "sha256": "e864e4c085ee5a6bd561ac96fbb6553e62e6175e37b073352024ff860d9366b9"
+      "sha256": "eb7663971b54d5f2934b6cdecc36e887d6129fd5d92d28d55e1fc4ada90a12ce"
     },
     {
       "pack": "community-pack",
@@ -25,7 +25,7 @@
         "/直播"
       ],
       "archive": "community-pack/bili_query-1.0.0.zip",
-      "sha256": "a00d0672f3df78c9eb48ef38db579a2c13d9f30785483f31c2c69200b4538f07"
+      "sha256": "c66136a10aeee2c24e7d7058e2bf0ba9897f18547c955c8fc6c1a24c31a3a233"
     },
     {
       "pack": "community-pack",
@@ -43,7 +43,7 @@
         "/经济帮助"
       ],
       "archive": "community-pack/daily_economy-1.0.0.zip",
-      "sha256": "880b30c5527683022ee139c43d6f048fd0f39866f73e4fd822fc8b44fa36ae33"
+      "sha256": "27d6c50808fd788a3534d7850ba4a19704e729261d260d1a433ebfcd99453683"
     },
     {
       "pack": "community-pack",
@@ -54,7 +54,7 @@
         "/吃什么列表"
       ],
       "archive": "community-pack/eat_what-1.0.0.zip",
-      "sha256": "70cbb99dc384d679f9dff3d138bdbf45249c7732eb162224bc7f87f4b3e8e385"
+      "sha256": "c69f380c9eba48c33c3addbe70b12dd9e7a4e45a21a9921adddbc584cd3fdac2"
     },
     {
       "pack": "community-pack",
@@ -63,8 +63,8 @@
       "commands": [
         "/热榜"
       ],
-      "archive": "community-pack/hot_trends-1.0.0.zip",
-      "sha256": "2b32953ddb898211b594f3c59398ca04757a8c40479452ff0e140e556d3b5f58"
+      "archive": "community-pack/hot_trends-1.0.1.zip",
+      "sha256": "0d9de4b7bedce357f0231bccaa06269000a4f558ebd04b4b9476843b538043c0"
     },
     {
       "pack": "community-pack",
@@ -74,7 +74,7 @@
         "/mc"
       ],
       "archive": "community-pack/mc_status-1.0.0.zip",
-      "sha256": "83ca391b3d7b7de73e4a16b3de2945fc82ccc733508d2447bffeff70d3aa1bce"
+      "sha256": "490576e764069c196c77a3d3e30805ec29f512fd4791adb6be4b5a44a72f5fec"
     },
     {
       "pack": "community-pack",
@@ -84,7 +84,7 @@
         "/外号"
       ],
       "archive": "community-pack/member_aliases-1.0.0.zip",
-      "sha256": "4bb5562dedbea79f9c27f66d66a64dcebebeb6e958939bd4ca283e77a0316b8e"
+      "sha256": "d5a318e07e938c50f4777740d25336e05e2bee9699acd655df6f371995a349cc"
     },
     {
       "pack": "community-pack",
@@ -94,7 +94,7 @@
         "/搜歌"
       ],
       "archive": "community-pack/music_search-1.0.0.zip",
-      "sha256": "4f6380d2e79e4a39a54336a5b9786375dacd5fd6da8f837fe3fa32afd77cf04e"
+      "sha256": "77723474b3fae1194cd7ed21d763c1dfe5671f1cd1e3c27e7b383f20b2459b4d"
     },
     {
       "pack": "community-pack",
@@ -105,7 +105,7 @@
         "/Steam"
       ],
       "archive": "community-pack/steam_query-1.0.0.zip",
-      "sha256": "9d727692732a59309e641e1810b023904ca16122279bba37062eeefdd3ded7b7"
+      "sha256": "03c5026362a76dfba95d3ce8fb082a7d0c78f200f74de785c8730bd5411336a7"
     },
     {
       "pack": "community-pack",
@@ -118,7 +118,7 @@
         "/先攻"
       ],
       "archive": "community-pack/trpg_dice-1.0.0.zip",
-      "sha256": "53dbb4909541588f38044a77ab030929d6ff6a01ba0470f0b33ab22c227f07c3"
+      "sha256": "7fee6fb64b171c7ec1cb7facedee7a93349237396cc75bc2d6f43e0138c6b32b"
     },
     {
       "pack": "community-pack",
@@ -128,7 +128,7 @@
         "/天气"
       ],
       "archive": "community-pack/weather_query-1.0.0.zip",
-      "sha256": "ecb0308c10521d4510ca21688667aa26d255eafeaa5e53eb4adeeaf3eca5dec9"
+      "sha256": "0c0753bb837e7f7c7807af9831b9b33b108e84536fec23feaf5dbe84fb60cc35"
     },
     {
       "pack": "expansion-pack",
@@ -1131,6 +1131,106 @@
       ],
       "archive": "market2-pack/m_webtext-1.0.0.zip",
       "sha256": "b6692f35ea1bbf8c0e40e10f105043bc46ad950eb04a13627f065d10f2dfa2a8"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_banter",
+      "name": "傲娇搭话文案",
+      "commands": [
+        "/搭话"
+      ],
+      "archive": "social-pack/s_banter-1.0.0.zip",
+      "sha256": "09e628c3c5367d25c5c3e9645047be4f50b875cbb81874aae7ad0e1e7fde1749"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_bottle",
+      "name": "本群漂流瓶",
+      "commands": [
+        "/漂流瓶"
+      ],
+      "archive": "social-pack/s_bottle-1.0.0.zip",
+      "sha256": "c333ca66c0870ed50ad4ebcf87187e74abe8f950b66db3a18214910fdebed955"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_capsule",
+      "name": "私人时光信",
+      "commands": [
+        "/时光信"
+      ],
+      "archive": "social-pack/s_capsule-1.0.0.zip",
+      "sha256": "0c8350897cfdf3f3c0ef3330f400d5dd5e2c725f54a91d6d898db3bc7e128e67"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_expedition",
+      "name": "雾港邮路口袋远征",
+      "commands": [
+        "/远征"
+      ],
+      "archive": "social-pack/s_expedition-1.0.0.zip",
+      "sha256": "d7d7962978b8ec9f0726e315b27c0395ba664695809b7c1aaf8c3c30e29baf19"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_github",
+      "name": "GitHub正式发行",
+      "commands": [
+        "/GitHub发行"
+      ],
+      "archive": "social-pack/s_github-1.0.0.zip",
+      "sha256": "bc92d872430632ee29e15c5f76f09dcceb1d31fba8198791e5a9a9534da9b03b"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_mood",
+      "name": "私人心情日志",
+      "commands": [
+        "/心情"
+      ],
+      "archive": "social-pack/s_mood-1.0.0.zip",
+      "sha256": "270e2cc8faa15825b7e482ea7e92196bec9b508530635602375fe414a8519cc8"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_nonogram",
+      "name": "5×5唯一解数织",
+      "commands": [
+        "/数织"
+      ],
+      "archive": "social-pack/s_nonogram-1.0.0.zip",
+      "sha256": "b12db70ecd8df0f57e18fbcb61f912726d5b5b067a54ca78a7c218de04ad16a1"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_package",
+      "name": "PyPI与npm包版本",
+      "commands": [
+        "/包版本"
+      ],
+      "archive": "social-pack/s_package-1.0.0.zip",
+      "sha256": "3ebe62b47e797037de46aaf1dfd9fba4983267d9102c91f1f7bcee17b44cf59b"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_sleep",
+      "name": "私人睡眠时段",
+      "commands": [
+        "/睡眠"
+      ],
+      "archive": "social-pack/s_sleep-1.0.0.zip",
+      "sha256": "37e21c1d41b4fa777480bd55285f68f4740e8df9799229de02634611a603997b"
+    },
+    {
+      "pack": "social-pack",
+      "id": "s_sudoku",
+      "name": "4×4唯一解数独",
+      "commands": [
+        "/数独"
+      ],
+      "archive": "social-pack/s_sudoku-1.0.0.zip",
+      "sha256": "f71dcc82bf3f57f23d583935acb803684ad6da12bb5ce5adc2ed5c9a4e5feefe"
     }
   ]
 }
