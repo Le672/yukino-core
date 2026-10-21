@@ -19,7 +19,8 @@ def main():
         from gi.repository import Atspi
         Atspi.init();desktop=Atspi.get_desktop(0)
         print(json.dumps([desktop.get_child_at_index(i).get_name() for i in range(min(desktop.get_child_count(),200))],ensure_ascii=False));return
-    driver=AtspiDesktop(cfg)
+    from .driver import create_driver
+    driver=create_driver(cfg)
     if args.command=='inspect':
         if not args.output:p.error('inspect requires a private --output file; it may contain visible chat text')
         value=driver.inspect();args.output.parent.mkdir(parents=True,exist_ok=True)

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yukino Desktop · 校准与连接</title><link rel="stylesheet" href="/console/static/console.css"><script src="/console/static/console.js" defer></script></head>
 <body><header><div class="brand">y<span>ukino / desktop</span></div><div>实验版 · 官方 QQ 桌面桥</div></header>
-<main><section class="intro"><p class="eyebrow">DESKTOP WORKSPACE</p><h1>让桌面操作有据可查。</h1><p>查看连接能力、核验可见身份，再接入机器人。真实 QQ 收发仍待账号恢复后验收。</p></section>
+<main><section class="intro"><p class="eyebrow">DESKTOP WORKSPACE</p><h1>让桌面操作有据可查。</h1><p>查看连接能力、核验可见身份，再接入机器人。源码与夹具测试、真实界面收发、自动模型回复需分别验收。</p></section>
 <section class="card" id="login"><h2>连接私有控制台</h2><label>接口令牌<input id="token" type="password" autocomplete="off" placeholder="private.env 中的 QQ_DESKTOP_TOKEN"></label><p>令牌仅保留在当前页面内存中，刷新即清除。不要把令牌贴到聊天或公开仓库。</p><button id="connect">连接</button><button class="secondary" id="disconnect">退出并清除</button></section>
 <div id="workspace" hidden>
 <section class="stats"><article><span>QQ 身份状态</span><strong id="online">—</strong><small id="reason">读取中</small></article><article><span>文本 / 图片 / 文件 / 视频</span><strong id="features">—</strong><small>以当前校准和在线状态为准</small></article><article><span>已确认 / 不确定的发送</span><strong id="sends">—</strong><small>界面确认不等于对方收到</small></article><article><span>私有附件空间</span><strong id="spool">—</strong><small>单文件上限 8 MiB，总量 256 MiB</small></article></section>

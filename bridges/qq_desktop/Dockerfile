@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive PYTHONUNBUFFERED=1 PYTHONPATH=/app \
     DISPLAY=:98 NO_AT_BRIDGE=0 QT_ACCESSIBILITY=1 GTK_MODULES=gail:atk-bridge
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 python3-aiohttp python3-gi gir1.2-atspi-2.0 gir1.2-gtk-3.0 at-spi2-core \
-    dbus-x11 xvfb x11vnc novnc websockify ca-certificates fonts-noto-cjk \
+    dbus-x11 xvfb x11vnc novnc websockify openbox ca-certificates fonts-noto-cjk \
     libnss3 libasound2t64 libgbm1 libxss1 libxcomposite1 libxdamage1 libxrandr2 \
     libxfixes3 libxtst6 libgtk-3-0t64 libdrm2 libnotify4 libsecret-1-0 \
     libayatana-appindicator3-1 curl && rm -rf /var/lib/apt/lists/*
@@ -20,7 +20,7 @@ RUN useradd --create-home --uid 10001 bridge && mkdir /data && chown bridge:brid
 COPY qq_desktop /app/qq_desktop
 COPY tests /app/tests
 COPY scripts /app/scripts
-COPY config.example.json client-lock.example.json binding.example.json /app/
+COPY config.example.json qqnt-private.example.json client-lock.example.json binding.example.json /app/
 RUN chmod +x /app/scripts/*.sh
 USER bridge
 WORKDIR /app

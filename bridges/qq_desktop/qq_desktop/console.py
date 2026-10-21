@@ -56,6 +56,8 @@ class Calibration:
             self.match(expected)
             if not isinstance(raw,dict):raise ValueError('Expected config object')
             cfg=copy.deepcopy(raw);cfg['enabled']=False
+            if cfg.get('backend','generic')!=self.bridge.config.get('backend','generic'):
+                raise ValueError('Changing the desktop backend requires a service restart')
             for k in ('host','port','allow_network_bind'):
                 if k in self.bridge.config:cfg[k]=self.bridge.config[k]
                 else:cfg.pop(k,None)

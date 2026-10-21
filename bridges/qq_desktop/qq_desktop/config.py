@@ -30,6 +30,15 @@ def numeric(value):
 def validate(raw):
     require(isinstance(raw, dict), 'Configuration must be an object')
     out = dict(raw)
+    out.setdefault('backend', 'generic')
+    require(out['backend'] in ('generic', 'qqnt_private'), 'Unknown desktop backend')
+    native = out['backend'] == 'qqnt_private'
+    if native:
+        q = dict(out.get('qqnt', {}))
+        for key in ('main', 'self_avatar', 'profile'):
+            q[key] = selector(q.get(key))
+        require(set(q) == {'main', 'self_avatar', 'profile'}, 'Unknown QQNT calibration option')
+        out['qqnt'] = q
     out.setdefault('host', '127.0.0.1'); out.setdefault('port', 3002)
     out.setdefault('enabled', False); out.setdefault('app_name', 'qq')
     out.setdefault('poll_seconds', 2); out.setdefault('send_interval_seconds', 2)
@@ -44,6 +53,16 @@ def validate(raw):
     for entry in raw.get('bindings', []):
         require(isinstance(entry, dict) and entry.get('kind') in ('private', 'group'), 'Invalid conversation binding')
         b = dict(entry); numeric(b['id'])
+        if native:
+            require(b['kind'] == 'private', 'QQNT backend supports one private conversation only')
+            require(set(b) <= {'kind', 'id', 'label', 'verified', 'notices'}, 'QQNT backend does not use generic selectors or attachments')
+            b.setdefault('verified', False)
+            require(type(b['verified']) is bool, 'verified must be boolean')
+            if 'notices' in b:
+                require(isinstance(b['notices'], dict) and set(b['notices']) <= {'verified'}, 'Invalid QQNT notice configuration')
+                require(type(b['notices'].get('verified', False)) is bool, 'Invalid notice verified flag')
+            bindings.append(b)
+            continue
         for key in ('contact', 'header', 'target_identity', 'history', 'editor', 'send', 'body', 'sender_id'):
             b[key] = selector(b.get(key))
         require(b.get('row_key', 'accessible_id') in ('accessible_id', 'description', 'name'), 'Invalid stable row key source')
@@ -71,6 +90,11 @@ def validate(raw):
         bindings.append(b)
     require(len({(b['kind'], b['id']) for b in bindings}) == len(bindings), 'Duplicate conversation bindings')
     out['bindings'] = bindings
+    if native:
+        require(len(bindings) <= 1, 'QQNT backend supports one private conversation only')
+        if out.get('self_id'):
+            numeric(out['self_id'])
+            require(all(b['id'] != out['self_id'] for b in bindings), 'QQNT peer must differ from self')
     out.setdefault('heartbeat_seconds',15)
     require(type(out['heartbeat_seconds']) is int and 5<=out['heartbeat_seconds']<=60,'Heartbeat interval must be 5..60 seconds')
     out.setdefault('blocked_labels', ['二维码登录', '安全验证', '账号安全限制'])
@@ -78,7 +102,8 @@ def validate(raw):
             all(isinstance(s, str) and 0 < len(s) <= 200 for s in out['blocked_labels']), 'Invalid blocked labels')
     if out['enabled']:
         numeric(out.get('self_id'))
-        out['identity'] = selector(out.get('identity'))
+        if not native:
+            out['identity'] = selector(out.get('identity'))
         require(out['bindings'] and all(b['verified'] for b in out['bindings']), 'Calibrate and verify all enabled bindings first')
     return out
 

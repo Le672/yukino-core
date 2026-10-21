@@ -1,0 +1,18 @@
+{
+  "backend": "qqnt_private",
+  "host": "127.0.0.1",
+  "port": 3002,
+  "enabled": false,
+  "app_name": "qq",
+  "self_id": "10001",
+  "poll_seconds": 3,
+  "send_interval_seconds": 3,
+  "qqnt": {
+    "main": {"path": [0], "name": "QQ", "role": "frame"},
+    "self_avatar": {"path": [0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0], "role": "push button"},
+    "profile": {"name": "资料卡", "role": "frame"}
+  },
+  "bindings": [
+    {"kind": "private", "id": "10002", "label": "Private test peer", "verified": false, "notices": {"verified": false}}
+  ]
+}

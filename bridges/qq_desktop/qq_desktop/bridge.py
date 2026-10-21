@@ -90,6 +90,11 @@ class Bridge:
     async def ui(self,method,*args):
         return await asyncio.get_running_loop().run_in_executor(self.executor,getattr(self.driver,method),*args)
 
+    async def available(self):
+        # Some native clients only expose account IDs in a transient profile.
+        # Their operation performs an active numeric check; status stays read-only.
+        return await self.ui('available' if hasattr(self.driver,'available') else 'ready')
+
     async def status(self):
         if not self.config['enabled']: return {'online':False,'good':False,'reason':'disabled_until_calibrated'}
         async with self.lock:
@@ -113,7 +118,7 @@ class Bridge:
         if key is not None and (not isinstance(key,str) or not 1<=len(key)<=128): raise ValueError('Invalid idempotency key')
         key=key or str(uuid.uuid4())
         async with self.lock:
-            if not self.config['enabled'] or not await self.ui('ready'): raise UiError('QQ is offline or not calibrated')
+            if not self.config['enabled'] or not await self.available(): raise UiError('QQ is offline or not calibrated')
             if media:
                 m=binding.get('attachments',{})
                 if not m.get('verified') or media['type'] not in m.get('kinds',[]):raise UiError('Attachment flow has not been calibrated for this conversation')
@@ -139,7 +144,7 @@ class Bridge:
     async def poll(self):
         if not self.config['enabled'] or not self.config['bindings']:return []
         async with self.lock:
-            if not await self.ui('ready'):return []
+            if not await self.available():return []
             binding=self.config['bindings'][self.next_binding%len(self.config['bindings'])]
             self.next_binding+=1
             rows=await self.ui('snapshot',binding)
@@ -184,15 +189,16 @@ class Bridge:
 
     async def capabilities(self):
         status=await self.status();online=status['online']
+        native=self.config.get('backend')=='qqnt_private'
         flows=[b for b in self.config['bindings'] if b['verified'] and b.get('attachments',{}).get('verified')]
-        return {'experimental':True,'version':__version__,'status':status,
+        return {'experimental':True,'version':__version__,'backend':self.config.get('backend','generic'),'status':status,
             'text':{'implemented':True,'ready':online},
-            'image':{'implemented':True,'ready':online and any('image' in b['attachments']['kinds'] for b in flows)},
-            'file':{'implemented':True,'ready':online and any('file' in b['attachments']['kinds'] for b in flows)},
-            'video':{'implemented':True,'ready':online and any('video' in b['attachments']['kinds'] for b in flows),'formats':['mp4'],'max_bytes':8*1024*1024},
+            'image':{'implemented':not native,'ready':online and any('image' in b['attachments']['kinds'] for b in flows)},
+            'file':{'implemented':not native,'ready':online and any('file' in b['attachments']['kinds'] for b in flows)},
+            'video':{'implemented':not native,'ready':online and any('video' in b['attachments']['kinds'] for b in flows),'formats':['mp4'],'max_bytes':8*1024*1024},
             'poke_receive':{'implemented':True,'ready':online and any(b['verified'] and b.get('notices',{}).get('verified') for b in self.config['bindings'])},
-            'receive_media':{'implemented':True,'requires':'genuine row fields and downloaded file under media/inbox'},
-            'unsupported':['record','forward','recall','poke_send','group_admin'],
+            'receive_media':{'implemented':not native,'requires':'genuine row fields and downloaded file under media/inbox'},
+            'unsupported':['record','forward','recall','poke_send','group_admin']+(['group','image','file','video'] if native else []),
             'real_qq_roundtrip_verified':False,'uptime_seconds':int(time.time()-self.started),'metrics':dict(self.metrics)}
 
     async def diagnostics(self):
