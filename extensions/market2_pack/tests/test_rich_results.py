@@ -11,6 +11,11 @@ def module(name):
     s=importlib.util.spec_from_file_location('rich_'+name,ROOT/(name+'.py'));m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
 
 class RichResults(unittest.TestCase):
+    def test_rss_includes_real_source_summary_with_html_removed(self):
+        m=module('network_engine')
+        rows=m.feed_entries(b'<rss><channel><item><title>Release</title><description>&lt;b&gt;Actual update details&lt;/b&gt;</description><link>https://example.com/news</link></item></channel></rss>','https://example.com/feed')
+        self.assertEqual(rows[0]['summary'],'Actual update details')
+        self.assertNotIn('<b>',rows[0]['summary'])
     def test_wallpaper_returns_actual_image_source(self):
         m=module('network_engine')
         payload={'images':[{'title':'山谷','copyright':'作者','startdate':'20261022','urlbase':'/th?id=OHR.Scenery'}]}

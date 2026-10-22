@@ -22,6 +22,7 @@ def catalog():
         elif pid in ('steam_query','bili_query','m_bangumi','mc_status'):policy='实际查询信息、来源图片/封面与结果卡'
         elif pid=='f1_info':policy='实际赛事数据、可读结果卡与CSV文件'
         elif pid=='m_ics':policy='实际课程日程卡、本周课表与ICS文件导出'
+        elif pid=='m_rss':policy='实际订阅标题、日期与源站正文摘要；长内容附卡片/文本'
         elif pid=='s_github':policy='正式发行说明、结果卡及限额内的ZIP/PDF/TXT附件'
         elif pid in BOARD_IDS:policy='真实棋盘/牌面状态图，保留可复制状态和操作文字'
         elif pid in FILE_IDS:policy='实际计算/转换内容、预览和可下载结果文件'

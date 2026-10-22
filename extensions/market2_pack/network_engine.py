@@ -173,7 +173,7 @@ def feed_entries(raw, base):
                     link = child.attrib['href']
                 elif child.text and not link:
                     link = child.text.strip()
-            elif name in ('title', 'guid', 'id', 'pubdate', 'published', 'updated'):
+            elif name in ('title', 'guid', 'id', 'pubdate', 'published', 'updated', 'summary', 'description', 'content', 'encoded'):
                 values[name] = ''.join(child.itertext())[:2000]
         title = plain(values.get('title', ''), 250) or '未命名条目'
         link = output_url(link, base) if link else ''
@@ -181,7 +181,8 @@ def feed_entries(raw, base):
         key = values.get('guid') or values.get('id') or link or title + '|' + published
         fingerprint = hashlib.sha256(key.encode('utf-8')).hexdigest()
         if not any(entry['fingerprint'] == fingerprint for entry in entries):
-            entries.append(dict(title=title, url=link, published=published, fingerprint=fingerprint))
+            summary=plain(values.get('summary') or values.get('description') or values.get('content') or values.get('encoded') or '',500)
+            entries.append(dict(title=title, url=link, published=published, fingerprint=fingerprint,summary=summary))
         if len(entries) >= 100:
             break
     return entries
@@ -256,7 +257,7 @@ def rss(arg, ctx):
                 db.close()
             result.append(f'#{identifier} {title}：本次新条目 {len(fresh)} 条')
             for entry in fresh[:limit]:
-                result.append('• ' + entry['title'] + ('\n' + entry['published'] if entry['published'] else '') + ('\n' + entry['url'] if entry['url'] else ''))
+                result.append('• ' + entry['title'] + ('\n' + entry['published'] if entry['published'] else '') + ('\n' + entry['summary'] if entry['summary'] else '\n源站未提供正文摘要。') + ('\n' + entry['url'] if entry['url'] else ''))
             if len(fresh) > limit:
                 result.append(f'仅展示前{limit}条，其余本次条目已记为获取。')
         except (sqlite3.Error, OSError):

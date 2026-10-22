@@ -8,6 +8,7 @@ from pathlib import Path
 import tempfile
 from types import SimpleNamespace
 import unittest
+from unittest.mock import patch
 
 from yukino_core.config import DEFAULTS
 from yukino_core.core import Kernel
@@ -374,9 +375,18 @@ class KernelTests(unittest.IsolatedAsyncioTestCase):
         self.config.data["merge_window_ms"] = 40
         first = self.message("第一句")
         second = self.message("第二句")
-        await self.kernel.on_event(first)
-        await self.kernel.on_event(second)
-        await self.idle()
+        # Keep both arrivals inside one batch without depending on disk fsync
+        # completing within 40ms on a shared Windows runner.
+        ready = asyncio.Event()
+        original_worker = self.kernel._session_worker
+        async def gated_worker(sid):
+            await ready.wait()
+            await original_worker(sid)
+        with patch.object(self.kernel, '_session_worker', new=gated_worker):
+            await self.kernel.on_event(first)
+            await self.kernel.on_event(second)
+            ready.set()
+            await self.idle()
         self.assertEqual(len(self.provider.prompts), 1)
         self.assertEqual(len(self.transport.sent), 1)
         data = prompt_data(self.provider.prompts[0])

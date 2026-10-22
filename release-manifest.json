@@ -132,7 +132,7 @@
     {
       "path": "docs/PLUGIN_OUTPUT_MATRIX.md",
       "bytes": 17715,
-      "sha256": "1209229b8e83b535d7b3f05359680f91a6ed9da72751a9b10f92a62907a98c9b"
+      "sha256": "f9797b0a9f28279c63ae88f10a925ab2cdb2feb190336a065dc1ba0f73e1f315"
     },
     {
       "path": "docs/QUICKSTART.md",
@@ -146,8 +146,8 @@
     },
     {
       "path": "docs/RICH_PLUGIN_OUTPUTS.md",
-      "bytes": 4958,
-      "sha256": "9c115aa817e97f9b662cda831617f2a6e3bda98f32e4b5d1fba0c7955b7bba2a"
+      "bytes": 5096,
+      "sha256": "66007943957b56a7acefbcd09fddf15a2dcda28834946ad3c595195cd363e6ed"
     },
     {
       "path": "docs/licenses/Pillow-LICENSE.txt",
@@ -2061,8 +2061,8 @@
     },
     {
       "path": "extensions/market2_pack/network_engine.py",
-      "bytes": 22589,
-      "sha256": "1a53c8eb4bcfc495e84bba914ab03b618a8e7c7ab448593c2636835d85852fc3"
+      "bytes": 22879,
+      "sha256": "5dd3629b2bd47e918a7a8f374b186d2e41a8dbfd900c71524b6897ed2ad17b2f"
     },
     {
       "path": "extensions/market2_pack/plugins/m_abbr/README.md",
@@ -2211,8 +2211,8 @@
     },
     {
       "path": "extensions/market2_pack/tests/test_rich_results.py",
-      "bytes": 2241,
-      "sha256": "0a7a5b2b0877b22efba57534a33551bb1b378b96dcd965b9596219db2f5df399"
+      "bytes": 2696,
+      "sha256": "f18b987931b781e2ce001579479fd42321d002a2b5c725a19c8b0a4caf8ddeee"
     },
     {
       "path": "extensions/market2_pack/tests/test_uno.py",
@@ -2476,8 +2476,8 @@
     },
     {
       "path": "scripts/audit_plugin_outputs.py",
-      "bytes": 3678,
-      "sha256": "8ddf0292d155790023a44d1e4d53e2adfc03982dae7e303e39c0acca62d8fcb0"
+      "bytes": 3790,
+      "sha256": "4d52c1605ff1674ec4a61699cd08cdf025eab6a4e71b704eadc0eee88303f529"
     },
     {
       "path": "scripts/build_release.py",
@@ -2511,8 +2511,8 @@
     },
     {
       "path": "tests/test_core.py",
-      "bytes": 29015,
-      "sha256": "34e7a6d5be5b61da374ca1b9f8dfc0ae6526c49dca8dfe7f2a37d4f5dd12d1be"
+      "bytes": 29492,
+      "sha256": "3aa94e99606a39518d28a2221f6175e4557bbc8cdbf167e7a45ff0c200117f64"
     },
     {
       "path": "tests/test_emoji_collector.py",
