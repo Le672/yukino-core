@@ -1,0 +1,205 @@
+name: Publish verified v0.7.0 assets
+
+on:
+  push:
+    branches: ['release-assets/v0.7.0']
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: publish-yukino-v0.7.0
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.repository == 'Le672/yukino-core' && github.ref == 'refs/heads/release-assets/v0.7.0'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/github-script@v9.0.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('node:fs');
+            const path = require('node:path');
+            const crypto = require('node:crypto');
+            const owner = 'Le672';
+            const repo = 'yukino-core';
+            const tag = 'v0.7.0';
+            const ref = 'refs/heads/release-assets/v0.7.0';
+            const releaseName = 'Yukino Core 0.7.0';
+            const expectedNames = [
+              'SHA256SUMS.txt',
+              'YukinoCore-0.7.0-Windows-x64-portable.zip',
+              'yukino-core-0.7.0-source.zip',
+              'yukino-core-0.7.0-release-manifest.json',
+              'yukino-core-0.7.0-windows-manifest.json',
+              'yukino-plugins-119-1.1.0.zip',
+              'yukino-plugins-119-1.1.0-catalog.json'
+            ].sort();
+            const fail = message => { throw new Error(message); };
+            const sha256 = data => crypto.createHash('sha256').update(data).digest('hex');
+            const sameNames = names => JSON.stringify([...names].sort()) === JSON.stringify(expectedNames);
+            if (context.repo.owner !== owner || context.repo.repo !== repo || context.ref !== ref) {
+              fail('This publisher is restricted to Le672/yukino-core release-assets/v0.7.0');
+            }
+
+            const manifest = JSON.parse(fs.readFileSync('upload-manifest.json', 'utf8').replace(/^\uFEFF/, ''));
+            if (!manifest || typeof manifest !== 'object' ||
+                (manifest.tag !== undefined && manifest.tag !== tag) ||
+                !/^[a-f0-9]{40}$/.test(manifest.source_commit || '') ||
+                !Number.isSafeInteger(manifest.verified_run_id) || manifest.verified_run_id <= 0 ||
+                !Array.isArray(manifest.files) || manifest.files.length !== 7 ||
+                !sameNames(manifest.files.map(file => file && file.name))) {
+              fail('Unexpected tag, source commit, source CI run, or frozen asset set');
+            }
+            for (const file of manifest.files) {
+              if (!file || !expectedNames.includes(file.name) ||
+                  !Number.isSafeInteger(file.bytes) || file.bytes <= 0 || file.bytes > 200 * 1024 * 1024 ||
+                  !/^[a-f0-9]{64}$/.test(file.sha256 || '')) {
+                fail('Invalid frozen asset metadata');
+              }
+            }
+
+            // The CI evidence must belong to this repository's actual source
+            // workflow, be completed successfully, and match the exact frozen SHA.
+            const workflow = (await github.rest.actions.getWorkflow({owner, repo, workflow_id: 'ci.yml'})).data;
+            const run = (await github.rest.actions.getWorkflowRun({owner, repo, run_id: manifest.verified_run_id})).data;
+            if (workflow.path !== '.github/workflows/ci.yml' || run.workflow_id !== workflow.id ||
+                run.repository?.full_name !== owner + '/' + repo ||
+                run.head_repository?.full_name !== owner + '/' + repo ||
+                run.head_sha !== manifest.source_commit ||
+                run.status !== 'completed' || run.conclusion !== 'success') {
+              fail('Frozen source SHA must have successful source/package CI in this repository');
+            }
+
+            const assetDirectory = path.resolve('assets');
+            const directoryInfo = fs.lstatSync(assetDirectory);
+            if (!directoryInfo.isDirectory() || directoryInfo.isSymbolicLink()) fail('Invalid frozen asset directory');
+            const payloads = new Map();
+            // Verify every local artifact before creating or mutating a release.
+            for (const file of manifest.files) {
+              const filePath = path.join(assetDirectory, file.name);
+              const info = fs.lstatSync(filePath);
+              if (!info.isFile() || info.isSymbolicLink() || info.size !== file.bytes) {
+                fail('Frozen asset is not an ordinary file of the expected size: ' + file.name);
+              }
+              const data = fs.readFileSync(filePath);
+              if (data.length !== file.bytes || sha256(data) !== file.sha256) {
+                fail('Frozen asset checksum mismatch: ' + file.name);
+              }
+              payloads.set(file.name, data);
+            }
+            const checksums = payloads.get('SHA256SUMS.txt').toString('utf8').replace(/^\uFEFF/, '').trim().split(/\r?\n/);
+            const checksumNames = [];
+            for (const line of checksums) {
+              const match = /^([a-f0-9]{64}) {2}([^\r\n]+)$/.exec(line);
+              const file = match && manifest.files.find(item => item.name === match[2] && item.name !== 'SHA256SUMS.txt');
+              if (!file || file.sha256 !== match[1] || checksumNames.includes(file.name)) {
+                fail('SHA256SUMS.txt disagrees with the frozen manifest');
+              }
+              checksumNames.push(file.name);
+            }
+            if (JSON.stringify(checksumNames.sort()) !== JSON.stringify(expectedNames.filter(name => name !== 'SHA256SUMS.txt'))) {
+              fail('SHA256SUMS.txt must describe exactly the other six release files');
+            }
+            const notes = fs.readFileSync('release-notes.md', 'utf8').replace(/^\uFEFF/, '');
+            if (!notes.trim() || Buffer.byteLength(notes, 'utf8') > 60000) fail('Missing or oversized release-notes.md');
+
+            // Resolve an existing tag, including annotated tags. Never retarget
+            // an existing version number to a different source commit.
+            async function assertTagTarget(allowMissing) {
+              let object;
+              try {
+                object = (await github.rest.git.getRef({owner, repo, ref: 'tags/' + tag})).data.object;
+              } catch (error) {
+                if (error.status === 404 && allowMissing) return;
+                throw error;
+              }
+              for (let depth = 0; object.type === 'tag' && depth < 8; depth++) {
+                object = (await github.rest.git.getTag({owner, repo, tag_sha: object.sha})).data.object;
+              }
+              if (object.type !== 'commit' || object.sha !== manifest.source_commit) {
+                fail('Existing release tag does not resolve to the frozen source commit');
+              }
+            }
+            await assertTagTarget(true);
+
+            let release;
+            try {
+              release = (await github.rest.repos.getReleaseByTag({owner, repo, tag})).data;
+            } catch (error) {
+              if (error.status !== 404) throw error;
+              release = (await github.rest.repos.createRelease({owner, repo,
+                tag_name: tag, target_commitish: manifest.source_commit,
+                name: releaseName, body: notes, draft: true, prerelease: false,
+                generate_release_notes: false
+              })).data;
+              core.info('Created draft release: ' + release.id);
+            }
+            if (release.tag_name !== tag || release.prerelease) fail('Unexpected release identity');
+            const release_id = release.id;
+            if (!release.draft && release.body !== notes) {
+              fail('Refusing to rewrite different notes on an already published release');
+            }
+            const listAssets = () => github.paginate(github.rest.repos.listReleaseAssets, {owner, repo, release_id, per_page: 100});
+            const verifyAsset = (asset, file) => {
+              if (!asset || asset.state !== 'uploaded' || asset.size !== file.bytes || asset.digest !== 'sha256:' + file.sha256) {
+                fail('Refusing missing, incomplete or different release asset: ' + file.name);
+              }
+            };
+            let assets = await listAssets();
+            if (assets.some(asset => !expectedNames.includes(asset.name)) ||
+                new Set(assets.map(asset => asset.name)).size !== assets.length) {
+              fail('Refusing an existing release with unexpected or duplicate assets');
+            }
+            // Check all existing assets first. No delete, overwrite or rename API
+            // is used, and missing assets may only be added to a draft release.
+            for (const asset of assets) {
+              verifyAsset(asset, manifest.files.find(file => file.name === asset.name));
+            }
+            if (!release.draft && !sameNames(assets.map(asset => asset.name))) {
+              fail('Refusing to add missing assets to an already published release');
+            }
+            for (const file of manifest.files) {
+              const existing = assets.find(asset => asset.name === file.name);
+              if (existing) {
+                core.info('Already verified: ' + file.name);
+                continue;
+              }
+              const data = payloads.get(file.name);
+              const uploaded = (await github.rest.repos.uploadReleaseAsset({owner, repo, release_id,
+                name: file.name, data,
+                headers: {'content-type': 'application/octet-stream', 'content-length': data.length}
+              })).data;
+              verifyAsset(uploaded, file);
+              core.info('Uploaded and SHA-256 verified: ' + file.name);
+            }
+            assets = await listAssets();
+            if (assets.length !== 7 || !sameNames(assets.map(asset => asset.name))) fail('Final release must contain exactly seven expected files');
+            for (const file of manifest.files) verifyAsset(assets.find(asset => asset.name === file.name), file);
+            await assertTagTarget(true);
+            if (release.draft) {
+              release = (await github.rest.repos.updateRelease({owner, repo, release_id,
+                tag_name: tag, target_commitish: manifest.source_commit,
+                name: releaseName, body: notes, draft: false, prerelease: false,
+                make_latest: 'true'
+              })).data;
+            }
+            await assertTagTarget(false);
+            const published = (await github.rest.repos.getRelease({owner, repo, release_id})).data;
+            if (published.draft || published.prerelease || published.tag_name !== tag || published.body !== notes) {
+              fail('Published release metadata failed final verification');
+            }
+            const latest = (await github.rest.repos.getLatestRelease({owner, repo})).data;
+            if (latest.id !== release_id) fail('Verified v0.7.0 release was not marked latest');
+            await core.summary.addHeading('Yukino Core 0.7.0 published')
+              .addLink('Download release', published.html_url)
+              .addRaw('\n\nAll seven assets match frozen SHA-256 hashes and GitHub asset digests. Source CI: ' + run.html_url + '\n')
+              .write();

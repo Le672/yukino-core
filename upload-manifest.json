@@ -1,0 +1,42 @@
+{
+  "tag": "v0.7.0",
+  "source_commit": "15a17cdf072d4f22d3b458ff71022d998e36f6f0",
+  "verified_run_id": 39721897095,
+  "files": [
+    {
+      "name": "yukino-core-0.7.0-release-manifest.json",
+      "bytes": 105556,
+      "sha256": "2b3aa2c7dbb30de772551004079b08264a56f66f12cb30a5bffbdadc35dbf341"
+    },
+    {
+      "name": "yukino-core-0.7.0-source.zip",
+      "bytes": 976650,
+      "sha256": "3aad43a27ad39b17a07a6aa4831929cfd4ab1a86efb6859f618adf9be8a27543"
+    },
+    {
+      "name": "yukino-core-0.7.0-windows-manifest.json",
+      "bytes": 352162,
+      "sha256": "cc1ccdc200e342cf282019aeff30bdd77180f78b3ffe5da41b9e314d2ed6214b"
+    },
+    {
+      "name": "yukino-plugins-119-1.1.0-catalog.json",
+      "bytes": 99837,
+      "sha256": "e4d7ebd896c05cf6e6bf63590483c18d1072af01a347a6b8f67ca3405c787393"
+    },
+    {
+      "name": "yukino-plugins-119-1.1.0.zip",
+      "bytes": 1990458,
+      "sha256": "bf7c0b326e07c209f7992d21b30398917e06cc26f5a73e7cd961a477ceef208f"
+    },
+    {
+      "name": "YukinoCore-0.7.0-Windows-x64-portable.zip",
+      "bytes": 24247499,
+      "sha256": "66f06842ed7ecf34bde1a4e1030b30799d1afc047157e724ba585d126551657a"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 620,
+      "sha256": "b1c29ecb359528140f16dbd2c60ede63128dae05602cdfb7bb66b61d1e3579b1"
+    }
+  ]
+}
