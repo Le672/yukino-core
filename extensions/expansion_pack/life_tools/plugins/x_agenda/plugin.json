@@ -1,7 +1,7 @@
 {
   "id": "x_agenda",
   "name": "群议程主持",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "成员收集议题、主持排序推进关闭",
   "worker": "worker.py",
   "commands": [
@@ -16,5 +16,7 @@
       "min": 10,
       "max": 200
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

@@ -13,6 +13,7 @@ import uuid
 import zipfile
 
 from .config import atomic_json
+from . import __version__
 from .plugins import BUILTINS, MAX_EXTERNAL_PLUGINS, MAX_MANIFEST_BYTES
 
 BUILTIN_IDS = {item['id'] for item in BUILTINS}
@@ -115,7 +116,11 @@ def inspect_package(payload):
         commands=record.get('commands')
         if not isinstance(commands,list) or not 1<=len(commands)<=20 or any(not isinstance(c,str) or not c.startswith('/') or not 2<=len(c)<=40 or any(x.isspace() for x in c) for c in commands):
             raise ValueError('commands须为1—20个以/开头的无空白指令')
-        record={k:v for k,v in record.items() if k in ('id','name','description','worker','commands','config_schema','auto_url_hosts','auto_url_paths','silent_ack')}
+        for field in ('version','minimum_core_version'):
+            if field in record and not re.fullmatch(r'[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}',str(record[field])):raise ValueError('插件版本格式无效')
+        if 'minimum_core_version' in record and tuple(map(int,record['minimum_core_version'].split('.')))>tuple(map(int,__version__.split('.'))):raise ValueError('请先升级内核至 '+record['minimum_core_version'])
+        if 'result_protocol' in record and record['result_protocol']!=1:raise ValueError('不支持该插件结果协议')
+        record={k:v for k,v in record.items() if k in ('id','name','description','worker','commands','config_schema','auto_url_hosts','auto_url_paths','silent_ack','version','minimum_core_version','result_protocol')}
         return record,files
     except (zipfile.BadZipFile,KeyError,UnicodeError,json.JSONDecodeError,RuntimeError,NotImplementedError) as exc:
         raise ValueError('插件ZIP无效，须在根目录提供UTF-8 plugin.json和对应Python源码') from None

@@ -24,7 +24,7 @@ ROOT_FILES = (
     "THIRD_PARTY_NOTICES.md", "CHANGELOG.md", "config.example.json",
     ".env.example", "compose.release.yaml", ".gitattributes", "resources/banter.zh-CN.json",
 )
-RELEASE_SCRIPTS = ("init_instance.py", "run.py", "build_release.py", "import_banter.py")
+RELEASE_SCRIPTS = ("init_instance.py", "run.py", "build_release.py", "import_banter.py", "audit_plugin_outputs.py")
 SOURCE_DIRECTORIES = (
     "windows", "examples/plugins/hello_counter", "extensions/community_pack",
     "extensions/maibot_pack", "extensions/expansion_pack", "extensions/market2_pack",

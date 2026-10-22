@@ -21,7 +21,7 @@ def install_settings_routes(app, kernel, ok, failure, body, re_scope):
     change_lock = asyncio.Lock()
 
     def idle():
-        return not kernel.active and not kernel.pending_count and not kernel.provider.lock.locked()
+        return not kernel.active and not kernel.pending_count and not kernel.provider.lock.locked() and not kernel.rich.busy
 
     async def reconnect():
         old = kernel.transport

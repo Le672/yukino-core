@@ -31,7 +31,7 @@ def handle(text, context):
             ids = [int(x['id']) for x in items[:limit] if isinstance(x, dict) and str(x.get('id','')).isdigit()]
         if not ids:
             return 'Steam 未找到匹配游戏。'
-        lines = ['Steam 商店查询｜地区 '+country.upper()+'（实际售价以商店结算为准）']
+        lines = ['Steam 商店查询｜地区 '+country.upper()+'（实际售价以商店结算为准）']; media=[]
         for appid in ids:
             record = net.fetch('https://store.steampowered.com/api/appdetails',
                 {'appids':appid, 'l':'schinese', 'cc':country}, ttl=120).get(str(appid), {})
@@ -54,8 +54,13 @@ def handle(text, context):
             else:
                 pricing = '未提供该地区售价（预售、下架或套餐等情况）'
             lines.extend([net.clean(detail.get('name', f'App {appid}')), pricing,
+                net.clean(detail.get('short_description',''),500),
                 f'https://store.steampowered.com/app/{appid}/'])
+            cover=detail.get('header_image','')
+            if isinstance(cover,str) and cover.startswith('https://') and len(media)<3:
+                media.append({'type':'image','url':cover,'description':net.clean(detail.get('name','Steam游戏'))})
         lines.append('查询时间：'+net.local_time()+'；来源：Steam 官方商店')
-        return '\n'.join(lines)
+        result='\n'.join(lines)
+        return {'version':1,'text':result,'media':media} if context.get('rich_result_version') else result
     except Exception as exc:
         return net.failure('Steam', exc)

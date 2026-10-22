@@ -1,7 +1,7 @@
 {
   "id": "x_minesweeper",
   "name": "首步安全扫雷",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "/扫雷 开始 [边长 雷数]；开 行 列；旗 行 列（再次取消）；状态；投降。首个实际翻开格安全，插旗不算翻开。",
   "worker": "worker.py",
   "commands": [
@@ -24,5 +24,7 @@
       "min": 1,
       "max": 40
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

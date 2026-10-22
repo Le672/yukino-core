@@ -79,7 +79,7 @@ class NetworkTests(unittest.TestCase):
                 wrapper = load(pid + '_wrapper_test', ROOT / 'plugins' / pid / 'worker.py')
             self.assertIn(command, wrapper.handle(command, self.ctx(pid)))
 
-    def test_github_success_has_five_assets_no_release_notes(self):
+    def test_github_success_has_five_assets_and_bounded_release_notes(self):
         data = github(7)
         data['body'] = 'NEVER_COPY_THIS_RELEASE_BODY'
         with patch.object(safe_net, 'request', return_value=response(data)) as request:
@@ -88,7 +88,7 @@ class NetworkTests(unittest.TestCase):
         self.assertIn('2030-01-01T12:00:00Z', out)
         self.assertEqual(out.count('附件：'), 5)
         self.assertNotIn('file5.zip', out)
-        self.assertNotIn('NEVER_COPY', out)
+        self.assertIn('NEVER_COPY_THIS_RELEASE_BODY', out)
         self.assertIn('本次查询时间', out)
         url, = request.call_args.args
         self.assertEqual(url, 'https://api.github.com/repos/example/demo/releases/latest')

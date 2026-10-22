@@ -1,7 +1,7 @@
 {
   "id": "x_sokoban",
   "name": "原创推箱子",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "/推箱子 开始；上/下/左/右；撤销；状态；投降。@人物，$箱子，.目标，*到位。只能推不能拉，原创单关。",
   "worker": "worker.py",
   "commands": [
@@ -16,5 +16,7 @@
       "min": 1,
       "max": 100
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

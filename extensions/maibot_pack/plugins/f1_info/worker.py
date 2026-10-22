@@ -1,6 +1,8 @@
 """Independent Jolpica/Ergast-compatible F1 queries. No FastF1 model or telemetry downloads."""
 import importlib.util
 import re
+import csv
+import io
 from pathlib import Path
 from datetime import datetime,timedelta,timezone
 
@@ -79,5 +81,10 @@ def handle(text,context):
                 details=' / '.join(str(row[k]) for k in ('Q1','Q2','Q3') if k in row) if qualifying else str(row.get('points','?'))+'分｜'+net.clean(row.get('status',''))
                 lines.append(f"{row.get('position','?')}. {net.clean(name,45)}｜{net.clean(row.get('Constructor',{}).get('name',''),45)}｜{details}")
         else:return HELP
-        return '\n'.join(lines)+f'\n数据查询：{net.local_time()}\n来源：Jolpica F1（Ergast兼容数据，结果以官方赛会最终公告为准）。'
+        result='\n'.join(lines)+f'\n数据查询：{net.local_time()}\n来源：Jolpica F1（Ergast兼容数据，结果以官方赛会最终公告为准）。'
+        if context.get('rich_result_version'):
+            stream=io.StringIO();writer=csv.writer(stream)
+            for line in lines:writer.writerow(line.split('｜'))
+            return {'version':1,'text':result,'media':[{'type':'file','name':'F1-'+action+'.csv','text':'\ufeff'+stream.getvalue()}],'layout':'card'}
+        return result
     except Exception as exc:return net.failure('F1',exc)

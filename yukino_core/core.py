@@ -16,6 +16,7 @@ from .transport import OneBotError
 from .native_plugins import NativeExtensions, NATIVE_IDS
 from .notice_plugins import NoticeExtensions
 from .emoji_collector import EmojiCollector
+from .rich_output import RichOutput
 
 
 def text_segment(text): return [{"type": "text", "data": {"text": text}}]
@@ -94,6 +95,7 @@ class Kernel:
         self.native = NativeExtensions(self)
         self.notices = NoticeExtensions(self)
         self.collector = EmojiCollector(self)
+        self.rich = RichOutput(self)
 
     async def triggered(self, event):
         cfg = self.config.data
@@ -360,10 +362,14 @@ class Kernel:
                 images.append(extra[0]); attachments.append(extra[1])
         return text, segments + images, attachments
 
-    async def reply(self, event, text=None, segments=None, epoch=None, attachments=None):
+    async def reply(self, event, text=None, segments=None, epoch=None, attachments=None, delivery_key=None):
         if epoch is not None and self.epochs[event["session_id"]] != epoch: return False
+        if segments is None and epoch is None and text is not None:
+            item,_=self.plugins.match(event.get('text',''))
+            if item is None and isinstance(text,dict):item=next((i for i in self.plugins.items if i['id']=='keyword_reply'),None)
+            if item:return await self.rich.send(event,item,text)
         segments = segments if segments is not None else text_segment(text or "")
-        row = await self.store.outbox_prepare(event["event_id"], event["session_id"], segments)
+        row = await self.store.outbox_prepare(delivery_key or event["event_id"], event["session_id"], segments)
         async with self.send_locks[event["session_id"]]:
             return await self._reply_locked(event, row, text, segments, epoch, attachments)
 
@@ -385,7 +391,14 @@ class Kernel:
             return False
         try:
             target = event["group_id"] if event["message_type"] == "group" else event["user_id"]
-            data = await self.transport.send_message(event["message_type"], target, segments)
+            if len(segments)==1 and segments[0].get('type')=='file':
+                file=segments[0]['data']
+                key='group_id' if event['message_type']=='group' else 'user_id'
+                data=await self.transport.call('upload_'+event['message_type']+'_file', {key:target,'file':file['file'],'name':file['name']},timeout=90)
+            else:
+                if any(s.get('type')=='record' for s in segments):
+                    data=await self.transport.send_message(event['message_type'],target,segments,timeout=90)
+                else:data = await self.transport.send_message(event["message_type"], target, segments)
             message_id = str((data or {}).get("message_id", ""))
             await self.store.outbox_mark(row["id"], "sent", message_id)
             if epoch is None or self.epochs[event["session_id"]] == epoch:
@@ -401,6 +414,8 @@ class Kernel:
                 await self.store.mark_event(event["event_id"], "sent_during_reset")
             self.metrics["replied"] += 1
             self.metrics["local_images"] += sum(item.get("type") == "image" for item in (attachments or []))
+            if attachments and all(a['resource_id'].startswith('media_') for a in attachments):
+                with contextlib.suppress(Exception):await self.store.compact_media(row['id'],attachments)
             return True
         except OneBotError as exc:
             state = "unknown" if exc.uncertain else "failed"
@@ -504,7 +519,7 @@ class Kernel:
         plugins = self.plugins.list()
         return dict(version=__version__, uptime=int(time.monotonic() - self.started),
                     transport={**self.transport.snapshot(), "qq": dict(self.qq_status)}, provider=self.provider.snapshot(),
-                    queue=dict(pending=self.pending_count, active=self.active, max=self.config.data["max_pending"]),
+                    queue=dict(pending=self.pending_count, active=self.active, media_active=self.rich.busy, max=self.config.data["max_pending"]),
                     metrics=dict(self.metrics), plugins=dict(total=len(plugins), enabled=sum(p["enabled"] for p in plugins)),
                     store=await self.store.stats(), resources=await self.resources.status(),
                     emoji_collection=self.collector.snapshot())

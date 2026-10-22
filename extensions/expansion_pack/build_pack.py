@@ -15,8 +15,8 @@ from yukino_core.plugin_packages import inspect_package
 from yukino_core.plugins import BUILTINS
 
 GROUPS={'dev_tools':'dev_engine.py','life_tools':'life_engine.py','games':'games_engine.py'}
-VERSION='1.0.0'
-NOTICE=b'Yukino Expansion Pack 1.0.0\nIndependent original implementations for Yukino Core.\nNo runtime databases, credentials, third-party code or media included.\nDistributed under the accompanying MIT LICENSE.\n'
+VERSION='1.1.0'
+NOTICE=b'Yukino Expansion Pack 1.1.0\nIndependent original implementations for Yukino Core.\nNo runtime databases, credentials, third-party code or media included.\nDistributed under the accompanying MIT LICENSE.\n'
 
 
 def archive_bytes(files):
@@ -85,7 +85,7 @@ def build(output):
         sources['expansion_pack/'+name]=(ROOT/name).read_bytes()
     sources['expansion_pack/LICENSE']=license_data;sources['expansion_pack/NOTICE']=NOTICE
     source_name='yukino-expansion-pack-'+VERSION+'-source.zip';source_payload=archive_bytes(sources);artifacts[source_name]=source_payload
-    manifest={'version':VERSION,'minimum_core_version':'0.5.0','plugin_count':63,'groups':{name:21 for name in GROUPS},
+    manifest={'version':VERSION,'minimum_core_version':'0.7.0','plugin_count':63,'groups':{name:21 for name in GROUPS},
         'plugins':entries,'source_archive':source_name,'source_sha256':hashlib.sha256(source_payload).hexdigest(),
         'credentials_included':False,'runtime_data_included':False}
     output.mkdir(parents=True,exist_ok=True)

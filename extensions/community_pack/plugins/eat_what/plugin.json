@@ -2,7 +2,7 @@
   "id": "eat_what",
   "name": "今天吃什么",
   "description": "可配置候选菜单与排除项的本地随机推荐。",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "worker": "worker.py",
   "commands": [
     "/吃什么",
@@ -23,5 +23,7 @@
       "default": "[]",
       "max_length": 6000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

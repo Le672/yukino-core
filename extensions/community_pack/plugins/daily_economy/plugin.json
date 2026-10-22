@@ -2,7 +2,7 @@
   "id": "daily_economy",
   "name": "每日签到与娱乐积分",
   "description": "会话隔离的签到、转账、流水、商店和背包。金币没有现金价值。",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "worker": "worker.py",
   "commands": [
     "/签到",
@@ -55,5 +55,7 @@
       "default": "[{\"id\":\"flower\",\"name\":\"小花\",\"price\":30},{\"id\":\"badge\",\"name\":\"纪念徽章\",\"price\":150}]",
       "max_length": 6000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

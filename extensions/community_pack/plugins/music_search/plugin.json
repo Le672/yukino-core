@@ -1,11 +1,13 @@
 {
   "id": "music_search",
-  "name": "歌曲搜索",
-  "version": "1.0.0",
-  "description": "查询网易云歌曲信息与官方歌曲页",
+  "name": "点歌与音频发送",
+  "version": "1.1.0",
+  "description": "直接发送歌曲音频、封面、完整音频文件及语音片段；支持自然语言点歌和选歌",
   "worker": "worker.py",
   "commands": [
-    "/搜歌"
+    "/搜歌",
+    "/点歌",
+    "/选歌"
   ],
   "config_schema": [
     {
@@ -15,6 +17,44 @@
       "min": 1,
       "max": 10,
       "default": 5
+    },
+    {
+      "key": "auto_play_first",
+      "type": "boolean",
+      "label": "搜索后直接播放可用歌曲",
+      "default": true
+    },
+    {
+      "key": "public_audio_fallback",
+      "type": "boolean",
+      "label": "官方音源不可用时使用GD Studio公开API",
+      "default": true
+    },
+    {
+      "key": "send_voice",
+      "type": "boolean",
+      "label": "发送可播放语音或语音片段",
+      "default": true
+    },
+    {
+      "key": "send_audio_file",
+      "type": "boolean",
+      "label": "附带原音频文件",
+      "default": true
+    },
+    {
+      "key": "voice_preview_seconds",
+      "type": "integer",
+      "label": "长歌曲语音片段秒数",
+      "min": 15,
+      "max": 120,
+      "default": 90
     }
-  ]
+  ],
+  "auto_url_hosts": [
+    "music.163.com",
+    "y.music.163.com"
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

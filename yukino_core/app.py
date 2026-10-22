@@ -49,7 +49,7 @@ def protected(response):
     response.headers["Cache-Control"] = "no-store"
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["Referrer-Policy"] = "no-referrer"
-    response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
+    response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"
     return response
 
 
@@ -124,8 +124,17 @@ def create_app(kernel):
         rows = await kernel.store.history(request.match_info["id"], limit=100, include_archived=True)
         for row in rows:
             for attachment in row.get("attachments", []):
-                attachment["preview_url"] = "/api/resources/images/" + quote(attachment["resource_id"], safe="") + "/file"
+                key=attachment['resource_id']
+                attachment["preview_url"] = '/api/plugin-media/'+key if key.startswith('media_') else "/api/resources/images/" + quote(key, safe="") + "/file"
         return ok(rows)
+    async def plugin_media(request):
+        found=kernel.rich.assets.get(request.match_info['id'])
+        if not found:raise web.HTTPNotFound()
+        path,info=found
+        response=web.FileResponse(path)
+        response.headers['Content-Type']=info['mime']
+        response.headers['Content-Disposition']="inline; filename*=UTF-8''"+quote(info['filename'],safe='')
+        return response
     async def reset(request): await kernel.reset(request.match_info["id"]); return ok()
     async def memories(request):
         scope = request.query.get("scope", "")
@@ -238,6 +247,7 @@ def create_app(kernel):
     app.router.add_get("/api/me", me)
     app.router.add_post("/api/logout", logout)
     app.router.add_get("/api/status", status)
+    app.router.add_get('/api/plugin-media/{id}',plugin_media)
     app.router.add_get("/api/config", config)
     app.router.add_put("/api/config", config)
     app.router.add_get("/api/sessions", session_list)

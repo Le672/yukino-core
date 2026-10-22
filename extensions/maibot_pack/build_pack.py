@@ -15,7 +15,7 @@ from yukino_core.plugin_packages import inspect_package
 EXPECTED = {'f1_info','game_news','daily_luck','tarot','answer_book','decision','wordle','guess_number','rps','todo_notes','polls','time_tools','text_tools','quotes','daily_greetings'}
 NETWORK = {'f1_info','game_news'}
 LICENSE = ((ROOT / 'LICENSE') if (ROOT / 'LICENSE').is_file() else (ROOT.parents[1] / 'LICENSE')).read_bytes()
-NOTICE = '''Yukino Mai Function Extension Pack 1.0.0
+NOTICE = '''Yukino Mai Function Extension Pack 1.1.0
 
 Function discovery reference: https://github.com/Mai-with-u/plugin-repo
 Implementation: independent Python workers for Yukino Core.
@@ -62,7 +62,7 @@ def build(destination: Path):
         files['NOTICE']=NOTICE
         config={'timeout':18 if pid in NETWORK else 5,'output_max_chars':5000}
         files['recommended_settings.json']=(json.dumps(config,indent=2)+'\n').encode()
-        result_path=destination/(pid+'-1.0.0.zip')
+        result_path=destination/(pid+'-1.1.0.zip')
         archive(result_path,files)
         record,checked=inspect_package(result_path.read_bytes())
         if record['id']!=pid: raise ValueError('Plugin directory and ID mismatch')
@@ -78,9 +78,9 @@ def build(destination: Path):
         sources['maibot_pack/tests/'+path.name]=path.read_bytes()
     sources['maibot_pack/LICENSE']=LICENSE
     sources['maibot_pack/NOTICE']=NOTICE
-    source_path=destination/'yukino-mai-pack-1.0.0-source.zip'
+    source_path=destination/'yukino-mai-pack-1.1.0-source.zip'
     archive(source_path,sources)
-    manifest={'version':'1.0.0','minimum_core_version':'0.4.0','native_plugins':['group_admin','reminders','keyword_reply'],'plugins':entries,
+    manifest={'version':'1.1.0','minimum_core_version':'0.7.0','native_plugins':['group_admin','reminders','keyword_reply'],'plugins':entries,
               'source_archive':source_path.name,'source_sha256':hashlib.sha256(source_path.read_bytes()).hexdigest(),
               'upstream_code_included':False,'credentials_included':False}
     (destination/'pack-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

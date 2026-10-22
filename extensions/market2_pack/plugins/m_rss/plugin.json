@@ -1,7 +1,7 @@
 {
   "id": "m_rss",
   "name": "个人RSS手动订阅",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "RSS/Atom个人订阅增删查和手动刷新去重；不自动推送",
   "worker": "worker.py",
   "commands": [
@@ -40,5 +40,7 @@
       "min": 2,
       "max": 15
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

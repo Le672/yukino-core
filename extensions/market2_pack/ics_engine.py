@@ -10,7 +10,7 @@ import time as clock
 
 LOCAL = timezone(timedelta(hours=8))
 DAYS = {'MO':0,'TU':1,'WE':2,'TH':3,'FR':4,'SA':5,'SU':6}
-USAGE = ('/课表 导入 后粘贴 BEGIN:VCALENDAR…END:VCALENDAR；/课表 今天；明天；YYYY-MM-DD；历史；恢复 编号；清空。'
+USAGE = ('/课表 导入 后粘贴 BEGIN:VCALENDAR…END:VCALENDAR；/课表 今天；明天；本周；导出；YYYY-MM-DD；历史；恢复 编号；清空。'
          '仅私聊、纯文本，总命令最多4000字；支持UTC、Asia/Shanghai或无TZID的固定UTC+8。'
          '仅支持每周RRULE的INTERVAL/COUNT/UNTIL/BYDAY及EXDATE；不接收文件/网址，不主动提醒。')
 EXAMPLE = ('BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nUID:example-course\nSUMMARY:示例课程\n'
@@ -227,6 +227,36 @@ def parse_day(raw):
     day=date.fromisoformat(raw); need(1992<=day.year<=2099, '查询日期仅支持1992～2099年。'); return day
 
 
+def export_ics(events):
+    def escaped(value):return str(value).replace('\\','\\\\').replace('\n','\\n').replace(';','\\;').replace(',','\\,')
+    def stamp(value):return datetime.fromisoformat(value).astimezone(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+    lines=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Yukino Core//Courses//ZH-CN']
+    for event in events:
+        local=datetime.fromisoformat(event['start']).utcoffset()==timedelta(hours=8)
+        def property_time(label,value):
+            return label+';TZID=Asia/Shanghai:'+datetime.fromisoformat(value).astimezone(LOCAL).strftime('%Y%m%dT%H%M%S') if local else label+':'+stamp(value)
+        lines+=['BEGIN:VEVENT','UID:'+escaped(event['uid']),'SUMMARY:'+escaped(event['title']),
+            property_time('DTSTART',event['start']),property_time('DTEND',event['end']),'LOCATION:'+escaped(event['location']),
+            'DESCRIPTION:'+escaped(event['description']),'STATUS:'+event['status']]
+        rule=event.get('rule')
+        if rule:
+            parts=['FREQ=WEEKLY','INTERVAL='+str(rule['interval']),'BYDAY='+','.join(next(k for k,v in DAYS.items() if v==d) for d in rule['days'])]
+            if rule.get('count') is not None:parts.append('COUNT='+str(rule['count']))
+            if rule.get('until'):parts.append('UNTIL='+stamp(rule['until']))
+            lines.append('RRULE:'+';'.join(parts))
+        if event['excluded']:lines.append('EXDATE:'+','.join(stamp(value) for value in event['excluded']))
+        lines.append('END:VEVENT')
+    folded=[]
+    for line in lines+['END:VCALENDAR']:
+        part='';size=0
+        for char in line:
+            length=len(char.encode('utf-8'))
+            if size+length>75:folded.append(part);part=' ';size=1
+            part+=char;size+=length
+        folded.append(part)
+    return '\r\n'.join(folded)+'\r\n'
+
+
 def handle(text,context):
     if not isinstance(text,str) or not text.strip() or text.strip().split()[0]!='/课表': return None
     db=None
@@ -258,6 +288,21 @@ def handle(text,context):
             db.execute('UPDATE calendars SET active=0 WHERE scope=? AND user=?',(scope,user)); db.execute('UPDATE calendars SET active=1 WHERE id=?',(identifier,)); db.commit(); return f'课表已恢复至版本#{identifier}，旧版本保留。'
         if action=='清空':
             need(not tail,'清空只作用于本人的当前课表，不接受其他参数。'); db.execute('UPDATE calendars SET active=0 WHERE scope=? AND user=? AND active=1',(scope,user)); db.commit(); return '当前课表已归档，历史版本保留；不会主动提醒。'
+        if action in ('导出','本周'):
+            need(not tail,'导出或本周不接受其他参数。')
+            row=db.execute('SELECT body FROM calendars WHERE scope=? AND user=? AND active=1',(scope,user)).fetchone();db.rollback()
+            if not row:return '尚未导入本会话的个人课表。'
+            items=json.loads(row[0])
+            if action=='导出':
+                content=export_ics(items)
+                return {'version':1,'text':'已导出当前个人课表，可导入手机或电脑日历。','media':[{'type':'file','name':'我的课表.ics','text':content}]} if context.get('rich_result_version') else content
+            today=datetime.now(LOCAL).date();monday=today-timedelta(days=today.weekday());lines=['本周课表 · UTC+8']
+            for offset in range(7):
+                day=monday+timedelta(days=offset);entries=occurrences_on(items,day)
+                lines.append(day.strftime('%m-%d')+' '+('一二三四五六日'[offset]))
+                lines.extend(begin.strftime('%H:%M')+'–'+end.strftime('%H:%M')+' '+ev['title']+(' @'+ev['location'] if ev['location'] else '') for begin,end,ev in entries)
+                if not entries:lines.append('无课程')
+            return '\n'.join(lines)
         need(not tail,'用法：/课表 今天、明天或YYYY-MM-DD；其它操作见帮助。')
         now=datetime.now(LOCAL).date(); day=now if action in ('','今天') else now+timedelta(days=1) if action=='明天' else parse_day(action)
         row=db.execute('SELECT body FROM calendars WHERE scope=? AND user=? AND active=1',(scope,user)).fetchone(); db.rollback()

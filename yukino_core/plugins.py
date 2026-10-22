@@ -9,6 +9,8 @@ import time
 from pathlib import Path
 from urllib.parse import urlsplit
 from .notice_plugins import NOTICE_PLUGINS, NOTICE_FIELDS, validate_notice_setting
+from .plugin_results import validate_result, music_intent
+from . import __version__
 
 MAX_EXTERNAL_PLUGINS = 128
 MAX_MANIFEST_BYTES = 1_048_576
@@ -31,6 +33,8 @@ BUILTINS += NOTICE_PLUGINS
 COMMON_FIELDS = [dict(key='timeout', type='number', label='执行超时（秒）', min=0.2, max=60, default=2),
                  dict(key='input_max_chars', type='integer', label='输入字符上限', min=100, max=8000, default=4000),
                  dict(key='output_max_chars', type='integer', label='输出字符上限', min=100, max=8000, default=4000)]
+OUTPUT_FIELDS = [dict(key='output_mode',type='string',label='结果展示方式',default='auto',options=['auto','text','card'],description='自动按功能发送图片或结果卡；音频和文件保留实际内容'),
+                 dict(key='export_result',type='boolean',label='长结果与数据工具附带可下载文件',default=True)]
 BUILTIN_FIELDS = {
  'emoji_collector':[
     dict(key='auto_collect',type='boolean',label='自动收集聊天中的表情',default=True),
@@ -108,6 +112,8 @@ class PluginManager:
                     if paths: record["auto_url_paths"] = dict(paths)
                     if item.get("silent_ack"): record["silent_ack"] = True
                     if isinstance(item.get('config_schema'), list): record['config_schema'] = item['config_schema'][:30]
+                    for field in ('version','minimum_core_version','result_protocol'):
+                        if field in item:record[field]=item[field]
                     self.items.append(record)
             except (OSError, ValueError, TypeError): self.manifest_error = "外部插件清单无效，内置功能仍可使用"
         self.workers, self.locks, self.errors = {}, {}, {}
@@ -149,6 +155,10 @@ class PluginManager:
         command = aliases.get(command, command)
         for item in self.items:
             if command in item["commands"]: return item, command
+        explicit_music = music_intent(text)
+        if explicit_music:
+            item=next((i for i in self.items if i['id']=='music_search' and self.enabled(i['id'])),None)
+            if item:return item,'@music'
         # Exact host matching only; URL text cannot supply a regex, credentials or port.
         links = []
         for value in re.findall(r"""https?://[^\s<>\[\]()"']+""", text[:4000], re.I):
@@ -168,6 +178,7 @@ class PluginManager:
         item = next((i for i in self.items if i['id'] == name), None)
         if item is None: raise ValueError('插件不存在')
         fields = [dict(f) for f in BUILTIN_FIELDS.get(name, [])]
+        fields.extend(dict(f) for f in OUTPUT_FIELDS)
         if 'worker' in item: fields.extend(dict(f) for f in COMMON_FIELDS)
         if item.get('auto_url_hosts'):
             fields.append(dict(key='auto_parse', type='boolean', label='自动解析聊天中的匹配链接', default=True))
@@ -205,10 +216,11 @@ class PluginManager:
                     rules=json.loads(value)
                     if not isinstance(rules,list) or len(rules)>50:raise ValueError()
                     for rule in rules:
-                        if (not isinstance(rule,dict) or set(rule)-{'key','reply','mode'} or not isinstance(rule.get('key'),str)
+                        if (not isinstance(rule,dict) or set(rule)-{'key','reply','mode','media'} or not isinstance(rule.get('key'),str)
                             or not 1<=len(rule['key'])<=80 or any(ord(c)<32 for c in rule['key'])
                             or not isinstance(rule.get('reply'),str) or not 1<=len(rule['reply'])<=800
                             or rule.get('mode','exact') not in ('exact','contains')):raise ValueError()
+                        if 'media' in rule:validate_result({'version':1,'text':rule['reply'],'media':rule['media']})
                 except (ValueError,TypeError):raise ValueError('规则须为最多50条含key/reply/mode的JSON数组。') from None
             clean[key]=value
         return clean
@@ -261,7 +273,8 @@ class PluginManager:
         timeout=configured_timeout if timeout is None else min(timeout,configured_timeout)
         text=text[:min(values.get('input_max_chars',4000),getattr(self.config,'data',{}).get('command_max_chars',4000))]
         context={**context,'settings':values, 'self_id':getattr(self.config,'self_id',''),
-                 'owner_ids':getattr(self.config,'owner_ids',[getattr(self.config,'owner_id','')])}
+                 'owner_ids':getattr(self.config,'owner_ids',[getattr(self.config,'owner_id','')]),'rich_result_version':1}
+        if item['id']=='music_search':text=music_intent(text) or text
         if 'worker' in item:
             try:
                 # Never accept a state path from a caller or a chat message.
@@ -298,7 +311,7 @@ class PluginManager:
                         if not path.is_relative_to(self.root.resolve()): raise ValueError("path")
                         proc = await asyncio.create_subprocess_exec(sys.executable, "-X", "utf8", "-m", "yukino_core.plugin_worker", str(path),
                             stdin=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.DEVNULL,
-                            limit=32768)
+                            limit=131072)
                         self.workers[name] = proc
                         ready = json.loads(await asyncio.wait_for(proc.stdout.readline(), timeout))
                         if ready.get("ready") is not True: raise ValueError("not ready")
@@ -308,10 +321,10 @@ class PluginManager:
                 result = json.loads(await asyncio.wait_for(proc.stdout.readline(), timeout))
                 if "error" in result: raise ValueError("plugin failed")
                 value = result.get("text")
-                if value is not None and not isinstance(value, str): raise ValueError("invalid reply")
+                value=validate_result(value,self.settings(name).get('output_max_chars',4000))
                 self.errors.pop(name, None)
                 self.worker_used[name]=time.monotonic()
-                return value[:self.settings(name).get('output_max_chars',4000)] if value else None
+                return value
             except (Exception, asyncio.CancelledError) as e:
                 await self._kill(name)
                 self.errors[name] = "插件执行失败或超时"

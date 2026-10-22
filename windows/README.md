@@ -25,7 +25,7 @@
 
 ## 插件
 
-0.6.4 Windows build 1 内置 17 个原生功能，并附带 119 个普通进程插件（社区 11 个、麦麦功能参考 15 个、实用扩展 63 个、第二批市场功能参考 8 个、互动扩展 12 个、新增社交解谜与查询 10 个），新实例共 136 项。新增“偷表情包”，用法见 `app/docs/EMOJI_COLLECTOR.md`；热榜只输出标题。119 个外部插件首次启动安装并启用，原生群通知中除戳一戳以外的五项默认关闭。它们使用同一份 Yukino 源码，不等于支持直接安装麦麦 SDK 插件。每个 ZIP、SHA-256 和推荐参数保存在 `plugin-packages`；插件运行期间仍受内核 worker 数量限制，默认 8 个。
+0.7.0 Windows build 1 内置 17 个原生功能，并附带 119 个普通进程插件（社区 11 个、麦麦功能参考 15 个、实用扩展 63 个、第二批市场功能参考 8 个、互动扩展 12 个、新增社交解谜与查询 10 个），新实例共 136 项。新增“偷表情包”，用法见 `app/docs/EMOJI_COLLECTOR.md`；热榜只输出标题。119 个外部插件首次启动安装并启用，原生群通知中除戳一戳以外的五项默认关闭。它们使用同一份 Yukino 源码，不等于支持直接安装麦麦 SDK 插件。每个 ZIP、SHA-256 和推荐参数保存在 `plugin-packages`；插件运行期间仍受内核 worker 数量限制，默认 8 个。
 
 各插件的完整说明可直接在根目录 `plugin-help` 中阅读，无需逐个解压安装ZIP。
 
@@ -59,7 +59,7 @@ python extensions/expansion_pack/build_pack.py --output ./dist/expansion-pack
 python extensions/market2_pack/build_pack.py --output ./dist/market2-pack
 python extensions/interaction_pack/build_pack.py --output ./dist/interaction-pack
 python extensions/social_pack/build_pack.py --output ./dist/social-pack
-python windows/build_windows.py --core-source ./dist/source/yukino-core-0.6.4-source.zip --cache ./windows-cache --plugins ./dist/community-pack --plugins ./dist/mai-pack --plugins ./dist/expansion-pack --plugins ./dist/market2-pack --plugins ./dist/interaction-pack --plugins ./dist/social-pack --build-number 1 --output ./dist/windows-064
+python windows/build_windows.py --core-source ./dist/source/yukino-core-0.7.0-source.zip --cache ./windows-cache --plugins ./dist/community-pack --plugins ./dist/mai-pack --plugins ./dist/expansion-pack --plugins ./dist/market2-pack --plugins ./dist/interaction-pack --plugins ./dist/social-pack --build-number 1 --output ./dist/windows-070
 ```
 
 0.6.0包含戳一戳等六项原生通知互动，具体开关在「插件管理 → 配置参数」，见应用目录`app/docs/NOTICE_INTERACTIONS.md`。通用新实例默认仅开启戳一戳，其他五类群通知可分别开启；只有平台连接和QQ接收已配置并启用后，真实事件才会进入内核。
@@ -69,3 +69,5 @@ python windows/build_windows.py --core-source ./dist/source/yukino-core-0.6.4-so
 六个插件目录均须含构建后生成的 `pack-manifest.json` 和对应ZIP。核心源码ZIP使用项目白名单发行工具生成。使用已保存的 dependency-lock.json 及其校验值恢复相同缓存，不要用浮动的新依赖冒充同一构建。
 
 
+
+0.7.0 的媒体结果、音频和文件说明见 `app/docs/RICH_PLUGIN_OUTPUTS.md`。未安装FFmpeg时仍可收到和播放原音频文件；语音片段需要PATH中的FFmpeg。

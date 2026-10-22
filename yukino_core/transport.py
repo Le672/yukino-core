@@ -503,7 +503,7 @@ class OneBotClient:
                 # raised first, avoiding an unobserved Future exception.
                 pending.future.exception()
 
-    async def send_message(self, message_type: str, target_id: str, segments: list[dict[str, Any]]) -> Any:
+    async def send_message(self, message_type: str, target_id: str, segments: list[dict[str, Any]], timeout=None) -> Any:
         if message_type not in ("private", "group"):
             raise OneBotError("Message type must be private or group", code="invalid_target")
         if not _id(target_id):
@@ -515,5 +515,5 @@ class OneBotClient:
                 raise OneBotError("Invalid OneBot message segment", code="invalid_message")
         target_key = "group_id" if message_type == "group" else "user_id"
         return await self.call(
-            f"send_{message_type}_msg", {target_key: _id(target_id), "message": segments}
+            f"send_{message_type}_msg", {target_key: _id(target_id), "message": segments}, timeout=timeout
         )

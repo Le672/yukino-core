@@ -1,7 +1,7 @@
 {
   "format": 1,
   "project": "yukino-core",
-  "version": "0.6.3",
+  "version": "0.7.0",
   "artifact": "source",
   "entries": [
     {
@@ -36,13 +36,13 @@
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 6231,
-      "sha256": "9ad1f21a0ee0876784ce31981cd727f1a7e54675b39cbfa5b5b748b7a56c611f"
+      "bytes": 7684,
+      "sha256": "6361082e2b61b929a6e42fbe51dc052c4acd672db4d66903bfda35e5037099d4"
     },
     {
       "path": "Dockerfile",
-      "bytes": 453,
-      "sha256": "8894caa054151d2fd29411e7674082a58aa4bd9c1316f03e92401e7a1a18fa05"
+      "bytes": 589,
+      "sha256": "9f54aa2b456c473f98a926c7942215ff5674575fc21aae2800b89e7839f3d30e"
     },
     {
       "path": "LICENSE",
@@ -51,8 +51,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 8849,
-      "sha256": "f5001918708680f8fb04d84e07b825507b810d92eda3b2b0a25e7d9e33e134c4"
+      "bytes": 9082,
+      "sha256": "814960fd51e97560f500c4521e5451489d50e97c875b5f614baf9f911ad575c5"
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
@@ -83,6 +83,11 @@
       "path": "docs/CONFIGURATION.md",
       "bytes": 4590,
       "sha256": "b31295f65493d24ca8ca70c535196a52c87a079043ffb070ecc80689037a92b0"
+    },
+    {
+      "path": "docs/EMOJI_COLLECTOR.md",
+      "bytes": 2566,
+      "sha256": "364f4430cac119e9a6d73eb8ff28db0d32c49be69350a8fd5274b21e72e55466"
     },
     {
       "path": "docs/EXPANSION_PLUGINS.md",
@@ -121,8 +126,13 @@
     },
     {
       "path": "docs/PLUGIN_AUTHORING.md",
-      "bytes": 25790,
-      "sha256": "10354c5d8385c4dfafbf716ae3f0bd3d89c95e3dd4786a3155fd3469622ed245"
+      "bytes": 25909,
+      "sha256": "a7ce4ae22786d809a5b956408ca530aed5ff6adaa5ac6483fd295efcb5475ae4"
+    },
+    {
+      "path": "docs/PLUGIN_OUTPUT_MATRIX.md",
+      "bytes": 17715,
+      "sha256": "1209229b8e83b535d7b3f05359680f91a6ed9da72751a9b10f92a62907a98c9b"
     },
     {
       "path": "docs/QUICKSTART.md",
@@ -133,6 +143,11 @@
       "path": "docs/RELEASE.md",
       "bytes": 3523,
       "sha256": "0255a31516871773d65d91063f3c939f67d70cfcea2fcc7876a19a0a4a09cd02"
+    },
+    {
+      "path": "docs/RICH_PLUGIN_OUTPUTS.md",
+      "bytes": 4958,
+      "sha256": "9c115aa817e97f9b662cda831617f2a6e3bda98f32e4b5d1fba0c7955b7bba2a"
     },
     {
       "path": "docs/licenses/Pillow-LICENSE.txt",
@@ -201,8 +216,8 @@
     },
     {
       "path": "extensions/community_pack/README.md",
-      "bytes": 1915,
-      "sha256": "f19f7d9cab632868c0d79a1925eaf5832009006545307fabdbb1cbbba90db957"
+      "bytes": 2111,
+      "sha256": "59f9b6313d5b783cd321bbc955f943dc945a5d960d915296b9155bdd1832d667"
     },
     {
       "path": "extensions/community_pack/SOURCES.md",
@@ -211,8 +226,8 @@
     },
     {
       "path": "extensions/community_pack/build_pack.py",
-      "bytes": 5192,
-      "sha256": "f633f76dc744c0e41650aa43131e7341f4a814fc64d5062fb8fb19d17628165c"
+      "bytes": 5309,
+      "sha256": "10ba78ea451dc6f364d8fc84fee7333a121fa1c056d19fb58d45a249364277b9"
     },
     {
       "path": "extensions/community_pack/plugins/affinity/LICENSE",
@@ -226,8 +241,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/affinity/plugin.json",
-      "bytes": 1081,
-      "sha256": "34c904e9eb070b7fe1580faa6a4fad22fae94073c6f71ea611b2abe09fb5b530"
+      "bytes": 1140,
+      "sha256": "f03ede44410c7a8a32bced23937cd6603125d417d18db775c0b619e9c5f773a7"
     },
     {
       "path": "extensions/community_pack/plugins/affinity/worker.py",
@@ -246,13 +261,13 @@
     },
     {
       "path": "extensions/community_pack/plugins/bili_query/plugin.json",
-      "bytes": 419,
-      "sha256": "d9c60cc0a9d23379a355073c2d94adf9ab59d5512ff7a41b9a7053c110cbf676"
+      "bytes": 478,
+      "sha256": "921dcdf0efc22bf45382946de51f3a7a6a68b89d1506a25e178e68dfbcf24f28"
     },
     {
       "path": "extensions/community_pack/plugins/bili_query/worker.py",
-      "bytes": 2918,
-      "sha256": "504d97916dfa47ba165df1fe42ac06aeb17e677d22c4929a0499a7d572ba3641"
+      "bytes": 3853,
+      "sha256": "a81239e697ee4a7f31e63087222593fcd5a9361927ccc3ed410ccc1974724a55"
     },
     {
       "path": "extensions/community_pack/plugins/daily_economy/LICENSE",
@@ -266,8 +281,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/daily_economy/plugin.json",
-      "bytes": 1359,
-      "sha256": "fe7929a003f648ccb077855bb4835c3ee8f4afff6d7513613929b186a4514d1e"
+      "bytes": 1418,
+      "sha256": "e4a04392e60a46be578537ea3cb8d1d4b86c65126b204fce34adf5f8b02fc317"
     },
     {
       "path": "extensions/community_pack/plugins/daily_economy/worker.py",
@@ -286,8 +301,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/eat_what/plugin.json",
-      "bytes": 742,
-      "sha256": "28a5942090f8889ac43959388ed4fe4a7e4e527df28498270a06ea0f21009f9c"
+      "bytes": 801,
+      "sha256": "7a13a01e802ce41950d9163e9cb1743217d9cdec0ee25a0fd6c6dd6ab3778926"
     },
     {
       "path": "extensions/community_pack/plugins/eat_what/worker.py",
@@ -296,8 +311,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/hot_trends/README.md",
-      "bytes": 1339,
-      "sha256": "84a2d0c718c4c670447c2cb22f79f72cf675d454648078e250c83410873b2dab"
+      "bytes": 1336,
+      "sha256": "dc8bb076db8d949d97f28af626db00fc250e8dbb5ba42163125f42d7af96dc8c"
     },
     {
       "path": "extensions/community_pack/plugins/hot_trends/_net.py",
@@ -306,13 +321,13 @@
     },
     {
       "path": "extensions/community_pack/plugins/hot_trends/plugin.json",
-      "bytes": 580,
-      "sha256": "77ae583ae0a90cf6a0d800059bc552124f386d82c3d9737791d56ca5b650d908"
+      "bytes": 657,
+      "sha256": "e3b2b88f1a200b9a9acd6472ebc6b4e472809f5f4396e8a27129df2b303e1b2e"
     },
     {
       "path": "extensions/community_pack/plugins/hot_trends/worker.py",
-      "bytes": 2533,
-      "sha256": "22f412b48f0de6d9f180ee72a48dc82d469f4714bf1719acfdaf34769136645f"
+      "bytes": 1962,
+      "sha256": "31ada0745604bba84db66006194518b74cbba09e69a32a1362c9132af172a54e"
     },
     {
       "path": "extensions/community_pack/plugins/mc_status/README.md",
@@ -326,13 +341,13 @@
     },
     {
       "path": "extensions/community_pack/plugins/mc_status/plugin.json",
-      "bytes": 227,
-      "sha256": "3a2c3fbd4c4dd9f19af92333f377fb052dbdd642adedae82461162e7f3fe02fc"
+      "bytes": 286,
+      "sha256": "dac0d9e81eebcbecf01ab5045ed43e4db67612340f47a5ec8195ea3c7546c59d"
     },
     {
       "path": "extensions/community_pack/plugins/mc_status/worker.py",
-      "bytes": 3504,
-      "sha256": "59429ce91665131be155627dc0290c00c8acaabc822d2cf2dc97e0df81eb2a16"
+      "bytes": 3800,
+      "sha256": "0c8c96e80eeb834dc9a9e58b177ea43cb15ad7478537b02a3c63e39a35c454d7"
     },
     {
       "path": "extensions/community_pack/plugins/member_aliases/LICENSE",
@@ -346,8 +361,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/member_aliases/plugin.json",
-      "bytes": 424,
-      "sha256": "35759883b3ba659b8b6f5ff09a9642694b646f20d65f719fe040a6ea8e69e8d0"
+      "bytes": 483,
+      "sha256": "c8c70e7ee9f4c714b07451651ccfe16254f2d01bae4a7a4fa254b4433d2bf4cf"
     },
     {
       "path": "extensions/community_pack/plugins/member_aliases/worker.py",
@@ -366,13 +381,13 @@
     },
     {
       "path": "extensions/community_pack/plugins/music_search/plugin.json",
-      "bytes": 376,
-      "sha256": "fc14720ae448cc6553742e3ab86d86ed99763da71ce1b587746fced1be0a8a2c"
+      "bytes": 1364,
+      "sha256": "43c1ecdc92e3abe1249f41597ba5199828c37aa3560ab9bb3eb1c7b413acc6f5"
     },
     {
       "path": "extensions/community_pack/plugins/music_search/worker.py",
-      "bytes": 1964,
-      "sha256": "925dd14cd8a86ecb3fe9c9a2b470c23ffb968541e98fd06177339be110b3254c"
+      "bytes": 6711,
+      "sha256": "651c5de7d86d73f14f0a376e2c7d6dfeca405c1d11baad8f20cc40d8e61f7c1d"
     },
     {
       "path": "extensions/community_pack/plugins/steam_query/README.md",
@@ -386,13 +401,13 @@
     },
     {
       "path": "extensions/community_pack/plugins/steam_query/plugin.json",
-      "bytes": 546,
-      "sha256": "7ac5bff05f24473bc1d40d049346b2322ec00e1f832aba677e44d747effa2b6d"
+      "bytes": 605,
+      "sha256": "27a560dbdfa4a72119661eea31601a5bca77b13bed7c6c54c334dfd2f8ea76c3"
     },
     {
       "path": "extensions/community_pack/plugins/steam_query/worker.py",
-      "bytes": 3034,
-      "sha256": "077ea1fbae54e7c1cc233b9a33ef41281f44abab952885946cc8c51ae489b9ed"
+      "bytes": 3471,
+      "sha256": "05943ce4224ef248e2dabf087f79002fc36d4f2eb838a6460bf9b0a5a8efb0c8"
     },
     {
       "path": "extensions/community_pack/plugins/trpg_dice/LICENSE",
@@ -406,8 +421,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/trpg_dice/plugin.json",
-      "bytes": 615,
-      "sha256": "1cf57592b3e7590def154fe90703a2f44defa6fa051332933e035b7f5b9512c3"
+      "bytes": 674,
+      "sha256": "cdc0e5c55efa1436a2bd23542b60b1a9e1101f7f00e4fda209cf41c0c9dc8345"
     },
     {
       "path": "extensions/community_pack/plugins/trpg_dice/worker.py",
@@ -426,8 +441,8 @@
     },
     {
       "path": "extensions/community_pack/plugins/weather_query/plugin.json",
-      "bytes": 535,
-      "sha256": "f234eb621e99dae778910d7582782a8d1863f7c1e87e73ff2c284fd39c2da21d"
+      "bytes": 594,
+      "sha256": "fa6aa0bd4c44f740bf190a841e89d9e545611fb3a3d6e718f00caf9adf0773f3"
     },
     {
       "path": "extensions/community_pack/plugins/weather_query/worker.py",
@@ -436,8 +451,8 @@
     },
     {
       "path": "extensions/community_pack/tests/test_network_plugins.py",
-      "bytes": 20711,
-      "sha256": "fa4491e631762da055b2cba534f20f4d934fdab343bc5ef88f4535c7e25a175d"
+      "bytes": 21376,
+      "sha256": "b4c1b682e9b1aa7eefb738043af293467d43f01414301f557cc137b02a72cf3d"
     },
     {
       "path": "extensions/community_pack/tests/test_offline_plugins.py",
@@ -446,8 +461,8 @@
     },
     {
       "path": "extensions/expansion_pack/README.md",
-      "bytes": 2642,
-      "sha256": "961c6817fa9f8d1282f01e5dda600b844ccaf350e4727c3538642c582067f5e4"
+      "bytes": 2784,
+      "sha256": "b42ccd8c325b2d3643495ff7233f9e698df6f26152526995c677a9423a939322"
     },
     {
       "path": "extensions/expansion_pack/SOURCES.md",
@@ -457,7 +472,7 @@
     {
       "path": "extensions/expansion_pack/build_pack.py",
       "bytes": 6087,
-      "sha256": "a7f859d4183208649bf77181d5685240af80c79edd6b2ada3e492e0b4a3caebe"
+      "sha256": "4c03f356c8e0f69ea37f6aaee2dcde2064dde0105c2ddeb46b27578f122b8687"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/README.md",
@@ -486,8 +501,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_color/plugin.json",
-      "bytes": 441,
-      "sha256": "e2f87dd32ea8d95463afbc56eb8779ac5401a7279d662900b7e4e04a3889df31"
+      "bytes": 500,
+      "sha256": "79064db6cef358c2033bdd01b7d79994532daa85da7b2733baa045c3a48b8886"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_color/worker.py",
@@ -501,8 +516,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_cron/plugin.json",
-      "bytes": 939,
-      "sha256": "6a9b42955cdbb6c0c9bbb730d7431ddd83a2fc1964d8f5af467c817ab022ca4a"
+      "bytes": 998,
+      "sha256": "ddd2d9c30703b1c5728063d62c996318a066b706e9e747a1acdf40756d7d7a0d"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_cron/worker.py",
@@ -516,8 +531,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_csv/plugin.json",
-      "bytes": 693,
-      "sha256": "35a89fde5e87c354c3718bf186829f69628f864676c42ac5dd0df8c6a72ac49f"
+      "bytes": 752,
+      "sha256": "a920608ffe4750bb9a69fc3718a8643ac4fa4d13dfd27505b53327564029c31a"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_csv/worker.py",
@@ -531,8 +546,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_decimal/plugin.json",
-      "bytes": 587,
-      "sha256": "e62721e3b31a6051c16edab771bd8cc4c1753a61099e375058d025c5cc764ddd"
+      "bytes": 646,
+      "sha256": "c3d9051b8127d6199d787d9998814698cb533e626141690600d7e7ab2e7b611e"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_decimal/worker.py",
@@ -546,8 +561,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_diff/plugin.json",
-      "bytes": 588,
-      "sha256": "e16414b8b0b04dfe8b1139d64a37b7340cb5d51338638cebdbeb4a9d45e16279"
+      "bytes": 647,
+      "sha256": "4fd9250a59012a6fdd819218a328e39c858deeb6695fa3480ef6331cedca970e"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_diff/worker.py",
@@ -561,8 +576,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_epoch/plugin.json",
-      "bytes": 614,
-      "sha256": "08b0d6dffa6dfcb5a1a05e7d96505b98d721d841e7ab4d201caef7c63000516c"
+      "bytes": 673,
+      "sha256": "fc7ad9b29bc3649be99eb66f19e10d3ca0d3f59b1b629c32206884ae1122fbe4"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_epoch/worker.py",
@@ -576,8 +591,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_http/plugin.json",
-      "bytes": 428,
-      "sha256": "16e744086d879e0fe4c5d31dd7d559519f4eff41d87b5437a70200c21262b345"
+      "bytes": 487,
+      "sha256": "e6280d89aa8f8d69d613be50bbd22037aab57c05725a2267252a6fd8f9198354"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_http/worker.py",
@@ -591,8 +606,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_ip/plugin.json",
-      "bytes": 416,
-      "sha256": "43273bd79dd7d82b4bb08bdcb843b2072779eeb0fcea7cca34db4bd5c3267eca"
+      "bytes": 475,
+      "sha256": "ba106efe94fff6b763056513be9d77177ec36226815de9f698e876c5bf50a44a"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_ip/worker.py",
@@ -606,8 +621,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_json/plugin.json",
-      "bytes": 600,
-      "sha256": "cb282eb9d5baf96a0b602c6dcbb630ea0914ab7a1fcc643fbc06e7c54513dc88"
+      "bytes": 659,
+      "sha256": "58b1e399edde66fc00d171de4291ca1604ed5c7a4aa799e1939cb74a06e991c8"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_json/worker.py",
@@ -621,8 +636,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_markdown/plugin.json",
-      "bytes": 600,
-      "sha256": "b6171d8482b1c71103f1ce6fcf2be76fb90a0a6180ce9bba184924e6bb5670bf"
+      "bytes": 659,
+      "sha256": "d265211e639b22eb88cfcb35a4db898ba7b9a2db4de0d63a28ff9fde71258fc5"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_markdown/worker.py",
@@ -636,8 +651,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_matrix/plugin.json",
-      "bytes": 412,
-      "sha256": "e3daaebcce8187583ac291175c71b120e4f27f28f0b4aabfddceb97c5d9747b6"
+      "bytes": 471,
+      "sha256": "60271e205500e7a4f8d24d1e547df87455024eef23f1faaf47a936bb5d36e9bd"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_matrix/worker.py",
@@ -651,8 +666,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_polynomial/plugin.json",
-      "bytes": 437,
-      "sha256": "b68091f5f08b6c611b3549e5fcb2341584ea43a50e0786f28efefce07c3d7a1f"
+      "bytes": 496,
+      "sha256": "bd775c52f38c2018e85b099ef96dbc64728ff38009b88b147e744b9cf3cde732"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_polynomial/worker.py",
@@ -666,8 +681,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_probability/plugin.json",
-      "bytes": 432,
-      "sha256": "1c4014ffa29d56b7868875e596fcdb06709f41379e514a609570be51ae03824b"
+      "bytes": 491,
+      "sha256": "66a0b237ab48fed1b2c20e75d31cb0072571dfb733a9ccf11f69413f2f2a018d"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_probability/worker.py",
@@ -681,8 +696,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_radix/plugin.json",
-      "bytes": 417,
-      "sha256": "4ca15f8f86612a38ea808abf72ab2c762a7cb89b34695df0671cf64b0dd4edb5"
+      "bytes": 476,
+      "sha256": "d3d1e23be9a12699cde9d7d9ee57ddb65da9cefa68e2cfc269f22389bc884043"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_radix/worker.py",
@@ -696,8 +711,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_regex/plugin.json",
-      "bytes": 889,
-      "sha256": "fbce11e32d05b14145ef7b7598790cc31e0396a6f429a7dbd79ac1017cd06b0d"
+      "bytes": 948,
+      "sha256": "64ea678b7f596309d2fa74b2f7800521779a9458bb795766af9336bf43f1728d"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_regex/worker.py",
@@ -711,8 +726,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_semver/plugin.json",
-      "bytes": 430,
-      "sha256": "2cc79d15d8c35b38a68e850684bedc6a024c6b10d01fbd2f13ad0f3287670fe3"
+      "bytes": 489,
+      "sha256": "b9ccf0ba7bb5f953507d180216bf70635f776b6fbfa5fa4fd4053b1d0852b766"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_semver/worker.py",
@@ -726,8 +741,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_stats/plugin.json",
-      "bytes": 424,
-      "sha256": "715234ef8a415bdb3e804511f5d8b2dc30011983f3aa171f4aa4ae4d5e652dbb"
+      "bytes": 483,
+      "sha256": "1068fe6abaee5f497e80430464dbd156647c37eebf8b46c64ebc71f97eb60eee"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_stats/worker.py",
@@ -741,8 +756,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_unicode/plugin.json",
-      "bytes": 619,
-      "sha256": "4ff1027022e7c9d05b71bd76d0bc7b502f6a1d75440e4e14d7bbe73da2ff2933"
+      "bytes": 678,
+      "sha256": "cc71b5b0e1788a94188aaff9c65f2630c4d4f76d0da63e78219a012da8b78154"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_unicode/worker.py",
@@ -756,8 +771,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_units/plugin.json",
-      "bytes": 583,
-      "sha256": "aa587b120e17bcda5b221f0914600cfdd8225ce0daa2b019272a94014097fa7d"
+      "bytes": 642,
+      "sha256": "3885120bf50641fd1039afb79e35b80872d19685a1a1dc0599daaeaf2dd3f7f3"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_units/worker.py",
@@ -771,8 +786,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_url/plugin.json",
-      "bytes": 454,
-      "sha256": "e7b6547e3b185a97a02b5a505f97da008c755d2a3e6586809951fa17f6b3ce05"
+      "bytes": 513,
+      "sha256": "47ff63e8d3da42792aa1e9e33dc1163cfcf3f51c9134354f10a87956741457e4"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_url/worker.py",
@@ -786,8 +801,8 @@
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_uuid/plugin.json",
-      "bytes": 583,
-      "sha256": "72e332e2b9a2dfa9b63c42aca210c2e7a3a108c4031ec3bd3cdffcf9eca70c0e"
+      "bytes": 642,
+      "sha256": "0621bffbddcb0659dd2dcbe437da95d768c45fbad08a6faaa0ca802ba829e866"
     },
     {
       "path": "extensions/expansion_pack/dev_tools/plugins/x_uuid/worker.py",
@@ -797,7 +812,7 @@
     {
       "path": "extensions/expansion_pack/dev_tools/tests/test_dev_tools.py",
       "bytes": 15206,
-      "sha256": "b0b7ff5330ffabbcb838650f7b6191fbba0ccd130948f0945d110144af7d4681"
+      "sha256": "445b2d3cdf6b6fd1608a5dd8e473f4fa44924244ac8a0dac0007971fa39c95ef"
     },
     {
       "path": "extensions/expansion_pack/games/README.md",
@@ -841,8 +856,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_2048/plugin.json",
-      "bytes": 634,
-      "sha256": "24c0962e6efb62ebf3bff15759cefc18b0313c5ab49d01877bb60fa4cefefc0d"
+      "bytes": 693,
+      "sha256": "95d24b6b27f741313765c70cc43274b30b5d8258eb6de3ca4f95dbeefef2086f"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_2048/worker.py",
@@ -856,8 +871,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_anagram/plugin.json",
-      "bytes": 722,
-      "sha256": "7a6816649e939750f0693a9d4b0c553a6edcc05e921343eb0dea67090c6e7b2a"
+      "bytes": 781,
+      "sha256": "6a2a11ac3984a02f97cec6ee26c7602085302c3d863838f1940572d921b1d3e4"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_anagram/worker.py",
@@ -871,8 +886,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_arithmetic/plugin.json",
-      "bytes": 734,
-      "sha256": "8cc9a6ee300712ba382df802099f09be6178d4149ec4d5aa063999ce705b8229"
+      "bytes": 793,
+      "sha256": "1f28d394730a7549d6677a2a71085e9d435a6a33312742840404117a06da0724"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_arithmetic/worker.py",
@@ -886,8 +901,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_battleship/plugin.json",
-      "bytes": 577,
-      "sha256": "9a3bda136eeb62a15b096e1fca656a3542c6a6ac527f39cf8bb6c1776ba1fa59"
+      "bytes": 636,
+      "sha256": "f005a2ea0f8b32db508cf3f073d9b6d06f1712bc73f5cc42869136fff6815c61"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_battleship/worker.py",
@@ -901,8 +916,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_connect4/plugin.json",
-      "bytes": 349,
-      "sha256": "6addbe59b971dbbca28b6099b76ae5655a59ef5a466cb9ddf77a482e09f47d40"
+      "bytes": 408,
+      "sha256": "afc7ad8de0d90cc1a61d6ec241b264d6fb269443296c119d83fc0c043523858c"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_connect4/worker.py",
@@ -916,8 +931,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_gomoku/plugin.json",
-      "bytes": 338,
-      "sha256": "ca87848698cc528eede5f1a746c71efcbf87e12a36e40848cd52dca33b6fb371"
+      "bytes": 397,
+      "sha256": "3e5b58c40a9e3bc9fa477a94c523aaeac48a0dd45c9211132fc939d10eda44e7"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_gomoku/worker.py",
@@ -931,8 +946,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_hangman/plugin.json",
-      "bytes": 700,
-      "sha256": "03a50f545acc647c97ccb34d74d38143b7a6d3b22daa31c61c9ca2dd6bf218f0"
+      "bytes": 759,
+      "sha256": "66a7495432bf297f5c304f25165746bc3ed664b956f1b7888b8eb247480ad43a"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_hangman/worker.py",
@@ -946,8 +961,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_highlow/plugin.json",
-      "bytes": 576,
-      "sha256": "6c1efa8e80116cc36ef918f1f01fbb4edd29d386b5319760a902eaf2c5dc3f6f"
+      "bytes": 635,
+      "sha256": "ee4a308c4160997bbe4cdd0df921ba68de3fb3fc5e39805cd1f7c8e633473700"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_highlow/worker.py",
@@ -961,8 +976,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_knight/plugin.json",
-      "bytes": 602,
-      "sha256": "f62f376f031fbb169a24600381a5489a7f85fb5f0322825b6a6e1af179219526"
+      "bytes": 661,
+      "sha256": "763eae61e0b46d99f0b9c4b56f5ef20d3be6c5c1c9a9384acd1474d911127898"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_knight/worker.py",
@@ -976,8 +991,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_lights/plugin.json",
-      "bytes": 610,
-      "sha256": "fc77368235caa03b2495be7af2434de3930d0d017bff943614fd9b9c66f0ff32"
+      "bytes": 669,
+      "sha256": "e153f76dbd443c419c00749d6fa224e55242f78fc6a33ce3f7e21e56db170251"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_lights/worker.py",
@@ -991,8 +1006,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_maze/plugin.json",
-      "bytes": 550,
-      "sha256": "c8d0808deab1ca4d43a7f92eeca9deb9f3102a702a70b355f7b872c379f99019"
+      "bytes": 609,
+      "sha256": "065ecfe685bd8b3bd98963d1b75a40fbe069a22840236bf8b880b800006977da"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_maze/worker.py",
@@ -1006,8 +1021,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_memory/plugin.json",
-      "bytes": 475,
-      "sha256": "b8d23aaa97efaf0ff9224b1883da7ef9929d7df46597b0831d42483ea2c5caea"
+      "bytes": 534,
+      "sha256": "ba487dfcc7e64dd555744ebf7c465e2353aa4f1af2e155150e1132e6934b290b"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_memory/worker.py",
@@ -1021,8 +1036,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_minesweeper/plugin.json",
-      "bytes": 664,
-      "sha256": "289a12215f577fe88bfe4191f06166dabf7959272f5afc91bcc54302dfc6e471"
+      "bytes": 723,
+      "sha256": "6bc86856a6d4045ef1b1240f6958cd16332fa979433e21de0ea8ed0caea511ee"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_minesweeper/worker.py",
@@ -1036,8 +1051,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_reversi/plugin.json",
-      "bytes": 371,
-      "sha256": "a0397f3a47b27acfb0a7c3be0ed803ed167ae543d8af3e75d3c0270548ff3dcc"
+      "bytes": 430,
+      "sha256": "76b7e21a5723eb0c3a25755f695dc42a2d18f57e7688dcc48c32192b6b06ba98"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_reversi/worker.py",
@@ -1051,8 +1066,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_sliding/plugin.json",
-      "bytes": 497,
-      "sha256": "87ccfa6bb8c4692bb9892ea0c189f0aa0c70f488649ff1fbd1ca37ca2391512d"
+      "bytes": 556,
+      "sha256": "817e54c358fa349d214a6713c72d30feb106033c82cad5a1c3ad674d233d3b0f"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_sliding/worker.py",
@@ -1066,8 +1081,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_sokoban/plugin.json",
-      "bytes": 487,
-      "sha256": "6a7db0d924968978ed38b15464f189bb95e339629a18ebbd8f671ca79b54e75c"
+      "bytes": 546,
+      "sha256": "63be816024647d016d3b04594b19b45e63dedb9e0b63ab7b09cd011fabe1655b"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_sokoban/worker.py",
@@ -1081,8 +1096,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_tictactoe/plugin.json",
-      "bytes": 320,
-      "sha256": "15997275ccde1b2ea5338f8ffc5290ffb16ac05444d68b655d62429e63f420c1"
+      "bytes": 379,
+      "sha256": "8f0b832f514eff27258087e477a226e68cf39f0d4f595135ec900c890a14d53b"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_tictactoe/worker.py",
@@ -1096,8 +1111,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_trivia/plugin.json",
-      "bytes": 563,
-      "sha256": "95c7d655a66c1eede1840c801f3efdacc4409d0b6f9320eda504269584974117"
+      "bytes": 622,
+      "sha256": "6f0f0a2f5ed2257d2f79e508ab9d9ad22b69bdd10075feeb63a18f57a81990d5"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_trivia/worker.py",
@@ -1111,8 +1126,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_twentyfour/plugin.json",
-      "bytes": 570,
-      "sha256": "02a057e0930e96fbea49273ca39b20d3a5c85ab4bf5a1c495bd2ac11e426fe44"
+      "bytes": 629,
+      "sha256": "3eac08c3953688205f623e1ee52d52aa6ad15e03ec5c31c60a45140570c86088"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_twentyfour/worker.py",
@@ -1126,8 +1141,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_wordchain/plugin.json",
-      "bytes": 591,
-      "sha256": "9b817fb952e931097be01a90dd649ba2f8963193ea6cb5ac05c7bfb8a57ea4d3"
+      "bytes": 650,
+      "sha256": "4d48a84efb44b57d85f5b0d952ca14e4bf1af7e6ee956f06c0038fd061255675"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_wordchain/worker.py",
@@ -1141,8 +1156,8 @@
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_yahtzee/plugin.json",
-      "bytes": 671,
-      "sha256": "82b205624a07228df2ba11eb4492d0679761eb977cdee6a53cd3c21a4dac40a0"
+      "bytes": 730,
+      "sha256": "3e8127cf562e9157dba3bd7ef4a3e9c8f753670a57a448b017bc9ac73467f9df"
     },
     {
       "path": "extensions/expansion_pack/games/plugins/x_yahtzee/worker.py",
@@ -1191,8 +1206,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_agenda/plugin.json",
-      "bytes": 409,
-      "sha256": "d7d798454b8e037049a61eadbd735f0722635264e91f7049cd41401126353018"
+      "bytes": 468,
+      "sha256": "074d30521d7a1f405d03d0f952f0a553860c4842ce474c5a54c15929194a20da"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_agenda/worker.py",
@@ -1206,8 +1221,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_anniversary/plugin.json",
-      "bytes": 417,
-      "sha256": "fe0e1ce348e441146fb6287d0a51f39e97f78146525e9b1939606ffbce63bc01"
+      "bytes": 476,
+      "sha256": "c7383ce4becfed966a8046aa7146afe070b466dfce96f39f6c05a859cf770752"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_anniversary/worker.py",
@@ -1221,8 +1236,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_bookmarks/plugin.json",
-      "bytes": 412,
-      "sha256": "7473c6538661b8141ccd59156fdbe0a2f835054ec88c618a5b9b4008d782c5cd"
+      "bytes": 471,
+      "sha256": "674d4c9fbb48fbe8e90c387589d2f1064a2f570e211fd5160549869498f4e2bf"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_bookmarks/worker.py",
@@ -1236,8 +1251,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_decision_matrix/plugin.json",
-      "bytes": 421,
-      "sha256": "c3ac20f7a6c44b3b714d2e98eb03b7bdf386fefbcfe8fef466001388ebdbdfdd"
+      "bytes": 480,
+      "sha256": "0dd5df3a6c3feea49a5ed37896999a820a708ea1d982cd6bdbd4698a9c3e19a9"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_decision_matrix/worker.py",
@@ -1251,8 +1266,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_goals/plugin.json",
-      "bytes": 390,
-      "sha256": "5aa7627d8671d13dec3ec0f0d8407ba40e0d1aab90d5eb086ee98be2254945ec"
+      "bytes": 449,
+      "sha256": "8c09f84e81ea077bef5c6140e18d137bb25f56965b341c1679f39feda56782a4"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_goals/worker.py",
@@ -1266,8 +1281,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_habits/plugin.json",
-      "bytes": 406,
-      "sha256": "ed9dfe796e327801212242f2fe2f7e8ebec0931079a064a59b62af8c4aba57c0"
+      "bytes": 465,
+      "sha256": "fb3f78290fbd13c3a09e766d9de3b5f44a1e40df13d66a89338732a0bef64db3"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_habits/worker.py",
@@ -1281,8 +1296,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_inventory/plugin.json",
-      "bytes": 418,
-      "sha256": "9f83127d7899c436986280e78cda7696d9f2d087446c8c45a5f8cbd878571efa"
+      "bytes": 477,
+      "sha256": "5748a13bb65a8fb69a58f66d05c943c58c0c4b2570fa68ce96cf1b590d4f7b61"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_inventory/worker.py",
@@ -1296,8 +1311,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_ledger/plugin.json",
-      "bytes": 403,
-      "sha256": "646d77c52d6a5b92e6157e5b41bfc14ee9758b92c5dfaf54816857d890a169d7"
+      "bytes": 462,
+      "sha256": "ffbe1b91d10fcf0bce96c5e4b002513e6ad73bd026df702adeec82901884da38"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_ledger/worker.py",
@@ -1311,8 +1326,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_packing/plugin.json",
-      "bytes": 410,
-      "sha256": "9bf77ff1c62799458ec46badaeb2148c64261cec2244e3f95236664c3986d46e"
+      "bytes": 469,
+      "sha256": "e9e8968fe8c1332596e4c696bd06ed7822733cf81fb70b494f1a3ac86472334e"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_packing/worker.py",
@@ -1326,8 +1341,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_pomodoro/plugin.json",
-      "bytes": 408,
-      "sha256": "a5fddd68578b80e86f6c0935891464b1669be5fff7a2d2551485bf9c1dc13dd9"
+      "bytes": 467,
+      "sha256": "e1a098806c39319d74562b00fea5049f0eb26d8ffe3f083074ef7b8d3fc03921"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_pomodoro/worker.py",
@@ -1341,8 +1356,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_queue/plugin.json",
-      "bytes": 402,
-      "sha256": "b9fca1beee592fd4a774ce140a79081604adfe7ebc58a9b7ec6a3503b074548e"
+      "bytes": 461,
+      "sha256": "8cae6d27d69ebd679bf51cb2187c26c15cf60f68e4cc58a862ce956f55292c73"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_queue/worker.py",
@@ -1356,8 +1371,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_reading/plugin.json",
-      "bytes": 404,
-      "sha256": "3211c8b5e73b335524d5d2d4d638a7cce5303d7f478eba1dc59ecf51f82ac889"
+      "bytes": 463,
+      "sha256": "3b3a7ae844a1de0df9e7dec43d720819657911f1dc476f917b2344d940e20109"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_reading/worker.py",
@@ -1371,8 +1386,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_recipes/plugin.json",
-      "bytes": 407,
-      "sha256": "383d273d62f0cbf8aa9efd95a96c086467e0e3259822676d80224a8f65dcab15"
+      "bytes": 466,
+      "sha256": "ff1c71e69e3bff24af846d162a0e4531e8f00aaf9ec6445eafc8c926127b67be"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_recipes/worker.py",
@@ -1386,8 +1401,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_round_robin/plugin.json",
-      "bytes": 420,
-      "sha256": "a36716f7d0bb59bfa2625df12bfc2196c1cda5c81a1b46593b2ff850b2dc42be"
+      "bytes": 479,
+      "sha256": "4006362bff958f9e77408f313d8afac5b3e66d9a4c800ae2b5140fe33e77a80d"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_round_robin/worker.py",
@@ -1401,8 +1416,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_signup/plugin.json",
-      "bytes": 412,
-      "sha256": "fb5d16630ad174e1a8296b564685397e342a530ff07c39cf682c47e3512d17e2"
+      "bytes": 471,
+      "sha256": "394fa60807659aebcfb9cc7c6dd6d0f87891a8881bd3b60b63bc25774e06230d"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_signup/worker.py",
@@ -1416,8 +1431,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_spaced_cards/plugin.json",
-      "bytes": 412,
-      "sha256": "cf2a19d4d17136e583086503a96cc199c4fbbff102ef3395c0f843af99ac7895"
+      "bytes": 471,
+      "sha256": "6e7c429b145f9824c39e35cac038d98e11dbbe318e1214824dfe6dc1b9835593"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_spaced_cards/worker.py",
@@ -1431,8 +1446,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_split_bill/plugin.json",
-      "bytes": 408,
-      "sha256": "29bd0d8bb2cb16c67a5370db2b1529f6799fd337849981d3e6403140d00cdb6b"
+      "bytes": 467,
+      "sha256": "a1b34bdfc24fa2dc5c853cb3f3b40acac766e7f45242ab16a66f4500707f05d3"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_split_bill/worker.py",
@@ -1446,8 +1461,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_time_budget/plugin.json",
-      "bytes": 411,
-      "sha256": "3a53d7778c825696f27fcb07da4b9c766d00826d9cf99d008da8d7d78fc24e98"
+      "bytes": 470,
+      "sha256": "2db40a3cbf655ca15e3b149a37b1b7aece35a56c21d46a1c1f4637760f8acec2"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_time_budget/worker.py",
@@ -1461,8 +1476,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_watchlist/plugin.json",
-      "bytes": 406,
-      "sha256": "a7c88b8acd12effa1bd621f4ed2a526af269088a1b16971baf9afce35c5d47b5"
+      "bytes": 465,
+      "sha256": "0bed7ec731bd87671a884d83369a676a2b9ad15794473db9deae7956748b36e4"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_watchlist/worker.py",
@@ -1476,8 +1491,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_wiki/plugin.json",
-      "bytes": 415,
-      "sha256": "28525b5edbc720689920fb9768ead36505108bf7ea71f5ff6ddd6224f32a3bc6"
+      "bytes": 474,
+      "sha256": "7ccaaaf74938a8f4f5f19d3dfc465f679db21248ca4c3e4dfb014b9b05e350e3"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_wiki/worker.py",
@@ -1491,8 +1506,8 @@
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_wishlist/plugin.json",
-      "bytes": 407,
-      "sha256": "0fcb0a7865298f271d84a8173464304e2ba02b796b8574d1267cf8b55103d1c1"
+      "bytes": 466,
+      "sha256": "a33015c1ee173ec8366020d3d3128b14bf95108c06d4397a2fc08dd01f14ba1e"
     },
     {
       "path": "extensions/expansion_pack/life_tools/plugins/x_wishlist/worker.py",
@@ -1516,8 +1531,8 @@
     },
     {
       "path": "extensions/interaction_pack/README.md",
-      "bytes": 3082,
-      "sha256": "9cfbe5923b2c79ec2f1dd768b89e21848da19af18f32b57b7417eda88b3f131b"
+      "bytes": 3224,
+      "sha256": "769f0e9a701e32997aed83a34ec56cf5db5226f9596d99184713ccd6ae5aa91e"
     },
     {
       "path": "extensions/interaction_pack/SOURCES.md",
@@ -1532,7 +1547,7 @@
     {
       "path": "extensions/interaction_pack/build_pack.py",
       "bytes": 2640,
-      "sha256": "a82b28a42001d9660dcee71012fc6822cfb35d11befee55c32a8a9195a0e4c95"
+      "sha256": "fafe205802d19a8e4de91af8a493028680e245a52afe8573db48b2a165f90735"
     },
     {
       "path": "extensions/interaction_pack/catalog.json",
@@ -1561,8 +1576,8 @@
     },
     {
       "path": "extensions/interaction_pack/plugins/i_auction/plugin.json",
-      "bytes": 818,
-      "sha256": "b6601453fd5f23c23c899f3810cbc75108d8a9433f699a8c98cc23fd015d127f"
+      "bytes": 899,
+      "sha256": "26614520d01f08730dd62f32a2f827b24e0fceb2e47077056c290480b3cc9348"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_auction/worker.py",
@@ -1576,8 +1591,8 @@
     },
     {
       "path": "extensions/interaction_pack/plugins/i_buzzer/plugin.json",
-      "bytes": 575,
-      "sha256": "f4e59113e920f87d8d6eb4a74c43ab33c7245df48fa53e8485b8a8f6804031f9"
+      "bytes": 656,
+      "sha256": "b34e0f85f75d68237ecd9484fde1894a09883eeca61d1e27a9cf78286571d944"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_buzzer/worker.py",
@@ -1591,8 +1606,8 @@
     },
     {
       "path": "extensions/interaction_pack/plugins/i_dots/plugin.json",
-      "bytes": 598,
-      "sha256": "3af8ac5636170aa4ff7c819daf37e1920bc53d5366822cda2a339a3b36eab440"
+      "bytes": 679,
+      "sha256": "f966da51a90f58c601cc3f7fef66290118396fb2260c9d4233de45d846122fcb"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_dots/worker.py",
@@ -1606,8 +1621,8 @@
     },
     {
       "path": "extensions/interaction_pack/plugins/i_guess/plugin.json",
-      "bytes": 613,
-      "sha256": "ab82c1c0e69fb09025a31a8417e1c261b8d120b39179d4b50fd66c2ac71ead2b"
+      "bytes": 694,
+      "sha256": "16ae4cfb7b61a9fc0e77d9e4228fbf9ecc543b4750a47965be582c361ce5f82b"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_guess/worker.py",
@@ -1621,8 +1636,8 @@
     },
     {
       "path": "extensions/interaction_pack/plugins/i_nim/plugin.json",
-      "bytes": 739,
-      "sha256": "b82e56fcd0a97e371249dbcf9f729666461fbfbd5195d1ea539b62550027f458"
+      "bytes": 820,
+      "sha256": "8b362722512b0fd0e7fa00c9332bff8a9344d1472f134e9c345f6c097e5904e0"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_nim/worker.py",
@@ -1636,8 +1651,8 @@
     },
     {
       "path": "extensions/interaction_pack/plugins/i_set/plugin.json",
-      "bytes": 647,
-      "sha256": "4afe7e7fc1687985a7de9112ab98e82066cfca63b9019fa84ad52baf713a9f6d"
+      "bytes": 728,
+      "sha256": "4be0632909a7653048c36dd37cefec32c096f2c4293aade07a903751c7202359"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_set/worker.py",
@@ -1651,8 +1666,8 @@
     },
     {
       "path": "extensions/interaction_pack/plugins/i_story/plugin.json",
-      "bytes": 567,
-      "sha256": "f6167477d26cfc76b6b1bd1d7b183fc03edb5fe2f6779af2a2fc919a731371c4"
+      "bytes": 648,
+      "sha256": "5d66e64be15790a3c0d7dacffb805f499035e5c22c650d2953c1292641eb7928"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_story/worker.py",
@@ -1666,8 +1681,8 @@
     },
     {
       "path": "extensions/interaction_pack/plugins/i_teams/plugin.json",
-      "bytes": 570,
-      "sha256": "773fc653a0e1d0292cc3f236dfea1a714e9038a54699e9e3c3431cd69ff4241e"
+      "bytes": 651,
+      "sha256": "99e20e3f53d86e9689fb76a6255fb4e2560debc653ac75a0be1c1137ea8c59e8"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_teams/worker.py",
@@ -1681,8 +1696,8 @@
     },
     {
       "path": "extensions/interaction_pack/plugins/i_topics/plugin.json",
-      "bytes": 570,
-      "sha256": "f391e1adb67bdf5be79efea226fe4f08b433dd6ec44e0c3c502f66f503d795f8"
+      "bytes": 651,
+      "sha256": "bcb8702b5a2d77b59cc78c20aa5a9fe1a73ea164c8fd7cd54eb6c4eca884914c"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_topics/worker.py",
@@ -1696,8 +1711,8 @@
     },
     {
       "path": "extensions/interaction_pack/plugins/i_truth/plugin.json",
-      "bytes": 597,
-      "sha256": "922b56320787c43901c86b9a3944ec200e91aff0a1d1f272cad6d1f163160817"
+      "bytes": 678,
+      "sha256": "23b0d37440b321fecc634704362c42abcdb7eaeae3f00fb9e36d36973f37796d"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_truth/worker.py",
@@ -1711,8 +1726,8 @@
     },
     {
       "path": "extensions/interaction_pack/plugins/i_turtle/plugin.json",
-      "bytes": 638,
-      "sha256": "43ffcc47a4977ec707d441ebbeb539c4df5eb6ad8afb3581250d6f5bdeca1799"
+      "bytes": 719,
+      "sha256": "4498c4110eef3ce181750790c42d5b9ee22e18ef9a99d597881060001db544e1"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_turtle/worker.py",
@@ -1726,8 +1741,8 @@
     },
     {
       "path": "extensions/interaction_pack/plugins/i_undercover/plugin.json",
-      "bytes": 654,
-      "sha256": "73cf095de589da7c9349d4024f64c1e96e7f2672fd4b4d256044e74ef94ea73b"
+      "bytes": 735,
+      "sha256": "b07690f6834d5adaf281a9c8f699c1869394e6a20ada8e62f6335f11d58bc5e0"
     },
     {
       "path": "extensions/interaction_pack/plugins/i_undercover/worker.py",
@@ -1746,8 +1761,8 @@
     },
     {
       "path": "extensions/maibot_pack/README.md",
-      "bytes": 2945,
-      "sha256": "4975f336f40ab19aa061e8f686a4411f1cfe5970e72c9dd954086819dbfac58e"
+      "bytes": 3087,
+      "sha256": "be6f07ff080d09da4e5c23d78fc260ec579b2557a0d7426b6ef866630690dd1d"
     },
     {
       "path": "extensions/maibot_pack/SOURCES.md",
@@ -1757,7 +1772,7 @@
     {
       "path": "extensions/maibot_pack/build_pack.py",
       "bytes": 5336,
-      "sha256": "256f231ec5605b75950c400ec97bd0da307f2254a0ec18a3474dead313b7314b"
+      "sha256": "ca8cea2470e07fc48727decd09e57189e486540b9ace12d76a47399f09f97160"
     },
     {
       "path": "extensions/maibot_pack/local_engine.py",
@@ -1771,8 +1786,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/answer_book/plugin.json",
-      "bytes": 226,
-      "sha256": "d77c075d75f4b962cb9391250307aadf762f185c4a0cdc1c3e877312316603cd"
+      "bytes": 285,
+      "sha256": "f1cad2b54b84010cdc6eead482e9f22af0118a5704026bbf240e7a5e8c17ea2d"
     },
     {
       "path": "extensions/maibot_pack/plugins/answer_book/worker.py",
@@ -1786,8 +1801,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/daily_greetings/plugin.json",
-      "bytes": 253,
-      "sha256": "4f8d223b57b3b74358ac94182023c2bd74aaf3c519f603cc5a3b887987ba7ab9"
+      "bytes": 312,
+      "sha256": "4647783417764977de09d0e5f88755c3c7c1bc77e648830e67883e097a4ee712"
     },
     {
       "path": "extensions/maibot_pack/plugins/daily_greetings/worker.py",
@@ -1801,8 +1816,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/daily_luck/plugin.json",
-      "bytes": 240,
-      "sha256": "0e6ace0ea5703d982558b58072b4e77d0bc0165b30878bf6ad78bd858b61521c"
+      "bytes": 299,
+      "sha256": "a777094663a78adee00f4d1b5be65826977d41a0e5cdf858002b372d686304c1"
     },
     {
       "path": "extensions/maibot_pack/plugins/daily_luck/worker.py",
@@ -1816,8 +1831,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/decision/plugin.json",
-      "bytes": 253,
-      "sha256": "aff5a374679537712c85ce6a53eaf15282aa3c5fb883619bf6ed8a85c25aa839"
+      "bytes": 312,
+      "sha256": "300f8715d3ae19078a26637921a6054607757e3952407f45b7785dce23959ffd"
     },
     {
       "path": "extensions/maibot_pack/plugins/decision/worker.py",
@@ -1836,13 +1851,13 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/f1_info/plugin.json",
-      "bytes": 608,
-      "sha256": "7f75ddfa2407b135cb6e0393df6df80cb76acdf4e80566f4f970cd52e52d2590"
+      "bytes": 667,
+      "sha256": "ac48f936d07e3336e78b1bf56e01501b4613db83f257b7184a80a6ebc24088ad"
     },
     {
       "path": "extensions/maibot_pack/plugins/f1_info/worker.py",
-      "bytes": 6134,
-      "sha256": "b24cd5b8658de4afd389c218bdb73b0f3b627c062300c9dcfd2836da6bca1591"
+      "bytes": 6498,
+      "sha256": "0f8447988a4e58ed982a98e9faad6445a39e2aec8b4aefe6dac706a464d0981d"
     },
     {
       "path": "extensions/maibot_pack/plugins/game_news/README.md",
@@ -1856,8 +1871,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/game_news/plugin.json",
-      "bytes": 394,
-      "sha256": "a13891329b5dcf14801656e0fb71688adfe00ded17a5fb9415f670bef5202fd6"
+      "bytes": 453,
+      "sha256": "a7cfb1a472dbb829bfffe1a1e053655b18ac1933aa23bcfe584ecaa908a7282d"
     },
     {
       "path": "extensions/maibot_pack/plugins/game_news/worker.py",
@@ -1871,8 +1886,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/guess_number/plugin.json",
-      "bytes": 396,
-      "sha256": "f633e1ea3c8a586a91f50559e3619286313cf092cf2637e74a9d6ee334cd5a55"
+      "bytes": 455,
+      "sha256": "f9323c036962396d905a66bf18114413ea1157ba9972361a51e09b8be52986ea"
     },
     {
       "path": "extensions/maibot_pack/plugins/guess_number/worker.py",
@@ -1886,8 +1901,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/polls/plugin.json",
-      "bytes": 352,
-      "sha256": "4d893d184d3d5fde3b19b9857bca111c15112bb014a3686021dd7d679b89327a"
+      "bytes": 411,
+      "sha256": "1079de89da053cf8eaeee81e86a63994aa334e16875bb7f28c91411d7f451e22"
     },
     {
       "path": "extensions/maibot_pack/plugins/polls/worker.py",
@@ -1901,8 +1916,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/quotes/plugin.json",
-      "bytes": 402,
-      "sha256": "6c08d12a8a776b1fe5e2d039a3b7b9391bba6c92e890709fdb1c8e9d54db4142"
+      "bytes": 461,
+      "sha256": "00790a0c919682816643d03a0752bda274b3a92ad0acc713b121d52202b9e825"
     },
     {
       "path": "extensions/maibot_pack/plugins/quotes/worker.py",
@@ -1916,8 +1931,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/rps/plugin.json",
-      "bytes": 209,
-      "sha256": "6c914c4802771b43832f80cfeaccb8adf39d681b2ee57318c65a0b8561c93037"
+      "bytes": 268,
+      "sha256": "400f68da7abf379ebc1ceaa4a5987a9df2b6abb0f97b52d03e586e9d5c838b80"
     },
     {
       "path": "extensions/maibot_pack/plugins/rps/worker.py",
@@ -1931,8 +1946,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/tarot/plugin.json",
-      "bytes": 249,
-      "sha256": "998a06fee19902cabff445bd7867565eecdc10c68142099c36f7032246e1ebbe"
+      "bytes": 308,
+      "sha256": "3b1717209ddacb7d62dc418d8f174fe835d4cc09b6e651cd18a855a72e46b171"
     },
     {
       "path": "extensions/maibot_pack/plugins/tarot/worker.py",
@@ -1946,8 +1961,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/text_tools/plugin.json",
-      "bytes": 312,
-      "sha256": "cf2be288d08397a026c8b6d2ec9a285c5a443b8ebe8d9cff1e419cdf8a92e9aa"
+      "bytes": 371,
+      "sha256": "ddbed6898fbbb2ae605882846789087f6f5fa27f8c05527389c0b0bd1ba6c515"
     },
     {
       "path": "extensions/maibot_pack/plugins/text_tools/worker.py",
@@ -1961,8 +1976,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/time_tools/plugin.json",
-      "bytes": 261,
-      "sha256": "8ae17f332ef91dd41f9d349167d1a6c196e09acfdf1acab533b705f714e1d3fc"
+      "bytes": 320,
+      "sha256": "c1b8ee37c8b74b771f51d32b2f028fc5486022bdde10bd9ca44b47d31dca94bf"
     },
     {
       "path": "extensions/maibot_pack/plugins/time_tools/worker.py",
@@ -1976,8 +1991,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/todo_notes/plugin.json",
-      "bytes": 427,
-      "sha256": "31145eb5c0ee50fc013bb838c1580aca07b60500b70927b440a94247e2635e71"
+      "bytes": 486,
+      "sha256": "fa6dfba08c1b7c06eda6dee337a504ba96020688d5fcc9e04ce9012cb8b08a6d"
     },
     {
       "path": "extensions/maibot_pack/plugins/todo_notes/worker.py",
@@ -1991,8 +2006,8 @@
     },
     {
       "path": "extensions/maibot_pack/plugins/wordle/plugin.json",
-      "bytes": 239,
-      "sha256": "1034ad370c6536fc98467dbb3c4d558ceb8270a6c201892711731c9281cf9b60"
+      "bytes": 298,
+      "sha256": "30d0e4ed15a5d5f22e4df77d7e4039572c3d83340c3de08369cbf5100d750902"
     },
     {
       "path": "extensions/maibot_pack/plugins/wordle/worker.py",
@@ -2011,8 +2026,8 @@
     },
     {
       "path": "extensions/market2_pack/README.md",
-      "bytes": 3764,
-      "sha256": "b463b8b4a5726afafcc1b3dbfc6031dbd5044c8ab1d04cdc2c239b7d311683b3"
+      "bytes": 3835,
+      "sha256": "aaa39f7f8268f91ea38ae5f00e1dadbba0a1a94e76fe86cb88cfc933178358dc"
     },
     {
       "path": "extensions/market2_pack/SOURCES.md",
@@ -2022,12 +2037,12 @@
     {
       "path": "extensions/market2_pack/build_pack.py",
       "bytes": 4102,
-      "sha256": "97224564afb95565efe53935cd48cc62cc93f15e3087fc6b03ba7e80ae03bffc"
+      "sha256": "c42a1b0f5abfe63f81a7733741d1290a7e1e72662943e2dcbe4a2c6630545f12"
     },
     {
       "path": "extensions/market2_pack/ics_engine.py",
-      "bytes": 18704,
-      "sha256": "31ffb7f4c93c9e495ff2f9dd39db7b9897ed026e6886b053cf38ebe34e29e6c7"
+      "bytes": 21805,
+      "sha256": "0f67ff7489c1db82e59205dfa64cfb9ecaf4af69732c82205ccfb33e9e5fe27d"
     },
     {
       "path": "extensions/market2_pack/local_catalog.json",
@@ -2041,13 +2056,13 @@
     },
     {
       "path": "extensions/market2_pack/network_catalog.json",
-      "bytes": 5175,
-      "sha256": "d3db705ed19a21e8a7ab16bb31e53ec0f87b73cd1f5287c90cefbdead0117ffb"
+      "bytes": 5238,
+      "sha256": "1e895efb3114e60c7f562aae6173ad1dea8ca52700168660949f2593b9b3c2c6"
     },
     {
       "path": "extensions/market2_pack/network_engine.py",
-      "bytes": 21778,
-      "sha256": "e932af792b714d91faafed902c8c690ab091b7e2785987162edd7916af445b72"
+      "bytes": 22589,
+      "sha256": "1a53c8eb4bcfc495e84bba914ab03b618a8e7c7ab448593c2636835d85852fc3"
     },
     {
       "path": "extensions/market2_pack/plugins/m_abbr/README.md",
@@ -2056,8 +2071,8 @@
     },
     {
       "path": "extensions/market2_pack/plugins/m_abbr/plugin.json",
-      "bytes": 600,
-      "sha256": "0130d46dca02b3df0527fc9d5def6de7ea85b39f5864f1298911fb3a9eb3e9dd"
+      "bytes": 659,
+      "sha256": "6cf4a097bf37948c1bc6469ef794ec8faae5e0ce72669761c0b6e4fbe0ea13d6"
     },
     {
       "path": "extensions/market2_pack/plugins/m_abbr/worker.py",
@@ -2071,8 +2086,8 @@
     },
     {
       "path": "extensions/market2_pack/plugins/m_bangumi/plugin.json",
-      "bytes": 941,
-      "sha256": "674d935e43b82eb8dd15304de4d30600d4f302118b3b5cab98f33bfc1f16c110"
+      "bytes": 1000,
+      "sha256": "98ae1177f3944e8c9fa73a4d8e210b8681f94ac68f4ab3dba461192b37eb3538"
     },
     {
       "path": "extensions/market2_pack/plugins/m_bangumi/worker.py",
@@ -2086,8 +2101,8 @@
     },
     {
       "path": "extensions/market2_pack/plugins/m_bing/plugin.json",
-      "bytes": 650,
-      "sha256": "73a599db45ebe0110b7934a89078b05ba51ab7a9b172ce3c9d768aa2ea4bc8de"
+      "bytes": 682,
+      "sha256": "ae6677ef2ac621a9d7b3ddc18dde7bae7100af6209a733151fc449d378c60c47"
     },
     {
       "path": "extensions/market2_pack/plugins/m_bing/worker.py",
@@ -2101,8 +2116,8 @@
     },
     {
       "path": "extensions/market2_pack/plugins/m_ics/plugin.json",
-      "bytes": 782,
-      "sha256": "5f9c71af2ac43f15a4913e1bbf876c1141e6aa07071069fb18ddc088c9ba45c3"
+      "bytes": 841,
+      "sha256": "d20c3f160daeed734240576a175eb9a21d07ee31c09d1ba7cd3a011733ccf7d1"
     },
     {
       "path": "extensions/market2_pack/plugins/m_ics/worker.py",
@@ -2116,8 +2131,8 @@
     },
     {
       "path": "extensions/market2_pack/plugins/m_mahjong/plugin.json",
-      "bytes": 937,
-      "sha256": "2a3182def0c251bd3b2e576b8f062c8c00aabe2a0d49512e8fd76d9ac4c2fd55"
+      "bytes": 996,
+      "sha256": "a2e320a5b6e8ac10c866b079286dc308765955f3c6607feddfb799fd16ddb177"
     },
     {
       "path": "extensions/market2_pack/plugins/m_mahjong/worker.py",
@@ -2131,8 +2146,8 @@
     },
     {
       "path": "extensions/market2_pack/plugins/m_rss/plugin.json",
-      "bytes": 950,
-      "sha256": "f8a02163208b6336bcfca0268cf606a67cadf2e5c36e8a4cbd8e73b1f84521a2"
+      "bytes": 1009,
+      "sha256": "ce25dda19cbbbca4a329c954fd1ff731a09307044d665f3034a6b112991858af"
     },
     {
       "path": "extensions/market2_pack/plugins/m_rss/worker.py",
@@ -2146,8 +2161,8 @@
     },
     {
       "path": "extensions/market2_pack/plugins/m_uno/plugin.json",
-      "bytes": 878,
-      "sha256": "ff939b9707620423aa43cc72a008942fc0f4c509afd2f8f46f462d88fbbf6ad3"
+      "bytes": 1214,
+      "sha256": "69afe8f3a50f565dceca615733d57aaa0417f6d77b7f9ca5c53a351c0ec84019"
     },
     {
       "path": "extensions/market2_pack/plugins/m_uno/worker.py",
@@ -2161,8 +2176,8 @@
     },
     {
       "path": "extensions/market2_pack/plugins/m_webtext/plugin.json",
-      "bytes": 600,
-      "sha256": "408f4673b4cc42cff325d1be3b96dc067db8540e35c61153ccdfa1c04cbdd1e6"
+      "bytes": 659,
+      "sha256": "1bff03f1fc1c048a9c891a9c7355d414eb92f989bcbe74e4f51bb3071b34ef91"
     },
     {
       "path": "extensions/market2_pack/plugins/m_webtext/worker.py",
@@ -2195,6 +2210,11 @@
       "sha256": "dca40eeedefd348c44b3fb274416d93ed6d7ee591ef92193f0332730bfc3bae3"
     },
     {
+      "path": "extensions/market2_pack/tests/test_rich_results.py",
+      "bytes": 2241,
+      "sha256": "0a7a5b2b0877b22efba57534a33551bb1b378b96dcd965b9596219db2f5df399"
+    },
+    {
       "path": "extensions/market2_pack/tests/test_uno.py",
       "bytes": 22006,
       "sha256": "ce0df96541c845d4daf343c68f13a7ab1dbbe7b879563b9eeaf5dd09a3aa5674"
@@ -2221,8 +2241,8 @@
     },
     {
       "path": "extensions/social_pack/README.md",
-      "bytes": 2811,
-      "sha256": "5cbe48749d9c2a0e5e6e2b32d2b6dee98b68e09c4a529e03b8a6afc4d163e354"
+      "bytes": 2953,
+      "sha256": "497cdc4c369bc6ff774a2a889fccafbbf997c9f3f6803f4f86f3fa3e452408d2"
     },
     {
       "path": "extensions/social_pack/SOURCES.md",
@@ -2237,7 +2257,7 @@
     {
       "path": "extensions/social_pack/build_pack.py",
       "bytes": 4292,
-      "sha256": "50f015fa844042422df372c9631228657015691d19bc78572e536efceb376c7a"
+      "sha256": "d167285556ef3a33631f5b8bc401891ea24ccecd9f7d041bc0db5896250c9e34"
     },
     {
       "path": "extensions/social_pack/common.py",
@@ -2246,8 +2266,8 @@
     },
     {
       "path": "extensions/social_pack/network.py",
-      "bytes": 11635,
-      "sha256": "e4349a16f802b6955afb002c3a5b5ac15ea67887763c5bcfdb022eee195080fc"
+      "bytes": 11795,
+      "sha256": "167410c3f7ff1c01dab8a284cc2dffa8a30a86a8a6a90c18d56bf40b2e0c6da9"
     },
     {
       "path": "extensions/social_pack/plugins/s_banter/README.md",
@@ -2256,8 +2276,8 @@
     },
     {
       "path": "extensions/social_pack/plugins/s_banter/plugin.json",
-      "bytes": 672,
-      "sha256": "0ed52b66c4931671b94eb7f33ff32210f5221690a6557dbf2e9d3c8f08506a1b"
+      "bytes": 941,
+      "sha256": "46bb89c5d411bdf99888d8a95395f948b3f29915d9400561ce216f09ac911894"
     },
     {
       "path": "extensions/social_pack/plugins/s_banter/worker.py",
@@ -2271,8 +2291,8 @@
     },
     {
       "path": "extensions/social_pack/plugins/s_bottle/plugin.json",
-      "bytes": 963,
-      "sha256": "1fd7567137bc475ffeb381b61aa9a384b81fc03dc3c9bd6f097dcc8cea062581"
+      "bytes": 1044,
+      "sha256": "926e0548c7e8564c21b7d674f91de9af405932eb17b184843e0e4f19f2a171e1"
     },
     {
       "path": "extensions/social_pack/plugins/s_bottle/worker.py",
@@ -2286,8 +2306,8 @@
     },
     {
       "path": "extensions/social_pack/plugins/s_capsule/plugin.json",
-      "bytes": 964,
-      "sha256": "d7d06f127b52bac0f96fc1951cbaab245dfd946fd831a5e66214ba029b226219"
+      "bytes": 1045,
+      "sha256": "ee7d003f5446101d31c0c7c0e9839bab4e115187d3c08fd4086b7c6510ea8dd7"
     },
     {
       "path": "extensions/social_pack/plugins/s_capsule/worker.py",
@@ -2301,8 +2321,8 @@
     },
     {
       "path": "extensions/social_pack/plugins/s_expedition/plugin.json",
-      "bytes": 270,
-      "sha256": "2190b4a5c478fef55bf852c9b2da88eee78476f9be3e755ecc9ea3f8e9ff0c94"
+      "bytes": 359,
+      "sha256": "8d5df91b272e835df744c7679e13a9d31d47cdb5ec9723af1c55f19bc5a75472"
     },
     {
       "path": "extensions/social_pack/plugins/s_expedition/worker.py",
@@ -2316,8 +2336,8 @@
     },
     {
       "path": "extensions/social_pack/plugins/s_github/plugin.json",
-      "bytes": 788,
-      "sha256": "ad92133473abb9f55ead06168bfbc7974f29ac569ad3713d0a140216c57bd5cb"
+      "bytes": 869,
+      "sha256": "0e0a9281d010b00098156ebb9508cb4ff8b346fd678a231f781beddf3803603c"
     },
     {
       "path": "extensions/social_pack/plugins/s_github/worker.py",
@@ -2331,8 +2351,8 @@
     },
     {
       "path": "extensions/social_pack/plugins/s_mood/plugin.json",
-      "bytes": 963,
-      "sha256": "15dc5ad45553da6919bd39dab0d9d0dc1b9b5c539faf1efcb29f43f669248d9a"
+      "bytes": 1044,
+      "sha256": "191e727a3521a725c22d3109dea33f1f90f01779b9d0d058b9b75f9830847f78"
     },
     {
       "path": "extensions/social_pack/plugins/s_mood/worker.py",
@@ -2346,8 +2366,8 @@
     },
     {
       "path": "extensions/social_pack/plugins/s_nonogram/plugin.json",
-      "bytes": 250,
-      "sha256": "d98bc5df675a601ebfca7f1fc11fdfd88e49e2dcd1622424ecf56286620a755d"
+      "bytes": 339,
+      "sha256": "804d978f0dbd62e625c8fa8e8c84155bd516c2fa28abde5a3aca5d01f879f0db"
     },
     {
       "path": "extensions/social_pack/plugins/s_nonogram/worker.py",
@@ -2361,8 +2381,8 @@
     },
     {
       "path": "extensions/social_pack/plugins/s_package/plugin.json",
-      "bytes": 791,
-      "sha256": "0f0cdfca03561acd9bcba0fcc09d25cb5d705a8d7889e07f2e07555aab432b2e"
+      "bytes": 872,
+      "sha256": "a4ba8015cf418d3558e276501bf554a3beb51ce46bdc6c8498008fa77cdd213b"
     },
     {
       "path": "extensions/social_pack/plugins/s_package/worker.py",
@@ -2376,8 +2396,8 @@
     },
     {
       "path": "extensions/social_pack/plugins/s_sleep/plugin.json",
-      "bytes": 965,
-      "sha256": "f927c557ee256b450be1f697fd5543bf38aa947db0b98ec789dd2d3f50f1d584"
+      "bytes": 1046,
+      "sha256": "4d7380da641a41a2740480b577cd545e98286fdce7719c21e8db8e1ff36909cc"
     },
     {
       "path": "extensions/social_pack/plugins/s_sleep/worker.py",
@@ -2391,8 +2411,8 @@
     },
     {
       "path": "extensions/social_pack/plugins/s_sudoku/plugin.json",
-      "bytes": 258,
-      "sha256": "895702a15994473278fcdbd2e4e38b2ad5015936328a6bf0ab6d24cf6ae01ab3"
+      "bytes": 347,
+      "sha256": "944874d2427cf0d35bd150d3a88f2b60b5af3fb16094e2cc309bd5120a8d355d"
     },
     {
       "path": "extensions/social_pack/plugins/s_sudoku/worker.py",
@@ -2421,8 +2441,8 @@
     },
     {
       "path": "extensions/social_pack/tests/test_network.py",
-      "bytes": 15242,
-      "sha256": "06716d200189c0d724d841015f749214c96bc4b2ed1472858713a80f68fef844"
+      "bytes": 15266,
+      "sha256": "ecb1179c2628d561a50796e4c15305e2595f98116af0176af0e3829a0f4e85bf"
     },
     {
       "path": "extensions/social_pack/tests/test_puzzles.py",
@@ -2437,7 +2457,7 @@
     {
       "path": "pyproject.toml",
       "bytes": 817,
-      "sha256": "a9081db4cc85a1ef531a1e6c688d5280f48591ce126cec92d96b173d79906af9"
+      "sha256": "f97b8be364f5e93dde7b79de6442960041dd8035719d8aedd661bfee6fe3152c"
     },
     {
       "path": "requirements.txt",
@@ -2455,9 +2475,14 @@
       "sha256": "21fa2709f1d37f2dfc089ce7352ba20d5d42c801ac5f020526cc5cafbfb47d4a"
     },
     {
+      "path": "scripts/audit_plugin_outputs.py",
+      "bytes": 3678,
+      "sha256": "8ddf0292d155790023a44d1e4d53e2adfc03982dae7e303e39c0acca62d8fcb0"
+    },
+    {
       "path": "scripts/build_release.py",
-      "bytes": 9715,
-      "sha256": "be7eb22bdf8bec5276bbfdfe649078eba5e0723daaac1a0085237a0bfa952c15"
+      "bytes": 9742,
+      "sha256": "ead8493821007b34437c412df8f0b656ed0a84557397167a8ef322945abe6b3a"
     },
     {
       "path": "scripts/import_banter.py",
@@ -2488,6 +2513,11 @@
       "path": "tests/test_core.py",
       "bytes": 29015,
       "sha256": "34e7a6d5be5b61da374ca1b9f8dfc0ae6526c49dca8dfe7f2a37d4f5dd12d1be"
+    },
+    {
+      "path": "tests/test_emoji_collector.py",
+      "bytes": 13105,
+      "sha256": "0f05ba12a0bfab4a4256df5d1a23124671a26d59e45b176f863df7f92f3636cd"
     },
     {
       "path": "tests/test_models.py",
@@ -2550,6 +2580,11 @@
       "sha256": "aafeb3916bb1ed7025ef33d4d2940d96692c880b64bb322df4ebdebc22bf6998"
     },
     {
+      "path": "tests/test_rich_output.py",
+      "bytes": 9675,
+      "sha256": "ee2b18966776412d07fa068bd9357f126e30d4b8cd86f7ff8f1bd93d54a81d96"
+    },
+    {
       "path": "tests/test_settings.py",
       "bytes": 10029,
       "sha256": "94471cd406da3653e79d9d099bcba3c2837d635fb7de3c4ff208f3f37b19bd64"
@@ -2571,8 +2606,8 @@
     },
     {
       "path": "windows/README.md",
-      "bytes": 7492,
-      "sha256": "fc3b8ceb0a9c9636cd448261f12d8747a116988f7ed3faabdf059a9031c60924"
+      "bytes": 7766,
+      "sha256": "92b03396810623dbbf4600b6145fa8c4b3a7b3a9f50fb38fe1cb2b32f566ca59"
     },
     {
       "path": "windows/build_windows.py",
@@ -2602,7 +2637,7 @@
     {
       "path": "yukino_core/__init__.py",
       "bytes": 22,
-      "sha256": "cd88851ea47b2706ef74af5dbcaae1f914cd7d4aa31d4c02e024dc1403d560b7"
+      "sha256": "45a00d19b46ee5efaf7a1c17235f907b68203cf7ecd5341a663d3bd8975b2e4e"
     },
     {
       "path": "yukino_core/__main__.py",
@@ -2611,8 +2646,8 @@
     },
     {
       "path": "yukino_core/app.py",
-      "bytes": 16937,
-      "sha256": "fa580168d71ddf0fe2c560e0842aeb414257a03bdf6b9bb5c7699d4b6a2ce704"
+      "bytes": 17495,
+      "sha256": "10f32d83df784714ed7061a914d94eed7fe420ec3dd49cdfd65ae6eebcba2d75"
     },
     {
       "path": "yukino_core/banter_bank.py",
@@ -2626,8 +2661,13 @@
     },
     {
       "path": "yukino_core/core.py",
-      "bytes": 29361,
-      "sha256": "b50afba3d0e6cff42b0644eddc7ccf24a7238ed827dcf2e123c2b73ea031024b"
+      "bytes": 31635,
+      "sha256": "576a4992c3a8f467232aee964279d5ecdc6de74b24261196763ce8e46cf25b45"
+    },
+    {
+      "path": "yukino_core/emoji_collector.py",
+      "bytes": 18413,
+      "sha256": "eb3f93e10580bce70df673e1b08a3f16c262059c616cbc8684299d85e7fecad0"
     },
     {
       "path": "yukino_core/group_admin.py",
@@ -2641,8 +2681,8 @@
     },
     {
       "path": "yukino_core/native_plugins.py",
-      "bytes": 11609,
-      "sha256": "fc776e642f4f4af1486180f87b8d597c0369617305a483b60e3d17e203eb7b61"
+      "bytes": 11709,
+      "sha256": "b0ca2ef460193270ef534ccb649d975571cafc7b9df5cc5f8fa963557317b3ed"
     },
     {
       "path": "yukino_core/notice_plugins.py",
@@ -2651,18 +2691,23 @@
     },
     {
       "path": "yukino_core/plugin_packages.py",
-      "bytes": 10953,
-      "sha256": "1f0aabb8359707a2e2ed295c4a62ec1907ea2952607b8a7c873ebdebf03b30b2"
+      "bytes": 11584,
+      "sha256": "c5103eee481b0fa2537861e3d0a09f6569ae0513fb1c0ba1af91b9e1527bc3d2"
+    },
+    {
+      "path": "yukino_core/plugin_results.py",
+      "bytes": 2997,
+      "sha256": "16425384daec9e811db2477b44b66826bb77c979cbf21bcc1ac462a99c4f2dfa"
     },
     {
       "path": "yukino_core/plugin_worker.py",
-      "bytes": 1205,
-      "sha256": "a2bd190887d62433a2199c7ecd33086dc50c2125c4ce257068e6c2b80d9df04d"
+      "bytes": 1299,
+      "sha256": "21496ea6e1cd01ec2b53f4359c1324aadffa6c8ee2f19d38159720c30131f320"
     },
     {
       "path": "yukino_core/plugins.py",
-      "bytes": 20898,
-      "sha256": "454cb3523493abd6c1e735c5e2f992fd03fc8298ac6e3d300b81b666d03f53e7"
+      "bytes": 23313,
+      "sha256": "d70da68b448a2fa5b7a58f6bdfecb32d535c2c97ad6bec05a4fd32ec8a219f16"
     },
     {
       "path": "yukino_core/plugins/calculator.py",
@@ -2675,19 +2720,34 @@
       "sha256": "98eb77f9f973c1c43e640bf445a8c3bcc5e142ef13f076ffb021bb782fde3e00"
     },
     {
+      "path": "yukino_core/public_net.py",
+      "bytes": 19858,
+      "sha256": "930eae533f3883eae68e2b8cedbb87bdc7e1d3ad91d09e86812b7b6b1b6fb3b7"
+    },
+    {
       "path": "yukino_core/resources.py",
       "bytes": 35658,
       "sha256": "945fe5a57c26faa431cb9dfe2443c2891c72dbd2874945e83c0abde281197277"
     },
     {
+      "path": "yukino_core/result_cards.py",
+      "bytes": 3440,
+      "sha256": "90937aa0aae3e7c956becb0f44ab59aa974356fe48e864c8fb1195d3ca52ba73"
+    },
+    {
+      "path": "yukino_core/rich_output.py",
+      "bytes": 12983,
+      "sha256": "e11ea4fdc27d422ee9dddac2963f1a05305ba9eaf6e5fad2dd3043a69fd02b75"
+    },
+    {
       "path": "yukino_core/settings_api.py",
-      "bytes": 11219,
-      "sha256": "5d189c7919a6fb0eb4d6e4581a503cdac435401210297e5e22916d3577211875"
+      "bytes": 11244,
+      "sha256": "63d13e8d2985734ab7f4f7231bfdf695ad7dbfbab50cc6a6ee144410ed484dbb"
     },
     {
       "path": "yukino_core/static/app.js",
-      "bytes": 103727,
-      "sha256": "adf72c4b7a9c4bfdc8b70b7e760f09e325a9577aa20788b0d4981ae5c5c2c675"
+      "bytes": 104514,
+      "sha256": "9d1a261da4358563da71b61acf1a2b95229791cc429469c1f6f8518ad7875a19"
     },
     {
       "path": "yukino_core/static/brand-logo.svg",
@@ -2701,18 +2761,18 @@
     },
     {
       "path": "yukino_core/static/style.css",
-      "bytes": 53132,
-      "sha256": "d9eaddc596bbad4c12ecabc6f2f733ea095e0da1ed89d0a87291010123c1e9b6"
+      "bytes": 53380,
+      "sha256": "67cf0cf929f0a562dffef44b533f43e56441ecc9d93d8fb1407bb2af387b2079"
     },
     {
       "path": "yukino_core/store.py",
-      "bytes": 24498,
-      "sha256": "14dd035f50c8368676940e1b9a8292628fb69ed98ebee764f44fdbddc99d37a2"
+      "bytes": 26349,
+      "sha256": "eb4e5b8b3fc5c94d04abde0cb8a24dd61b6ce66ab1b941dca4e97bc18354fed2"
     },
     {
       "path": "yukino_core/transport.py",
-      "bytes": 22133,
-      "sha256": "ce99af6558a0ccb5fdece3cc56813e1f91cc4d38d3243c9ab24435cc85b211ae"
+      "bytes": 22164,
+      "sha256": "d588918cd41903c117e9a34ca297bc2a03b22ec4bdfff319d479809a181bda7f"
     },
     {
       "path": "yukino_core/video_session.py",

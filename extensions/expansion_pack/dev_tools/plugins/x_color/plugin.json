@@ -1,7 +1,7 @@
 {
   "id": "x_color",
   "name": "颜色转换与可读性对比",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "HEX/RGB/HSL转换、亮度和WCAG文字对比度计算",
   "worker": "worker.py",
   "commands": [
@@ -17,5 +17,7 @@
       "min": 1000,
       "max": 12000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

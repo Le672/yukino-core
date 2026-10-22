@@ -1,7 +1,7 @@
 {
   "id": "x_radix",
   "name": "任意进制整数转换",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "2到36进制有符号整数转换与容量限制",
   "worker": "worker.py",
   "commands": [
@@ -16,5 +16,7 @@
       "min": 1000,
       "max": 12000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

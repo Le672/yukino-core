@@ -1,6 +1,6 @@
 # Yukino Core 插件编写指南
 
-适用内核：**0.4.0—0.6.2**；Python：**3.12+**。普通文字 worker 接口保持兼容；0.6.0 新增的原生通知互动见 [通知说明](NOTICE_INTERACTIONS.md)。
+适用内核：**0.4.0—0.7.0**；Python：**3.12+**。普通文字 worker 接口保持兼容；0.7.0 的图片、音频和文件结果见 [媒体结果协议](RICH_PLUGIN_OUTPUTS.md)。原生通知互动见 [通知说明](NOTICE_INTERACTIONS.md)。
 
 本指南依据当前的安装器、插件管理器和进程宿主实现编写。Yukino 使用自己的插件接口，MaiBot／AstrBot 插件需要适配，不能直接复制后运行。完整教学模板在 `examples/plugins/hello_counter/`；该示例不会自动安装到正式机器人。
 
@@ -19,7 +19,8 @@ def handle(text, context):
 | 面板开关、自定义参数 | `plugin.json` 的 `config_schema` |
 | 用户或会话记录 | `context["data_dir"]` 中的SQLite或JSON |
 | 自动识别指定网站链接，无需@ | `auto_url_hosts`、`auto_url_paths` |
-| 返回图片、视频、文件、合并转发 | 普通worker不能直接返回这些消息；需扩展宿主或另做服务与发送集成 |
+| 返回图片、音频、文件 | 0.7.0 起普通worker可返回版本化媒体对象，详见媒体结果协议 |
+| 视频与合并转发 | 当前仍使用独立服务与发送集成 |
 | 禁言、踢人、撤回等QQ动作 | 没有对普通worker开放通用OneBot动作接口；参考原生群管的宿主集成 |
 | 使用控制台配置的模型 | `context` 不提供模型客户端、API密钥或通用模型调用方法 |
 | 监听所有聊天、群通知、加群事件 | 没有通用外部事件钩子；普通worker只收到已匹配的文字调用 |

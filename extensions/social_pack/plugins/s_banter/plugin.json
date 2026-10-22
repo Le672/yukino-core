@@ -2,12 +2,41 @@
   "id": "s_banter",
   "name": "傲娇搭话文案",
   "description": "六类72条原创中文短回复，按指令选句并避免紧接着重复，可编辑文案。",
-  "commands": ["/搭话"],
+  "commands": [
+    "/搭话"
+  ],
   "worker": "worker.py",
   "config_schema": [
-    {"key":"default_category","type":"string","label":"默认分类","default":"闲聊","max_length":20},
-    {"key":"reply_count","type":"integer","label":"每次句数","default":1,"min":1,"max":3},
-    {"key":"avoid_repeat","type":"boolean","label":"避免连续重复","default":true},
-    {"key":"custom_copy_json","type":"string","label":"自定义六类文案JSON（空为内置）","default":"","max_length":12000}
-  ]
+    {
+      "key": "default_category",
+      "type": "string",
+      "label": "默认分类",
+      "default": "闲聊",
+      "max_length": 20
+    },
+    {
+      "key": "reply_count",
+      "type": "integer",
+      "label": "每次句数",
+      "default": 1,
+      "min": 1,
+      "max": 3
+    },
+    {
+      "key": "avoid_repeat",
+      "type": "boolean",
+      "label": "避免连续重复",
+      "default": true
+    },
+    {
+      "key": "custom_copy_json",
+      "type": "string",
+      "label": "自定义六类文案JSON（空为内置）",
+      "default": "",
+      "max_length": 12000
+    }
+  ],
+  "version": "1.1.0",
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

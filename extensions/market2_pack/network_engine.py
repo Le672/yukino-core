@@ -26,7 +26,7 @@ HELP = {
     'm_bangumi': '/番剧 搜索 名称；详情 条目ID；放送 [1～7]。查询 Bangumi 官方公开 API；默认放送日期按配置UTC偏移。不登录、不使用私人收藏或令牌。',
     'm_abbr': '/缩写 yyds；可用逗号分隔最多5个英文数字缩写。查询神奇海螺“能不能好好说话”公开接口；结果来自社区贡献，可能有多义、缺失或不准确。',
     'm_webtext': '/网页正文 https://公开网址。只读取公开HTTPS网页的标题与可见文本摘录，忽略脚本、样式、导航、页脚等；不执行JavaScript、不绕过登录，动态网页可能没有正文。',
-    'm_bing': '/每日壁纸 [0～7]；0为今天、1为前一天。返回Bing每日图片的标题、版权说明和UHD链接；仅发文字，不下载或直接发送图片。区域由面板配置。',
+    'm_bing': '/每日壁纸 [0～7]；0为今天、1为前一天。发送Bing每日原图、标题和版权说明。区域由面板配置。',
 }
 
 
@@ -274,7 +274,7 @@ def bangumi(arg, ctx):
         need(1 <= len(rest) <= 80, '用法：/番剧 搜索 动画名称（最多80字）')
         result = api(f'https://api.bgm.tv/v0/search/subjects?limit={limit}&offset=0', ctx, {'keyword': rest, 'sort': 'match', 'filter': {'type': [2], 'nsfw': False}})
         need(isinstance(result, dict) and isinstance(result.get('data'), list), 'Bangumi搜索响应格式异常。')
-        lines = [f'Bangumi 动画搜索：{rest}']
+        lines = [f'Bangumi 动画搜索：{rest}'];media=[]
         for row in result['data'][:limit]:
             if not isinstance(row, dict):
                 continue
@@ -282,8 +282,12 @@ def bangumi(arg, ctx):
             if type(identifier) is not int or identifier <= 0:
                 continue
             rating = row.get('rating', {}) if isinstance(row.get('rating'), dict) else {}
-            lines += [f"#{identifier} {plain(row.get('name_cn') or row.get('name'), 100)}；评分 {clean(rating.get('score', '未知'), 20)}", f'https://bgm.tv/subject/{identifier}']
-        return '\n'.join(lines) + ('\n没有匹配条目。' if len(lines) == 1 else '\n详情：/番剧 详情 条目ID')
+            lines += [f"#{identifier} {plain(row.get('name_cn') or row.get('name'), 100)}；评分 {clean(rating.get('score', '未知'), 20)}", plain(row.get('summary',''),240), f'https://bgm.tv/subject/{identifier}']
+            images=row.get('images',{})
+            cover=output_url(images.get('common') or images.get('large')) if isinstance(images,dict) else ''
+            if cover and len(media)<3:media.append({'type':'image','url':cover})
+        result='\n'.join(lines) + ('\n没有匹配条目。' if len(lines) == 1 else '\n详情：/番剧 详情 条目ID')
+        return {'version':1,'text':result,'media':media} if ctx.get('rich_result_version') else result
     if action == '详情':
         need(rest.isascii() and rest.isdigit() and 0 < int(rest) < 1000000000, '用法：/番剧 详情 正整数ID')
         identifier = int(rest)
@@ -291,7 +295,9 @@ def bangumi(arg, ctx):
         need(isinstance(row, dict) and row.get('id') == identifier, 'Bangumi详情响应格式异常。')
         rating = row.get('rating', {}) if isinstance(row.get('rating'), dict) else {}
         summary = plain(row.get('summary', ''), option(ctx, 'summary_max_chars', 500, 100, 1500)) or '暂无公开简介。'
-        return '\n'.join([f"Bangumi #{identifier} {plain(row.get('name_cn') or row.get('name'), 120)}", f"原名：{plain(row.get('name'), 120)}", f"日期：{clean(row.get('date'), 40) or '未知'}；集数：{clean(row.get('eps'), 20) or '未知'}", f"评分：{clean(rating.get('score', '未知'), 20)}；参与人数：{clean(rating.get('total', '未知'), 20)}", summary, f'https://bgm.tv/subject/{identifier}'])
+        result='\n'.join([f"Bangumi #{identifier} {plain(row.get('name_cn') or row.get('name'), 120)}", f"原名：{plain(row.get('name'), 120)}", f"日期：{clean(row.get('date'), 40) or '未知'}；集数：{clean(row.get('eps'), 20) or '未知'}", f"评分：{clean(rating.get('score', '未知'), 20)}；参与人数：{clean(rating.get('total', '未知'), 20)}", summary, f'https://bgm.tv/subject/{identifier}'])
+        images=row.get('images',{});cover=output_url(images.get('large') or images.get('common')) if isinstance(images,dict) else ''
+        return {'version':1,'text':result,'media':[{'type':'image','url':cover}] if cover else []} if ctx.get('rich_result_version') else result
     if action in ('放送', '每日放送'):
         tz = timezone(timedelta(hours=option(ctx, 'utc_offset_hours', 8, -12, 14)))
         need(not rest or rest in tuple('1234567'), '放送星期请填1～7，1为周一，7为周日。')
@@ -364,7 +370,10 @@ def bing(arg, ctx):
     path = str(image.get('urlbase', '')) + '_UHD.jpg' if image.get('urlbase') else image.get('url', '')
     url = output_url(path, 'https://www.bing.com')
     need(url, 'Bing未提供可用的公开HTTPS图片链接。')
-    return '\n'.join([f"Bing每日一图：{plain(image.get('title'), 180) or '无标题'}", f"日期：{clean(image.get('startdate'), 20) or '未知'}；区域：{market}", f"版权：{plain(image.get('copyright'), 400) or '接口未提供'}", 'UHD图片链接（未下载）：', url, '仅返回文字与原站链接，图片版权归原作者。'])
+    result='\n'.join([f"Bing每日一图：{plain(image.get('title'), 180) or '无标题'}", f"日期：{clean(image.get('startdate'), 20) or '未知'}；区域：{market}", f"版权：{plain(image.get('copyright'), 400) or '接口未提供'}"])
+    if ctx.get('rich_result_version'):
+        return {'version':1,'text':result,'media':[{'type':'image','url':url,'name':str(image.get('startdate','bing'))+'-wallpaper.jpg'}],'layout':'text'}
+    return result+'\n'+url+'\n旧版内核仅展示原图地址，未下载。'
 
 
 FUNCTIONS = {'m_rss': rss, 'm_bangumi': bangumi, 'm_abbr': abbreviations, 'm_webtext': webtext, 'm_bing': bing}
@@ -384,6 +393,7 @@ def handle(kind, text, context):
     ctx = context if isinstance(context, dict) else {}
     try:
         result = FUNCTIONS[kind](arg, ctx)
+        if isinstance(result,dict):return result
         return result[:7500] + ('\n（回复达到插件上限。）' if len(result) > 7500 else '')
     except (OSError, sqlite3.Error):
         return '操作未完成：插件数据存储暂不可用，请稍后重试。'

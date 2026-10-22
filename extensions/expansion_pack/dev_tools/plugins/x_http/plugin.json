@@ -1,7 +1,7 @@
 {
   "id": "x_http",
   "name": "HTTP状态与MIME速查",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "标准HTTP状态解释和扩展名MIME双向查询",
   "worker": "worker.py",
   "commands": [
@@ -17,5 +17,7 @@
       "min": 1000,
       "max": 12000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

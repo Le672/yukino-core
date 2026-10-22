@@ -28,7 +28,10 @@ def handle(text, context):
             lines = ['B站直播｜'+net.clean(room.get('title','未提供标题')), '状态：'+status,
                 '分区：'+net.clean(room.get('parent_area_name',''))+' / '+net.clean(room.get('area_name','')),
                 'https://live.bilibili.com/'+roomid, '来源：B站公开直播间信息；状态缓存30秒。']
-            return '\n'.join(lines)
+            result='\n'.join(lines);cover=room.get('user_cover') or room.get('keyframe') or ''
+            if context.get('rich_result_version') and isinstance(cover,str) and cover.startswith(('https://','http://')):
+                return {'version':1,'text':result,'media':[{'type':'image','url':cover.replace('http://','https://',1)}]}
+            return result
         if not query:
             return '用法：/B站搜索 关键词'
         limit = net.number(net.settings(context).get('result_limit'), 5, 1, 10)
@@ -41,16 +44,23 @@ def handle(text, context):
             raise ValueError()
         if not videos:
             return 'B站未找到匹配视频。'
-        lines = ['B站搜索（原站排序）']
+        lines = ['B站搜索（原站排序）'];media=[]
         for item in videos[:limit]:
             bvid = str(item.get('bvid',''))
             if not re.fullmatch('BV[A-Za-z0-9]{6,20}', bvid):
                 continue
             lines.extend([net.clean(item.get('title','未知标题'))+'｜UP：'+net.clean(item.get('author','未知')),
+                '时长：'+net.clean(item.get('duration','未知'))+'｜播放：'+net.clean(item.get('play','未知'))+'｜弹幕：'+net.clean(item.get('video_review','未知')),
+                net.clean(item.get('description',''),200),
                 'https://www.bilibili.com/video/'+bvid+'/'])
+            cover=str(item.get('pic',''))
+            if cover.startswith('//'):cover='https:'+cover
+            cover=cover.replace('http://','https://',1)
+            if cover.startswith('https://') and len(media)<3:media.append({'type':'image','url':cover})
         if len(lines) == 1:
             raise ValueError()
-        lines.append('来源：B站公开搜索；仅返回公开信息与原站链接，不下载视频。')
-        return '\n'.join(lines)
+        lines.append('来源：B站公开搜索；发送视频链接时会自动解析视频。')
+        result='\n'.join(lines)
+        return {'version':1,'text':result,'media':media} if context.get('rich_result_version') else result
     except Exception as exc:
         return net.failure('B站', exc)

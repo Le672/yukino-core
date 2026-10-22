@@ -1,7 +1,7 @@
 {
   "id": "bili_query",
   "name": "B站查询",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "搜索公开视频与查询直播间开播状态",
   "worker": "worker.py",
   "commands": [
@@ -18,5 +18,7 @@
       "max": 10,
       "default": 5
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

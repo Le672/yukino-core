@@ -2,7 +2,7 @@
   "id": "affinity",
   "name": "指令互动与好感",
   "description": "明确按互动指令积累，含日上限、冷却和可选主人满级。",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "worker": "worker.py",
   "commands": [
     "/好感",
@@ -48,5 +48,7 @@
       "label": "内核配置主人好感满级",
       "default": false
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

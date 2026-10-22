@@ -1,7 +1,7 @@
 {
   "id": "x_semver",
   "name": "语义版本比较",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "严格SemVer排序，包括预发行数字标识与构建元数据",
   "worker": "worker.py",
   "commands": [
@@ -16,5 +16,7 @@
       "min": 1000,
       "max": 12000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

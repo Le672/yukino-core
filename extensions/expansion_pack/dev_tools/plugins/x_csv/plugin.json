@@ -1,7 +1,7 @@
 {
   "id": "x_csv",
   "name": "CSV结构与数值统计",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "解析含引号CSV，统计缺失、唯一值及数值列平均值",
   "worker": "worker.py",
   "commands": [
@@ -28,5 +28,7 @@
       "min": 1000,
       "max": 12000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

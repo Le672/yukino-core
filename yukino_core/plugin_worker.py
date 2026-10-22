@@ -3,6 +3,7 @@ import importlib.util
 import json
 import sys
 import traceback
+from .plugin_results import validate_result
 
 
 def main():
@@ -19,7 +20,8 @@ def main():
             try:
                 req = json.loads(line)
                 result = module.handle(req["text"], req.get("context", {}))
-                if result is not None and not isinstance(result, str): raise TypeError("Plugin must return str or None")
+                if isinstance(result,str) and len(result.encode('utf-8'))>32000:raise ValueError('Unbounded text result')
+                result = validate_result(result)
                 protocol.write(json.dumps({"text": result}, ensure_ascii=False) + "\n")
             except Exception:
                 protocol.write(json.dumps({"error": "plugin_failed"}) + "\n")

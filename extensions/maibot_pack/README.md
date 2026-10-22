@@ -1,4 +1,6 @@
-# Yukino 麦麦功能扩展包 1.0.0
+# Yukino 麦麦功能扩展包 1.1.0
+
+本包1.1.0需要 Yukino Core 0.7.0+，支持统一结果卡与实际媒体/文件交付。逐项说明见 `docs/PLUGIN_OUTPUT_MATRIX.md`。
 
 本包根据麦麦官方插件中心的功能需求独立实现，为 Yukino Core 0.4.0 增加 15 个可选 Python worker。群管与管理员、持久化提醒、关键词回复是另外 3 个需要宿主权限的原生扩展，随 0.4.0 核心提供，在插件管理中启停和配置。
 
@@ -20,7 +22,7 @@
 ## 安装和资源
 
 ```sh
-python extensions/maibot_pack/build_pack.py --output ./dist/mai-pack-1.0.0
+python extensions/maibot_pack/build_pack.py --output ./dist/mai-pack-1.1.0
 python -m unittest discover -s extensions/maibot_pack/tests -v
 ```
 

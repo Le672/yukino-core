@@ -1,11 +1,13 @@
 {
   "id": "x_gomoku",
   "name": "九路五子棋",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "/五子棋 开始；另一人 加入；/五子棋 行 列（1—9），固定9×9自由规则，连5及以上获胜，无禁手；状态、认输、结束。",
   "worker": "worker.py",
   "commands": [
     "/五子棋"
   ],
-  "config_schema": []
+  "config_schema": [],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

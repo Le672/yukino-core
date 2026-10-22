@@ -1,7 +1,7 @@
 {
   "id": "x_trivia",
   "name": "原创知识问答",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "/知识问答 开始；/知识问答 A（或B/C/D）；状态；投降。原创24道基础知识小题库，每局随机抽题不重复，选项会打乱；每题提交一次并给出简短解释。完成后显示得分。",
   "worker": "worker.py",
   "commands": [
@@ -16,5 +16,7 @@
       "min": 3,
       "max": 12
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

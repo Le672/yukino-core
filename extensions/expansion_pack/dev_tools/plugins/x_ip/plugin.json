@@ -1,7 +1,7 @@
 {
   "id": "x_ip",
   "name": "IP与CIDR离线分析",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "IPv4/IPv6地址、网络掩码、地址数与类别分析",
   "worker": "worker.py",
   "commands": [
@@ -16,5 +16,7 @@
       "min": 1000,
       "max": 12000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

@@ -154,7 +154,7 @@
   },
   {
     "id": "m_bing",
-    "name": "Bing每日一图链接",
+    "name": "Bing每日原图",
     "commands": [
       "/每日壁纸"
     ],
@@ -182,6 +182,7 @@
         "reply_chars": 201,
         "elapsed_seconds": 6.931
       }
-    ]
+    ],
+    "description": "发送Bing每日原图、标题和版权说明"
   }
 ]

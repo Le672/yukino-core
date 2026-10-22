@@ -1,7 +1,7 @@
 {
   "id": "weather_query",
   "name": "天气查询",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "查询实际地点、当前天气与未来三天预报",
   "worker": "worker.py",
   "commands": [
@@ -22,5 +22,7 @@
       "default": "",
       "max_length": 2
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

@@ -1,4 +1,6 @@
-# Yukino 实用扩展包 1.0.0
+# Yukino 实用扩展包 1.1.0
+
+本包1.1.0需要 Yukino Core 0.7.0+，支持统一结果卡与实际媒体/文件交付。逐项说明见 `docs/PLUGIN_OUTPUT_MATRIX.md`。
 
 本包为 Yukino Core 0.5.0 新增63个独立插件：开发与数据工具、生活与协作、文字游戏各21个。每个都有独立ID、指令、配置和安装包，不是把命令别名算成新插件。各组目录的README和每个插件README给出准确玩法与边界。
 
@@ -6,8 +8,8 @@
 
 ```powershell
 # 在内核源码根目录执行，使用已安装项目依赖的Python环境。
-python extensions/expansion_pack/build_pack.py --output ./dist/expansion-pack-1.0.0
-python extensions/expansion_pack/verify_pack.py --packages ./dist/expansion-pack-1.0.0 --report ./dist/expansion-verification.json
+python extensions/expansion_pack/build_pack.py --output ./dist/expansion-pack-1.1.0
+python extensions/expansion_pack/verify_pack.py --packages ./dist/expansion-pack-1.1.0 --report ./dist/expansion-verification.json
 python -m unittest discover -s extensions/expansion_pack/dev_tools/tests -v
 python -m unittest discover -s extensions/expansion_pack/life_tools/tests -v
 python -m unittest discover -s extensions/expansion_pack/games/tests -v

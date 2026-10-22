@@ -4,6 +4,7 @@ import importlib.util
 import io
 import json
 import pathlib
+import tempfile
 import unittest
 import urllib.error
 from unittest import mock
@@ -38,7 +39,7 @@ class NetworkHelpers(unittest.TestCase):
                 folder = ROOT/name
                 manifest = json.loads((folder/'plugin.json').read_text(encoding='utf-8'))
                 self.assertEqual(manifest['id'], name)
-                self.assertEqual(manifest['version'], '1.0.1' if name=='hot_trends' else '1.0.0')
+                self.assertEqual(manifest['version'], '1.1.0')
                 self.assertEqual(manifest['worker'], 'worker.py')
                 self.assertTrue((folder/'README.md').exists())
                 hashes.add(hashlib.sha256((folder/'_net.py').read_bytes()).digest())
@@ -273,20 +274,28 @@ class PluginFormats(unittest.TestCase):
             with mock.patch.object(module.net,'fetch',return_value=payload):
                 self.assertIn('失败',module.handle('/热榜 b站',{}))
 
-    def test_music_names_artists_and_official_link_only(self):
+    def test_music_returns_actual_audio_and_ignores_fake_song_url(self):
         module=self.modules['music_search']
-        payload={'code':200,'result':{'songs':[{'id':123,'name':'<b>歌名</b>',
+        payload={'code':200,'result':{'songs':[{'id':123,'name':'<b>歌名</b>','duration':30000,
             'artists':[{'name':'歌手'}],'url':'https://evil.example/audio'}]}}
-        with mock.patch.object(module.net,'fetch',return_value=payload) as fetch:
-            reply=module.handle('/搜歌 歌名',{})
-        self.assertIn('歌名 — 歌手',reply);self.assertIn('/#/song?id=123',reply)
-        self.assertNotIn('evil',reply);self.assertIn('不提供音频下载',reply)
-        self.assertEqual(fetch.call_args.kwargs['data']['type'],1)
+        with tempfile.TemporaryDirectory() as directory:
+            context={'rich_result_version':1,'data_dir':directory,'session_id':'p:42','user_id':'42'}
+            with mock.patch.object(module.net,'fetch',side_effect=[payload,{'data':[{'url':'https://audio.example/real.mp3'}]}]) as fetch:
+                reply=module.handle('/搜歌 歌名',context)
+        self.assertIn('歌名 — 歌手',reply['text']);self.assertNotIn('evil',str(reply))
+        self.assertEqual(reply['media'][-1]['type'],'audio')
+        self.assertEqual(reply['media'][-1]['url'],'https://audio.example/real.mp3')
+        self.assertEqual(fetch.call_args_list[0].kwargs['data']['type'],1)
 
-    def test_music_alt_artist_shape_and_empty(self):
+    def test_music_selection_is_private_and_public_resolver_is_explicit(self):
         module=self.modules['music_search']
-        with mock.patch.object(module.net,'fetch',return_value={'code':200,'result':{'songs':[{'id':123,'name':'a','ar':[{'name':'b'}]}]}}):
-            self.assertIn('a — b',module.handle('/搜歌 a',{}))
+        payload={'code':200,'result':{'songs':[{'id':123,'name':'a','ar':[{'name':'b'}]}]}}
+        with tempfile.TemporaryDirectory() as directory:
+            context={'rich_result_version':1,'data_dir':directory,'session_id':'g:777','user_id':'42'}
+            with mock.patch.object(module.net,'fetch',side_effect=[payload,{'data':[{'url':None}]},{'url':'https://audio.example/a.mp3'}]):
+                reply=module.handle('/搜歌 a',context)
+            self.assertIn('a — b',reply['text']);self.assertIn('GD Studio',reply['text'])
+            self.assertIn('没有这个选歌序号',module.handle('/选歌 1',{**context,'user_id':'99'}))
         with mock.patch.object(module.net,'fetch',return_value={'code':200,'result':{}}):
             self.assertIn('未找到',module.handle('/搜歌 a',{}))
         with mock.patch.object(module.net,'fetch',return_value={'code':301}):

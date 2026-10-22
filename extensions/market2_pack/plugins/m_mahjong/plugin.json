@@ -38,6 +38,8 @@
       ]
     }
   ],
-  "version": "1.0.0",
-  "worker": "worker.py"
+  "version": "1.1.0",
+  "worker": "worker.py",
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

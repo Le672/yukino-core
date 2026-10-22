@@ -53,7 +53,7 @@ def build(destination):
             payload.decode('utf-8-sig')
             if name.endswith('.py'):
                 compile(payload, name, 'exec')
-        output = destination / (pid + '-1.0.0.zip')
+        output = destination / (pid + '-1.1.0.zip')
         archive(output, files)
         payload = output.read_bytes()
         record, checked = inspect_package(payload)
@@ -70,10 +70,10 @@ def build(destination):
             continue
         sources['social_pack/' + relative.as_posix()] = path.read_bytes()
     sources['social_pack/bank.json'] = bank_bytes
-    source = destination / 'yukino-social-pack-1.0.0-source.zip'
+    source = destination / 'yukino-social-pack-1.1.0-source.zip'
     archive(source, sources)
     source.with_name(source.name + '.sha256').write_text(digest(source.read_bytes()) + '  ' + source.name + '\n', encoding='ascii')
-    manifest = {'version': '1.0.0', 'minimum_core_version': '0.6.3', 'plugin_count': len(entries), 'plugins': entries,
+    manifest = {'version': '1.1.0', 'minimum_core_version': '0.7.0', 'plugin_count': len(entries), 'plugins': entries,
                 'source_archive': source.name, 'source_sha256': digest(source.read_bytes()), 'upstream_code_included': False,
                 'credentials_included': False}
     (destination / 'pack-manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')

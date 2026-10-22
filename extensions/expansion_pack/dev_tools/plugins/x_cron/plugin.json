@@ -1,7 +1,7 @@
 {
   "id": "x_cron",
   "name": "Cron解释与下次时间",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "标准五字段Cron解析和有界未来触发时间计算",
   "worker": "worker.py",
   "commands": [
@@ -41,5 +41,7 @@
       "min": 1000,
       "max": 12000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

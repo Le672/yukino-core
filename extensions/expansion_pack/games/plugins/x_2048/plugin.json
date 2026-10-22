@@ -1,7 +1,7 @@
 {
   "id": "x_2048",
   "name": "2048合并挑战",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "/2048 开始；上/下/左/右；状态；投降。每格每步最多合并一次；无效移动不会产生新块。达标后可继续。",
   "worker": "worker.py",
   "commands": [
@@ -28,5 +28,7 @@
         65536
       ]
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

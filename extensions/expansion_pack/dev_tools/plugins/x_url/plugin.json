@@ -1,7 +1,7 @@
 {
   "id": "x_url",
   "name": "链接结构与跟踪清理",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "离线URL解析和常见跟踪参数清理，保留其余参数",
   "worker": "worker.py",
   "commands": [
@@ -17,5 +17,7 @@
       "min": 1000,
       "max": 12000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

@@ -1,7 +1,7 @@
 {
   "id": "x_bookmarks",
   "name": "标签书签",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "URL、标签、检索和修改；不请求网站",
   "worker": "worker.py",
   "commands": [
@@ -16,5 +16,7 @@
       "min": 10,
       "max": 200
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

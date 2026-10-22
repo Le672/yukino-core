@@ -1,8 +1,8 @@
 {
   "id": "m_bing",
-  "name": "Bing每日一图链接",
-  "version": "1.0.0",
-  "description": "Bing每日图片标题、版权说明及UHD原站链接，纯文字返回",
+  "name": "Bing每日原图",
+  "version": "1.1.0",
+  "description": "发送Bing每日壁纸原图、标题与版权说明",
   "worker": "worker.py",
   "commands": [
     "/每日壁纸"
@@ -28,5 +28,7 @@
       "min": 2,
       "max": 15
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

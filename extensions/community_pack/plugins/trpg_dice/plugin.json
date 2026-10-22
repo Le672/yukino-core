@@ -2,7 +2,7 @@
   "id": "trpg_dice",
   "name": "TRPG骰子与CoC7检定",
   "description": "有界骰式、CoC7默认技能检定、基础属性和先攻，无eval。",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "worker": "worker.py",
   "commands": [
     "/r",
@@ -27,5 +27,7 @@
       "min": 2,
       "max": 1000000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

@@ -33,13 +33,18 @@ def _attachments(value) -> list[dict]:
     if not isinstance(value, list) or len(value) > 4: raise ValueError("invalid attachments")
     result = []
     for item in value:
-        if (not isinstance(item, dict) or item.get("type") != "image" or
+        if (not isinstance(item, dict) or item.get("type") not in ('image','audio','file') or
                 not isinstance(item.get("resource_id"), str) or
                 not re.fullmatch(r"[A-Za-z0-9_-]{1,100}", item["resource_id"])):
             raise ValueError("invalid image resource identifier")
         description = item.get("description", "")
         if not isinstance(description, str) or len(description) > 500: raise ValueError("invalid image description")
-        result.append({"type": "image", "resource_id": item["resource_id"], "description": description})
+        row={"type":item['type'], "resource_id": item["resource_id"], "description": description}
+        for key in ('filename','mime'):
+            if key in item:
+                if not isinstance(item[key],str) or len(item[key])>160 or any(ord(c)<32 for c in item[key]):raise ValueError('invalid media metadata')
+                row[key]=item[key]
+        result.append(row)
     return result
 
 
@@ -407,6 +412,20 @@ class Store:
         if status not in {"prepared", "pending", "sending", "sent", "failed", "unknown", "cancelled"}:
             raise ValueError("invalid outbox status")
         await self._run(self._outbox_mark, int(outbox_id), status, str(message_id), error)
+
+    async def compact_media(self,outbox_id,attachments):
+        await self._run(self._compact_media,outbox_id,attachments)
+
+    def _compact_media(self,outbox_id,attachments):
+        db=self._connection();row=db.execute("SELECT segments_json FROM outbox WHERE id=? AND status='sent'",(outbox_id,)).fetchone()
+        if not row:return
+        segments=json.loads(row[0]);index=0
+        for segment in segments:
+            data=segment.get('data',{})
+            if segment.get('type') in ('image','record','file') and str(data.get('file','')).startswith('base64://'):
+                if index>=len(attachments):return
+                data['file']='asset://'+attachments[index]['resource_id'];index+=1
+        with db:db.execute("UPDATE outbox SET segments_json=? WHERE id=? AND status='sent'",(json.dumps(segments,ensure_ascii=False),outbox_id))
 
     async def outbox_claim(self, outbox_id: int) -> bool:
         """Acquire the send once, even when concurrent handlers prepared it."""

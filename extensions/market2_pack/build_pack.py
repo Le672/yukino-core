@@ -39,7 +39,7 @@ def build(output):
         for name,payload in files.items():
             payload.decode('utf-8-sig')
             if name.endswith('.py'):compile(payload,pid+'/'+name,'exec')
-        dest=output/(pid+'-1.0.0.zip');archive(dest,files)
+        dest=output/(pid+'-1.1.0.zip');archive(dest,files)
         record,_=inspect_package(dest.read_bytes());assert record['id']==pid
         assert not commands.intersection(record['commands']),'Duplicate command'
         commands.update(record['commands'])
@@ -54,10 +54,10 @@ def build(output):
         if path.suffix not in ('.py','.json','.md','.txt') and path.name not in ('LICENSE','NOTICE'):continue
         if path.stat().st_size>500_000:raise ValueError('Unexpected source file')
         files['market2_pack/'+rel.as_posix()]=path.read_bytes()
-    source=output/'yukino-market2-pack-1.0.0-source.zip';archive(source,files)
+    source=output/'yukino-market2-pack-1.1.0-source.zip';archive(source,files)
     source_hash=hashlib.sha256(source.read_bytes()).hexdigest()
     (source.with_name(source.name+'.sha256')).write_text(source_hash+'  '+source.name+'\n',encoding='ascii')
-    manifest={'version':'1.0.0','minimum_core_version':'0.5.0','plugin_count':8,'source_archive':source.name,
+    manifest={'version':'1.1.0','minimum_core_version':'0.7.0','plugin_count':8,'source_archive':source.name,
               'source_sha256':source_hash,'plugins':entries,'upstream_code_included':False}
     (output/'pack-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({'plugins':8,'source_sha256':source_hash,'output':str(output)}))

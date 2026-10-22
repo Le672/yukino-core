@@ -44,7 +44,8 @@ class NativeExtensions:
         if event.get('message_type')=='group' and not cfg.get('in_groups',True):return None
         if event.get('message_type')=='private' and not cfg.get('in_private',True):return None
         for rule in self._rules():
-            if (text==rule['key'] if rule.get('mode','exact')=='exact' else rule['key'] in text):return rule['reply']
+            if (text==rule['key'] if rule.get('mode','exact')=='exact' else rule['key'] in text):
+                return {'version':1,'text':rule['reply'],'media':rule['media']} if rule.get('media') else rule['reply']
         return None
 
     def keyword_reply(self,event):

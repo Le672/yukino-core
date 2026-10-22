@@ -1,7 +1,7 @@
 {
   "id": "hot_trends",
   "name": "热榜查询",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "查询B站热门视频或贴吧热议话题，只输出标题",
   "worker": "worker.py",
   "commands": [
@@ -27,5 +27,7 @@
       ],
       "max_length": 10
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

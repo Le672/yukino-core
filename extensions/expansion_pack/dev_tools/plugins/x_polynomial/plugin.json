@@ -1,7 +1,7 @@
 {
   "id": "x_polynomial",
   "name": "多项式求值导数与方程",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Horner求值、导数系数和含复根的二次方程求解",
   "worker": "worker.py",
   "commands": [
@@ -16,5 +16,7 @@
       "min": 1000,
       "max": 12000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

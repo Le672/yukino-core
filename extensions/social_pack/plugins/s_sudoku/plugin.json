@@ -2,7 +2,12 @@
   "id": "s_sudoku",
   "name": "4×4唯一解数独",
   "description": "轻量原创生成4×4唯一解数独，填数、清除、检查、提示、撤销与个人持久存档。",
-  "commands": ["/数独"],
+  "commands": [
+    "/数独"
+  ],
   "worker": "worker.py",
-  "config_schema": []
+  "config_schema": [],
+  "version": "1.1.0",
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

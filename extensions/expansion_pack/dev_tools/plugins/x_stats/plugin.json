@@ -1,7 +1,7 @@
 {
   "id": "x_stats",
   "name": "描述性数据统计",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "均值中位数四分位总体/样本方差标准差众数",
   "worker": "worker.py",
   "commands": [
@@ -16,5 +16,7 @@
       "min": 1000,
       "max": 12000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

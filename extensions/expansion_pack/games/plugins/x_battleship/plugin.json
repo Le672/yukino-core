@@ -1,7 +1,7 @@
 {
   "id": "x_battleship",
   "name": "单人坐标海战",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "/海战 开始；/海战 攻击 A1；状态；投降。5×5隐藏海图含长度3、2、2的三艘船，直线连续、不重叠、可以相邻。X为命中、~为未中；击沉全部舰船获胜，重复坐标不消耗攻击次数。",
   "worker": "worker.py",
   "commands": [
@@ -16,5 +16,7 @@
       "min": 10,
       "max": 25
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

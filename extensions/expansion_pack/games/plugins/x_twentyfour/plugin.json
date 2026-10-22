@@ -1,7 +1,7 @@
 {
   "id": "x_twentyfour",
   "name": "24点",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "/24点 开始；/24点 (1+2+3)*4。必须将给定的四个数字各使用一次，只允许四则运算、括号；精确分数判定，不用浮点误差。状态、答案/投降。每道题保证有解，答错次数可配置。",
   "worker": "worker.py",
   "commands": [
@@ -16,5 +16,7 @@
       "min": 3,
       "max": 30
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

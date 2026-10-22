@@ -61,6 +61,9 @@ def handle(text, context):
         if isinstance(motd, list) and motd:
             lines.append('简介：'+' / '.join(net.clean(x, 120) for x in motd[:3]))
         lines.append('来源：mcsrvstat.us 第三方探测；结果缓存最长5分钟，不提供本机延迟或RCON操作。')
-        return '\n'.join(lines)
+        result='\n'.join(lines);icon=data.get('icon','')
+        if context.get('rich_result_version') and isinstance(icon,str) and icon.startswith('data:image/png;base64,') and len(icon)<50000:
+            return {'version':1,'text':result,'media':[{'type':'image','data':icon,'name':'server-icon.png'}]}
+        return result
     except Exception as exc:
         return net.failure('Minecraft', exc)

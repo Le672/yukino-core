@@ -436,12 +436,12 @@
         const meta = node("div", "chat-meta");
         const name = display(pick(message.display_name, message.user_id), role === "assistant" ? display(state.config?.name, "Yukino") : role === "system" ? "系统" : "用户");
         meta.append(node("span", "", name), node("time", "", formatTime(pick(message.created_at, message.time, message.timestamp), "")));
-        const attachments = Array.isArray(message.attachments) ? message.attachments.filter((attachment) => attachment?.type === "image") : [];
+        const attachments = Array.isArray(message.attachments) ? message.attachments.filter((attachment) => ["image", "audio", "file"].includes(attachment?.type)) : [];
         item.append(meta);
         if (message.content || !attachments.length) item.append(node("div", "chat-bubble", display(message.content, "（空消息）")));
         if (attachments.length) {
           const media = node("div", "chat-attachments");
-          media.append(...attachments.map((attachment) => managedImageButton(attachment, "chat-image")));
+          media.append(...attachments.map((attachment) => attachment.type === "image" ? managedImageButton(attachment, "chat-image") : managedFile(attachment)));
           item.append(media);
         }
         return item;
@@ -1040,6 +1040,7 @@
   function resourcePath(kind, id) { return `/api/resources/${kind}${id === undefined ? "" : `/${encodeURIComponent(String(id))}`}`; }
   function resourceImageURL(item) {
     const id = pick(item?.resource_id, item?.id);
+    if (/^media_[a-f0-9]{32}$/.test(String(id))) return `/api/plugin-media/${id}`;
     if (id !== undefined && id !== null && String(id).trim()) return `${resourcePath("images", id)}/file`;
     if (typeof item?.preview_url !== "string") return "";
     try {
@@ -1047,6 +1048,19 @@
       if (url.origin !== window.location.origin || url.username || url.password || url.search || url.hash || !/^\/api\/resources\/images\/[^/]+\/file$/.test(url.pathname)) return "";
       return url.pathname;
     } catch { return ""; }
+  }
+  function managedFile(item) {
+    const box = node("div", "chat-file"), id = String(item.resource_id || "");
+    if (!/^media_[a-f0-9]{32}$/.test(id)) return node("span", "", "附件暂不可用");
+    const url = `/api/plugin-media/${id}`;
+    if (item.type === "audio") {
+      const audio = node("audio", "chat-audio");
+      audio.controls = true; audio.preload = "none"; audio.src = url;
+      box.append(audio);
+    }
+    const link = node("a", "", display(item.filename || item.description, "下载附件"));
+    link.href = url; link.download = item.filename || "attachment"; box.append(link);
+    return box;
   }
   function managedImageButton(item, className = "resource-thumbnail") {
     const description = display(item.description, "图片资源"), url = resourceImageURL(item);

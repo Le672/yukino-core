@@ -1,7 +1,7 @@
 {
   "id": "polls",
   "name": "会话投票",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "每QQ一票、改票开关、发起者或主人关闭",
   "worker": "worker.py",
   "commands": [
@@ -14,5 +14,7 @@
       "label": "允许改票",
       "default": true
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

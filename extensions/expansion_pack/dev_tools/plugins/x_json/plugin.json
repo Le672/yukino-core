@@ -1,7 +1,7 @@
 {
   "id": "x_json",
   "name": "JSON格式与路径取值",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "严格JSON格式化、数组/属性路径和JSON Pointer取值",
   "worker": "worker.py",
   "commands": [
@@ -25,5 +25,7 @@
       "min": 1000,
       "max": 12000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

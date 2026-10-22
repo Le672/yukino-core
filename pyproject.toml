@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "yukino-core"
-version = "0.6.4"
+version = "0.7.0"
 description = "Configurable asynchronous OneBot kernel with multiple model providers and an administration console"
 license = "MIT"
 license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]

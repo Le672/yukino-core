@@ -81,6 +81,8 @@ def format_data(key, name, data):
         assets = data.get('assets')
         need(isinstance(assets, list), '远端附件列表无效。')
         lines = [f'GitHub 正式发行：{name}', f'版本：{tag}', f'发布时间：{published}', f'原页面：{page}']
+        notes=data.get('body')
+        if isinstance(notes,str) and notes.strip():lines.append('更新内容：\n'+notes.strip()[:1400])
         for asset in assets[:5]:
             need(isinstance(asset, dict), '远端附件元数据无效。')
             title = clean(asset.get('name'), 80, '附件')
@@ -90,7 +92,7 @@ def format_data(key, name, data):
             lines.append('附件：此 Release 未上传附件。')
         elif len(assets) > 5:
             lines.append('附件仅列前5个，其余请查看原页面。')
-        lines.append('仅列公开元数据及链接；未下载、执行或验证附件安全。')
+        lines.append('展示公开发行信息；支持自动附带大小允许的ZIP/PDF/TXT附件，不执行附件。')
         return '\n'.join(lines)
     version = required(data.get('info', {}).get('version') if key.startswith('pypi:') and isinstance(data.get('info'), dict) else data.get('version'), 100, '版本')
     if key.startswith('pypi:'):

@@ -1,7 +1,7 @@
 {
   "id": "x_sliding",
   "name": "可解滑块拼图",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "/滑块拼图 开始；移动 数字；或 上/下/左/右（移动空格）；状态；投降。目标为1～8按行排列，空格右下。",
   "worker": "worker.py",
   "commands": [
@@ -16,5 +16,7 @@
       "min": 10,
       "max": 200
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

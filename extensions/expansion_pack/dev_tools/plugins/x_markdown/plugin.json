@@ -1,7 +1,7 @@
 {
   "id": "x_markdown",
   "name": "Markdown目录与表格",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "跳过代码围栏提取标题目录和CSV转Markdown表格",
   "worker": "worker.py",
   "commands": [
@@ -23,5 +23,7 @@
       "min": 1000,
       "max": 12000
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }

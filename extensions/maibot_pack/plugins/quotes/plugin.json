@@ -1,7 +1,7 @@
 {
   "id": "quotes",
   "name": "会话语录收藏",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "仅收录主动提供的文字，可按权限软归档",
   "worker": "worker.py",
   "commands": [
@@ -16,5 +16,7 @@
       "min": 1,
       "max": 500
     }
-  ]
+  ],
+  "minimum_core_version": "0.7.0",
+  "result_protocol": 1
 }
