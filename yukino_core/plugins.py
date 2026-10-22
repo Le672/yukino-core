@@ -272,7 +272,9 @@ class PluginManager:
         configured_timeout=values.get('timeout',2.0)
         timeout=configured_timeout if timeout is None else min(timeout,configured_timeout)
         text=text[:min(values.get('input_max_chars',4000),getattr(self.config,'data',{}).get('command_max_chars',4000))]
-        context={**context,'settings':values, 'self_id':getattr(self.config,'self_id',''),
+        host_fields={field['key'] for field in OUTPUT_FIELDS}
+        worker_values={key:value for key,value in values.items() if key not in host_fields}
+        context={**context,'settings':worker_values, 'self_id':getattr(self.config,'self_id',''),
                  'owner_ids':getattr(self.config,'owner_ids',[getattr(self.config,'owner_id','')]),'rich_result_version':1}
         if item['id']=='music_search':text=music_intent(text) or text
         if 'worker' in item:

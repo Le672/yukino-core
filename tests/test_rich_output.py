@@ -88,7 +88,7 @@ class RichTests(unittest.IsolatedAsyncioTestCase):
         rows=await self.store.history(e['session_id']);self.assertEqual(rows[-1]['attachments'][0]['type'],'file')
     async def test_actual_worker_protocol_reaches_media_dispatcher(self):
         item=self.item();self.plugins.root.mkdir(parents=True,exist_ok=True)
-        (self.plugins.root/'worker.py').write_text("def handle(text,context):\n assert context['rich_result_version']==1\n return {'version':1,'text':'文件结果','media':[{'type':'file','name':'output.txt','text':'actual worker output'}]}\n",encoding='utf-8')
+        (self.plugins.root/'worker.py').write_text("def handle(text,context):\n assert context['rich_result_version']==1\n assert 'output_mode' not in context['settings'] and 'export_result' not in context['settings']\n return {'version':1,'text':'文件结果','media':[{'type':'file','name':'output.txt','text':'actual worker output'}]}\n",encoding='utf-8')
         event=normalize_event({'post_type':'message','message_type':'private','self_id':900,'user_id':42,'message_id':999,'time':100,'message':[{'type':'text','data':{'text':'/样例'}}]})
         await self.k.on_event(event)
         self.assertEqual(self.peer.actions[0][0],'upload_private_file');self.assertFalse(self.plugins.errors)

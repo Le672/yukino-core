@@ -146,8 +146,8 @@
     },
     {
       "path": "docs/RICH_PLUGIN_OUTPUTS.md",
-      "bytes": 5096,
-      "sha256": "66007943957b56a7acefbcd09fddf15a2dcda28834946ad3c595195cd363e6ed"
+      "bytes": 5271,
+      "sha256": "9a0362b4431cdd65fed454c989d1dcd843e50d40c8fb7d6f1f83f3c96c328900"
     },
     {
       "path": "docs/licenses/Pillow-LICENSE.txt",
@@ -2581,8 +2581,8 @@
     },
     {
       "path": "tests/test_rich_output.py",
-      "bytes": 9675,
-      "sha256": "ee2b18966776412d07fa068bd9357f126e30d4b8cd86f7ff8f1bd93d54a81d96"
+      "bytes": 9772,
+      "sha256": "24941302ab3aa6a8e0981a2df665fb40ca585b51a7037891a0d03f5c7d49313d"
     },
     {
       "path": "tests/test_settings.py",
@@ -2706,8 +2706,8 @@
     },
     {
       "path": "yukino_core/plugins.py",
-      "bytes": 23313,
-      "sha256": "d70da68b448a2fa5b7a58f6bdfecb32d535c2c97ad6bec05a4fd32ec8a219f16"
+      "bytes": 23474,
+      "sha256": "8dd405708ad77d3eda8361067759d4b4ea0093bfe9e82423b24751773aeb0ce8"
     },
     {
       "path": "yukino_core/plugins/calculator.py",

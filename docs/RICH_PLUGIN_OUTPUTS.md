@@ -35,6 +35,8 @@ def handle(text, context):
 
 内核分配 `context['data_dir']` 和 `context['rich_result_version']=1`。需要兼容旧内核时可检查后者并返回文字。插件配置 `minimum_core_version` 声明最低版本，新安装器会核对。
 
+`output_mode`、`export_result` 是宿主排版参数，只由内核处理，不混入 worker 的 `context['settings']`，避免影响有严格参数校验的独立服务。
+
 ## 限额与可靠性
 
 媒体单项最多24MiB，图片最多5MB/2000万像素，缓存最多512MiB。网络连接验证完整DNS结果、实际连接IP和TLS主机名；拒绝本地/内网、凭据URL、非HTTPS和不安全重定向。媒体不转交给QQ端任意读取URL，而由宿主下载、校验后发送。
