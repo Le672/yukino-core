@@ -1,0 +1,2962 @@
+{
+  "version": "1.2.0",
+  "minimum_core_version": "0.8.0",
+  "plugins": [
+    {
+      "id": "affinity",
+      "name": "指令互动与好感",
+      "commands": [
+        "/好感",
+        "/互动",
+        "/好感榜"
+      ],
+      "archive": "affinity-1.2.0.zip",
+      "sha256": "062d6ae4bdb6114f1baacf0e0ba2aaa1d932b35ce2eab8d351d68a066eba11c1",
+      "bytes": 5052,
+      "files": 6,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://kondius.cn/qq-agent/plugin-market/",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "bili_query",
+      "name": "B站查询",
+      "commands": [
+        "/B站搜索",
+        "/b站搜索",
+        "/直播"
+      ],
+      "archive": "bili_query-1.2.0.zip",
+      "sha256": "803aec02fc355fc612cbac608d7e3884d0b5f2c2f309f6ab79b988b55541944e",
+      "bytes": 8124,
+      "files": 8,
+      "settings": {
+        "timeout": 18,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://kondius.cn/qq-agent/plugin-market/",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "daily_economy",
+      "name": "每日签到与娱乐积分",
+      "commands": [
+        "/签到",
+        "/余额",
+        "/金币榜",
+        "/转账",
+        "/流水",
+        "/商店",
+        "/购买",
+        "/背包",
+        "/经济帮助"
+      ],
+      "archive": "daily_economy-1.2.0.zip",
+      "sha256": "f0861a6a062ea37c8a5b3ac867141aa816d1acd7d45836be0f094bef54a6d175",
+      "bytes": 6645,
+      "files": 6,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://kondius.cn/qq-agent/plugin-market/",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "eat_what",
+      "name": "今天吃什么",
+      "commands": [
+        "/吃什么",
+        "/吃什么列表"
+      ],
+      "archive": "eat_what-1.2.0.zip",
+      "sha256": "afc387fda93ba780bd58f2ca74363b8b25f814a7a7b62b0f2f6f550a6e5ee90d",
+      "bytes": 3918,
+      "files": 6,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://kondius.cn/qq-agent/plugin-market/",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "hot_trends",
+      "name": "热榜查询",
+      "commands": [
+        "/热榜"
+      ],
+      "archive": "hot_trends-1.2.0.zip",
+      "sha256": "3fca8e6c6ddae5984ceda111bb9a98647f2c73065713e99208c48d09950c33a8",
+      "bytes": 7541,
+      "files": 8,
+      "settings": {
+        "timeout": 18,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://kondius.cn/qq-agent/plugin-market/",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "mc_status",
+      "name": "Minecraft状态",
+      "commands": [
+        "/mc"
+      ],
+      "archive": "mc_status-1.2.0.zip",
+      "sha256": "37eff601feaef94bc6ee92d6543998869439ab71be1cd139c633fd9c925c2672",
+      "bytes": 7339,
+      "files": 7,
+      "settings": {
+        "timeout": 18,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://kondius.cn/qq-agent/plugin-market/",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "member_aliases",
+      "name": "会话成员外号",
+      "commands": [
+        "/外号"
+      ],
+      "archive": "member_aliases-1.2.0.zip",
+      "sha256": "77dfde0728dbf04a152ee4dbab288473f24fae3553c91e9088924c8b8d1432e7",
+      "bytes": 4474,
+      "files": 6,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://kondius.cn/qq-agent/plugin-market/",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "music_search",
+      "name": "点歌与音频发送",
+      "commands": [
+        "/搜歌",
+        "/点歌",
+        "/选歌"
+      ],
+      "archive": "music_search-1.2.0.zip",
+      "sha256": "d4dd249c5e34f55f716169212a9d7c80ea97053abec24bd4588afbfb65603e01",
+      "bytes": 8790,
+      "files": 7,
+      "settings": {
+        "timeout": 45,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://kondius.cn/qq-agent/plugin-market/",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "steam_query",
+      "name": "Steam商店查询",
+      "commands": [
+        "/steam",
+        "/Steam"
+      ],
+      "archive": "steam_query-1.2.0.zip",
+      "sha256": "b81ecc2fe98ddac25b2444b1eca2a56f2813c1197c864f7c850a42300a4dc9c8",
+      "bytes": 7106,
+      "files": 7,
+      "settings": {
+        "timeout": 18,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://kondius.cn/qq-agent/plugin-market/",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "trpg_dice",
+      "name": "TRPG骰子与CoC7检定",
+      "commands": [
+        "/r",
+        "/ra",
+        "/coc",
+        "/先攻"
+      ],
+      "archive": "trpg_dice-1.2.0.zip",
+      "sha256": "24c8b1648f44ec2d655f945393b781d381187263db6a1257cf751bde550393aa",
+      "bytes": 5090,
+      "files": 6,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://kondius.cn/qq-agent/plugin-market/",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "weather_query",
+      "name": "天气查询",
+      "commands": [
+        "/天气"
+      ],
+      "archive": "weather_query-1.2.0.zip",
+      "sha256": "156c21f72b208d610ecf69f79e1156b18a6e2fa1169eb41cb7bb6b85a1757672",
+      "bytes": 7462,
+      "files": 7,
+      "settings": {
+        "timeout": 18,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://kondius.cn/qq-agent/plugin-market/",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "answer_book",
+      "name": "答案之书",
+      "commands": [
+        "/答案之书"
+      ],
+      "archive": "answer_book-1.2.0.zip",
+      "sha256": "94f8304c7ee849d094af017dcd11be6a5e345e123928585ac6a1215a5d6beaa2",
+      "bytes": 10302,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "daily_greetings",
+      "name": "早晚安记录",
+      "commands": [
+        "/早安",
+        "/晚安"
+      ],
+      "archive": "daily_greetings-1.2.0.zip",
+      "sha256": "719f2ed0c104a3222f7f10f8723ec5b36c276f02333f8aa60ce4673739bf97c2",
+      "bytes": 10351,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "daily_luck",
+      "name": "今日幸运小签",
+      "commands": [
+        "/今日运势"
+      ],
+      "archive": "daily_luck-1.2.0.zip",
+      "sha256": "432eb14c3078c70cf7b869e83adb1b1098091e71cf2ab0ff641dd0f18d0330ac",
+      "bytes": 10338,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "decision",
+      "name": "随机选择工具",
+      "commands": [
+        "/选择",
+        "/硬币",
+        "/随机数"
+      ],
+      "archive": "decision-1.2.0.zip",
+      "sha256": "9965a2619d762c94e6d036ba169cfffa8b6da7e007fb8fc3119a74e3f2df32b1",
+      "bytes": 10343,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "f1_info",
+      "name": "F1赛事与积分",
+      "commands": [
+        "/f1",
+        "/F1"
+      ],
+      "archive": "f1_info-1.2.0.zip",
+      "sha256": "90d9d9628048e08e2eb49881e66d734591c44a62720a9356244a75b891f7d494",
+      "bytes": 7394,
+      "files": 7,
+      "settings": {
+        "timeout": 18,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "game_news",
+      "name": "Steam游戏更新",
+      "commands": [
+        "/游戏更新"
+      ],
+      "archive": "game_news-1.2.0.zip",
+      "sha256": "8c3e44e2a2e9611291e60a8dfa0b5b0301f7d5e0efa526e5ce469eca2ee906dd",
+      "bytes": 5600,
+      "files": 7,
+      "settings": {
+        "timeout": 18,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "guess_number",
+      "name": "四位数AB猜谜",
+      "commands": [
+        "/猜数字"
+      ],
+      "archive": "guess_number-1.2.0.zip",
+      "sha256": "2db259d16927bfa63196c5026caf1b68252668331b57539721a1ec97562f7238",
+      "bytes": 10417,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "polls",
+      "name": "会话投票",
+      "commands": [
+        "/投票"
+      ],
+      "archive": "polls-1.2.0.zip",
+      "sha256": "ed5a6ec7db85ecbfa7c63480c87edef9fd41420746bb5238d5b2269384f1c3ea",
+      "bytes": 10424,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "quotes",
+      "name": "会话语录收藏",
+      "commands": [
+        "/语录"
+      ],
+      "archive": "quotes-1.2.0.zip",
+      "sha256": "669255cc37181775223aa3ddbcaba68d19447015c46b697d88be9af54ec5ba85",
+      "bytes": 10449,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "rps",
+      "name": "石头剪刀布",
+      "commands": [
+        "/猜拳"
+      ],
+      "archive": "rps-1.2.0.zip",
+      "sha256": "aac5242cd5787c7babd7c98f29d6dd31b0bb1ac467452ae206751bc2686c1729",
+      "bytes": 10252,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "tarot",
+      "name": "塔罗灵感抽牌",
+      "commands": [
+        "/塔罗"
+      ],
+      "archive": "tarot-1.2.0.zip",
+      "sha256": "b98cf85f168201f567ffb886bcebea83641d7ef7a7aa105824efc5a8df5688a8",
+      "bytes": 10346,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "text_tools",
+      "name": "文字编码与统计",
+      "commands": [
+        "/字数",
+        "/Base64",
+        "/解Base64",
+        "/哈希",
+        "/URL编码",
+        "/URL解码"
+      ],
+      "archive": "text_tools-1.2.0.zip",
+      "sha256": "09c8b54dfc30a06ac5b656a2e04429e295355fb70dca9f9eb910ef7daeebbf74",
+      "bytes": 10434,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "time_tools",
+      "name": "世界时间与日历倒数",
+      "commands": [
+        "/时间",
+        "/倒数"
+      ],
+      "archive": "time_tools-1.2.0.zip",
+      "sha256": "e0d85be10aea940eb67843ccab01653d765365df98d1f34f17d28fe8a5abdec6",
+      "bytes": 10394,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "todo_notes",
+      "name": "待办与私人便签",
+      "commands": [
+        "/待办",
+        "/便签"
+      ],
+      "archive": "todo_notes-1.2.0.zip",
+      "sha256": "fc56d695de7c78e61571a5d40fe95d2f1fb29f79850cf129f880a2fd24421b3b",
+      "bytes": 10492,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "wordle",
+      "name": "五字母猜词",
+      "commands": [
+        "/猜词"
+      ],
+      "archive": "wordle-1.2.0.zip",
+      "sha256": "e66464d443ffe6205a212a7bb308a8979741a4ce754a7c179acd813868f1178e",
+      "bytes": 10345,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "output_max_chars": 5000
+      },
+      "source_reference": "https://github.com/Mai-with-u/plugin-repo",
+      "implementation": "independent_yukino_worker",
+      "upstream_code_included": false
+    },
+    {
+      "id": "x_json",
+      "name": "JSON格式与路径取值",
+      "commands": [
+        "/JSON格式",
+        "/JSON取值"
+      ],
+      "smoke_command": "/JSON取值 user.name|{\"user\":{\"name\":\"雪乃\"}}",
+      "expected_contains": "雪乃",
+      "invalid_command": "/JSON格式 {broken}",
+      "group": "dev_tools",
+      "description": "严格JSON格式化、数组/属性路径和JSON Pointer取值",
+      "archive": "x_json-1.2.0.zip",
+      "sha256": "940c9af3b43c05dd0063f0afb148253ecb238de8ecb10c7f839c1a13e44ebaa3",
+      "bytes": 28289,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_csv",
+      "name": "CSV结构与数值统计",
+      "commands": [
+        "/CSV统计"
+      ],
+      "smoke_command": "/CSV统计 姓名,分数\n小明,90\n小红,80",
+      "expected_contains": "平均 85",
+      "invalid_command": "/CSV统计 \"unterminated",
+      "group": "dev_tools",
+      "description": "解析含引号CSV，统计缺失、唯一值及数值列平均值",
+      "archive": "x_csv-1.2.0.zip",
+      "sha256": "f04d9d0afde29927cb933ebdae803b4326f6305ff211ab46b34867aed4de19e3",
+      "bytes": 28351,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_regex",
+      "name": "限时正则测试",
+      "commands": [
+        "/正则测试"
+      ],
+      "smoke_command": "/正则测试 ([a-z]+)([0-9]+)|abc123 中文",
+      "expected_contains": "abc123",
+      "invalid_command": "/正则测试 [|abc",
+      "group": "dev_tools",
+      "description": "带捕获分组与位置的正则匹配，独立短超时保护",
+      "archive": "x_regex-1.2.0.zip",
+      "sha256": "324102e64c2bfe75330cdb134915815ec2dc38697a6323f1b1e0b4a4b4fd0168",
+      "bytes": 28514,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_cron",
+      "name": "Cron解释与下次时间",
+      "commands": [
+        "/Cron说明",
+        "/Cron下次"
+      ],
+      "smoke_command": "/Cron下次 0 9 * * 1-5|2026-10-16T09:00:00+08:00",
+      "expected_contains": "2026-10-19T09:00+08:00",
+      "invalid_command": "/Cron说明 60 * * * *",
+      "group": "dev_tools",
+      "description": "标准五字段Cron解析和有界未来触发时间计算",
+      "archive": "x_cron-1.2.0.zip",
+      "sha256": "cb21438384de51c2a37258e98b38e948864fcd502d811016336b56829b3f61a7",
+      "bytes": 28545,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_uuid",
+      "name": "UUID生成与解析",
+      "commands": [
+        "/UUID",
+        "/UUID解析"
+      ],
+      "smoke_command": "/UUID 5 dns|example.com",
+      "expected_contains": "UUID v5",
+      "invalid_command": "/UUID解析 bad-uuid",
+      "group": "dev_tools",
+      "description": "随机UUIDv4、可重复的命名UUIDv5及结构解析",
+      "archive": "x_uuid-1.2.0.zip",
+      "sha256": "e89de8ab4f7ab6e62ecc31061b53b71a14298c66b259030cfdc5198b61149357",
+      "bytes": 28247,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_ip",
+      "name": "IP归属与DNS查询",
+      "commands": [
+        "/IP信息",
+        "/IP查询",
+        "/IP",
+        "/DNS",
+        "/DNS查询",
+        "/域名查询",
+        "/ip",
+        "/dns"
+      ],
+      "smoke_command": "/IP信息 192.168.1.10/24",
+      "expected_contains": "192.168.1.0/24",
+      "invalid_command": "/IP信息 999.999.999.999",
+      "group": "dev_tools",
+      "description": "真实查询公网归属、运营商、ASN与DNS，保留IPv4/IPv6/CIDR本地分析",
+      "archive": "x_ip-1.2.0.zip",
+      "sha256": "e4e8a70bed0dd762e92118c0c16a0b49feeb4168df39773a80305bc3f7ab0030",
+      "bytes": 28387,
+      "files": 9,
+      "settings": {
+        "timeout": 30,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_url",
+      "name": "链接检查与跟踪清理",
+      "commands": [
+        "/链接信息",
+        "/清理链接"
+      ],
+      "smoke_command": "/清理链接 https://example.com/watch?v=42&utm_source=test&spm=123",
+      "expected_contains": "https://example.com/watch?v=42",
+      "invalid_command": "/链接信息 file:///etc/passwd",
+      "group": "dev_tools",
+      "description": "查询公开网站实际HTTP状态、类型和跳转结果，保留链接结构分析与离线清理",
+      "archive": "x_url-1.2.0.zip",
+      "sha256": "ced0f998ab02e1dd4a7fc2dc60ece82048c1dc40783e4da25f9f8fc1a519a43a",
+      "bytes": 28289,
+      "files": 9,
+      "settings": {
+        "timeout": 30,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_color",
+      "name": "颜色转换与可读性对比",
+      "commands": [
+        "/颜色",
+        "/对比度"
+      ],
+      "smoke_command": "/对比度 #000000|#ffffff",
+      "expected_contains": "21.00:1",
+      "invalid_command": "/颜色 rgb(256,0,0)",
+      "group": "dev_tools",
+      "description": "HEX/RGB/HSL转换、亮度和WCAG文字对比度计算",
+      "archive": "x_color-1.2.0.zip",
+      "sha256": "fe66f50de1bc8e0a4b0826165d4b85250390545230576e715e52b01a636b22d1",
+      "bytes": 28225,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_units",
+      "name": "多量纲单位换算",
+      "commands": [
+        "/单位换算"
+      ],
+      "smoke_command": "/单位换算 32 F C",
+      "expected_contains": "= 0 C",
+      "invalid_command": "/单位换算 1 kg m",
+      "group": "dev_tools",
+      "description": "温度长度质量速度面积体积数据与时间间隔换算",
+      "archive": "x_units-1.2.0.zip",
+      "sha256": "37d29ea70d34379a7880b53123c907c1aa9f5dc7634899f2788ccb7be9a752f0",
+      "bytes": 28364,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_radix",
+      "name": "任意进制整数转换",
+      "commands": [
+        "/进制转换"
+      ],
+      "smoke_command": "/进制转换 FF 16 2",
+      "expected_contains": "11111111",
+      "invalid_command": "/进制转换 2 2 10",
+      "group": "dev_tools",
+      "description": "2到36进制有符号整数转换与容量限制",
+      "archive": "x_radix-1.2.0.zip",
+      "sha256": "7f8f3229e1eec120168c943b4d1d0670cefa23aeec66e5ec9dc3141d40a772e2",
+      "bytes": 28169,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_unicode",
+      "name": "Unicode字符与规范化",
+      "commands": [
+        "/字符信息",
+        "/文本规范化"
+      ],
+      "smoke_command": "/文本规范化 NFKC|ＡＢＣ１２３",
+      "expected_contains": "ABC123",
+      "invalid_command": "/文本规范化 BAD|abc",
+      "group": "dev_tools",
+      "description": "码点名称类别UTF8字节及NFC/NFD/NFKC/NFKD转换",
+      "archive": "x_unicode-1.2.0.zip",
+      "sha256": "d7f1a230933ab539b96e286d87ad8806ea2e7f6c8e7d22374836836a0d90110a",
+      "bytes": 28356,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_markdown",
+      "name": "Markdown目录与表格",
+      "commands": [
+        "/Markdown目录",
+        "/Markdown表格"
+      ],
+      "smoke_command": "/Markdown目录 # 开始\n## 安装\n## 使用",
+      "expected_contains": "[安装](#安装)",
+      "invalid_command": "/Markdown表格 \"unterminated",
+      "group": "dev_tools",
+      "description": "跳过代码围栏提取标题目录和CSV转Markdown表格",
+      "archive": "x_markdown-1.2.0.zip",
+      "sha256": "540f6302c5f7f68613098cd439248e989b04b2ec9ad961fae2db3de478f5088f",
+      "bytes": 28363,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_diff",
+      "name": "多行文本差异",
+      "commands": [
+        "/文本差异"
+      ],
+      "smoke_command": "/文本差异 old line|new line",
+      "expected_contains": "-old line",
+      "invalid_command": "/文本差异 missingseparator",
+      "group": "dev_tools",
+      "description": "Unified Diff与字符相似度，支持JSON输入保留竖线",
+      "archive": "x_diff-1.2.0.zip",
+      "sha256": "5ae772d246439acaed120c82e1cfc1fd51849b38d6d3da32846c30dbb92daa70",
+      "bytes": 28303,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_semver",
+      "name": "语义版本比较",
+      "commands": [
+        "/版本比较"
+      ],
+      "smoke_command": "/版本比较 1.2.3-alpha.2 1.2.3-alpha.10",
+      "expected_contains": " < ",
+      "invalid_command": "/版本比较 01.2.3 1.2.3",
+      "group": "dev_tools",
+      "description": "严格SemVer排序，包括预发行数字标识与构建元数据",
+      "archive": "x_semver-1.2.0.zip",
+      "sha256": "e171d24f4d36ca687857e6cacaf1bdb548a057a2f7608e2b89f86a8f5fab94af",
+      "bytes": 28239,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_http",
+      "name": "HTTP与网站状态",
+      "commands": [
+        "/HTTP状态",
+        "/MIME",
+        "/网站状态"
+      ],
+      "smoke_command": "/HTTP状态 404",
+      "expected_contains": "Not Found",
+      "invalid_command": "/HTTP状态 700",
+      "group": "dev_tools",
+      "description": "真实检测公开HTTPS网站状态与响应头，保留HTTP状态码和MIME本地速查",
+      "archive": "x_http-1.2.0.zip",
+      "sha256": "937cb6b38dc7d1252d593b266c992b639b53147aa50b71802fe2d30317358c73",
+      "bytes": 28260,
+      "files": 9,
+      "settings": {
+        "timeout": 30,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_epoch",
+      "name": "Unix时间戳与ISO互转",
+      "commands": [
+        "/时间戳转换"
+      ],
+      "smoke_command": "/时间戳转换 1700000000000",
+      "expected_contains": "2023-11-14T22:13:20+00:00",
+      "invalid_command": "/时间戳转换 not-a-date",
+      "group": "dev_tools",
+      "description": "秒/毫秒时间戳和带时区ISO日期时间双向转换",
+      "archive": "x_epoch-1.2.0.zip",
+      "sha256": "b49db655d451286751cbf1df90b228f9e8c16c07a5ee1f444b502c90f7d248de",
+      "bytes": 28328,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_decimal",
+      "name": "Decimal与有理数计算",
+      "commands": [
+        "/精确计算"
+      ],
+      "smoke_command": "/精确计算 0.1+0.2",
+      "expected_contains": "= 0.3",
+      "invalid_command": "/精确计算 __import__(\"os\").system(\"echo unsafe\")",
+      "group": "dev_tools",
+      "description": "受限AST十进制计算与Fraction精确分数模式",
+      "archive": "x_decimal-1.2.0.zip",
+      "sha256": "01b16c301714eb673f4765de834586ed4a7d6b86909cd6fffb81c12fd3380542",
+      "bytes": 28363,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_matrix",
+      "name": "小矩阵代数",
+      "commands": [
+        "/矩阵"
+      ],
+      "smoke_command": "/矩阵 行列式 [[1,2],[3,4]]",
+      "expected_contains": "行列式：-2",
+      "invalid_command": "/矩阵 行列式 [[1,2,3],[4,5,6]]",
+      "group": "dev_tools",
+      "description": "精确有理数转置、矩阵乘法与消元法行列式",
+      "archive": "x_matrix-1.2.0.zip",
+      "sha256": "839da478102612de70a589be984b93ca5e0f25d3edc824103afbe89eb1afe43a",
+      "bytes": 28229,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_stats",
+      "name": "描述性数据统计",
+      "commands": [
+        "/数据统计"
+      ],
+      "smoke_command": "/数据统计 1,2,3,4",
+      "expected_contains": "平均：2.5",
+      "invalid_command": "/数据统计 1,NaN,3",
+      "group": "dev_tools",
+      "description": "均值中位数四分位总体/样本方差标准差众数",
+      "archive": "x_stats-1.2.0.zip",
+      "sha256": "03d1ee75378b76a4ea265956a2624f8e3d76456807bd90b264b146df37b9a4f0",
+      "bytes": 28254,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_probability",
+      "name": "组合排列与二项概率",
+      "commands": [
+        "/概率计算"
+      ],
+      "smoke_command": "/概率计算 二项 10 3 0.5",
+      "expected_contains": "0.1171875",
+      "invalid_command": "/概率计算 二项 10 3 1.5",
+      "group": "dev_tools",
+      "description": "精确组合排列及独立同概率试验二项分布",
+      "archive": "x_probability-1.2.0.zip",
+      "sha256": "9de07a3c5601845c23e37c45f48553ba265ab38d36ff509736304ee7884ffced",
+      "bytes": 28232,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_polynomial",
+      "name": "多项式求值导数与方程",
+      "commands": [
+        "/多项式"
+      ],
+      "smoke_command": "/多项式 求值 1,-3,2|3",
+      "expected_contains": "P(x)=2",
+      "invalid_command": "/多项式 二次 1 2",
+      "group": "dev_tools",
+      "description": "Horner求值、导数系数和含复根的二次方程求解",
+      "archive": "x_polynomial-1.2.0.zip",
+      "sha256": "e5b4ea7aa30ec2a929ace6295c5f6b4f63ab82650b94d17068e5c83dd22fa2bd",
+      "bytes": 28286,
+      "files": 9,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_habits",
+      "name": "习惯打卡",
+      "commands": [
+        "/习惯"
+      ],
+      "smoke_command": "/习惯 添加 喝水",
+      "expected_contains": "习惯已添加",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "自己的习惯、每日打卡和累计天数",
+      "archive": "x_habits-1.2.0.zip",
+      "sha256": "73462f49461d6fa96db0e9b4bdf9ebf16fc37e77373702feae52e60c0a5eeabc",
+      "bytes": 15013,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_ledger",
+      "name": "个人记账",
+      "commands": [
+        "/记账"
+      ],
+      "smoke_command": "/记账 添加 支出 12.50 餐饮 午饭",
+      "expected_contains": "流水已记录",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "按分精确记录收入支出与月统计",
+      "archive": "x_ledger-1.2.0.zip",
+      "sha256": "bfc778048b55ba13b76c6b7ab4190fac290d36e16845de4f228566749096e7df",
+      "bytes": 15053,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_reading",
+      "name": "阅读进度",
+      "commands": [
+        "/阅读进度"
+      ],
+      "smoke_command": "/阅读进度 添加 示例书|200",
+      "expected_contains": "阅读记录已创建",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "逐本记录总页数与已读进度",
+      "archive": "x_reading-1.2.0.zip",
+      "sha256": "44c7866699bc08ee6839fcd5a4dd5896bd156b29a203550ec3e91a80404e84bb",
+      "bytes": 15022,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_watchlist",
+      "name": "观影清单",
+      "commands": [
+        "/观影单"
+      ],
+      "smoke_command": "/观影单 添加 示例影片",
+      "expected_contains": "观影条目已添加",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "待看、看完状态、评分和笔记",
+      "archive": "x_watchlist-1.2.0.zip",
+      "sha256": "fa16257f73cbd0d1991066b76344255864b222d2832d0e3560b3059775554b61",
+      "bytes": 15047,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_spaced_cards",
+      "name": "间隔复习卡",
+      "commands": [
+        "/复习卡"
+      ],
+      "smoke_command": "/复习卡 添加 Python列表可变吗|可以",
+      "expected_contains": "复习卡已创建",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "卡片、自评、间隔与到期查询",
+      "archive": "x_spaced_cards-1.2.0.zip",
+      "sha256": "9bd41bfe7742c997da9396182b6d460cbdb4e92eec3bc943d953f2c669d80cbd",
+      "bytes": 15063,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_pomodoro",
+      "name": "持久番茄钟",
+      "commands": [
+        "/番茄钟"
+      ],
+      "smoke_command": "/番茄钟 开始 25 阅读",
+      "expected_contains": "番茄钟已开始",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "专注计时、状态、完成与历史",
+      "archive": "x_pomodoro-1.2.0.zip",
+      "sha256": "3126db9adaad1fe2171a816329610c05d5d00c057cb4a8c680533f0f60419872",
+      "bytes": 15034,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_goals",
+      "name": "量化目标",
+      "commands": [
+        "/目标"
+      ],
+      "smoke_command": "/目标 添加 阅读页数|1000",
+      "expected_contains": "目标已添加",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "目标数值、进度和增量",
+      "archive": "x_goals-1.2.0.zip",
+      "sha256": "b9b9f2372e0409200213aac989276a1bae10a2f1ad076f34fa870e803af3d6d4",
+      "bytes": 15017,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_inventory",
+      "name": "物品库存流水",
+      "commands": [
+        "/物品库存"
+      ],
+      "smoke_command": "/物品库存 添加 笔记本 本",
+      "expected_contains": "库存条目已添加",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "库存整数数量和带备注变动流水",
+      "archive": "x_inventory-1.2.0.zip",
+      "sha256": "d21517ff43ebbf6b49c018e1acab20e8cffae83e52fd3611aeb025bdc1915388",
+      "bytes": 15051,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_split_bill",
+      "name": "群AA账本",
+      "commands": [
+        "/AA账本"
+      ],
+      "smoke_command": "/AA账本 创建 午饭|小明|小红",
+      "expected_contains": "AA账本已创建",
+      "scope": "group",
+      "group": "life_tools",
+      "description": "成员支出、精确平摊与结算建议",
+      "archive": "x_split_bill-1.2.0.zip",
+      "sha256": "803f0d417a25c5f646d37bc7025e9f8c714aeef95cd64ca8798ee42257ae1967",
+      "bytes": 15174,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_signup",
+      "name": "活动报名",
+      "commands": [
+        "/活动报名"
+      ],
+      "smoke_command": "/活动报名 创建 周末桌游|6",
+      "expected_contains": "报名活动已创建",
+      "scope": "group",
+      "group": "life_tools",
+      "description": "名额、本人加入退出和创建者关闭",
+      "archive": "x_signup-1.2.0.zip",
+      "sha256": "5a57b5dc27637c2de086644adea6d2a297b679ada0ccdd15a464f1fcc72b00e6",
+      "bytes": 15154,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_round_robin",
+      "name": "循环轮值",
+      "commands": [
+        "/轮值抽取"
+      ],
+      "smoke_command": "/轮值抽取 创建 值日|小明|小红",
+      "expected_contains": "轮值名单已创建",
+      "scope": "group",
+      "group": "life_tools",
+      "description": "设定名单、循环推进和累计轮值次数",
+      "archive": "x_round_robin-1.2.0.zip",
+      "sha256": "85b0c734bbc7024264aba0b43c75c046d0022bf5112baee1ca1b0489c44f2ece",
+      "bytes": 15176,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_queue",
+      "name": "群排队",
+      "commands": [
+        "/排队"
+      ],
+      "smoke_command": "/排队 创建 连麦队列",
+      "expected_contains": "队列已创建",
+      "scope": "group",
+      "group": "life_tools",
+      "description": "本人入列退出、创建者推进和关闭",
+      "archive": "x_queue-1.2.0.zip",
+      "sha256": "4aeea93be394c8934abcd9dd5090af951b1ba8cd792c10d8753517066aec07ab",
+      "bytes": 15126,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_wishlist",
+      "name": "愿望优先级",
+      "commands": [
+        "/愿望单"
+      ],
+      "smoke_command": "/愿望单 添加 新键盘|2",
+      "expected_contains": "愿望已添加",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "1到5优先级、排序和完成状态",
+      "archive": "x_wishlist-1.2.0.zip",
+      "sha256": "bb3b62380d9fd7af3c58de8e78ca78d6ba1dc3d839765e43dc059946ce87a8e1",
+      "bytes": 15039,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_recipes",
+      "name": "自录食谱本",
+      "commands": [
+        "/食谱本"
+      ],
+      "smoke_command": "/食谱本 添加 番茄炒蛋|番茄、鸡蛋|炒熟后调味",
+      "expected_contains": "食谱已收录",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "用户录入食材步骤、检索修改",
+      "archive": "x_recipes-1.2.0.zip",
+      "sha256": "fb4373cc87ccd949a2e9925eff062af0c8fe3f260bf5a7c40bf6e81169d31138",
+      "bytes": 15082,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_bookmarks",
+      "name": "标签书签",
+      "commands": [
+        "/书签"
+      ],
+      "smoke_command": "/书签 添加 示例|https://example.com|资料",
+      "expected_contains": "书签已添加",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "URL、标签、检索和修改；不请求网站",
+      "archive": "x_bookmarks-1.2.0.zip",
+      "sha256": "babaed6a3dbab67ad3b52291e4538333b30e505eef571ff1ec1a684a7ff32b11",
+      "bytes": 15088,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_anniversary",
+      "name": "年度纪念日",
+      "commands": [
+        "/纪念日"
+      ],
+      "smoke_command": "/纪念日 添加 纪念日|10-01",
+      "expected_contains": "纪念日已添加",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "年度日期、下一次日期和剩余天数",
+      "archive": "x_anniversary-1.2.0.zip",
+      "sha256": "41ff09f9e836540a0a508d779db0f2b585ed6d29c00d554a0d9282be9e552c56",
+      "bytes": 15062,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_packing",
+      "name": "行李核对清单",
+      "commands": [
+        "/行李清单"
+      ],
+      "smoke_command": "/行李清单 模板 短途",
+      "expected_contains": "行李清单已创建",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "模板、自建条目和逐项勾选",
+      "archive": "x_packing-1.2.0.zip",
+      "sha256": "7f2f427f12fba4fcb351cc16f646ceed861f850ea26edfc89d220d8f895d45aa",
+      "bytes": 15071,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_agenda",
+      "name": "群议程主持",
+      "commands": [
+        "/议程"
+      ],
+      "smoke_command": "/议程 创建 周会",
+      "expected_contains": "议程已创建",
+      "scope": "group",
+      "group": "life_tools",
+      "description": "成员收集议题、主持排序推进关闭",
+      "archive": "x_agenda-1.2.0.zip",
+      "sha256": "f0d3ea769522264291722b0aed7d03b97b160d60213152b85e11d94ba3f9ac5e",
+      "bytes": 15145,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_time_budget",
+      "name": "项目工时",
+      "commands": [
+        "/工时"
+      ],
+      "smoke_command": "/工时 开始 插件开发",
+      "expected_contains": "工时计时已开始",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "项目计时、结束、历史和累计工时",
+      "archive": "x_time_budget-1.2.0.zip",
+      "sha256": "a33e2fcc2705b82da6d0ea360301eb494512e1e671cef963e083742b7635f857",
+      "bytes": 15032,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_decision_matrix",
+      "name": "加权决策表",
+      "commands": [
+        "/决策表"
+      ],
+      "smoke_command": "/决策表 创建 选设备|性能:3|续航:2",
+      "expected_contains": "决策表已创建",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "多指标权重、选项评分和加权排名",
+      "archive": "x_decision_matrix-1.2.0.zip",
+      "sha256": "8e8bf33ac0e4bf8c325498d0bba0d88c90fe77d6aba260279729c301e74c5fab",
+      "bytes": 15101,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_wiki",
+      "name": "版本知识页",
+      "commands": [
+        "/知识页"
+      ],
+      "smoke_command": "/知识页 创建 使用说明|# 一级\\n## 二级\\n示例正文",
+      "expected_contains": "知识页已创建",
+      "scope": "user_or_wiki_group",
+      "group": "life_tools",
+      "description": "分级Markdown标题、完整版本历史和恢复",
+      "archive": "x_wiki-1.2.0.zip",
+      "sha256": "fefa8bb7e94c378b350655c542e121173e3c9d8469082c7c5e44525b27976baa",
+      "bytes": 15150,
+      "files": 7,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_connect4",
+      "name": "四子棋",
+      "commands": [
+        "/四子棋"
+      ],
+      "smoke_command": "/四子棋 开始",
+      "expected_contains": "对局已开始",
+      "config_schema": [],
+      "usage": "/四子棋 开始；另一人 /四子棋 加入；当前玩家 /四子棋 列号（1—7）。固定7列6行，有重力，横竖斜连4获胜；状态、认输、结束。",
+      "group": "games",
+      "description": "/四子棋 开始；另一人 /四子棋 加入；当前玩家 /四子棋 列号（1—7）。固定7列6行，有重力，横竖斜连4获胜；状态、认输、结束。",
+      "archive": "x_connect4-1.2.0.zip",
+      "sha256": "1a5ef5a43cc62a5d59ccbd97fc64bcbae9f81ad25cbef8617b0b57507b94990c",
+      "bytes": 29463,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_tictactoe",
+      "name": "井字棋",
+      "commands": [
+        "/井字棋"
+      ],
+      "smoke_command": "/井字棋 开始 人机",
+      "expected_contains": "对局已开始",
+      "config_schema": [],
+      "usage": "/井字棋 开始；另一人 加入；或 /井字棋 开始 人机。/井字棋 行 列（1—3），连3获胜；状态、认输、结束。",
+      "group": "games",
+      "description": "/井字棋 开始；另一人 加入；或 /井字棋 开始 人机。/井字棋 行 列（1—3），连3获胜；状态、认输、结束。",
+      "archive": "x_tictactoe-1.2.0.zip",
+      "sha256": "a8f705a1cfc7b2f566354172778c30087d3216284fb11e60b4ccc77d801a1757",
+      "bytes": 29410,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_gomoku",
+      "name": "九路五子棋",
+      "commands": [
+        "/五子棋"
+      ],
+      "smoke_command": "/五子棋 开始",
+      "expected_contains": "对局已开始",
+      "config_schema": [],
+      "usage": "/五子棋 开始；另一人 加入；/五子棋 行 列（1—9），固定9×9自由规则，连5及以上获胜，无禁手；状态、认输、结束。",
+      "group": "games",
+      "description": "/五子棋 开始；另一人 加入；/五子棋 行 列（1—9），固定9×9自由规则，连5及以上获胜，无禁手；状态、认输、结束。",
+      "archive": "x_gomoku-1.2.0.zip",
+      "sha256": "6a2580631fe8ea0defe8620f6b5c4a1ae6c1d648045b038acbfe33b5a39115b4",
+      "bytes": 29465,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_reversi",
+      "name": "六路黑白棋",
+      "commands": [
+        "/黑白棋"
+      ],
+      "smoke_command": "/黑白棋 开始",
+      "expected_contains": "对局已开始",
+      "config_schema": [],
+      "usage": "/黑白棋 开始；另一人 加入；/黑白棋 行 列（1—6）。必须夹住对手棋子；无合法步时发送 跳过；双方均无步按子数结算。状态、认输、结束。",
+      "group": "games",
+      "description": "/黑白棋 开始；另一人 加入；/黑白棋 行 列（1—6）。必须夹住对手棋子；无合法步时发送 跳过；双方均无步按子数结算。状态、认输、结束。",
+      "archive": "x_reversi-1.2.0.zip",
+      "sha256": "b4ab2e067555511699f5b6e2640754ebb9986c6f04279c3e2e1baf86e9e1618a",
+      "bytes": 29499,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_yahtzee",
+      "name": "快艇骰子",
+      "commands": [
+        "/快艇骰子"
+      ],
+      "smoke_command": "/快艇骰子 开始",
+      "expected_contains": "快艇骰子已开始",
+      "config_schema": [
+        {
+          "key": "round_limit",
+          "type": "integer",
+          "label": "一局最多计分类别数",
+          "default": 13,
+          "min": 3,
+          "max": 13
+        }
+      ],
+      "usage": "/快艇骰子 开始；保留 1 3 表示保留位置1、3并重掷其余；重掷 2 4 指定重掷位置。每回合最多掷3次。计分 一/二/三/四/五/六/三条/四条/葫芦/小顺/大顺/快艇/机会。每类一次，13回合；上半区≥63加35分。不采用额外快艇或万能规则。状态、结束。",
+      "group": "games",
+      "description": "/快艇骰子 开始；保留 1 3 表示保留位置1、3并重掷其余；重掷 2 4 指定重掷位置。每回合最多掷3次。计分 一/二/三/四/五/六/三条/四条/葫芦/小顺/大顺/快艇/机会。每类一次，13回合；上半区≥63加35分。不采用额外快艇或万能规则。状态、结束。",
+      "archive": "x_yahtzee-1.2.0.zip",
+      "sha256": "4de7de7702bb188c49727cc898b891434f7892796052bada40fe7aaf0e03a87c",
+      "bytes": 29672,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_wordchain",
+      "name": "成语接龙",
+      "commands": [
+        "/成语接龙"
+      ],
+      "smoke_command": "/成语接龙 开始",
+      "expected_contains": "成语接龙已开始",
+      "config_schema": [
+        {
+          "key": "max_rounds",
+          "type": "integer",
+          "label": "完成挑战的轮数",
+          "default": 20,
+          "min": 3,
+          "max": 30
+        }
+      ],
+      "usage": "/成语接龙 开始；/成语接龙 意气风发。与机器人轮流按文字首尾接龙，仅本地有限常见词典，不按读音；同词不能重复。提示、状态、结束。机器人无词则玩家赢；达到轮数即完成挑战。",
+      "group": "games",
+      "description": "/成语接龙 开始；/成语接龙 意气风发。与机器人轮流按文字首尾接龙，仅本地有限常见词典，不按读音；同词不能重复。提示、状态、结束。机器人无词则玩家赢；达到轮数即完成挑战。",
+      "archive": "x_wordchain-1.2.0.zip",
+      "sha256": "470472d089de90c7f89484ed44e9f0a75a55886c5c2eb1b1924b28ece9a5a4b4",
+      "bytes": 29560,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_twentyfour",
+      "name": "24点",
+      "commands": [
+        "/24点"
+      ],
+      "smoke_command": "/24点 开始",
+      "expected_contains": "24点已开始",
+      "config_schema": [
+        {
+          "key": "max_attempts",
+          "type": "integer",
+          "label": "每道题有效尝试次数",
+          "default": 10,
+          "min": 3,
+          "max": 30
+        }
+      ],
+      "usage": "/24点 开始；/24点 (1+2+3)*4。必须将给定的四个数字各使用一次，只允许四则运算、括号；精确分数判定，不用浮点误差。状态、答案/投降。每道题保证有解，答错次数可配置。",
+      "group": "games",
+      "description": "/24点 开始；/24点 (1+2+3)*4。必须将给定的四个数字各使用一次，只允许四则运算、括号；精确分数判定，不用浮点误差。状态、答案/投降。每道题保证有解，答错次数可配置。",
+      "archive": "x_twentyfour-1.2.0.zip",
+      "sha256": "f8bfd08362f2b01fd45f2c1a0e5a2aa05da94a082c53b962116aa03bd4c94a14",
+      "bytes": 29590,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_hangman",
+      "name": "吊小人猜字母",
+      "commands": [
+        "/吊小人"
+      ],
+      "smoke_command": "/吊小人 开始",
+      "expected_contains": "游戏已开始",
+      "config_schema": [
+        {
+          "key": "max_mistakes",
+          "type": "integer",
+          "label": "允许猜错次数",
+          "default": 8,
+          "min": 4,
+          "max": 12
+        },
+        {
+          "key": "show_hint",
+          "type": "boolean",
+          "label": "显示原创中文线索",
+          "default": true
+        }
+      ],
+      "usage": "/吊小人 开始；/吊小人 猜 a（单字母）或 /吊小人 猜 apple（完整英文词）；状态；投降。错误字母和错误整词各消耗一次机会，重复输入不消耗。词库与中文线索原创整理。",
+      "group": "games",
+      "description": "/吊小人 开始；/吊小人 猜 a（单字母）或 /吊小人 猜 apple（完整英文词）；状态；投降。错误字母和错误整词各消耗一次机会，重复输入不消耗。词库与中文线索原创整理。",
+      "archive": "x_hangman-1.2.0.zip",
+      "sha256": "538234af18687b188913ab76ee9fb0c3a849f503a0645c430a035c888554af92",
+      "bytes": 29624,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_battleship",
+      "name": "单人坐标海战",
+      "commands": [
+        "/海战"
+      ],
+      "smoke_command": "/海战 开始",
+      "expected_contains": "游戏已开始",
+      "config_schema": [
+        {
+          "key": "max_shots",
+          "type": "integer",
+          "label": "每局攻击次数",
+          "default": 18,
+          "min": 10,
+          "max": 25
+        }
+      ],
+      "usage": "/海战 开始；/海战 攻击 A1；状态；投降。5×5隐藏海图含长度3、2、2的三艘船，直线连续、不重叠、可以相邻。X为命中、~为未中；击沉全部舰船获胜，重复坐标不消耗攻击次数。",
+      "group": "games",
+      "description": "/海战 开始；/海战 攻击 A1；状态；投降。5×5隐藏海图含长度3、2、2的三艘船，直线连续、不重叠、可以相邻。X为命中、~为未中；击沉全部舰船获胜，重复坐标不消耗攻击次数。",
+      "archive": "x_battleship-1.2.0.zip",
+      "sha256": "d551d8f6fb11dd01a3f43d3f56a120dab7c5d955d84d4429de82b6b6bb78ddd1",
+      "bytes": 29594,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_highlow",
+      "name": "高低牌挑战",
+      "commands": [
+        "/高低牌"
+      ],
+      "smoke_command": "/高低牌 开始",
+      "expected_contains": "游戏已开始",
+      "config_schema": [
+        {
+          "key": "target_wins",
+          "type": "integer",
+          "label": "猜中目标次数",
+          "default": 5,
+          "min": 3,
+          "max": 12
+        }
+      ],
+      "usage": "/高低牌 开始；/高低牌 高 或 /高低牌 低；状态；投降。完整52张牌洗牌不放回，2最小、A最大、不比较花色。同点数平局不加分也不判错，一次猜错结束，达到面板目标次数获胜。",
+      "group": "games",
+      "description": "/高低牌 开始；/高低牌 高 或 /高低牌 低；状态；投降。完整52张牌洗牌不放回，2最小、A最大、不比较花色。同点数平局不加分也不判错，一次猜错结束，达到面板目标次数获胜。",
+      "archive": "x_highlow-1.2.0.zip",
+      "sha256": "ff16197c5961996ccb133831716c30e6669c1b99b100a07dc59f641f02d48f32",
+      "bytes": 29552,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_knight",
+      "name": "骑士巡游",
+      "commands": [
+        "/骑士巡游"
+      ],
+      "smoke_command": "/骑士巡游 开始",
+      "expected_contains": "游戏已开始",
+      "config_schema": [
+        {
+          "key": "board_size",
+          "type": "integer",
+          "label": "棋盘边长",
+          "default": 5,
+          "min": 5,
+          "max": 6
+        }
+      ],
+      "usage": "/骑士巡游 开始 [A1]；/骑士巡游 移动 B3；状态；投降。采用国际象棋骑士日字走法（横1竖2或横2竖1），每格只访问一次，覆盖全部格子获胜，无合法下一步结束。5×5只能从与A1同色格子开局，6×6可任意格。",
+      "group": "games",
+      "description": "/骑士巡游 开始 [A1]；/骑士巡游 移动 B3；状态；投降。采用国际象棋骑士日字走法（横1竖2或横2竖1），每格只访问一次，覆盖全部格子获胜，无合法下一步结束。5×5只能从与A1同色格子开局，6×6可任意格。",
+      "archive": "x_knight-1.2.0.zip",
+      "sha256": "052286bd8f4f4896a04c3602b4e17c114435b3eaa451db54201a64ff48546b24",
+      "bytes": 29622,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_arithmetic",
+      "name": "口算挑战",
+      "commands": [
+        "/口算挑战"
+      ],
+      "smoke_command": "/口算挑战 开始",
+      "expected_contains": "游戏已开始",
+      "config_schema": [
+        {
+          "key": "question_count",
+          "type": "integer",
+          "label": "每局题数",
+          "default": 5,
+          "min": 3,
+          "max": 20
+        },
+        {
+          "key": "max_operand",
+          "type": "integer",
+          "label": "生成算式因子上限",
+          "default": 20,
+          "min": 5,
+          "max": 100
+        }
+      ],
+      "usage": "/口算挑战 开始；/口算挑战 答 -3；状态；投降。原创随机整数加减乘除题，除法均可整除，每题提交一次；错题揭晓答案后进入下一题，完成后显示答对题数和实际经过秒数。",
+      "group": "games",
+      "description": "/口算挑战 开始；/口算挑战 答 -3；状态；投降。原创随机整数加减乘除题，除法均可整除，每题提交一次；错题揭晓答案后进入下一题，完成后显示答对题数和实际经过秒数。",
+      "archive": "x_arithmetic-1.2.0.zip",
+      "sha256": "53105dd05c676c9d40665dc5e7941a36192b993360275ffd6b325e09bb9a0f0f",
+      "bytes": 29648,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_trivia",
+      "name": "原创知识问答",
+      "commands": [
+        "/知识问答"
+      ],
+      "smoke_command": "/知识问答 开始",
+      "expected_contains": "游戏已开始",
+      "config_schema": [
+        {
+          "key": "question_count",
+          "type": "integer",
+          "label": "每局题数",
+          "default": 5,
+          "min": 3,
+          "max": 12
+        }
+      ],
+      "usage": "/知识问答 开始；/知识问答 A（或B/C/D）；状态；投降。原创24道基础知识小题库，每局随机抽题不重复，选项会打乱；每题提交一次并给出简短解释。完成后显示得分。",
+      "group": "games",
+      "description": "/知识问答 开始；/知识问答 A（或B/C/D）；状态；投降。原创24道基础知识小题库，每局随机抽题不重复，选项会打乱；每题提交一次并给出简短解释。完成后显示得分。",
+      "archive": "x_trivia-1.2.0.zip",
+      "sha256": "f6f3c5d44c82bca230e717140814be16e710f41d33288af97a7dffdcae22d8b2",
+      "bytes": 29546,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_anagram",
+      "name": "乱序猜词",
+      "commands": [
+        "/乱序猜词"
+      ],
+      "smoke_command": "/乱序猜词 开始",
+      "expected_contains": "游戏已开始",
+      "config_schema": [
+        {
+          "key": "max_mistakes",
+          "type": "integer",
+          "label": "允许猜错次数",
+          "default": 5,
+          "min": 2,
+          "max": 10
+        },
+        {
+          "key": "show_hint",
+          "type": "boolean",
+          "label": "显示原创中文线索",
+          "default": true
+        }
+      ],
+      "usage": "/乱序猜词 开始；/乱序猜词 猜 apple；状态；投降。将同一英文词的全部字母打乱，猜中完整单词获胜；重复输入不扣机会，错词消耗一次机会。可在面板设置机会数和是否显示原创中文线索。",
+      "group": "games",
+      "description": "/乱序猜词 开始；/乱序猜词 猜 apple；状态；投降。将同一英文词的全部字母打乱，猜中完整单词获胜；重复输入不扣机会，错词消耗一次机会。可在面板设置机会数和是否显示原创中文线索。",
+      "archive": "x_anagram-1.2.0.zip",
+      "sha256": "69ca1870cdc6193ed7346e6de0b82b09b3e6b61b114bcfd02e877e365382a313",
+      "bytes": 29661,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_minesweeper",
+      "name": "首步安全扫雷",
+      "commands": [
+        "/扫雷"
+      ],
+      "smoke_command": "/扫雷 开始",
+      "expected_contains": "扫雷已开始",
+      "config_schema": [
+        {
+          "key": "board_size",
+          "type": "integer",
+          "label": "默认棋盘边长",
+          "default": 6,
+          "min": 5,
+          "max": 9
+        },
+        {
+          "key": "mine_count",
+          "type": "integer",
+          "label": "默认雷数（至多总格数减一）",
+          "default": 6,
+          "min": 1,
+          "max": 40
+        }
+      ],
+      "usage": "/扫雷 开始 [边长 雷数]；开 行 列；旗 行 列（再次取消）；状态；投降。首个实际翻开格安全，插旗不算翻开。",
+      "group": "games",
+      "description": "/扫雷 开始 [边长 雷数]；开 行 列；旗 行 列（再次取消）；状态；投降。首个实际翻开格安全，插旗不算翻开。",
+      "archive": "x_minesweeper-1.2.0.zip",
+      "sha256": "43436a234af8ed6bf90f02177c7c544d672e5649c3e9dea3bd121dcdd6251eb8",
+      "bytes": 29556,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_sliding",
+      "name": "可解滑块拼图",
+      "commands": [
+        "/滑块拼图"
+      ],
+      "smoke_command": "/滑块拼图 开始",
+      "expected_contains": "滑块拼图已开始",
+      "config_schema": [
+        {
+          "key": "shuffle_steps",
+          "type": "integer",
+          "label": "合法随机打乱步数",
+          "default": 80,
+          "min": 10,
+          "max": 200
+        }
+      ],
+      "usage": "/滑块拼图 开始；移动 数字；或 上/下/左/右（移动空格）；状态；投降。目标为1～8按行排列，空格右下。",
+      "group": "games",
+      "description": "/滑块拼图 开始；移动 数字；或 上/下/左/右（移动空格）；状态；投降。目标为1～8按行排列，空格右下。",
+      "archive": "x_sliding-1.2.0.zip",
+      "sha256": "0ca027e9b2eae93158c97c1458850b98c856d3bfdfc85d9859ff872460928330",
+      "bytes": 29471,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_2048",
+      "name": "2048合并挑战",
+      "commands": [
+        "/2048"
+      ],
+      "smoke_command": "/2048 开始",
+      "expected_contains": "2048已开始",
+      "config_schema": [
+        {
+          "key": "target",
+          "type": "integer",
+          "label": "达标方块",
+          "default": 2048,
+          "min": 128,
+          "max": 65536,
+          "options": [
+            128,
+            256,
+            512,
+            1024,
+            2048,
+            4096,
+            8192,
+            16384,
+            32768,
+            65536
+          ]
+        }
+      ],
+      "usage": "/2048 开始；上/下/左/右；状态；投降。每格每步最多合并一次；无效移动不会产生新块。达标后可继续。",
+      "group": "games",
+      "description": "/2048 开始；上/下/左/右；状态；投降。每格每步最多合并一次；无效移动不会产生新块。达标后可继续。",
+      "archive": "x_2048-1.2.0.zip",
+      "sha256": "47a8bfcd4333fa2b416d30599d2d73b1563e6ef9fb9aede2b54d2ee23594f5e8",
+      "bytes": 29486,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_lights",
+      "name": "可解熄灯游戏",
+      "commands": [
+        "/熄灯游戏"
+      ],
+      "smoke_command": "/熄灯游戏 开始",
+      "expected_contains": "熄灯游戏已开始",
+      "config_schema": [
+        {
+          "key": "board_size",
+          "type": "integer",
+          "label": "棋盘边长",
+          "default": 4,
+          "min": 3,
+          "max": 5
+        },
+        {
+          "key": "shuffle_steps",
+          "type": "integer",
+          "label": "生成局面时开关次数",
+          "default": 12,
+          "min": 1,
+          "max": 100
+        }
+      ],
+      "usage": "/熄灯游戏 开始；按 行 列；状态；投降。切换自身及上下左右，目标全部熄灭。",
+      "group": "games",
+      "description": "/熄灯游戏 开始；按 行 列；状态；投降。切换自身及上下左右，目标全部熄灭。",
+      "archive": "x_lights-1.2.0.zip",
+      "sha256": "cc2db8e61e4cf437593c8d36a6e3dd625af5e428b91da1cd9dbca19ecd30b35e",
+      "bytes": 29508,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_sokoban",
+      "name": "原创推箱子",
+      "commands": [
+        "/推箱子"
+      ],
+      "smoke_command": "/推箱子 开始",
+      "expected_contains": "推箱子已开始",
+      "config_schema": [
+        {
+          "key": "undo_limit",
+          "type": "integer",
+          "label": "最多保留撤销步数",
+          "default": 50,
+          "min": 1,
+          "max": 100
+        }
+      ],
+      "usage": "/推箱子 开始；上/下/左/右；撤销；状态；投降。@人物，$箱子，.目标，*到位。只能推不能拉，原创单关。",
+      "group": "games",
+      "description": "/推箱子 开始；上/下/左/右；撤销；状态；投降。@人物，$箱子，.目标，*到位。只能推不能拉，原创单关。",
+      "archive": "x_sokoban-1.2.0.zip",
+      "sha256": "c27db1bfcfe271b0fbaa68081e3db0528d7b30bf070292bde0a94e5ea352b2bf",
+      "bytes": 29447,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_maze",
+      "name": "随机可达迷宫",
+      "commands": [
+        "/迷宫"
+      ],
+      "smoke_command": "/迷宫 开始",
+      "expected_contains": "迷宫已开始",
+      "config_schema": [
+        {
+          "key": "board_size",
+          "type": "integer",
+          "label": "地图边长（单数）",
+          "default": 9,
+          "min": 7,
+          "max": 15,
+          "options": [
+            7,
+            9,
+            11,
+            13,
+            15
+          ]
+        }
+      ],
+      "usage": "/迷宫 开始；上/下/左/右；状态；投降。@人物，E出口，#墙，·走过路径；随机地图保证可达。",
+      "group": "games",
+      "description": "/迷宫 开始；上/下/左/右；状态；投降。@人物，E出口，#墙，·走过路径；随机地图保证可达。",
+      "archive": "x_maze-1.2.0.zip",
+      "sha256": "0cabd73926937993b4f485f2a84a5c452d7a0ef0a8a86f55d8591c9a3f2f194c",
+      "bytes": 29462,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "x_memory",
+      "name": "翻牌配对记忆",
+      "commands": [
+        "/翻牌记忆"
+      ],
+      "smoke_command": "/翻牌记忆 开始",
+      "expected_contains": "翻牌记忆已开始",
+      "config_schema": [
+        {
+          "key": "pairs",
+          "type": "integer",
+          "label": "配对数量",
+          "default": 6,
+          "min": 4,
+          "max": 12
+        }
+      ],
+      "usage": "/翻牌记忆 开始；翻 编号；或 翻 编号A 编号B；状态；投降。不匹配的两张在回执显示后盖回，隐藏其他牌。",
+      "group": "games",
+      "description": "/翻牌记忆 开始；翻 编号；或 翻 编号A 编号B；状态；投降。不匹配的两张在回执显示后盖回，隐藏其他牌。",
+      "archive": "x_memory-1.2.0.zip",
+      "sha256": "fc9293c7f0380747e57ffa857dd7ba25ae0d58b6365f99cbbb2f567460d550c3",
+      "bytes": 29416,
+      "files": 10,
+      "settings": {
+        "timeout": 5,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "implementation": "original_yukino_worker"
+    },
+    {
+      "id": "m_abbr",
+      "name": "神奇海螺缩写释义",
+      "commands": [
+        "/缩写"
+      ],
+      "smoke_command": "/缩写 帮助",
+      "expected_contains": "/缩写",
+      "settings": {
+        "timeout": 25,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000,
+        "network_timeout_seconds": 12
+      },
+      "live_cases": [
+        {
+          "command": "/缩写 yyds",
+          "url": "https://lab.magiconch.com/api/nbnhhsh/guess",
+          "method": "POST"
+        }
+      ],
+      "live_verification": [
+        {
+          "command": "/缩写 yyds",
+          "checked_at": "2026-10-17T13:31:01.527412+00:00",
+          "verified": true,
+          "network_timeout_seconds": 12,
+          "reply_title": "能不能好好说话（社区释义，仅供参考）",
+          "reply_chars": 101,
+          "elapsed_seconds": 10.267
+        }
+      ],
+      "archive": "m_abbr-1.2.0.zip",
+      "sha256": "fab06b2b9b2c430ad8575987e02e2ea63571a95654b203178a5b2c866b86efa7"
+    },
+    {
+      "id": "m_bangumi",
+      "name": "Bangumi公开番剧查询",
+      "commands": [
+        "/番剧"
+      ],
+      "smoke_command": "/番剧 帮助",
+      "expected_contains": "/番剧",
+      "settings": {
+        "timeout": 25,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000,
+        "network_timeout_seconds": 12
+      },
+      "live_cases": [
+        {
+          "command": "/番剧 搜索 星际牛仔",
+          "url": "https://api.bgm.tv/v0/search/subjects?limit=5&offset=0",
+          "method": "POST"
+        },
+        {
+          "command": "/番剧 详情 253",
+          "url": "https://api.bgm.tv/v0/subjects/253"
+        },
+        {
+          "command": "/番剧 放送 1",
+          "url": "https://api.bgm.tv/calendar"
+        }
+      ],
+      "live_verification": [
+        {
+          "command": "/番剧 搜索 星际牛仔",
+          "checked_at": "2026-10-17T13:30:49.516694+00:00",
+          "verified": false,
+          "network_timeout_seconds": 12,
+          "error": "操作未完成：HTTPS 连接失败、响应不完整或请求超时。",
+          "elapsed_seconds": 12.01
+        },
+        {
+          "command": "/番剧 详情 253",
+          "checked_at": "2026-10-17T13:30:49.517020+00:00",
+          "verified": false,
+          "network_timeout_seconds": 12,
+          "error": "操作未完成：HTTPS 连接失败、响应不完整或请求超时。",
+          "elapsed_seconds": 12.012
+        },
+        {
+          "command": "/番剧 放送 1",
+          "checked_at": "2026-10-17T13:31:01.526223+00:00",
+          "verified": false,
+          "network_timeout_seconds": 12,
+          "error": "操作未完成：HTTPS 连接失败、响应不完整或请求超时。",
+          "elapsed_seconds": 12.014
+        }
+      ],
+      "archive": "m_bangumi-1.2.0.zip",
+      "sha256": "d5035a4310b84b4f893a40b182a36e41fba02fd397ee86db6c615e959e4c051d"
+    },
+    {
+      "id": "m_bing",
+      "name": "Bing每日原图",
+      "commands": [
+        "/每日壁纸"
+      ],
+      "smoke_command": "/每日壁纸 帮助",
+      "expected_contains": "/每日壁纸",
+      "settings": {
+        "timeout": 25,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000,
+        "network_timeout_seconds": 12
+      },
+      "live_cases": [
+        {
+          "command": "/每日壁纸",
+          "url": "https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN"
+        }
+      ],
+      "live_verification": [
+        {
+          "command": "/每日壁纸",
+          "checked_at": "2026-10-17T13:31:07.045032+00:00",
+          "verified": true,
+          "network_timeout_seconds": 12,
+          "reply_title": "Bing每日一图：发掘尘封的过去",
+          "reply_chars": 201,
+          "elapsed_seconds": 6.931
+        }
+      ],
+      "description": "发送Bing每日原图、标题和版权说明",
+      "archive": "m_bing-1.2.0.zip",
+      "sha256": "bd54b2cf9fcf0b422191bfab25a7fb346cb4a8e6f814677ce6c1bdfac96e12f5"
+    },
+    {
+      "id": "m_ics",
+      "name": "ICS个人课程表",
+      "description": "私聊纯文本ICS导入、每周重复与排除日期查询、历史软归档恢复；不主动提醒",
+      "commands": [
+        "/课表"
+      ],
+      "smoke_command": "/课表 导入\nBEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nUID:market2-demo\nSUMMARY:课程示例\nDTSTART;TZID=Asia/Shanghai:20261019T090000\nDTEND;TZID=Asia/Shanghai:20261019T100000\nRRULE:FREQ=WEEKLY;COUNT=4;BYDAY=MO\nEND:VEVENT\nEND:VCALENDAR",
+      "expected_contains": "课表已导入",
+      "smoke_context": {
+        "session_id": "p:2",
+        "user_id": "2"
+      },
+      "config_schema": [
+        {
+          "key": "max_events",
+          "type": "integer",
+          "label": "单次导入课程上限",
+          "default": 50,
+          "min": 5,
+          "max": 100
+        },
+        {
+          "key": "max_versions",
+          "type": "integer",
+          "label": "每用户每会话保留版本上限",
+          "default": 10,
+          "min": 1,
+          "max": 30
+        },
+        {
+          "key": "result_limit",
+          "type": "integer",
+          "label": "单日结果显示上限",
+          "default": 20,
+          "min": 1,
+          "max": 50
+        }
+      ],
+      "engine": "ics_engine.py",
+      "archive": "m_ics-1.2.0.zip",
+      "sha256": "fe8dff3bf149e5000018d6fbb7732262871bcf041e5138423d24e433418bb22f",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      }
+    },
+    {
+      "id": "m_mahjong",
+      "name": "麻将结构听牌与原创训练",
+      "description": "标准面子、七对子与国士结构判定和原创可解听牌训练；不计算役番点数",
+      "commands": [
+        "/听牌",
+        "/和牌",
+        "/麻将训练"
+      ],
+      "smoke_command": "/听牌 123m123p123s1112z",
+      "expected_contains": "2z",
+      "config_schema": [
+        {
+          "key": "candidate_limit",
+          "type": "integer",
+          "label": "听牌指令最多显示候选种数",
+          "default": 34,
+          "min": 1,
+          "max": 34
+        },
+        {
+          "key": "max_attempts",
+          "type": "integer",
+          "label": "新训练题最多作答次数",
+          "default": 5,
+          "min": 1,
+          "max": 20
+        },
+        {
+          "key": "training_style",
+          "type": "string",
+          "label": "默认原创建题类型",
+          "default": "混合",
+          "max_length": 10,
+          "options": [
+            "混合",
+            "标准",
+            "七对",
+            "国士"
+          ]
+        }
+      ],
+      "engine": "mahjong_engine.py",
+      "archive": "m_mahjong-1.2.0.zip",
+      "sha256": "361eed37a4f840bc765a45581c6802ef9b1f9b2d85053687d9b12fdf897ff8d7",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      }
+    },
+    {
+      "id": "m_rss",
+      "name": "个人RSS手动订阅",
+      "commands": [
+        "/订阅源"
+      ],
+      "smoke_command": "/订阅源 帮助",
+      "expected_contains": "/订阅源",
+      "settings": {
+        "timeout": 25,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000,
+        "network_timeout_seconds": 12
+      },
+      "live_cases": [
+        {
+          "command": "/订阅源 添加 Python官方博客|https://blog.python.org/rss.xml",
+          "kind": "add_and_manual_refresh",
+          "url": "https://blog.python.org/rss.xml"
+        }
+      ],
+      "live_verification": [
+        {
+          "command": "/订阅源 添加 Python官方博客|https://blog.python.org/rss.xml",
+          "checked_at": "2026-10-17T13:33:29.819489+00:00",
+          "verified": false,
+          "network_timeout_seconds": 12,
+          "error": "NetworkError: 无法连接公开 HTTPS 服务。",
+          "elapsed_seconds": 4.03
+        }
+      ],
+      "archive": "m_rss-1.2.0.zip",
+      "sha256": "13fe7dc107597e42331f28d6d2024defeaf3c3faa4f2654d0fa5f1a807eb7238"
+    },
+    {
+      "id": "m_uno",
+      "name": "文字UNO房间",
+      "commands": [
+        "/UNO",
+        "/uno"
+      ],
+      "smoke_command": "/UNO 创建",
+      "expected_contains": "UNO房间已创建",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000
+      },
+      "usage": "群内 /UNO 创建、加入、开始、状态；本人主动私聊 /UNO 手牌 房间码 [页码]；轮到本人 /UNO 出 编号 [颜色] 或 摸牌、跳过，剩1张时 喊UNO。仅创建者或机器人主人可开始/结束。",
+      "archive": "m_uno-1.2.0.zip",
+      "sha256": "9457799f19c47f439114a6e67d0119cb2c2a63044322c77ecbb9d573bc91725a"
+    },
+    {
+      "id": "m_webtext",
+      "name": "公开网页正文摘录",
+      "commands": [
+        "/网页正文"
+      ],
+      "smoke_command": "/网页正文 帮助",
+      "expected_contains": "/网页正文",
+      "settings": {
+        "timeout": 25,
+        "input_max_chars": 4000,
+        "output_max_chars": 6000,
+        "network_timeout_seconds": 12
+      },
+      "live_cases": [
+        {
+          "command": "/网页正文 https://www.python.org/",
+          "url": "https://www.python.org/"
+        }
+      ],
+      "live_verification": [
+        {
+          "command": "/网页正文 https://www.python.org/",
+          "checked_at": "2026-10-17T13:31:01.528558+00:00",
+          "verified": true,
+          "network_timeout_seconds": 12,
+          "reply_title": "网页标题：Welcome to Python.org",
+          "reply_chars": 2468,
+          "elapsed_seconds": 5.517
+        }
+      ],
+      "archive": "m_webtext-1.2.0.zip",
+      "sha256": "f541f9f99d66c58533f88834e9073b058b76ea7a23441b058c45aaab19ec08e0"
+    },
+    {
+      "id": "i_turtle",
+      "name": "海龟汤主持",
+      "description": "群内 /海龟汤 创建；主持人私聊 /海龟汤 设题 房间码 汤面 | 汤底；回群 开始。玩家 提问 内容；主持人 下一问、回答 是/否/无关、揭底；汤面、记录、状态、结束。由真人主持，不自动推理或调用模型。",
+      "commands": [
+        "/海龟汤"
+      ],
+      "worker": "worker.py",
+      "config_schema": [
+        {
+          "key": "max_players",
+          "type": "integer",
+          "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+          "min": 2,
+          "max": 12,
+          "default": 12
+        }
+      ],
+      "usage": "群内 /海龟汤 创建；主持人私聊 /海龟汤 设题 房间码 汤面 | 汤底；回群 开始。玩家 提问 内容；主持人 下一问、回答 是/否/无关、揭底；汤面、记录、状态、结束。由真人主持，不自动推理或调用模型。",
+      "smoke_command": "/海龟汤 创建",
+      "expected_contains": "房间已创建",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 8000
+      },
+      "archive": "i_turtle-1.2.0.zip",
+      "sha256": "33272352f5fa67de7b0e25dcd6fab0961c66476fbd8005d71c7813ef26a1234a"
+    },
+    {
+      "id": "i_buzzer",
+      "name": "抢答计分",
+      "description": "/抢答 创建；主持人 开题 问题；其他人 抢答，群里作答后主持人 判定 对/错。答对得1分，答错本题不能再抢；结题、积分、状态、结束。先创建，再另发开题。",
+      "commands": [
+        "/抢答"
+      ],
+      "worker": "worker.py",
+      "config_schema": [
+        {
+          "key": "max_players",
+          "type": "integer",
+          "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+          "min": 2,
+          "max": 12,
+          "default": 12
+        }
+      ],
+      "usage": "/抢答 创建；主持人 开题 问题；其他人 抢答，群里作答后主持人 判定 对/错。答对得1分，答错本题不能再抢；结题、积分、状态、结束。先创建，再另发开题。",
+      "smoke_command": "/抢答 创建",
+      "expected_contains": "房间已创建",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 8000
+      },
+      "archive": "i_buzzer-1.2.0.zip",
+      "sha256": "8fcce2825bc99f317408f2f3a15443cddc30afae24719345a3bccd8010d2293a"
+    },
+    {
+      "id": "i_story",
+      "name": "轮流续写",
+      "description": "/续写 创建 开头；加入；主持人 开始；轮到的人 写 内容 或 跳过。状态、全文、结束。最多80段，单段300字，全文显示末7500字；完整内容保存在插件状态。",
+      "commands": [
+        "/续写"
+      ],
+      "worker": "worker.py",
+      "config_schema": [
+        {
+          "key": "max_players",
+          "type": "integer",
+          "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+          "min": 2,
+          "max": 12,
+          "default": 12
+        }
+      ],
+      "usage": "/续写 创建 开头；加入；主持人 开始；轮到的人 写 内容 或 跳过。状态、全文、结束。最多80段，单段300字，全文显示末7500字；完整内容保存在插件状态。",
+      "smoke_command": "/续写 创建 从前有座山",
+      "expected_contains": "房间已创建",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 8000
+      },
+      "archive": "i_story-1.2.0.zip",
+      "sha256": "cc4ce201abd2764e90221494ec6fa175ae766b88df7e8e5734c137ec83485bb0"
+    },
+    {
+      "id": "i_topics",
+      "name": "群话题箱",
+      "description": "/话题箱 创建；添加 话题；抽取（取出一条不重复话题）；列表、删除 编号、状态、结束。可删除自己添加的条目，主持人和主人可管理全部；最多100条。",
+      "commands": [
+        "/话题箱"
+      ],
+      "worker": "worker.py",
+      "config_schema": [
+        {
+          "key": "max_players",
+          "type": "integer",
+          "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+          "min": 2,
+          "max": 12,
+          "default": 12
+        }
+      ],
+      "usage": "/话题箱 创建；添加 话题；抽取（取出一条不重复话题）；列表、删除 编号、状态、结束。可删除自己添加的条目，主持人和主人可管理全部；最多100条。",
+      "smoke_command": "/话题箱 创建",
+      "expected_contains": "房间已创建",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 8000
+      },
+      "archive": "i_topics-1.2.0.zip",
+      "sha256": "a0f69e99c220bd6df0013eb45712bf4d079d0128b8481d5c97041722c18b8cba"
+    },
+    {
+      "id": "i_truth",
+      "name": "真心话大冒险",
+      "description": "/真心冒险 创建；加入；主持人 抽人；被抽到的人 真心话 或 大冒险，然后 完成 或 跳过。每轮可无惩罚跳过；8条原创真心话和8条轻松任务，可重复抽取；状态、结束。",
+      "commands": [
+        "/真心冒险"
+      ],
+      "worker": "worker.py",
+      "config_schema": [
+        {
+          "key": "max_players",
+          "type": "integer",
+          "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+          "min": 2,
+          "max": 12,
+          "default": 12
+        }
+      ],
+      "usage": "/真心冒险 创建；加入；主持人 抽人；被抽到的人 真心话 或 大冒险，然后 完成 或 跳过。每轮可无惩罚跳过；8条原创真心话和8条轻松任务，可重复抽取；状态、结束。",
+      "smoke_command": "/真心冒险 创建",
+      "expected_contains": "房间已创建",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 8000
+      },
+      "archive": "i_truth-1.2.0.zip",
+      "sha256": "1f461e0d6c9bcda7609cdb42eae8392fa229b3c8c1fe872a7dad50477d568e22"
+    },
+    {
+      "id": "i_undercover",
+      "name": "谁是卧底",
+      "description": "/谁是卧底 创建；3—12人 加入；主持人 开始。每人私聊 /谁是卧底 取词 房间码；群中描述后 投票 对方QQ；主持人 结算。平票重投，卧底出局平民胜，剩2人卧底胜。状态、结束。8组原创简单词对，投票并非匿名。",
+      "commands": [
+        "/谁是卧底"
+      ],
+      "worker": "worker.py",
+      "config_schema": [
+        {
+          "key": "max_players",
+          "type": "integer",
+          "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+          "min": 2,
+          "max": 12,
+          "default": 12
+        }
+      ],
+      "usage": "/谁是卧底 创建；3—12人 加入；主持人 开始。每人私聊 /谁是卧底 取词 房间码；群中描述后 投票 对方QQ；主持人 结算。平票重投，卧底出局平民胜，剩2人卧底胜。状态、结束。8组原创简单词对，投票并非匿名。",
+      "smoke_command": "/谁是卧底 创建",
+      "expected_contains": "房间已创建",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 8000
+      },
+      "archive": "i_undercover-1.2.0.zip",
+      "sha256": "9a10e60c7e4a2e8bff6513f65b7e1af5c64002f4c9f01f2c7b6c9de51c7d194a"
+    },
+    {
+      "id": "i_guess",
+      "name": "你说我猜",
+      "description": "/你说我猜 创建；主持人 开始，私聊 /你说我猜 取词 房间码；群内 线索 内容；其他人 猜 答案。猜中得1分可开新轮；主持人 揭晓；积分、状态、结束。12个生活词，真人主持文字玩法。",
+      "commands": [
+        "/你说我猜"
+      ],
+      "worker": "worker.py",
+      "config_schema": [
+        {
+          "key": "max_players",
+          "type": "integer",
+          "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+          "min": 2,
+          "max": 12,
+          "default": 12
+        }
+      ],
+      "usage": "/你说我猜 创建；主持人 开始，私聊 /你说我猜 取词 房间码；群内 线索 内容；其他人 猜 答案。猜中得1分可开新轮；主持人 揭晓；积分、状态、结束。12个生活词，真人主持文字玩法。",
+      "smoke_command": "/你说我猜 创建",
+      "expected_contains": "房间已创建",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 8000
+      },
+      "archive": "i_guess-1.2.0.zip",
+      "sha256": "59cfe42e0c16942473c31360ab95a84a9ed4beba4f7587aa71b6264349561fb9"
+    },
+    {
+      "id": "i_teams",
+      "name": "队长蛇形选队",
+      "description": "/选队 创建；4—12人 加入；发起者 选队长 QQ1 QQ2。队长轮流 选 待选QQ，顺序A-B-B-A循环。全部选完结束；状态、结束。报名后无法中途退场，请结束重建。",
+      "commands": [
+        "/选队"
+      ],
+      "worker": "worker.py",
+      "config_schema": [
+        {
+          "key": "max_players",
+          "type": "integer",
+          "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+          "min": 2,
+          "max": 12,
+          "default": 12
+        }
+      ],
+      "usage": "/选队 创建；4—12人 加入；发起者 选队长 QQ1 QQ2。队长轮流 选 待选QQ，顺序A-B-B-A循环。全部选完结束；状态、结束。报名后无法中途退场，请结束重建。",
+      "smoke_command": "/选队 创建",
+      "expected_contains": "房间已创建",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 8000
+      },
+      "archive": "i_teams-1.2.0.zip",
+      "sha256": "b5171c72169a4148b0e3fb3e001a724b876a05dce62f095447bf43b2b142b29e"
+    },
+    {
+      "id": "i_dots",
+      "name": "点格棋",
+      "description": "/点格棋 创建；第二人 加入；发起者 开始。轮到的人 落子 H 行 列（横边，行1—3列1—2）或 V 行 列（竖边，行1—2列1—3）。闭合格子得分并再走，4格全满分高者胜；状态、结束。",
+      "commands": [
+        "/点格棋"
+      ],
+      "worker": "worker.py",
+      "config_schema": [
+        {
+          "key": "max_players",
+          "type": "integer",
+          "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+          "min": 2,
+          "max": 12,
+          "default": 12
+        }
+      ],
+      "usage": "/点格棋 创建；第二人 加入；发起者 开始。轮到的人 落子 H 行 列（横边，行1—3列1—2）或 V 行 列（竖边，行1—2列1—3）。闭合格子得分并再走，4格全满分高者胜；状态、结束。",
+      "smoke_command": "/点格棋 创建",
+      "expected_contains": "房间已创建",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 8000
+      },
+      "archive": "i_dots-1.2.0.zip",
+      "sha256": "01fe9642630215fa15513b640a05edd462e86a8e83a0914f4ff3093106d6e986"
+    },
+    {
+      "id": "i_nim",
+      "name": "取石子",
+      "description": "/取石子 创建 3 4 5（1—7堆，各1—30颗）；第二人 加入；发起者 开始；轮到的人 取 堆号 数量。每次从一堆取1—3颗（可配置），取最后一颗获胜；状态、结束。",
+      "commands": [
+        "/取石子"
+      ],
+      "worker": "worker.py",
+      "config_schema": [
+        {
+          "key": "max_players",
+          "type": "integer",
+          "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+          "min": 2,
+          "max": 12,
+          "default": 12
+        },
+        {
+          "key": "nim_max_take",
+          "type": "integer",
+          "label": "创建时每次最多取石数",
+          "min": 1,
+          "max": 30,
+          "default": 3
+        }
+      ],
+      "usage": "/取石子 创建 3 4 5（1—7堆，各1—30颗）；第二人 加入；发起者 开始；轮到的人 取 堆号 数量。每次从一堆取1—3颗（可配置），取最后一颗获胜；状态、结束。",
+      "smoke_command": "/取石子 创建 3 4 5",
+      "expected_contains": "房间已创建",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 8000
+      },
+      "archive": "i_nim-1.2.0.zip",
+      "sha256": "5fe0ff3b0adff382627d1bbbffcdc5c6f23d5ac3d8b1f30f9f8954e606fae7bd"
+    },
+    {
+      "id": "i_set",
+      "name": "SET集合牌",
+      "description": "/集合牌 创建 即开始；其他人 加入。牌有四位数字，各1—3。出 位置1 位置2 位置3：每位属性须全同或全不同，成功得1分并补牌；无组合时 加牌。状态、结束。81张不重复牌，最多21张桌面牌；无牌可补且无SET结束。",
+      "commands": [
+        "/集合牌"
+      ],
+      "worker": "worker.py",
+      "config_schema": [
+        {
+          "key": "max_players",
+          "type": "integer",
+          "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+          "min": 2,
+          "max": 12,
+          "default": 12
+        }
+      ],
+      "usage": "/集合牌 创建 即开始；其他人 加入。牌有四位数字，各1—3。出 位置1 位置2 位置3：每位属性须全同或全不同，成功得1分并补牌；无组合时 加牌。状态、结束。81张不重复牌，最多21张桌面牌；无牌可补且无SET结束。",
+      "smoke_command": "/集合牌 创建",
+      "expected_contains": "房间已创建",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 8000
+      },
+      "archive": "i_set-1.2.0.zip",
+      "sha256": "5e556e73200c1a56b78ca009fb786bad250eb4bd9d836ffa897800a516ddf4e3"
+    },
+    {
+      "id": "i_auction",
+      "name": "纯虚拟拍卖",
+      "description": "/虚拟拍卖 创建 虚拟标的名；其他人 加入；发起者 开始；玩家 出价 整数，须高于最高价且不超过预算；主持人 落槌。状态、结束。每房每人默认100虚拟分，无付款、交易或任何奖品，不与签到金币相通。",
+      "commands": [
+        "/虚拟拍卖"
+      ],
+      "worker": "worker.py",
+      "config_schema": [
+        {
+          "key": "max_players",
+          "type": "integer",
+          "label": "房间人数上限（棋类固定2，卧底至少3，选队至少4）",
+          "min": 2,
+          "max": 12,
+          "default": 12
+        },
+        {
+          "key": "auction_budget",
+          "type": "integer",
+          "label": "创建时每人虚拟预算",
+          "min": 10,
+          "max": 100000,
+          "default": 100
+        }
+      ],
+      "usage": "/虚拟拍卖 创建 虚拟标的名；其他人 加入；发起者 开始；玩家 出价 整数，须高于最高价且不超过预算；主持人 落槌。状态、结束。每房每人默认100虚拟分，无付款、交易或任何奖品，不与签到金币相通。",
+      "smoke_command": "/虚拟拍卖 创建 云朵收藏证书",
+      "expected_contains": "房间已创建",
+      "settings": {
+        "timeout": 6,
+        "input_max_chars": 4000,
+        "output_max_chars": 8000
+      },
+      "archive": "i_auction-1.2.0.zip",
+      "sha256": "95a978e0a8c111c80f68fc3647af34fe2fc3fef50d6629b30d4f6bc1cac2a00a"
+    },
+    {
+      "id": "s_banter",
+      "name": "傲娇搭话文案",
+      "commands": [
+        "/搭话"
+      ],
+      "archive": "s_banter-1.2.0.zip",
+      "sha256": "ca66db2868fe47c2430715258155b1b6d7760facc8fbf5d7d2af1f7db73a75ed",
+      "bytes": 12865,
+      "files": 9,
+      "settings": {
+        "timeout": 6,
+        "output_max_chars": 6000
+      }
+    },
+    {
+      "id": "s_bottle",
+      "name": "本群漂流瓶",
+      "commands": [
+        "/漂流瓶"
+      ],
+      "archive": "s_bottle-1.2.0.zip",
+      "sha256": "8d25f18643950c015ed34e5ef00de3142b37afdca46ec80d934b4d39122c6be4",
+      "bytes": 9320,
+      "files": 8,
+      "settings": {
+        "timeout": 6,
+        "output_max_chars": 6000
+      }
+    },
+    {
+      "id": "s_capsule",
+      "name": "私人时光信",
+      "commands": [
+        "/时光信"
+      ],
+      "archive": "s_capsule-1.2.0.zip",
+      "sha256": "f1a807b16a99e2bf65d8378ac7b622c55a0703e7cdf7e669a1c47a7903023947",
+      "bytes": 9341,
+      "files": 8,
+      "settings": {
+        "timeout": 6,
+        "output_max_chars": 6000
+      }
+    },
+    {
+      "id": "s_expedition",
+      "name": "雾港邮路口袋远征",
+      "commands": [
+        "/远征"
+      ],
+      "archive": "s_expedition-1.2.0.zip",
+      "sha256": "34dfe4f541154fe7fa4febcd1070662c2ec2c4ef02a3dfd6e1abab96522f570d",
+      "bytes": 11899,
+      "files": 7,
+      "settings": {
+        "timeout": 6,
+        "output_max_chars": 6000
+      }
+    },
+    {
+      "id": "s_github",
+      "name": "GitHub正式发行",
+      "commands": [
+        "/GitHub发行"
+      ],
+      "archive": "s_github-1.2.0.zip",
+      "sha256": "c367b5f25a4c3b6d9bd207a251a2c25a9f85a3c6b47e9f74823794b52c6a51db",
+      "bytes": 18946,
+      "files": 9,
+      "settings": {
+        "timeout": 20,
+        "output_max_chars": 6000
+      }
+    },
+    {
+      "id": "s_mood",
+      "name": "私人心情日志",
+      "commands": [
+        "/心情"
+      ],
+      "archive": "s_mood-1.2.0.zip",
+      "sha256": "16e6e30c0e115f545477ce58e2ae200f3b01f4deff4e16507a5cb73df1d87c20",
+      "bytes": 9287,
+      "files": 8,
+      "settings": {
+        "timeout": 6,
+        "output_max_chars": 6000
+      }
+    },
+    {
+      "id": "s_nonogram",
+      "name": "5×5唯一解数织",
+      "commands": [
+        "/数织"
+      ],
+      "archive": "s_nonogram-1.2.0.zip",
+      "sha256": "e26ce9679ab60e175938b68e52d17f944d7b74adf35745bfe241a730ccc3878b",
+      "bytes": 11801,
+      "files": 7,
+      "settings": {
+        "timeout": 6,
+        "output_max_chars": 6000
+      }
+    },
+    {
+      "id": "s_package",
+      "name": "PyPI与npm包版本",
+      "commands": [
+        "/包版本"
+      ],
+      "archive": "s_package-1.2.0.zip",
+      "sha256": "9fae7dc20fec067c77f7a300da25e8d189e8ba74b9a591ba95665f3b33dfc87b",
+      "bytes": 19185,
+      "files": 9,
+      "settings": {
+        "timeout": 20,
+        "output_max_chars": 6000
+      }
+    },
+    {
+      "id": "s_sleep",
+      "name": "私人睡眠时段",
+      "commands": [
+        "/睡眠"
+      ],
+      "archive": "s_sleep-1.2.0.zip",
+      "sha256": "7bb1754f83894c7385daf3f760cc5d785d3b1b0599ddbef5ff0c35b1bc9711f4",
+      "bytes": 9357,
+      "files": 8,
+      "settings": {
+        "timeout": 6,
+        "output_max_chars": 6000
+      }
+    },
+    {
+      "id": "s_sudoku",
+      "name": "4×4唯一解数独",
+      "commands": [
+        "/数独"
+      ],
+      "archive": "s_sudoku-1.2.0.zip",
+      "sha256": "03433faa27917729e524f253468895a67020db647cb7401385bef18c4f7678ee",
+      "bytes": 11742,
+      "files": 7,
+      "settings": {
+        "timeout": 6,
+        "output_max_chars": 6000
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+b459bf6b397dc9beb28adaa8bbdf82be8b7edd641383b897bb0d54008b520991  YukinoCore-0.8.0-Windows-x64-portable.zip
+09c56b47cc3286bb47d78abd689d936095e50c71ea0dd382c1a7984df05efbd0  yukino-core-0.8.0-release-manifest.json
+12c3c9383ba6b4a2ab1b6b7ac877847023ffabc2f9bdf9a5fb8115511579e7d9  yukino-core-0.8.0-source.zip
+937410f13c591690662c7a8b13ca79a34c178c98558c38f1fa28b4f679eee562  yukino-core-0.8.0-windows-manifest.json
+5feba634bf9a33de2fb3beaf3c6447c74c27d0893e42f3f7927dce91b790d291  yukino-plugins-119-1.2.0-catalog.json
+86907533eccfe8f78fd4947aac01d55fe4cfe56451a3ccba02d2dad197a05d1b  yukino-plugins-119-1.2.0.zip
