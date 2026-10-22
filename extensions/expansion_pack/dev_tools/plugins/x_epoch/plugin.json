@@ -1,7 +1,7 @@
 {
   "id": "x_epoch",
   "name": "Unix时间戳与ISO互转",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "秒/毫秒时间戳和带时区ISO日期时间双向转换",
   "worker": "worker.py",
   "commands": [
@@ -25,6 +25,6 @@
       "max": 12000
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

@@ -315,6 +315,7 @@ async def make_runtime(config, data_root, resource_root, legacy_root=None):
         app["health_task"] = asyncio.create_task(watch_health())
         if config.receive_enabled: await kernel.transport.start()
         await kernel.native.start()
+        await kernel.proactive.start()
     async def cleanup(app):
         app["health_task"].cancel()
         with contextlib.suppress(asyncio.CancelledError): await app["health_task"]

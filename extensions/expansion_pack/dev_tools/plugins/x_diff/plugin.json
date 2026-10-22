@@ -1,7 +1,7 @@
 {
   "id": "x_diff",
   "name": "多行文本差异",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Unified Diff与字符相似度，支持JSON输入保留竖线",
   "worker": "worker.py",
   "commands": [
@@ -25,6 +25,6 @@
       "max": 12000
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

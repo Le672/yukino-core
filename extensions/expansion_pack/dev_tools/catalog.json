@@ -54,9 +54,16 @@
   },
   {
     "id": "x_ip",
-    "name": "IP与CIDR离线分析",
+    "name": "IP归属与DNS查询",
     "commands": [
-      "/IP信息"
+      "/IP信息",
+      "/IP查询",
+      "/IP",
+      "/DNS",
+      "/DNS查询",
+      "/域名查询",
+      "/ip",
+      "/dns"
     ],
     "smoke_command": "/IP信息 192.168.1.10/24",
     "expected_contains": "192.168.1.0/24",
@@ -64,7 +71,7 @@
   },
   {
     "id": "x_url",
-    "name": "链接结构与跟踪清理",
+    "name": "链接检查与跟踪清理",
     "commands": [
       "/链接信息",
       "/清理链接"
@@ -148,10 +155,11 @@
   },
   {
     "id": "x_http",
-    "name": "HTTP状态与MIME速查",
+    "name": "HTTP与网站状态",
     "commands": [
       "/HTTP状态",
-      "/MIME"
+      "/MIME",
+      "/网站状态"
     ],
     "smoke_command": "/HTTP状态 404",
     "expected_contains": "Not Found",

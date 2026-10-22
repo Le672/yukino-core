@@ -1,7 +1,7 @@
 {
   "id": "x_hangman",
   "name": "吊小人猜字母",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "/吊小人 开始；/吊小人 猜 a（单字母）或 /吊小人 猜 apple（完整英文词）；状态；投降。错误字母和错误整词各消耗一次机会，重复输入不消耗。词库与中文线索原创整理。",
   "worker": "worker.py",
   "commands": [
@@ -23,6 +23,6 @@
       "default": true
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

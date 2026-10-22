@@ -16,7 +16,7 @@ EXPECTED = {'daily_economy', 'affinity', 'eat_what', 'trpg_dice', 'member_aliase
             'weather_query', 'steam_query', 'hot_trends', 'music_search', 'mc_status', 'bili_query'}
 NETWORK = {'weather_query','steam_query','hot_trends','music_search','mc_status','bili_query'}
 LICENSE = ((ROOT / 'LICENSE') if (ROOT / 'LICENSE').is_file() else (ROOT.parents[1] / 'LICENSE')).read_bytes()
-NOTICE = '''Yukino Community Function Pack 1.1.0
+NOTICE = '''Yukino Community Function Pack 1.2.0
 
 Function discovery reference: https://kondius.cn/qq-agent/plugin-market/
 Implementation: independent Python workers for Yukino Core.
@@ -78,9 +78,9 @@ def build(destination: Path):
         sources['community_pack/tests/'+path.name]=path.read_bytes()
     sources['community_pack/LICENSE']=LICENSE
     sources['community_pack/NOTICE']=NOTICE
-    source_path=destination/'yukino-community-pack-1.1.0-source.zip'
+    source_path=destination/'yukino-community-pack-1.2.0-source.zip'
     archive(source_path,sources)
-    manifest={'version':'1.1.0','minimum_core_version':'0.7.0','plugins':entries,
+    manifest={'version':'1.2.0','minimum_core_version':'0.8.0','plugins':entries,
               'source_archive':source_path.name,'source_sha256':hashlib.sha256(source_path.read_bytes()).hexdigest(),
               'upstream_code_included':False,'credentials_included':False}
     (destination/'pack-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')

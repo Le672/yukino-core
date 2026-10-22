@@ -1,7 +1,7 @@
 """Original stdlib-only, bounded developer tools for independent Yukino plugins.
 
-Each public plugin archive embeds this file as _engine.py. No network, eval,
-shell command or host configuration access is used. Regex execution alone uses
+Each public plugin archive embeds this file as _engine.py. Only explicit IP,
+DNS and website queries use bounded public HTTPS. No eval or shell is used. Regex uses
 a fixed Python child process with an independent wall-clock timeout.
 """
 from __future__ import annotations
@@ -19,6 +19,7 @@ import ipaddress
 import json
 import math
 import mimetypes
+from pathlib import Path
 import re
 import subprocess
 import sys
@@ -29,6 +30,15 @@ import uuid
 
 class InputError(ValueError):
     pass
+
+_ONLINE=None
+def online_tools():
+    global _ONLINE
+    if _ONLINE is None:
+        import importlib.util
+        spec=importlib.util.spec_from_file_location('yukino_dev_online',Path(__file__).with_name('helper_online.py'))
+        _ONLINE=importlib.util.module_from_spec(spec);spec.loader.exec_module(_ONLINE)
+    return _ONLINE
 
 
 def setting(ctx, key, default, low, high):
@@ -274,13 +284,21 @@ def uuid_tool(command, arg, ctx):
 
 
 def ip_tool(command, arg, ctx):
-    need(arg and len(arg) < 160, '用法：/IP信息 192.168.1.10/24 或 2001:db8::1/64；仅离线地址分析。')
+    module=online_tools()
+    need(len(arg)<300,'查询内容过长。')
+    if command in ('/DNS','/dns','/DNS查询','/域名查询'):return module.dns(arg,ctx)
+    if not arg:return module.geo(None,ctx)
+    try:ipaddress.ip_interface(arg.strip())
+    except ValueError:
+        need('/' not in arg and ':' not in arg,'IP或CIDR格式无效。')
+        return module.dns(arg,ctx)
     interface = ipaddress.ip_interface(arg.strip())
     address, network = interface.ip, interface.network
     usable = network.num_addresses
     if address.version == 4 and network.prefixlen < 31:
         usable -= 2
-    return '\n'.join(['IP 离线分析', f'版本：IPv{address.version}', f'地址：{address.compressed}', f'网络：{network.with_prefixlen}', f'掩码：{network.netmask}', f'首地址：{network.network_address}', f'末地址：{network.broadcast_address}', f'地址总数：{network.num_addresses}；常规可用：{usable}', f'私有/非全局：{address.is_private}；全局可路由：{address.is_global}', f'回环：{address.is_loopback}；链路本地：{address.is_link_local}；组播：{address.is_multicast}', f'反向 DNS 名称：{address.reverse_pointer}', '不查询归属地、运营商、风险或连通性。'])
+    local='\n'.join(['IP 地址分析', f'版本：IPv{address.version}', f'地址：{address.compressed}', f'网络：{network.with_prefixlen}', f'掩码：{network.netmask}', f'首地址：{network.network_address}', f'末地址：{network.broadcast_address}', f'地址总数：{network.num_addresses}；常规可用：{usable}', f'私有/非全局：{address.is_private}；全局可路由：{address.is_global}', f'回环：{address.is_loopback}；链路本地：{address.is_link_local}；组播：{address.is_multicast}', f'反向 DNS 名称：{address.reverse_pointer}'])
+    return local+'\n\n'+module.geo(address,ctx)
 
 
 def url_tool(command, arg, ctx):
@@ -296,7 +314,8 @@ def url_tool(command, arg, ctx):
         filtered = [(key, value) for key, value in params if not key.lower().startswith('utm_') and key.lower() not in trackers]
         result = urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(filtered), parts.fragment))
         return f'清理链接（移除 {len(params) - len(filtered)} 个已知跟踪参数）\n{result}'
-    return '\n'.join(['链接信息（未访问）', f'协议：{parts.scheme}', f'主机：{parts.hostname}', f'端口：{port or (443 if parts.scheme == "https" else 80)}', f'路径：{parts.path or "/"}', f'查询参数：{len(params)} 个；名称：' + ', '.join(key for key, _ in params), f'片段：{parts.fragment or "无"}'])
+    local='\n'.join(['链接信息', f'协议：{parts.scheme}', f'主机：{parts.hostname}', f'端口：{port or (443 if parts.scheme == "https" else 80)}', f'路径：{parts.path or "/"}', f'查询参数：{len(params)} 个；名称：' + ', '.join(key for key, _ in params), f'片段：{parts.fragment or "无"}'])
+    return local+'\n\n'+online_tools().website(arg,ctx)
 
 
 def color_parse(raw):
@@ -487,6 +506,9 @@ def semver_tool(command, arg, ctx):
 
 
 def http_tool(command, arg, ctx):
+    if command=='/网站状态' or arg.startswith(('http://','https://')):
+        need(arg,'用法：/网站状态 https://example.com')
+        return online_tools().website(arg,ctx)
     if command == '/MIME':
         need(arg and len(arg) <= 200, '用法：/MIME image.png 或 /MIME application/json')
         if '/' in arg and not arg.startswith(('http:', 'https:')):

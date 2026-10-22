@@ -468,7 +468,7 @@
   const modelsUI = { profiles: [], types: [], defaultID: "", editing: null, busy: false, request: 0, formType: "" };
   const connectionsUI = { data: null, dirty: false, revision: 0 };
   const pluginUI = { id: "", controls: new Map(), request: 0, removing: null, removeBusy: false, installBusy: false };
-  const sectionNames = { general: "基本信息", persona: "人格与称呼", access: "对话范围与权限", triggers: "唤醒与触发", context: "上下文与资源", runtime: "队列与运行限制" };
+  const sectionNames = { general: "基本信息", persona: "人格与称呼", access: "对话范围与权限", triggers: "唤醒与触发", proactive: "主动搭话", context: "上下文与资源", runtime: "队列与运行限制" };
   function parseList(value) { return [...new Set(String(value).split(/[,，\n\r]+/).map((part) => part.trim()).filter(Boolean))]; }
   function fieldType(field) {
     const raw = String(field.type || "str").toLowerCase();

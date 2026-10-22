@@ -1,7 +1,7 @@
 {
   "id": "x_probability",
   "name": "组合排列与二项概率",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "精确组合排列及独立同概率试验二项分布",
   "worker": "worker.py",
   "commands": [
@@ -17,6 +17,6 @@
       "max": 12000
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

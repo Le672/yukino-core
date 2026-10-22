@@ -59,7 +59,7 @@ class AlgorithmTests(unittest.TestCase):
         for item in CATALOG:
             manifest = json.loads((ROOT / 'plugins' / item['id'] / 'plugin.json').read_text(encoding='utf-8'))
             self.assertEqual(item['id'], manifest['id'])
-            self.assertEqual('1.1.0', manifest['version'])
+            self.assertEqual('1.2.0', manifest['version'])
             self.assertTrue(manifest['config_schema'])
             commands += manifest['commands']
         self.assertEqual(len(commands), len(set(commands)))

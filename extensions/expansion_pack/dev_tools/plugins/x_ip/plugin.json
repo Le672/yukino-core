@@ -1,11 +1,18 @@
 {
   "id": "x_ip",
-  "name": "IP与CIDR离线分析",
-  "version": "1.1.0",
-  "description": "IPv4/IPv6地址、网络掩码、地址数与类别分析",
+  "name": "IP归属与DNS查询",
+  "version": "1.2.0",
+  "description": "真实查询公网归属、运营商、ASN与DNS，保留IPv4/IPv6/CIDR本地分析",
   "worker": "worker.py",
   "commands": [
-    "/IP信息"
+    "/IP信息",
+    "/IP查询",
+    "/IP",
+    "/DNS",
+    "/DNS查询",
+    "/域名查询",
+    "/ip",
+    "/dns"
   ],
   "config_schema": [
     {
@@ -15,8 +22,40 @@
       "default": 6000,
       "min": 1000,
       "max": 12000
+    },
+    {
+      "key": "online_enabled",
+      "type": "boolean",
+      "label": "允许联网查询",
+      "default": true
+    },
+    {
+      "key": "network_timeout_seconds",
+      "type": "integer",
+      "label": "每个数据源网络超时秒数",
+      "default": 8,
+      "min": 2,
+      "max": 15
+    },
+    {
+      "key": "cache_seconds",
+      "type": "integer",
+      "label": "归属与DNS成功结果缓存秒数",
+      "default": 600,
+      "min": 0,
+      "max": 3600
+    },
+    {
+      "key": "ip_provider",
+      "type": "string",
+      "label": "优先IP归属数据源",
+      "default": "ipwhois",
+      "options": [
+        "ipwhois",
+        "ipapi"
+      ]
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

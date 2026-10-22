@@ -33,13 +33,26 @@ SPECS = [
     ('x_polynomial', '多项式求值导数与方程', ['/多项式'], 'Horner求值、导数系数和含复根的二次方程求解', '/多项式 求值 1,-3,2|3', 'P(x)=2', '/多项式 二次 1 2', [], '系数按最高次到常数排列，最多 21 项（20 次）。`求值 系数|x`、`导数 系数`、`二次 a b c`。二次退化为一次/恒等式时分别处理；负判别式显示共轭复根；实根使用稳定 q 求根法，避免大系数导致小根消减为零。'),
 ]
 
+# Network-capable variants retain the original offline calculations.
+NETWORK_METADATA={'x_ip': ('IP归属与DNS查询', ['/IP信息', '/IP查询', '/IP', '/DNS', '/DNS查询', '/域名查询'], '真实查询公网归属、运营商、ASN与DNS，保留IPv4/IPv6/CIDR本地分析'), 'x_url': ('链接检查与跟踪清理', ['/链接信息', '/清理链接'], '查询公开网站实际HTTP状态、类型和跳转结果，保留链接结构分析与离线清理'), 'x_http': ('HTTP与网站状态', ['/HTTP状态', '/MIME', '/网站状态'], '真实检测公开HTTPS网站状态与响应头，保留HTTP状态码和MIME本地速查')}
+NETWORK_FIELDS=[{'key': 'online_enabled', 'type': 'boolean', 'label': '允许联网查询', 'default': True}, {'key': 'network_timeout_seconds', 'type': 'integer', 'label': '每个数据源网络超时秒数', 'default': 8, 'min': 2, 'max': 15}, {'key': 'cache_seconds', 'type': 'integer', 'label': '归属与DNS成功结果缓存秒数', 'default': 600, 'min': 0, 'max': 3600}]
+NETWORK_DETAILS={
+    'x_ip':'公网IP查询真实归属、ISP/组织、ASN与时区，失败使用备用源；私网和保留地址仅本地分析。/DNS example.com MX 查询实际记录与TTL。不带IP时查询机器人服务器出口。',
+    'x_url':'/链接信息 查询实际HTTPS状态与最终地址。/清理链接 保持离线，只移除已知跟踪参数。公开目标的DNS/IP、每次跳转和TLS均验证，拒绝内网、凭据和自定义端口。',
+    'x_http':'/网站状态 https://example.com 或 /HTTP状态 URL 查询实际HEAD状态和响应头；数字状态码、扩展名与MIME速查保持本地。'}
+NETWORK_METADATA['x_ip'][1].extend(['/ip','/dns'])
+SPECS=[(pid,*NETWORK_METADATA[pid][:2],NETWORK_METADATA[pid][2],smoke,expected,invalid,
+        schema+NETWORK_FIELDS+([dict(key='ip_provider',type='string',label='优先IP归属数据源',default='ipwhois',options=['ipwhois','ipapi'])] if pid=='x_ip' else []),NETWORK_DETAILS[pid])
+       if pid in NETWORK_METADATA else (pid,name,commands,description,smoke,expected,invalid,schema,details)
+       for pid,name,commands,description,smoke,expected,invalid,schema,details in SPECS]
+
 
 def main():
     catalog = []
     for plugin_id, name, commands, description, smoke, expected, invalid, schema, details in SPECS:
         directory = ROOT / 'plugins' / plugin_id
         directory.mkdir(parents=True, exist_ok=True)
-        manifest = dict(id=plugin_id, name=name, version='1.0.0', description=description, worker='worker.py', commands=commands, config_schema=schema + [integer('max_output_chars', '单次回复最多字符', 6000, 1000, 12000)])
+        manifest = dict(id=plugin_id, name=name, version='1.2.0', minimum_core_version='0.8.0', result_protocol=1, description=description, worker='worker.py', commands=commands, config_schema=schema + [integer('max_output_chars', '单次回复最多字符', 6000, 1000, 12000)])
         (directory / 'plugin.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
         wrapper = f'''import importlib.util
 from pathlib import Path
@@ -61,9 +74,9 @@ def handle(text, context):
         parameters = '\n'.join(f"- `{field['key']}`：{field['label']}；默认 `{field['default']}`。" for field in manifest['config_schema'])
         (directory / 'README.md').write_text(f'''# {name}
 
-独立插件 ID：`{plugin_id}`，版本 1.0.0，适配 Yukino Core 0.4.0 普通 worker。
+独立插件 ID：`{plugin_id}`，版本 1.2.0，适配 Yukino Core 0.8.0 普通 worker。
 
-{description}。完全离线，命令不调用模型，不读取聊天历史或服务器秘密。
+{description}。{'仅显式查询访问公网HTTPS。' if plugin_id in NETWORK_METADATA else '完全离线。'}命令不调用模型，不读取聊天历史或服务器秘密。
 
 ## 使用
 
@@ -81,7 +94,7 @@ def handle(text, context):
 
 {parameters}
 
-所有输入都有长度/数值边界，错误返回普通说明。无持久化、无网络、无任意路径读写。输出超限会明确注明截断。
+所有输入都有长度/数值边界，错误返回普通说明。无持久化、无任意路径读写。{'联网仅限公开HTTPS，面板可关闭。' if plugin_id in NETWORK_METADATA else '无网络。'}输出超限会明确注明截断。
 
 ## 打包
 

@@ -1,7 +1,7 @@
 {
   "id": "x_maze",
   "name": "随机可达迷宫",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "/迷宫 开始；上/下/左/右；状态；投降。@人物，E出口，#墙，·走过路径；随机地图保证可达。",
   "worker": "worker.py",
   "commands": [
@@ -24,6 +24,6 @@
       ]
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

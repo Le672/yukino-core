@@ -1,7 +1,7 @@
 {
   "id": "x_matrix",
   "name": "小矩阵代数",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "精确有理数转置、矩阵乘法与消元法行列式",
   "worker": "worker.py",
   "commands": [
@@ -17,6 +17,6 @@
       "max": 12000
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

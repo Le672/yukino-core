@@ -298,6 +298,20 @@ class PluginTests(unittest.IsolatedAsyncioTestCase):
         self.assertIn("暂时没响应", await self.manager.execute(oversized, "/x", {}, timeout=.5))
         self.assertEqual(await self.manager.execute(noisy, "/x", {}), "中文正常回复")
 
+    async def test_import_hang_does_not_hold_global_worker_startup_lock(self):
+        bad=self.worker('slow_import','import time\ntime.sleep(30)\ndef handle(text,context):return "late"\n')
+        good=self.worker('quick','def handle(text,context):return "ready independently"\n')
+        slow=asyncio.create_task(self.manager.execute(bad,'/slow_import',{},timeout=4))
+        try:
+            async with asyncio.timeout(2):
+                while 'slow_import' not in self.manager.workers:await asyncio.sleep(.001)
+            value=await self.manager.execute(good,'/quick',{},timeout=3)
+            self.assertEqual(value,'ready independently')
+            self.assertFalse(slow.done(),'A hung import blocked an unrelated worker')
+        finally:
+            slow.cancel()
+            with __import__('contextlib').suppress(asyncio.CancelledError):await slow
+
     async def test_one_deadline_covers_startup_handler_and_waiting_for_worker_lock(self):
         delayed = self.worker("delayed", "import time\ntime.sleep(.25)\ndef handle(text,context):\n    time.sleep(.25)\n    return 'too late'\n")
         started = time.monotonic()

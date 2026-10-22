@@ -1,7 +1,7 @@
 {
   "id": "music_search",
   "name": "点歌与音频发送",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "直接发送歌曲音频、封面、完整音频文件及语音片段；支持自然语言点歌和选歌",
   "worker": "worker.py",
   "commands": [
@@ -55,6 +55,6 @@
     "music.163.com",
     "y.music.163.com"
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

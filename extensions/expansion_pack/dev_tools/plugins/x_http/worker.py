@@ -1,7 +1,7 @@
 import importlib.util
 from pathlib import Path
 KIND = 'x_http'
-COMMANDS = ('/HTTP状态', '/MIME')
+COMMANDS = ('/HTTP状态', '/MIME', '/网站状态')
 helper = Path(__file__).with_name('_engine.py')
 if not helper.exists():
     helper = Path(__file__).parents[2] / 'dev_engine.py'

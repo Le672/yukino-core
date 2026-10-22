@@ -296,6 +296,7 @@ class PluginManager:
         lock = self.locks.setdefault(name, asyncio.Lock())
         async with lock:
             try:
+                starting=False
                 async with self.pool_lock:
                     maximum=getattr(self.config,'data',{}).get('plugin_worker_limit',8)
                     while len(self.workers)>maximum:
@@ -315,9 +316,14 @@ class PluginManager:
                             stdin=asyncio.subprocess.PIPE, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.DEVNULL,
                             limit=131072)
                         self.workers[name] = proc
-                        ready = json.loads(await asyncio.wait_for(proc.stdout.readline(), timeout))
-                        if ready.get("ready") is not True: raise ValueError("not ready")
+                        starting=True
                     self.worker_used[name]=time.monotonic()
+                # A plugin stuck while importing must not hold the global pool
+                # lock and delay unrelated cold starts. The per-plugin lock
+                # still owns this handshake and prevents concurrent readers.
+                if starting:
+                    ready = json.loads(await asyncio.wait_for(proc.stdout.readline(), timeout))
+                    if ready.get("ready") is not True: raise ValueError("not ready")
                 proc.stdin.write((json.dumps({"text": text, "context": context}, ensure_ascii=False) + "\n").encode())
                 await proc.stdin.drain()
                 result = json.loads(await asyncio.wait_for(proc.stdout.readline(), timeout))

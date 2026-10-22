@@ -1,7 +1,7 @@
 {
   "id": "x_recipes",
   "name": "自录食谱本",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "用户录入食材步骤、检索修改",
   "worker": "worker.py",
   "commands": [
@@ -17,6 +17,6 @@
       "max": 200
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

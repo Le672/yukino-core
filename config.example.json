@@ -36,5 +36,20 @@
   "web_prompt_marker": "",
   "plugins": {},
   "plugin_settings": {},
-  "plugin_worker_limit": 8
+  "plugin_worker_limit": 8,
+  "proactive_enabled": false,
+  "proactive_group_allowlist": [],
+  "proactive_chance_percent": 20,
+  "proactive_min_interval_seconds": 180,
+  "proactive_max_per_hour": 6,
+  "proactive_global_max_per_hour": 24,
+  "proactive_min_message_chars": 4,
+  "proactive_context_limit": 12,
+  "proactive_response_max_chars": 240,
+  "proactive_idle_enabled": false,
+  "proactive_idle_minutes": 30,
+  "proactive_recent_activity_minutes": 180,
+  "proactive_quiet_start_hour": 1,
+  "proactive_quiet_end_hour": 8,
+  "proactive_utc_offset_hours": 8
 }

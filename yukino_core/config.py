@@ -20,7 +20,12 @@ DEFAULTS = dict(name="Yukino", persona="你是Yukino，一个友善、简洁的Q
                 history_char_limit=32000, current_message_max_chars=6000, memory_limit=8,
                 resource_limit=2, emoji_max_per_reply=1, session_cooldown_ms=0,
                 session_max_pending=20, command_max_chars=4000, health_interval=20,
-                command_prefix="/", web_prompt_marker="yukino-brat-20261014", plugin_worker_limit=8)
+                command_prefix="/", web_prompt_marker="yukino-brat-20261014", plugin_worker_limit=8,
+                proactive_enabled=False, proactive_group_allowlist=[], proactive_chance_percent=20,
+                proactive_min_interval_seconds=180, proactive_max_per_hour=6, proactive_global_max_per_hour=24,
+                proactive_min_message_chars=4, proactive_context_limit=12, proactive_response_max_chars=240,
+                proactive_idle_enabled=False, proactive_idle_minutes=30, proactive_recent_activity_minutes=180,
+                proactive_quiet_start_hour=1, proactive_quiet_end_hour=8, proactive_utc_offset_hours=8)
 
 BOOLEANS = {key for key, value in DEFAULTS.items() if isinstance(value, bool)}
 LISTS = {key for key, value in DEFAULTS.items() if isinstance(value, list)}
@@ -29,7 +34,13 @@ LIMITS = {"history_limit": (0, 100), "max_pending": (1, 500), "merge_window_ms":
           "history_char_limit": (1000, 128000), "current_message_max_chars": (100, 32000),
           "memory_limit": (0, 30), "resource_limit": (0, 12), "emoji_max_per_reply": (0, 4),
           "session_cooldown_ms": (0, 60000), "session_max_pending": (1, 100),
-          "command_max_chars": (100, 8000), "health_interval": (5, 300), "plugin_worker_limit": (1,24)}
+          "command_max_chars": (100, 8000), "health_interval": (5, 300), "plugin_worker_limit": (1,24),
+          "proactive_chance_percent":(0,100), "proactive_min_interval_seconds":(15,86400),
+          "proactive_max_per_hour":(1,60), "proactive_global_max_per_hour":(1,200),
+          "proactive_min_message_chars":(1,100), "proactive_context_limit":(1,30),
+          "proactive_response_max_chars":(40,1000), "proactive_idle_minutes":(5,1440),
+          "proactive_recent_activity_minutes":(10,1440), "proactive_quiet_start_hour":(0,23),
+          "proactive_quiet_end_hour":(0,23), "proactive_utc_offset_hours":(-12,14)}
 
 LABELS = {
  "name":("general","实例名称"), "persona":("persona","系统人格"),
@@ -49,7 +60,22 @@ LABELS = {
  "max_pending":("runtime","全局待处理上限"), "merge_window_ms":("runtime","连续消息合并窗口（毫秒）"),
  "session_cooldown_ms":("runtime","会话回复冷却（毫秒）"), "session_max_pending":("runtime","单会话待处理上限"),
  "provider_timeout":("runtime","模型请求总超时（秒）"), "command_max_chars":("runtime","插件输入字符上限"), "plugin_worker_limit":("runtime","插件进程数量上限"),
- "health_interval":("runtime","连接检查间隔（秒）")}
+ "health_interval":("runtime","连接检查间隔（秒）"),
+ "proactive_enabled":("proactive","主动参与群聊"),
+ "proactive_group_allowlist":("proactive","主动搭话群白名单"),
+ "proactive_chance_percent":("proactive","普通消息搭话概率（%）"),
+ "proactive_min_interval_seconds":("proactive","同群主动发言最小间隔（秒）"),
+ "proactive_max_per_hour":("proactive","每群每小时主动发言上限"),
+ "proactive_global_max_per_hour":("proactive","所有群每小时主动发言总上限"),
+ "proactive_min_message_chars":("proactive","参与讨论的最少文字数"),
+ "proactive_context_limit":("proactive","搭话参考的群聊消息条数"),
+ "proactive_response_max_chars":("proactive","主动回复最多字符"),
+ "proactive_idle_enabled":("proactive","群聊安静后主动接续话题"),
+ "proactive_idle_minutes":("proactive","安静多久后接续话题（分钟）"),
+ "proactive_recent_activity_minutes":("proactive","只向最近活跃的群搭话（分钟）"),
+ "proactive_quiet_start_hour":("proactive","免打扰开始小时"),
+ "proactive_quiet_end_hour":("proactive","免打扰结束小时（与开始相同为关闭）"),
+ "proactive_utc_offset_hours":("proactive","免打扰时区 UTC 偏移")}
 
 
 def atomic_json(path, value):
@@ -72,6 +98,8 @@ def settings_schema():
         default=copy.deepcopy(value), restart_required=False,
         description=("留空表示不限制；黑名单优先。每行一个数字ID。" if key in LISTS and key != "trigger_names" else
                      "仅当上游平台提供机器人标记时识别；不会猜测普通QQ用户身份。" if key == "ignore_bots" else
+                     "无需@也可围绕群内话题自然参与，受概率、免打扰、冷却与小时上限约束。" if key == "proactive_enabled" else
+                     "仅在本次运行收到过新消息的群接续一次话题；机器人自己说话不会延长群活跃时间。" if key == "proactive_idle_enabled" else
                      "仅在请求提示中加入标记；留空关闭，不会自动修改网页账号记忆。" if key == "web_prompt_marker" else
                      "保存后用于新收到的消息；正在生成的回复继续使用已提交的请求。"),
         **({"min": LIMITS[key][0], "max": LIMITS[key][1]} if key in LIMITS else {}))

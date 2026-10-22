@@ -1,7 +1,7 @@
 import importlib.util
 from pathlib import Path
 KIND = 'x_ip'
-COMMANDS = ('/IP信息',)
+COMMANDS = ('/IP信息', '/IP查询', '/IP', '/DNS', '/DNS查询', '/域名查询', '/ip', '/dns')
 helper = Path(__file__).with_name('_engine.py')
 if not helper.exists():
     helper = Path(__file__).parents[2] / 'dev_engine.py'

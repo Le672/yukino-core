@@ -39,7 +39,7 @@ class NetworkHelpers(unittest.TestCase):
                 folder = ROOT/name
                 manifest = json.loads((folder/'plugin.json').read_text(encoding='utf-8'))
                 self.assertEqual(manifest['id'], name)
-                self.assertEqual(manifest['version'], '1.1.0')
+                self.assertEqual(manifest['version'], '1.2.0')
                 self.assertEqual(manifest['worker'], 'worker.py')
                 self.assertTrue((folder/'README.md').exists())
                 hashes.add(hashlib.sha256((folder/'_net.py').read_bytes()).digest())

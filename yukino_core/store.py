@@ -122,6 +122,10 @@ class Store:
             CREATE TABLE IF NOT EXISTS notice_cooldowns (
                 key TEXT PRIMARY KEY, until_at REAL NOT NULL
             );
+            CREATE TABLE IF NOT EXISTS proactive_attempts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT, scope TEXT NOT NULL, created_at REAL NOT NULL
+            );
+            CREATE INDEX IF NOT EXISTS proactive_window ON proactive_attempts(created_at,scope);
             PRAGMA user_version=1;
         """)
         columns = {row[1] for row in db.execute("PRAGMA table_info(messages)")}
@@ -206,7 +210,7 @@ class Store:
                                   (event_id, session_id, payload, now, now))
             if inserted.rowcount == 0:
                 return False
-            if event.get("post_type") == "notice":
+            if event.get("post_type") in ("notice", "proactive"):
                 return True
             self._touch(db, session_id, now)
             db.execute("""INSERT INTO messages
@@ -232,6 +236,22 @@ class Store:
         clean = {str(key)[:200]: float(seconds) for key, seconds in limits.items()
                  if isinstance(seconds, (int, float)) and 0 < seconds <= 86400}
         return await self._run(self._claim_notice_cooldown, clean)
+
+    async def claim_proactive(self, scope: str, interval: int, group_limit: int, global_limit: int) -> bool:
+        """Reserve a rolling-hour budget atomically, including failed attempts and restarts."""
+        return await self._run(self._claim_proactive, _session(scope), max(15,min(86400,int(interval))),
+                               max(1,min(60,int(group_limit))), max(1,min(200,int(global_limit))))
+
+    def _claim_proactive(self, scope, interval, group_limit, global_limit):
+        db,now=self._connection(),time.time()
+        with db:
+            db.execute('DELETE FROM proactive_attempts WHERE created_at<?',(now-86400,))
+            last=db.execute('SELECT MAX(created_at) FROM proactive_attempts WHERE scope=?',(scope,)).fetchone()[0]
+            if last is not None and now-last<interval:return False
+            if db.execute('SELECT COUNT(*) FROM proactive_attempts WHERE created_at>?',(now-3600,)).fetchone()[0]>=global_limit:return False
+            if db.execute('SELECT COUNT(*) FROM proactive_attempts WHERE scope=? AND created_at>?',(scope,now-3600)).fetchone()[0]>=group_limit:return False
+            db.execute('INSERT INTO proactive_attempts(scope,created_at) VALUES(?,?)',(scope,now))
+        return True
 
     def _claim_notice_cooldown(self, limits: dict[str, float]) -> bool:
         db, now = self._connection(), time.time()

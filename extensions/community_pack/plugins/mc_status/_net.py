@@ -73,10 +73,25 @@ def fetch(url, params=None, data=None, ttl=120):
         if cached[1] is False:
             raise LookupFailure(cached[2])
         return cached[2]
+    if parsed.hostname=='api.bilibili.com':
+        try:
+            import importlib.util
+            from pathlib import Path
+            helper=Path(__file__).with_name('_bili_broker.py')
+            if helper.is_file():
+                spec=importlib.util.spec_from_file_location('yukino_local_bili_broker',helper)
+                broker=importlib.util.module_from_spec(spec);spec.loader.exec_module(broker)
+                value=broker.query(parsed.path,params)
+                if value is not None:
+                    store(key,now+number(ttl,120,30,300),True,value,len(json.dumps(value)))
+                    return value
+        except Exception:raise LookupFailure('B站登录查询暂不可用，请在B站扫码页更新会话') from None
     headers = {'User-Agent': 'YukinoCore-CommunityPlugin/1.0 (public read-only lookup)',
         'Accept': 'application/json', 'Accept-Encoding': 'identity'}
     if parsed.hostname == 'music.163.com':
         headers['Referer'] = 'https://music.163.com/'
+    if parsed.hostname.endswith('bilibili.com'):
+        headers.update({'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0 Safari/537.36','Referer':'https://www.bilibili.com/'})
     if body is not None:
         headers['Content-Type'] = 'application/x-www-form-urlencoded'
     try:

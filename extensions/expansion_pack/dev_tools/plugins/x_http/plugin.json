@@ -1,12 +1,13 @@
 {
   "id": "x_http",
-  "name": "HTTP状态与MIME速查",
-  "version": "1.1.0",
-  "description": "标准HTTP状态解释和扩展名MIME双向查询",
+  "name": "HTTP与网站状态",
+  "version": "1.2.0",
+  "description": "真实检测公开HTTPS网站状态与响应头，保留HTTP状态码和MIME本地速查",
   "worker": "worker.py",
   "commands": [
     "/HTTP状态",
-    "/MIME"
+    "/MIME",
+    "/网站状态"
   ],
   "config_schema": [
     {
@@ -16,8 +17,30 @@
       "default": 6000,
       "min": 1000,
       "max": 12000
+    },
+    {
+      "key": "online_enabled",
+      "type": "boolean",
+      "label": "允许联网查询",
+      "default": true
+    },
+    {
+      "key": "network_timeout_seconds",
+      "type": "integer",
+      "label": "每个数据源网络超时秒数",
+      "default": 8,
+      "min": 2,
+      "max": 15
+    },
+    {
+      "key": "cache_seconds",
+      "type": "integer",
+      "label": "归属与DNS成功结果缓存秒数",
+      "default": 600,
+      "min": 0,
+      "max": 3600
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

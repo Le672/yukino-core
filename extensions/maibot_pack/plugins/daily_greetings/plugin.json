@@ -1,7 +1,7 @@
 {
   "id": "daily_greetings",
   "name": "早晚安记录",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "按UTC+8记录早晚安次序和距上次消息间隔",
   "worker": "worker.py",
   "commands": [
@@ -9,6 +9,6 @@
     "/晚安"
   ],
   "config_schema": [],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

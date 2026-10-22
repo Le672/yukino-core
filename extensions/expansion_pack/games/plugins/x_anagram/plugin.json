@@ -1,7 +1,7 @@
 {
   "id": "x_anagram",
   "name": "乱序猜词",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "/乱序猜词 开始；/乱序猜词 猜 apple；状态；投降。将同一英文词的全部字母打乱，猜中完整单词获胜；重复输入不扣机会，错词消耗一次机会。可在面板设置机会数和是否显示原创中文线索。",
   "worker": "worker.py",
   "commands": [
@@ -23,6 +23,6 @@
       "default": true
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

@@ -2,19 +2,21 @@
 
 带 Web 控制台、多模型支持和独立插件系统的轻量 QQ 机器人内核。支持 Windows、Linux 与 Docker，通过 **OneBot v11 正向 WebSocket** 连接 SnowLuma、NapCat 等独立QQ通道。
 
-[下载 0.7.0](https://github.com/Le672/yukino-core/releases/tag/v0.7.0) · [安装与使用](docs/QUICKSTART.md) · [插件开发](docs/PLUGIN_AUTHORING.md) · [更新记录](CHANGELOG.md) · [MIT License](LICENSE)
+[下载 0.8.0](https://github.com/Le672/yukino-core/releases/tag/v0.8.0) · [安装与使用](docs/QUICKSTART.md) · [插件开发](docs/PLUGIN_AUTHORING.md) · [更新记录](CHANGELOG.md) · [MIT License](LICENSE)
 
 ## 功能
 
 - **控制台**：平台连接、多个模型档案、会话模型路由、人设、消息触发、长期记忆、插件安装与参数、资源编辑、消息历史、事件与诊断。
 - **模型**：OpenAI 兼容 Chat Completions、OpenAI Responses、Anthropic Messages、Gemini、Ollama、可选 ChatGPT 网页桥。
-- **对话**：私聊与群聊、@ / 引用 / 名称触发、黑白名单、上下文、消息合并、冷却、队列、图片表情和知识检索。
+- **对话**：私聊与群聊、@ / 引用 / 名称触发、[主动参与与冷场接话](docs/NETWORK_AND_PROACTIVE.md)、黑白名单、上下文、消息合并、冷却、队列、图片表情和知识检索。
 - **管理与互动**：全局主人、群管理、提醒、关键词回复、戳一戳、欢迎、退群、管理员 / 头衔 / 名片通知、[偷表情包](docs/EMOJI_COLLECTOR.md)，共 **17 项原生功能**。
 - **扩展**：**119 个外部插件**，覆盖 F1、签到、查询、开发工具、生活记录和文字游戏；每项都有源码、独立 ZIP 和用法。
 
 普通指令无需模型；模型对话需要自己的可用服务。核心不捆绑 QQ 客户端、模型账号、浏览器会话或表情素材。
 
-0.7.0 的插件直接交付音频、原图、结果卡或文件，详见 [媒体功能](docs/RICH_PLUGIN_OUTPUTS.md) 与 [逐项清单](docs/PLUGIN_OUTPUT_MATRIX.md)。
+0.8.0 的插件直接交付音频、原图、结果卡或文件，详见 [媒体功能](docs/RICH_PLUGIN_OUTPUTS.md) 与 [逐项清单](docs/PLUGIN_OUTPUT_MATRIX.md)。
+
+0.8.0 新增真实IP归属、DNS和网站状态检测，群聊无需@也能按话题参与。全部设置、数据源与启用方式见[联网查询与主动搭话](docs/NETWORK_AND_PROACTIVE.md)。全新安装默认关闭主动搭话，启用后受冷却、小时上限和免打扰约束。
 
 ## 下载哪个包
 
@@ -22,9 +24,9 @@
 
 | 文件 | 用途 |
 | --- | --- |
-| `YukinoCore-0.7.0-Windows-x64-portable.zip` | Windows 10/11 x64，内置 Python、依赖和 119 个扩展，解压双击启动 |
-| `yukino-core-0.7.0-source.zip` | 通用源码，包含核心、文档、测试、全部普通插件源码与132条互动文案和 Windows 构建工具 |
-| `yukino-plugins-119-1.1.0.zip` | 六组共 119 个单插件安装 ZIP、清单和使用说明，供源码 / Docker 实例按需安装 |
+| `YukinoCore-0.8.0-Windows-x64-portable.zip` | Windows 10/11 x64，内置 Python、依赖和 119 个扩展，解压双击启动 |
+| `yukino-core-0.8.0-source.zip` | 通用源码，包含核心、文档、测试、全部普通插件源码与132条互动文案和 Windows 构建工具 |
+| `yukino-plugins-119-1.2.0.zip` | 六组共 119 个单插件安装 ZIP、清单和使用说明，供源码 / Docker 实例按需安装 |
 | `SHA256SUMS.txt` | 发布附件的 SHA-256 校验值 |
 
 GitHub 自动生成的 “Source code” 也能用于开发；想复核发布清单时下载带 `release-manifest.json` 的命名源码包。

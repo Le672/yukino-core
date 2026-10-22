@@ -1,7 +1,7 @@
 {
   "id": "x_goals",
   "name": "量化目标",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "目标数值、进度和增量",
   "worker": "worker.py",
   "commands": [
@@ -17,6 +17,6 @@
       "max": 200
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

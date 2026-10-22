@@ -1,7 +1,7 @@
 {
   "id": "x_watchlist",
   "name": "观影清单",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "待看、看完状态、评分和笔记",
   "worker": "worker.py",
   "commands": [
@@ -17,6 +17,6 @@
       "max": 200
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

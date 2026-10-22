@@ -1,7 +1,7 @@
 {
   "id": "m_abbr",
   "name": "神奇海螺缩写释义",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "查询能不能好好说话公开接口，保留社区释义和查无结果",
   "worker": "worker.py",
   "commands": [
@@ -25,6 +25,6 @@
       "max": 15
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

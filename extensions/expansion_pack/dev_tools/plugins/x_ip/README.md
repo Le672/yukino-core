@@ -1,27 +1,13 @@
-# IP与CIDR离线分析
+# IP归属与DNS查询
 
-独立插件 ID：`x_ip`，版本 1.0.0，适配 Yukino Core 0.4.0 普通 worker。
+版本1.2.0，需要Yukino Core0.8.0+。
 
-IPv4/IPv6地址、网络掩码、地址数与类别分析。完全离线，命令不调用模型，不读取聊天历史或服务器秘密。
+真实查询公网归属、运营商、ASN与DNS，保留IPv4/IPv6/CIDR本地分析。
 
-## 使用
+命令：`/IP信息`、`/IP查询`、`/IP`、`/DNS`、`/DNS查询`、`/域名查询`。
 
-命令：`/IP信息`。
+示例：`/IP信息 8.8.8.8`、`/IP信息 2001:db8::1/64`、`/DNS example.com MX`；不带IP时查询机器人服务器出口。私网/保留地址仅本地分析，不发给外部归属服务。
 
-支持 IPv4/IPv6/CIDR，仅使用 Python ipaddress 离线分析；不联网查询归属、运营商、黑名单或延迟。IPv4 /31、/32 按标准库地址数量显示。
+联网可在面板关闭。所有访问使用有界HTTPS，验证DNS、目标IP、TLS和每次跳转；拒绝内网、凭据URL与自定义端口。归属信息来自ipwho.is或备用ipapi.co，DNS来自Google Public DNS。结果不可用时明确提示，不捏造位置、风险或可用状态。
 
-示例：
-
-```text
-/IP信息 192.168.1.10/24
-```
-
-## 面板配置
-
-- `max_output_chars`：单次回复最多字符；默认 `6000`。
-
-所有输入都有长度/数值边界，错误返回普通说明。无持久化、无网络、无任意路径读写。输出超限会明确注明截断。
-
-## 打包
-
-由扩展包构建器把本目录的 plugin.json、worker.py、README.md 与 dev_tools/dev_engine.py（改名为 _engine.py）放在同一插件 ZIP 根目录。源码开发时 worker 可回退加载共享 dev_engine.py。不要省略 _engine.py；此共享 helper 不是额外插件，不计入插件数量。
+网络超时、缓存、优先归属源均可在面板设置。成功归属/DNS默认最多缓存600秒；每项网络调用最多8秒，插件总时限30秒。插件包必须包括_engine.py、helper_online.py和helper_net.py。

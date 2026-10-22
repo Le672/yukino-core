@@ -1,7 +1,7 @@
 {
   "id": "x_wiki",
   "name": "版本知识页",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "分级Markdown标题、完整版本历史和恢复",
   "worker": "worker.py",
   "commands": [
@@ -17,6 +17,6 @@
       "max": 200
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

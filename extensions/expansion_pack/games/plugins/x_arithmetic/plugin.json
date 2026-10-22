@@ -1,7 +1,7 @@
 {
   "id": "x_arithmetic",
   "name": "口算挑战",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "/口算挑战 开始；/口算挑战 答 -3；状态；投降。原创随机整数加减乘除题，除法均可整除，每题提交一次；错题揭晓答案后进入下一题，完成后显示答对题数和实际经过秒数。",
   "worker": "worker.py",
   "commands": [
@@ -25,6 +25,6 @@
       "max": 100
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

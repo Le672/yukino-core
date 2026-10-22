@@ -17,6 +17,7 @@ from .native_plugins import NativeExtensions, NATIVE_IDS
 from .notice_plugins import NoticeExtensions
 from .emoji_collector import EmojiCollector
 from .rich_output import RichOutput
+from .proactive import ProactiveChat
 
 
 def text_segment(text): return [{"type": "text", "data": {"text": text}}]
@@ -96,6 +97,7 @@ class Kernel:
         self.notices = NoticeExtensions(self)
         self.collector = EmojiCollector(self)
         self.rich = RichOutput(self)
+        self.proactive = ProactiveChat(self)
 
     async def triggered(self, event):
         cfg = self.config.data
@@ -143,10 +145,13 @@ class Kernel:
                                   for segment in event.get('segments', [])):
             await self.store.mark_event(event['event_id'], 'emoji_observed')
             return
+        self.proactive.observe(event)
         if not await self.triggered(event):
-            self.metrics["ignored"] += 1
-            await self.store.mark_event(event["event_id"], "ignored")
-            return
+            if await self.proactive.consider(event):event={**event,'proactive_kind':'join'}
+            else:
+                self.metrics["ignored"] += 1
+                await self.store.mark_event(event["event_id"], "ignored")
+                return
         # Commands run locally, ahead of the model queue. No extra model request.
         item, command = self.plugins.match(event["text"])
         if item:
@@ -166,6 +171,9 @@ class Kernel:
             self.metrics["local_commands"] += 1
             await self._send_emoji(event, image_query)
             return
+        await self.enqueue(event)
+
+    async def enqueue(self,event):
         now = time.monotonic()
         if now - self.last_queued.get(event['session_id'], -float('inf')) < self.config.data['session_cooldown_ms'] / 1000:
             await self.store.mark_event(event['event_id'], 'cooldown')
@@ -174,7 +182,7 @@ class Kernel:
             await self.store.mark_event(event['event_id'], 'session_queue_full')
             return
         if self.pending_count + self.active >= self.config.data["max_pending"]:
-            await self.reply(event, "消息有点多，等我回完再说一句吧。")
+            if not event.get('proactive_kind'):await self.reply(event, "消息有点多，等我回完再说一句吧。")
             await self.store.mark_event(event["event_id"], "queue_full")
             return
         event = {**event, "epoch": self.epochs[event["session_id"]], "received_mono": time.monotonic()}
@@ -188,6 +196,7 @@ class Kernel:
 
     async def reset(self, sid):
         self.epochs[sid] += 1
+        self.proactive.reset(sid)
         await self.store.reset_session(sid)
         for event in self.pending.pop(sid, []):
             self.pending_count -= 1
@@ -217,6 +226,9 @@ class Kernel:
     async def _generate(self, batch):
         event = batch[-1]
         sid, epoch = event["session_id"], event["epoch"]
+        if event.get('proactive_kind') and not self.proactive.available(event):
+            for item in batch:await self.store.mark_event(item['event_id'],'proactive_cancelled')
+            return
         if self.epochs[sid] != epoch:
             for item in batch: await self.store.mark_event(item["event_id"], "reset_discarded")
             return
@@ -224,25 +236,31 @@ class Kernel:
         self.metrics["merged"] += len(batch) - 1
         # Snapshot excludes messages that arrived after this batch and avoids repeating it.
         history = await self.store.history(sid, limit=self.config.data["history_limit"] + len(batch) + 1,
-                                          before_event_id=event["event_id"])
+                                          before_event_id=event.get('history_anchor_event_id',event["event_id"]))
         incoming_ids = {item["event_id"] for item in batch}
         history = [row for row in history if row.get("event_id") not in incoming_ids]
         # New events in the pending queue are not part of the current prompt.
         future_ids = {item["event_id"] for item in self.pending.get(sid, [])}
         history = [row for row in history if row.get("event_id") not in future_ids][-self.config.data["history_limit"]:] if self.config.data["history_limit"] else []
         history = [row for row in history if row.get('user_id') not in self.config.data['user_blocklist']]
+        if event.get('proactive_kind'):history=history[-self.config.data['proactive_context_limit']:]
         current = "\n".join(f'[{index + 1}] {x.get("display_name") or x["user_id"]}: {x["text"]}' for index, x in enumerate(batch))
         memories = await self.store.recall(sid, limit=self.config.data['memory_limit']) if self.config.data['memory_enabled'] and self.config.data['memory_limit'] else []
         resources = await self.resources.lookup(event["text"], limit=self.config.data['resource_limit']) if self.config.data['resource_lookup_enabled'] and self.config.data['resource_limit'] else {}
         prompt = build_prompt(self.config.data, history, memories, resources, current,
                               owner_ids=getattr(self.config, 'owner_ids', [getattr(self.config, 'owner_id', '')]),
-                              current_user_ids=[item['user_id'] for item in batch])
+                              current_user_ids=[] if event.get('proactive_kind')=='idle' else [item['user_id'] for item in batch],proactive=event.get('proactive_kind'))
         began = time.monotonic()
         try:
             route = getattr(self.config, 'session_providers', {}).get(sid)
             if route: reply = await self.provider.complete(prompt, self.config.data["provider_timeout"], provider_id=route)
             else: reply = await self.provider.complete(prompt, self.config.data["provider_timeout"])
             self.metrics["last_model_ms"] = round((time.monotonic() - began) * 1000)
+            if event.get('proactive_kind') and (not self.proactive.available(event) or reply.strip()=='[[silent]]'):
+                self.proactive.metrics['skipped']+=1
+                for item in batch:await self.store.mark_event(item['event_id'],'proactive_skipped')
+                return
+            if event.get('proactive_kind'):reply=reply[:self.config.data['proactive_response_max_chars']]
             if self.epochs[sid] != epoch:
                 for item in batch: await self.store.mark_event(item["event_id"], "reset_discarded")
                 return
@@ -254,7 +272,7 @@ class Kernel:
             self.metrics["last_latency_ms"] = round((time.monotonic() - batch[0]["received_mono"]) * 1000)
         except ProviderError as exc:
             self.metrics["failures"] += 1
-            if self.epochs[sid] == epoch: await self.reply(event, str(exc), epoch=epoch)
+            if self.epochs[sid] == epoch and not event.get('proactive_kind'): await self.reply(event, str(exc), epoch=epoch)
             for item in batch: await self.store.mark_event(item["event_id"], "provider_failed", str(exc))
 
     async def _emoji_attachment(self, query):
@@ -375,6 +393,10 @@ class Kernel:
 
     async def _reply_locked(self, event, row, text=None, segments=None, epoch=None, attachments=None):
         if row["status"] != "prepared": return False
+        if event.get('proactive_kind') and not self.proactive.available(event):
+            await self.store.outbox_mark(row['id'],'cancelled',error='主动搭话已关闭或会话已变化')
+            await self.store.mark_event(event['event_id'],'proactive_cancelled')
+            return False
         if event.get("post_type") == "notice" and (self.closing or not getattr(self.config, "receive_enabled", True)):
             await self.store.outbox_mark(row["id"], "cancelled", error="通知接收已关闭")
             await self.store.mark_event(event["event_id"], "receive_disabled")
@@ -413,6 +435,7 @@ class Kernel:
                 # A QQ send already in flight cannot be recalled; never seed the new context with it.
                 await self.store.mark_event(event["event_id"], "sent_during_reset")
             self.metrics["replied"] += 1
+            self.proactive.sent(event)
             self.metrics["local_images"] += sum(item.get("type") == "image" for item in (attachments or []))
             if attachments and all(a['resource_id'].startswith('media_') for a in attachments):
                 with contextlib.suppress(Exception):await self.store.compact_media(row['id'],attachments)
@@ -522,10 +545,11 @@ class Kernel:
                     queue=dict(pending=self.pending_count, active=self.active, media_active=self.rich.busy, max=self.config.data["max_pending"]),
                     metrics=dict(self.metrics), plugins=dict(total=len(plugins), enabled=sum(p["enabled"] for p in plugins)),
                     store=await self.store.stats(), resources=await self.resources.status(),
-                    emoji_collection=self.collector.snapshot())
+                    emoji_collection=self.collector.snapshot(),proactive=self.proactive.snapshot())
 
     async def close(self):
         self.closing = True
+        await self.proactive.close()
         await self.collector.close()
         await self.native.close()
         for task in list(self.workers.values()): task.cancel()

@@ -1,7 +1,7 @@
 {
   "id": "steam_query",
   "name": "Steam商店查询",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "按游戏名或App ID查询官方商店信息",
   "worker": "worker.py",
   "commands": [
@@ -25,6 +25,6 @@
       "max_length": 2
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

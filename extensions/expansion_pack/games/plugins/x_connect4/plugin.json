@@ -1,13 +1,13 @@
 {
   "id": "x_connect4",
   "name": "四子棋",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "/四子棋 开始；另一人 /四子棋 加入；当前玩家 /四子棋 列号（1—7）。固定7列6行，有重力，横竖斜连4获胜；状态、认输、结束。",
   "worker": "worker.py",
   "commands": [
     "/四子棋"
   ],
   "config_schema": [],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }

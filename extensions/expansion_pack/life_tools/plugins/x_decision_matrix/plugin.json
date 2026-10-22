@@ -1,7 +1,7 @@
 {
   "id": "x_decision_matrix",
   "name": "加权决策表",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "多指标权重、选项评分和加权排名",
   "worker": "worker.py",
   "commands": [
@@ -17,6 +17,6 @@
       "max": 200
     }
   ],
-  "minimum_core_version": "0.7.0",
+  "minimum_core_version": "0.8.0",
   "result_protocol": 1
 }
