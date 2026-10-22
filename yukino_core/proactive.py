@@ -39,7 +39,9 @@ class ProactiveChat:
         if not plain or len(plain)<self.kernel.config.data['proactive_min_message_chars']:return
         if len(self.groups)>=200 and event['session_id'] not in self.groups:
             self.groups.pop(min(self.groups,key=lambda sid:self.groups[sid]['human_at']))
-        state=self.groups.setdefault(event['session_id'],{'bot_at':0,'idle_done':''})
+        # A monotonic clock has an arbitrary origin, including shortly after
+        # boot. An absent bot reply must not count as a reply at clock zero.
+        state=self.groups.setdefault(event['session_id'],{'bot_at':-float('inf'),'idle_done':''})
         state.update(human_at=time.monotonic(),event={key:event.get(key) for key in
             ('event_id','session_id','message_type','group_id','user_id','display_name','time','self_id','is_bot')})
         state['event'].update(text=plain[:1000],segments=[],message_id='',mentioned=False,reply_to='')

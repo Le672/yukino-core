@@ -1,6 +1,7 @@
 import asyncio
 import time
 import unittest
+from types import SimpleNamespace
 from unittest.mock import AsyncMock,patch
 import test_core as fixtures
 from yukino_core.provider import ProviderError
@@ -72,6 +73,17 @@ class ProactiveTests(unittest.IsolatedAsyncioTestCase):
         self.config.data['proactive_enabled']=False;self.provider.release.set();await self.idle()
         self.assertFalse(self.transport.sent)
         self.assertEqual(await self.store.event_state(event['event_id']),'proactive_skipped')
+
+    async def test_first_idle_reply_does_not_depend_on_monotonic_clock_origin(self):
+        self.enable();self.config.data.update(proactive_chance_percent=0,proactive_idle_enabled=True)
+        clock=[-2000.0]
+        isolated_clock=SimpleNamespace(monotonic=lambda:clock[0],time=time.time)
+        with patch('yukino_core.proactive.time',isolated_clock):
+            await self.kernel.on_event(self.group_message())
+            clock[0]+=1900
+            await self.kernel.proactive.tick();await self.idle()
+        self.assertEqual(len(self.transport.sent),1)
+        self.assertEqual(self.kernel.proactive.snapshot()['idle_topics'],1)
 
     async def test_actual_mute_and_query_failure_skip_without_group_errors(self):
         self.enable();self.transport.call=AsyncMock(return_value={'shut_up_timestamp':time.time()+600})
