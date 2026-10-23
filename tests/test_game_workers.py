@@ -21,7 +21,7 @@ def packages():
             spec=importlib.util.spec_from_file_location('ai_test_build_'+pack,ROOT/'extensions'/pack/'build_pack.py')
             module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);output=Path(folder)/pack
             with contextlib.redirect_stdout(io.StringIO()):module.build(output)
-            manifest=json.loads((output/'pack-manifest.json').read_text())
+            manifest=json.loads((output/'pack-manifest.json').read_text(encoding='utf-8'))
             for record in manifest['plugins']:
                 if record['id'] in GAMES:result[record['id']]=(output/record['archive']).read_bytes()
     assert set(result)==set(GAMES) and len(result)==41
