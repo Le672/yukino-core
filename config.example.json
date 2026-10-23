@@ -51,5 +51,14 @@
   "proactive_recent_activity_minutes": 180,
   "proactive_quiet_start_hour": 1,
   "proactive_quiet_end_hour": 8,
-  "proactive_utc_offset_hours": 8
+  "proactive_utc_offset_hours": 8,
+  "web_search_enabled": false,
+  "web_search_auto": true,
+  "web_search_followups": true,
+  "web_search_timeout_seconds": 10,
+  "web_search_results": 5,
+  "web_search_read_pages": 2,
+  "web_search_page_chars": 2400,
+  "web_search_cache_seconds": 180,
+  "web_search_searxng_url": ""
 }

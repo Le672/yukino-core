@@ -25,7 +25,10 @@ DEFAULTS = dict(name="Yukino", persona="你是Yukino，一个友善、简洁的Q
                 proactive_min_interval_seconds=180, proactive_max_per_hour=6, proactive_global_max_per_hour=24,
                 proactive_min_message_chars=4, proactive_context_limit=12, proactive_response_max_chars=240,
                 proactive_idle_enabled=False, proactive_idle_minutes=30, proactive_recent_activity_minutes=180,
-                proactive_quiet_start_hour=1, proactive_quiet_end_hour=8, proactive_utc_offset_hours=8)
+                proactive_quiet_start_hour=1, proactive_quiet_end_hour=8, proactive_utc_offset_hours=8,
+                web_search_enabled=False, web_search_auto=True, web_search_followups=True,
+                web_search_timeout_seconds=10, web_search_results=5, web_search_read_pages=2,
+                web_search_page_chars=2400, web_search_cache_seconds=180, web_search_searxng_url="")
 
 BOOLEANS = {key for key, value in DEFAULTS.items() if isinstance(value, bool)}
 LISTS = {key for key, value in DEFAULTS.items() if isinstance(value, list)}
@@ -40,7 +43,10 @@ LIMITS = {"history_limit": (0, 100), "max_pending": (1, 500), "merge_window_ms":
           "proactive_min_message_chars":(1,100), "proactive_context_limit":(1,30),
           "proactive_response_max_chars":(40,1000), "proactive_idle_minutes":(5,1440),
           "proactive_recent_activity_minutes":(10,1440), "proactive_quiet_start_hour":(0,23),
-          "proactive_quiet_end_hour":(0,23), "proactive_utc_offset_hours":(-12,14)}
+          "proactive_quiet_end_hour":(0,23), "proactive_utc_offset_hours":(-12,14),
+          "web_search_timeout_seconds":(2,25), "web_search_results":(1,8),
+          "web_search_read_pages":(0,3), "web_search_page_chars":(500,5000),
+          "web_search_cache_seconds":(0,1800)}
 
 LABELS = {
  "name":("general","实例名称"), "persona":("persona","系统人格"),
@@ -75,7 +81,27 @@ LABELS = {
  "proactive_recent_activity_minutes":("proactive","只向最近活跃的群搭话（分钟）"),
  "proactive_quiet_start_hour":("proactive","免打扰开始小时"),
  "proactive_quiet_end_hour":("proactive","免打扰结束小时（与开始相同为关闭）"),
- "proactive_utc_offset_hours":("proactive","免打扰时区 UTC 偏移")}
+ "proactive_utc_offset_hours":("proactive","免打扰时区 UTC 偏移"),
+ "web_search_enabled":("web_search","启用聊天联网查询"),
+ "web_search_auto":("web_search","自动识别需要查询的问题"),
+ "web_search_followups":("web_search","追问时参考同一人的上一条问题"),
+ "web_search_timeout_seconds":("web_search","检索总耗时上限（秒）"),
+ "web_search_results":("web_search","最多参考的搜索结果数"),
+ "web_search_read_pages":("web_search","最多读取的网页正文数"),
+ "web_search_page_chars":("web_search","每页正文最多字符"),
+ "web_search_cache_seconds":("web_search","查询缓存有效时间（秒，0为关闭）"),
+ "web_search_searxng_url":("web_search","自建 SearXNG 搜索地址（选填）")}
+
+SEARCH_DESCRIPTIONS = {
+ "web_search_enabled":"启用前应取得使用者同意。仅查询提炼后的问题关键词，不上传聊天记录、QQ号、昵称、记忆或凭据。新安装默认关闭。",
+ "web_search_auto":"开启后识别外部事实、最新信息等问题；关闭后仅在消息明确要求搜索或查询时检索。闲聊不额外等待。",
+ "web_search_followups":"仅用同一会话中同一发言人的上一条公开问题补全追问关键词，不引用其他群成员或长期记忆。",
+ "web_search_timeout_seconds":"包含搜索、失败回退和网页正文读取；失败时如实说明，仍只调用一次模型。",
+ "web_search_results":"结果会作为参考资料交给当前会话选择的模型，不另调用模型改写。",
+ "web_search_read_pages":"读取公开 HTTPS 网页，0表示仅参考搜索摘要；不会访问内网和本地文件。",
+ "web_search_cache_seconds":"只缓存在内存中；检索时间保持原值，重启清空。",
+ "web_search_searxng_url":"例如 https://search.example.com/search；需支持 format=json。留空使用内置公开搜索入口，无需 API Key。"
+}
 
 
 def atomic_json(path, value):
@@ -96,7 +122,8 @@ def settings_schema():
     return {"version": 1, "fields": [dict(key=key, label=LABELS[key][1], section=LABELS[key][0],
         type="boolean" if key in BOOLEANS else "list" if key in LISTS else "integer" if key in LIMITS else "text" if key == "persona" else "string",
         default=copy.deepcopy(value), restart_required=False,
-        description=("留空表示不限制；黑名单优先。每行一个数字ID。" if key in LISTS and key != "trigger_names" else
+        description=(SEARCH_DESCRIPTIONS[key] if key in SEARCH_DESCRIPTIONS else
+                     "留空表示不限制；黑名单优先。每行一个数字ID。" if key in LISTS and key != "trigger_names" else
                      "仅当上游平台提供机器人标记时识别；不会猜测普通QQ用户身份。" if key == "ignore_bots" else
                      "无需@也可围绕群内话题自然参与，受概率、免打扰、冷却与小时上限约束。" if key == "proactive_enabled" else
                      "仅在本次运行收到过新消息的群接续一次话题；机器人自己说话不会延长群活跃时间。" if key == "proactive_idle_enabled" else
@@ -152,6 +179,13 @@ class Config:
         for k, v in patch.items():
             if k in BOOLEANS:
                 if not isinstance(v, bool): raise ValueError(k + " 必须是布尔值")
+            elif k == "web_search_searxng_url":
+                if not isinstance(v,str) or len(v)>2048: raise ValueError("搜索地址无效")
+                v=v.strip()
+                if v:
+                    from .public_net import canonical_url
+                    v=canonical_url(v)
+                    if urlsplit(v).query: raise ValueError("搜索地址不能带查询参数或凭据")
             elif k in ("name", "persona", "web_prompt_marker", "command_prefix"):
                 maximum = 32000 if k == "persona" else 100 if k == "web_prompt_marker" else 40 if k == "name" else 8
                 if not isinstance(v, str) or (k != "web_prompt_marker" and not v.strip()) or len(v) > maximum:

@@ -12,6 +12,7 @@ from pathlib import Path
 
 from . import __version__
 from .provider import ProviderError, build_prompt
+from .web_search import WebSearch
 from .transport import OneBotError
 from .native_plugins import NativeExtensions, NATIVE_IDS
 from .notice_plugins import NoticeExtensions
@@ -98,6 +99,7 @@ class Kernel:
         self.collector = EmojiCollector(self)
         self.rich = RichOutput(self)
         self.proactive = ProactiveChat(self)
+        self.web_search = WebSearch(config)
 
     async def triggered(self, event):
         cfg = self.config.data
@@ -226,6 +228,9 @@ class Kernel:
     async def _generate(self, batch):
         event = batch[-1]
         sid, epoch = event["session_id"], event["epoch"]
+        if self.closing or not getattr(self.config,'receive_enabled',True):
+            for item in batch:await self.store.mark_event(item['event_id'],'receive_disabled')
+            return
         if event.get('proactive_kind') and not self.proactive.available(event):
             for item in batch:await self.store.mark_event(item['event_id'],'proactive_cancelled')
             return
@@ -247,15 +252,23 @@ class Kernel:
         current = "\n".join(f'[{index + 1}] {x.get("display_name") or x["user_id"]}: {x["text"]}' for index, x in enumerate(batch))
         memories = await self.store.recall(sid, limit=self.config.data['memory_limit']) if self.config.data['memory_enabled'] and self.config.data['memory_limit'] else []
         resources = await self.resources.lookup(event["text"], limit=self.config.data['resource_limit']) if self.config.data['resource_lookup_enabled'] and self.config.data['resource_limit'] else {}
+        web_search = None if event.get('proactive_kind')=='idle' else await self.web_search.lookup(
+            '\n'.join(item['text'] for item in batch),history,event['user_id'] if len({item['user_id'] for item in batch})==1 else None)
+        if self.epochs[sid] != epoch or self.closing or not getattr(self.config,'receive_enabled',True):
+            for item in batch:await self.store.mark_event(item['event_id'],'reset_discarded' if self.epochs[sid]!=epoch else 'receive_disabled')
+            return
         prompt = build_prompt(self.config.data, history, memories, resources, current,
                               owner_ids=getattr(self.config, 'owner_ids', [getattr(self.config, 'owner_id', '')]),
-                              current_user_ids=[] if event.get('proactive_kind')=='idle' else [item['user_id'] for item in batch],proactive=event.get('proactive_kind'))
+                              current_user_ids=[] if event.get('proactive_kind')=='idle' else [item['user_id'] for item in batch],proactive=event.get('proactive_kind'),web_search=web_search)
         began = time.monotonic()
         try:
             route = getattr(self.config, 'session_providers', {}).get(sid)
             if route: reply = await self.provider.complete(prompt, self.config.data["provider_timeout"], provider_id=route)
             else: reply = await self.provider.complete(prompt, self.config.data["provider_timeout"])
             self.metrics["last_model_ms"] = round((time.monotonic() - began) * 1000)
+            if self.closing or not getattr(self.config,'receive_enabled',True):
+                for item in batch:await self.store.mark_event(item['event_id'],'receive_disabled')
+                return
             if event.get('proactive_kind') and (not self.proactive.available(event) or reply.strip()=='[[silent]]'):
                 self.proactive.metrics['skipped']+=1
                 for item in batch:await self.store.mark_event(item['event_id'],'proactive_skipped')
@@ -533,10 +546,12 @@ class Kernel:
 
     async def isolated_test(self, text):
         started = time.monotonic()
-        prompt = build_prompt(self.config.data, [], [], {}, text)
         async with self.generation_gate:
+            evidence = await self.web_search.lookup(text)
+            prompt = build_prompt(self.config.data, [], [], {}, text,web_search=evidence)
             result = await self.provider.complete(prompt, self.config.data["provider_timeout"])
-        return dict(text=result[:self.config.data["response_max_chars"]], latency_ms=round((time.monotonic()-started)*1000), model_calls=1, qq_sent=False)
+        return dict(text=result[:self.config.data["response_max_chars"]], latency_ms=round((time.monotonic()-started)*1000), model_calls=1, qq_sent=False,
+                    web_search=({k:evidence[k] for k in ('status','retrieved_at','cached')}|{'sources':[{'title':s['title'],'url':s['url']} for s in evidence['sources']]}) if evidence else None)
 
     async def status(self):
         plugins = self.plugins.list()
@@ -545,7 +560,7 @@ class Kernel:
                     queue=dict(pending=self.pending_count, active=self.active, media_active=self.rich.busy, max=self.config.data["max_pending"]),
                     metrics=dict(self.metrics), plugins=dict(total=len(plugins), enabled=sum(p["enabled"] for p in plugins)),
                     store=await self.store.stats(), resources=await self.resources.status(),
-                    emoji_collection=self.collector.snapshot(),proactive=self.proactive.snapshot())
+                    emoji_collection=self.collector.snapshot(),proactive=self.proactive.snapshot(),web_search=self.web_search.snapshot())
 
     async def close(self):
         self.closing = True

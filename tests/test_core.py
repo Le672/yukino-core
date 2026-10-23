@@ -72,6 +72,40 @@ class FakeTransport:
 
 
 class KernelTests(unittest.IsolatedAsyncioTestCase):
+    async def test_chat_web_evidence_is_retrieved_then_one_model_call(self):
+        self.config.data['web_search_enabled']=True
+        evidence=dict(status='ok',retrieved_at='2026-10-23T00:00:00+00:00',sources=[dict(title='Release',url='https://example.com/release',snippet='Stable 3.15.1')])
+        with patch('yukino_core.web_search.WebSearch._search',return_value=evidence) as search:
+            await self.kernel.on_event(self.message('Python最新稳定版本是什么'))
+            await self.idle()
+        self.assertEqual(len(self.provider.prompts),1);self.assertEqual(len(self.transport.sent),1)
+        data=prompt_data(self.provider.prompts[0]);self.assertEqual(data['web_search']['sources'][0]['snippet'],'Stable 3.15.1')
+        self.assertEqual(search.call_args.args[0],'Python最新稳定版本是什么')
+        self.assertNotIn('用户',search.call_args.args[0]);self.assertNotIn('42',search.call_args.args[0])
+        self.assertEqual(self.kernel.web_search.snapshot()['successes'],1)
+
+    async def test_reset_or_receive_disable_during_search_prevents_model_and_send(self):
+        for reset in (True,False):
+            started=asyncio.Event();release=asyncio.Event()
+            async def lookup(*args):
+                started.set();await release.wait();return dict(status='unavailable',sources=[],retrieved_at='now',cached=False)
+            with patch.object(self.kernel.web_search,'lookup',side_effect=lookup):
+                await self.kernel.on_event(self.message('Python现在最新版本是什么'))
+                await started.wait()
+                if reset:await self.kernel.reset('p:42')
+                else:self.config.receive_enabled=False
+                release.set();await self.idle()
+            self.config.receive_enabled=True
+        self.assertEqual(self.provider.prompts,[]);self.assertEqual(self.transport.sent,[])
+
+    async def test_isolated_web_test_uses_same_pipeline_and_sends_no_qq(self):
+        self.config.data['web_search_enabled']=True
+        evidence=dict(status='ok',retrieved_at='now',sources=[dict(title='Release',url='https://example.com/release',snippet='Stable',content='Actual public page')])
+        with patch('yukino_core.web_search.WebSearch._search',return_value=evidence):result=await self.kernel.isolated_test('Python最新版本是什么')
+        self.assertEqual(result['model_calls'],1);self.assertFalse(result['qq_sent']);self.assertEqual(self.transport.sent,[])
+        self.assertEqual(result['web_search']['sources'],[dict(title='Release',url='https://example.com/release')])
+        self.assertIn('Actual public page',self.provider.prompts[0])
+
     async def test_video_link_in_group_runs_plugin_without_mention_or_model_reply(self):
         self.plugins.root.mkdir(exist_ok=True)
         (self.plugins.root / "video.py").write_text("def handle(text,context): return None\n", encoding="utf-8")

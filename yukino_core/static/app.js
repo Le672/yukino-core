@@ -468,7 +468,7 @@
   const modelsUI = { profiles: [], types: [], defaultID: "", editing: null, busy: false, request: 0, formType: "" };
   const connectionsUI = { data: null, dirty: false, revision: 0 };
   const pluginUI = { id: "", controls: new Map(), request: 0, removing: null, removeBusy: false, installBusy: false };
-  const sectionNames = { general: "基本信息", persona: "人格与称呼", access: "对话范围与权限", triggers: "唤醒与触发", proactive: "主动搭话", context: "上下文与资源", runtime: "队列与运行限制" };
+  const sectionNames = { general: "基本信息", persona: "人格与称呼", access: "对话范围与权限", triggers: "唤醒与触发", proactive: "主动搭话", web_search: "聊天联网查询", context: "上下文与资源", runtime: "队列与运行限制" };
   function parseList(value) { return [...new Set(String(value).split(/[,，\n\r]+/).map((part) => part.trim()).filter(Boolean))]; }
   function fieldType(field) {
     const raw = String(field.type || "str").toLowerCase();
@@ -1338,7 +1338,9 @@
       $("test-latency").textContent = number(data.latency_ms) !== null ? latency(data.latency_ms) : "已完成";
       $("test-latency").className = "pill good";
       const modelCalls = number(data.model_calls);
-      $("test-details").textContent = `${modelCalls !== null ? `模型调用 ${modelCalls} 次 · ` : ""}${data.qq_sent === false ? "QQ 发送：未发送（服务端已确认）" : "QQ 发送状态未返回，请检查服务端隔离实现。"}`;
+      const search = obj(data.web_search);
+      const evidence = search.status ? `联网：${search.status === "ok" ? `${arrayFrom(search.sources).length} 个来源${search.cached ? "（缓存）" : ""}` : "暂未查实"} · ` : "";
+      $("test-details").textContent = `${evidence}${modelCalls !== null ? `模型调用 ${modelCalls} 次 · ` : ""}${data.qq_sent === false ? "QQ 发送：未发送（服务端已确认）" : "QQ 发送状态未返回，请检查服务端隔离实现。"}`;
       $("test-details").hidden = false;
       if (data.qq_sent !== false) { $("test-latency").textContent = "隔离状态待确认"; $("test-latency").className = "pill warning"; }
     } catch (error) {
