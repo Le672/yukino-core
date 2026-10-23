@@ -8,6 +8,38 @@ from .game_catalog import BOARDS,INTERACTION,MULTIPLAYER
 class GameError(ValueError):pass
 
 
+def display_player_ids(text,labels):
+    """Render identity slots in game replies, never arbitrary numeric content.
+
+    The same renderer is used for public bot names and anonymous model views.
+    In particular, hashes, room codes, bids, puzzle answers and story text may
+    happen to contain (or equal) a player's numeric ID.
+    """
+    text=str(text)
+    # Each expression captures only an engine-owned identity field. Keep the
+    # rest of a speaker's text or a score's numeric value byte-for-byte intact.
+    patterns=(
+        r'(?P<prefix>轮到(?:队长)? |先由 |抽中 |卧底为 |发起者 |竞拍者 |虚拟落槌：|已选 |当前抢答：)(?P<ids>[1-9][0-9]{0,19})(?![A-Za-z0-9_])',
+        r'(?m)^(?P<prefix>)(?P<ids>[1-9][0-9]{0,19})(?=：| (?:问：|抢到|回答[对错]|猜对了|获胜|出局|取走最后一颗|出价 ))',
+        r'(?P<prefix>玩家：|已加入：|存活：|待选：)(?P<ids>[1-9][0-9]{0,19}(?:、[1-9][0-9]{0,19})*)(?![A-Za-z0-9_])',
+        r'\A(?P<prefix>投票 |选 )(?P<ids>[1-9][0-9]{0,19})\Z',
+        # Teams and score tables use repr(dict): IDs are quoted, scores are not.
+        r"(?m)^(?P<prefix>(?:队伍：|选队完成：|(?:牌局结束。)?积分：)?)(?P<ids>\{[0-9'\", :\[\]]*\})",
+    )
+    for pattern in patterns:
+        urls=[m.span() for m in re.finditer(r'https?://[^\s<>]+',text,re.I)]
+        def render(match):
+            start,end=match.span('ids')
+            if any(start<b and end>a for a,b in urls):return match[0]
+            ids=match['ids']
+            if ids.startswith('{'):
+                ids=re.sub(r"(['\"])([1-9][0-9]{0,19})\1",lambda m:m[1]+labels.get(m[2],m[2])+m[1],ids)
+            else:ids='、'.join(labels.get(uid,uid) for uid in ids.split('、'))
+            return match['prefix']+ids
+        text=re.sub(pattern,render,text)
+    return text
+
+
 class Frame:
     def __init__(self,pid,context,owner=None):
         self.pid=pid;self.ctx=context;self.sid=str(context.get('session_id',''));self.owner=str(owner or context.get('user_id',''))
@@ -81,9 +113,8 @@ class Frame:
         return '玩家'+str(players.index(uid)+1) if uid in players else '主持人'
 
     def public(self,text,state):
-        for uid in sorted(set(state.get('players',[]))|{self.owner,self.bot},key=len,reverse=True):
-            text=re.sub(r'(?<!\d)'+re.escape(uid)+r'(?!\d)',self.label(uid,state),str(text))
-        return str(text)[:7000]
+        labels={uid:self.label(uid,state) for uid in set(state.get('players',[]))|{self.owner,self.bot}}
+        return display_player_ids(text,labels)[:7000]
 
 
 def alive(state):

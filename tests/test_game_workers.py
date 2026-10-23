@@ -2,14 +2,83 @@
 import asyncio,contextlib,copy,hashlib,importlib.util,io,json,sys,tempfile,unittest,zipfile
 from pathlib import Path
 from types import SimpleNamespace
+from unittest.mock import Mock,patch
 from yukino_core.config import DEFAULTS
 from yukino_core.game_catalog import GAMES,MULTIPLAYER
-from yukino_core.game_state import Frame
+from yukino_core.game_state import Frame,display_player_ids
+from yukino_core.game_worker import _public_output,handle as game_handle
 from yukino_core.plugin_packages import inspect_package
 from yukino_core.plugins import PluginManager
 
 ROOT=Path(__file__).resolve().parents[1]
 _PACKAGES=None
+
+
+class PublicFormatting(unittest.TestCase):
+    def test_hash_nonce_urls_and_ordinary_numbers_are_not_player_names(self):
+        text=('承诺 SHA-256：bf81a793a9f3eb9edd814c4774e29d61b60241f7f575096f6321f0d4900090e0\n'
+              '承诺原文：00000000000000000000000000039900|石头\n'
+              '答案：900；价格 900；门牌9000；abc900def；900.5\n'
+              'https://example.test/900?price=900#900\n'
+              'https://example.test/当前抢答：900')
+        self.assertEqual(display_player_ids(text,{'900':'Yukino'}),text)
+        frame=SimpleNamespace(bot='900',ctx={'_game_ai':{'bot_name':'Yukino'}})
+        self.assertEqual(_public_output(frame,text),text)
+
+    def test_only_player_slots_are_replaced_in_public_game_templates(self):
+        cases={
+            '轮到 900':'轮到 Yukino',
+            '当前轮到队长 900':'当前轮到队长 Yukino',
+            '队长已确定，蛇形选人，先由 900 选人。':'队长已确定，蛇形选人，先由 Yukino 选人。',
+            '第1轮抽中 900，可选 真心话':'第1轮抽中 Yukino，可选 真心话',
+            '房间已创建 · 900，发起者 900。':'房间已创建 · 900，发起者 Yukino。',
+            '900 出局，卧底获胜。卧底为 900。':'Yukino 出局，卧底获胜。卧底为 Yukino。',
+            '当前：900 虚拟分，竞拍者 900 · playing':'当前：900 虚拟分，竞拍者 Yukino · playing',
+            '虚拟落槌：900 以 900 分竞得「900」。':'虚拟落槌：Yukino 以 900 分竞得「900」。',
+            '当前抢答：900':'当前抢答：Yukino',
+            '900：故事里花了900元。':'Yukino：故事里花了900元。',
+            '900 抢到！请在群里作答。':'Yukino 抢到！请在群里作答。',
+            '900 出价 900 虚拟分。':'Yukino 出价 900 虚拟分。',
+            '已选 900，轮到 11':'已选 Yukino，轮到 11',
+            '已加入：11、900、9000':'已加入：11、Yukino、9000',
+            '第1轮，存活：11、900。已投票 1 人。':'第1轮，存活：11、Yukino。已投票 1 人。',
+            "积分：{'11': 900, '900': 11}":"积分：{'11': 900, 'Yukino': 11}",
+            "队伍：{'11': ['11', '900']}\n待选：22、9000":"队伍：{'11': ['11', 'Yukino']}\n待选：22、9000",
+        }
+        for original,expected in cases.items():
+            with self.subTest(original=original):self.assertEqual(display_player_ids(original,{'900':'Yukino'}),expected)
+
+    def test_model_views_anonymize_player_fields_without_changing_scores_or_actions(self):
+        frame=Frame.__new__(Frame);frame.owner='11';frame.bot='900'
+        state={'players':['11','900','22']}
+        original="玩家：11、900、22\n900：得了900分。\n积分：{'11': 900, '900': 11, '22': 22}"
+        expected="玩家：玩家1、你、玩家3\n你：得了900分。\n积分：{'玩家1': 900, '你': 11, '玩家3': 22}"
+        self.assertEqual(frame.public(original,state),expected)
+        self.assertEqual(frame.public('投票 22',state),'投票 玩家3')
+        self.assertEqual(frame.public('选 11',state),'选 玩家1')
+        self.assertEqual(frame.public('出价 900',state),'出价 900')
+        self.assertEqual(frame.public('答 11',state),'答 11')
+        self.assertEqual(frame.public('房间 900 · playing',state),'房间 900 · playing')
+
+    def test_rps_fixed_nonce_and_hash_collisions_remain_independently_verifiable(self):
+        nonce='00000000000000000000000000039900'
+        digest='5eb61e0679892df136ddb526a373ca1ac04f6889006f2f7bbbdef84ab6e07316'
+        module=SimpleNamespace(handle=Mock(side_effect=AssertionError('RPS must use the trusted rules')))
+        with tempfile.TemporaryDirectory() as folder:
+            ctx=dict(session_id='g:77',user_id='11',self_id='900',owner_ids=['11'],data_dir=folder,
+                     settings={},_game_ai=dict(pid='rps',bot_name='Yukino'))
+            pending=game_handle(module,'/猜拳 开始 人机',ctx)['game_ai']['task']
+            apply={**ctx,'_game_ai':{**ctx['_game_ai'],'op':'apply','scope_owner':'11','nonce':pending['nonce'],'response':{'action':'1'}}}
+            with patch('yukino_core.game_worker.secrets.token_hex',return_value=nonce):
+                committed=game_handle(module,'',apply)
+            self.assertIn(digest,committed['text'])
+            self.assertNotIn(nonce,committed['text'])
+            outcome=game_handle(module,'/猜拳 石头',ctx)
+            original=outcome['text'].split('承诺原文：')[1].split('\n')[0]
+            self.assertEqual(original,nonce+'|石头')
+            self.assertEqual(hashlib.sha256(original.encode()).hexdigest(),digest)
+            self.assertIn('平局',outcome['text'])
+            module.handle.assert_not_called()
 
 
 def packages():
@@ -106,6 +175,18 @@ for _pid in GAMES:setattr(AllGameActions,'test_'+_pid+'_model_action_uses_real_r
 
 
 class Boundaries(WorkerFixture):
+    async def test_story_worker_keeps_numbers_in_text_and_anonymizes_speakers(self):
+        packet=await self.prepare('i_story')
+        body='路牌写着900，门牌是9000，车票价格是11元。'
+        applied=await self.apply(packet,{'text':body})
+        self.assertFalse(applied['game_ai'].get('error'),applied)
+        self.assertIn(body,applied['text'])
+        self.assertNotIn('\n900：',applied['text'])
+        frame=self.frame()
+        with contextlib.closing(frame.meta_db()) as db:meta=frame.meta(db)
+        self.assertIn('你：'+body,meta['seen_public'][-1])
+        self.assertNotIn('900：',meta['seen_public'][-1])
+
     async def test_undercover_own_word_only_order_votes_and_automatic_settlement(self):
         packet=await self.prepare('i_undercover');s=self.frame().read();own=s['hands']['900'];other=s['hands'][next(u for u in s['players'] if s['hands'][u]!=own)]
         obs=packet['game_ai']['task']['observation'];encoded=json.dumps(obs,ensure_ascii=False)

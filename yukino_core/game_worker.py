@@ -3,7 +3,7 @@ from __future__ import annotations
 import hashlib,json,re,secrets
 from .game_catalog import AMBIENT,GAMES,INTERACTION,MULTIPLAYER
 from .game_rules import task
-from .game_state import Frame,GameError,alive,revision
+from .game_state import Frame,GameError,alive,display_player_ids,revision
 
 JOIN={'加入AI','AI加入','邀请AI','机器人加入','人机','AI'}
 LEAVE={'AI退出','退出AI','移除AI'}
@@ -19,7 +19,7 @@ def _actor(frame,user):return {**frame.ctx,'user_id':user}
 
 def _public_output(frame,text):
     name=str(frame.ctx.get('_game_ai',{}).get('bot_name') or '机器人')
-    text=str(text or '').replace(frame.bot,name)
+    text=display_player_ids(text or '',{frame.bot:name})
     return re.sub(r'(^|\n)机器人(?=[:：]|行动|作答|先锁定)',lambda m:m[1]+name,text)[:8000]
 
 
