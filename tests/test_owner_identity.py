@@ -1,5 +1,6 @@
 """Owner identity follows authenticated QQ IDs across private/group prompts."""
 import asyncio,json,unittest
+from unittest.mock import patch
 import test_core as fixtures
 from yukino_core.provider import build_prompt
 
@@ -40,8 +41,16 @@ class OwnerKernelTests(unittest.IsolatedAsyncioTestCase):
         self.assertFalse(fixtures.prompt_data(self.provider.prompts[-1])['current_senders'][0]['bot_owner'])
     async def test_merged_owner_and_nonowner_have_separate_flags(self):
         self.config.owner_ids=['42'];self.config.data['merge_window_ms']=30
-        await self.kernel.on_event(self.message('第一句',user='42',group='77',mentioned=True))
-        await self.kernel.on_event(self.message('第二句',user='43',group='77',mentioned=True));await self.idle()
+        # Hold the worker until both real SQLite ingestions have completed.
+        # Slow CI disks can exceed 30 ms without any batching/identity defect.
+        release=asyncio.Event();worker=self.kernel._session_worker
+        async def after_ingestion(sid):
+            await release.wait();await worker(sid)
+        with patch.object(self.kernel,'_session_worker',side_effect=after_ingestion):
+            await self.kernel.on_event(self.message('第一句',user='42',group='77',mentioned=True))
+            await self.kernel.on_event(self.message('第二句',user='43',group='77',mentioned=True))
+            release.set();await self.idle()
+        self.assertEqual(len(self.provider.prompts),1)
         d=fixtures.prompt_data(self.provider.prompts[-1]);self.assertEqual([x['bot_owner'] for x in d['current_senders']],[True,False])
         self.assertIn('[1]',d['current']);self.assertIn('[2]',d['current'])
     async def test_live_owner_configuration_change_applies_to_next_prompt(self):
