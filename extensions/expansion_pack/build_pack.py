@@ -15,7 +15,7 @@ from yukino_core.plugin_packages import inspect_package
 from yukino_core.plugins import BUILTINS
 
 GROUPS={'dev_tools':'dev_engine.py','life_tools':'life_engine.py','games':'games_engine.py'}
-VERSION='1.2.0'
+VERSION='1.3.0'
 NOTICE=b'Yukino Expansion Pack 1.2.0\nIndependent original implementations for Yukino Core.\nNo runtime databases, credentials, third-party code or media included.\nDistributed under the accompanying MIT LICENSE.\n'
 
 
@@ -72,7 +72,7 @@ def build(output):
         files.update({'LICENSE':license_data,'NOTICE':NOTICE,
             'recommended_settings.json':(json.dumps(settings,indent=2)+'\n').encode()})
         payload=archive_bytes(files);record,checked=inspect_package(payload)
-        name=record['id']+'-'+VERSION+'.zip';artifacts[name]=payload
+        name=record['id']+'-'+record.get('version','1.2.0')+'.zip';artifacts[name]=payload
         entries.append({**item,'name':record['name'],'description':record['description'],'archive':name,
             'sha256':hashlib.sha256(payload).hexdigest(),'bytes':len(payload),'files':len(checked),
             'settings':settings,'implementation':'original_yukino_worker'})
@@ -85,7 +85,7 @@ def build(output):
         sources['expansion_pack/'+name]=(ROOT/name).read_bytes()
     sources['expansion_pack/LICENSE']=license_data;sources['expansion_pack/NOTICE']=NOTICE
     source_name='yukino-expansion-pack-'+VERSION+'-source.zip';source_payload=archive_bytes(sources);artifacts[source_name]=source_payload
-    manifest={'version':VERSION,'minimum_core_version':'0.8.0','plugin_count':63,'groups':{name:21 for name in GROUPS},
+    manifest={'version':VERSION,'minimum_core_version':'0.10.0','plugin_count':63,'groups':{name:21 for name in GROUPS},
         'plugins':entries,'source_archive':source_name,'source_sha256':hashlib.sha256(source_payload).hexdigest(),
         'credentials_included':False,'runtime_data_included':False}
     output.mkdir(parents=True,exist_ok=True)

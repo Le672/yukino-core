@@ -60,5 +60,8 @@
   "web_search_read_pages": 2,
   "web_search_page_chars": 2400,
   "web_search_cache_seconds": 180,
-  "web_search_searxng_url": ""
+  "web_search_searxng_url": "",
+  "game_ai_enabled": true,
+  "game_ai_calls_per_hour": 120,
+  "game_ai_timeout_seconds": 100
 }

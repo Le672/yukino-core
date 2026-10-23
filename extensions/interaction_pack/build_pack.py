@@ -18,7 +18,7 @@ def build(output):
   for n,b in files.items():
    b.decode('utf-8-sig')
    if n.endswith('.py'):compile(b,n,'exec')
-  out=output/(pid+'-1.2.0.zip');archive(out,files);r,_=inspect_package(out.read_bytes())
+  out=output/(pid+'-'+json.loads(files['plugin.json'])['version']+'.zip');archive(out,files);r,_=inspect_package(out.read_bytes())
   assert not seen.intersection(r['commands']);seen.update(r['commands'])
   row={**e,'archive':out.name,'sha256':digest(out)};entries.append(row)
   out.with_name(out.name+'.sha256').write_text(row['sha256']+'  '+out.name+'\n',encoding='ascii')
@@ -26,9 +26,9 @@ def build(output):
  for p in ROOT.rglob('*'):
   rel=p.relative_to(ROOT)
   if p.is_file() and not p.is_symlink() and not any(n.startswith('.') or n=='__pycache__' for n in rel.parts) and (p.suffix in ('.py','.json','.md','.txt') or p.name=='LICENSE'):files['interaction_pack/'+rel.as_posix()]=p.read_bytes()
- source=output/'yukino-interaction-pack-1.2.0-source.zip';archive(source,files)
+ source=output/'yukino-interaction-pack-1.3.0-source.zip';archive(source,files)
  source.with_name(source.name+'.sha256').write_text(digest(source)+'  '+source.name+'\n',encoding='ascii')
- manifest=dict(version='1.2.0',minimum_core_version='0.7.0',plugin_count=12,plugins=entries,source_archive=source.name,source_sha256=digest(source),upstream_code_included=False)
+ manifest=dict(version='1.3.0',minimum_core_version='0.10.0',plugin_count=12,plugins=entries,source_archive=source.name,source_sha256=digest(source),upstream_code_included=False)
  (output/'pack-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print(json.dumps({'plugins':12,'output':str(output),'source_sha256':digest(source)}))
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);build(p.parse_args().output)

@@ -28,7 +28,8 @@ DEFAULTS = dict(name="Yukino", persona="你是Yukino，一个友善、简洁的Q
                 proactive_quiet_start_hour=1, proactive_quiet_end_hour=8, proactive_utc_offset_hours=8,
                 web_search_enabled=False, web_search_auto=True, web_search_followups=True,
                 web_search_timeout_seconds=10, web_search_results=5, web_search_read_pages=2,
-                web_search_page_chars=2400, web_search_cache_seconds=180, web_search_searxng_url="")
+                web_search_page_chars=2400, web_search_cache_seconds=180, web_search_searxng_url="",
+                game_ai_enabled=True,game_ai_calls_per_hour=120,game_ai_timeout_seconds=100)
 
 BOOLEANS = {key for key, value in DEFAULTS.items() if isinstance(value, bool)}
 LISTS = {key for key, value in DEFAULTS.items() if isinstance(value, list)}
@@ -46,7 +47,7 @@ LIMITS = {"history_limit": (0, 100), "max_pending": (1, 500), "merge_window_ms":
           "proactive_quiet_end_hour":(0,23), "proactive_utc_offset_hours":(-12,14),
           "web_search_timeout_seconds":(2,25), "web_search_results":(1,8),
           "web_search_read_pages":(0,3), "web_search_page_chars":(500,5000),
-          "web_search_cache_seconds":(0,1800)}
+          "web_search_cache_seconds":(0,1800),"game_ai_calls_per_hour":(1,500),"game_ai_timeout_seconds":(5,300)}
 
 LABELS = {
  "name":("general","实例名称"), "persona":("persona","系统人格"),
@@ -90,7 +91,10 @@ LABELS = {
  "web_search_read_pages":("web_search","最多读取的网页正文数"),
  "web_search_page_chars":("web_search","每页正文最多字符"),
  "web_search_cache_seconds":("web_search","查询缓存有效时间（秒，0为关闭）"),
- "web_search_searxng_url":("web_search","自建 SearXNG 搜索地址（选填）")}
+ "web_search_searxng_url":("web_search","自建 SearXNG 搜索地址（选填）"),
+ "game_ai_enabled":("game_ai","允许模型参与小游戏"),
+ "game_ai_calls_per_hour":("game_ai","游戏每小时模型调用总上限"),
+ "game_ai_timeout_seconds":("game_ai","每次游戏思考超时（秒）")}
 
 SEARCH_DESCRIPTIONS = {
  "web_search_enabled":"启用前应取得使用者同意。仅查询提炼后的问题关键词，不上传聊天记录、QQ号、昵称、记忆或凭据。新安装默认关闭。",
@@ -123,6 +127,7 @@ def settings_schema():
         type="boolean" if key in BOOLEANS else "list" if key in LISTS else "integer" if key in LIMITS else "text" if key == "persona" else "string",
         default=copy.deepcopy(value), restart_required=False,
         description=(SEARCH_DESCRIPTIONS[key] if key in SEARCH_DESCRIPTIONS else
+                     "只在已邀请AI的游戏中行动。各游戏的自动加入开关和连续动作数量在插件管理中设置。" if key=='game_ai_enabled' else
                      "留空表示不限制；黑名单优先。每行一个数字ID。" if key in LISTS and key != "trigger_names" else
                      "仅当上游平台提供机器人标记时识别；不会猜测普通QQ用户身份。" if key == "ignore_bots" else
                      "无需@也可围绕群内话题自然参与，受概率、免打扰、冷却与小时上限约束。" if key == "proactive_enabled" else

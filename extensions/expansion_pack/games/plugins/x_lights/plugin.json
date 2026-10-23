@@ -1,8 +1,8 @@
 {
   "id": "x_lights",
   "name": "可解熄灯游戏",
-  "version": "1.2.0",
-  "description": "/熄灯游戏 开始；按 行 列；状态；投降。切换自身及上下左右，目标全部熄灭。",
+  "version": "1.3.0",
+  "description": "/熄灯游戏 开始；按 行 列；状态；投降。切换自身及上下左右，目标全部熄灭。 支持AI搭档；创建/开始加 人机 或 加入AI，之后自动行动。",
   "worker": "worker.py",
   "commands": [
     "/熄灯游戏"
@@ -25,6 +25,7 @@
       "max": 100
     }
   ],
-  "minimum_core_version": "0.8.0",
-  "result_protocol": 1
+  "minimum_core_version": "0.10.0",
+  "result_protocol": 1,
+  "game_ai_adapter": 1
 }

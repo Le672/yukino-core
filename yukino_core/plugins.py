@@ -11,6 +11,7 @@ from urllib.parse import urlsplit
 from .notice_plugins import NOTICE_PLUGINS, NOTICE_FIELDS, validate_notice_setting
 from .plugin_results import validate_result, music_intent
 from . import __version__
+from .game_catalog import GAMES, FIELDS as GAME_FIELDS, capability as game_capability
 
 MAX_EXTERNAL_PLUGINS = 128
 MAX_MANIFEST_BYTES = 1_048_576
@@ -112,6 +113,7 @@ class PluginManager:
                     if paths: record["auto_url_paths"] = dict(paths)
                     if item.get("silent_ack"): record["silent_ack"] = True
                     if isinstance(item.get('config_schema'), list): record['config_schema'] = item['config_schema'][:30]
+                    if item.get('game_ai_adapter')==1 and item['id'] in GAMES:record['game_ai_adapter']=1
                     for field in ('version','minimum_core_version','result_protocol'):
                         if field in item:record[field]=item[field]
                     self.items.append(record)
@@ -128,6 +130,7 @@ class PluginManager:
     def list(self):
         return [{**{k: v for k, v in i.items() if k not in ("worker", "config_schema")}, "enabled": self.enabled(i["id"]),
                  'builtin': i['id'] in {b['id'] for b in BUILTINS},
+                 'game_ai':game_capability(i['id']) if i.get('game_ai_adapter')==1 else None,
                  'configurable': bool(self.get_settings(i['id'])['schema']['fields']),
                  "type": "process" if "worker" in i else "native", "state": "failed" if i["id"] in self.errors else ("ready" if self.enabled(i["id"]) else "disabled"),
                  "error": self.errors.get(i["id"], "")} for i in self.items]
@@ -180,6 +183,7 @@ class PluginManager:
         fields = [dict(f) for f in BUILTIN_FIELDS.get(name, [])]
         fields.extend(dict(f) for f in OUTPUT_FIELDS)
         if 'worker' in item: fields.extend(dict(f) for f in COMMON_FIELDS)
+        if item.get('game_ai_adapter')==1:fields.extend(dict(f) for f in GAME_FIELDS)
         if item.get('auto_url_hosts'):
             fields.append(dict(key='auto_parse', type='boolean', label='自动解析聊天中的匹配链接', default=True))
         for field in item.get('config_schema', []):
@@ -276,6 +280,12 @@ class PluginManager:
         worker_values={key:value for key,value in values.items() if key not in host_fields}
         context={**context,'settings':worker_values, 'self_id':getattr(self.config,'self_id',''),
                  'owner_ids':getattr(self.config,'owner_ids',[getattr(self.config,'owner_id','')]),'rich_result_version':1}
+        if item.get('game_ai_adapter')==1 and item['id'] in GAMES:
+            context['_game_ai']={**context.get('_game_ai',{}),'pid':item['id'],
+                'bot_name':getattr(self.config,'data',{}).get('name','机器人'),
+                'enabled':getattr(self.config,'data',{}).get('game_ai_enabled',True)}
+            if not context['_game_ai']['enabled']:context['settings']={**worker_values,'ai_enabled':False,'ai_auto_join':False}
+        else:context.pop('_game_ai',None)
         if item['id']=='music_search':text=music_intent(text) or text
         if 'worker' in item:
             try:

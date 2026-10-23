@@ -1,8 +1,8 @@
 {
   "id": "x_highlow",
   "name": "高低牌挑战",
-  "version": "1.2.0",
-  "description": "/高低牌 开始；/高低牌 高 或 /高低牌 低；状态；投降。完整52张牌洗牌不放回，2最小、A最大、不比较花色。同点数平局不加分也不判错，一次猜错结束，达到面板目标次数获胜。",
+  "version": "1.3.0",
+  "description": "/高低牌 开始；/高低牌 高 或 /高低牌 低；状态；投降。完整52张牌洗牌不放回，2最小、A最大、不比较花色。同点数平局不加分也不判错，一次猜错结束，达到面板目标次数获胜。 支持AI搭档；创建/开始加 人机 或 加入AI，之后自动行动。",
   "worker": "worker.py",
   "commands": [
     "/高低牌"
@@ -17,6 +17,7 @@
       "max": 12
     }
   ],
-  "minimum_core_version": "0.8.0",
-  "result_protocol": 1
+  "minimum_core_version": "0.10.0",
+  "result_protocol": 1,
+  "game_ai_adapter": 1
 }

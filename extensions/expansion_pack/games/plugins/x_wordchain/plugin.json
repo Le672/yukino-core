@@ -1,8 +1,8 @@
 {
   "id": "x_wordchain",
   "name": "成语接龙",
-  "version": "1.2.0",
-  "description": "/成语接龙 开始；/成语接龙 意气风发。与机器人轮流按文字首尾接龙，仅本地有限常见词典，不按读音；同词不能重复。提示、状态、结束。机器人无词则玩家赢；达到轮数即完成挑战。",
+  "version": "1.3.0",
+  "description": "/成语接龙 开始；/成语接龙 意气风发。与机器人轮流按文字首尾接龙，仅本地有限常见词典，不按读音；同词不能重复。提示、状态、结束。机器人无词则玩家赢；达到轮数即完成挑战。 支持AI搭档；创建/开始加 人机 或 加入AI，之后自动行动。",
   "worker": "worker.py",
   "commands": [
     "/成语接龙"
@@ -17,6 +17,7 @@
       "max": 30
     }
   ],
-  "minimum_core_version": "0.8.0",
-  "result_protocol": 1
+  "minimum_core_version": "0.10.0",
+  "result_protocol": 1,
+  "game_ai_adapter": 1
 }

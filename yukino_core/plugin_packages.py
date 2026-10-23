@@ -120,7 +120,10 @@ def inspect_package(payload):
             if field in record and not re.fullmatch(r'[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}',str(record[field])):raise ValueError('插件版本格式无效')
         if 'minimum_core_version' in record and tuple(map(int,record['minimum_core_version'].split('.')))>tuple(map(int,__version__.split('.'))):raise ValueError('请先升级内核至 '+record['minimum_core_version'])
         if 'result_protocol' in record and record['result_protocol']!=1:raise ValueError('不支持该插件结果协议')
-        record={k:v for k,v in record.items() if k in ('id','name','description','worker','commands','config_schema','auto_url_hosts','auto_url_paths','silent_ack','version','minimum_core_version','result_protocol')}
+        if 'game_ai_adapter' in record:
+            from .game_catalog import GAMES
+            if type(record['game_ai_adapter']) is not int or record['game_ai_adapter']!=1 or pid not in GAMES:raise ValueError('不支持该游戏AI适配器')
+        record={k:v for k,v in record.items() if k in ('id','name','description','worker','commands','config_schema','auto_url_hosts','auto_url_paths','silent_ack','version','minimum_core_version','result_protocol','game_ai_adapter')}
         return record,files
     except (zipfile.BadZipFile,KeyError,UnicodeError,json.JSONDecodeError,RuntimeError,NotImplementedError) as exc:
         raise ValueError('插件ZIP无效，须在根目录提供UTF-8 plugin.json和对应Python源码') from None

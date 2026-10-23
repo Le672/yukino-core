@@ -13,6 +13,7 @@ from pathlib import Path
 from . import __version__
 from .provider import ProviderError, build_prompt
 from .web_search import WebSearch
+from .game_ai import GameAI
 from .transport import OneBotError
 from .native_plugins import NativeExtensions, NATIVE_IDS
 from .notice_plugins import NoticeExtensions
@@ -100,6 +101,7 @@ class Kernel:
         self.rich = RichOutput(self)
         self.proactive = ProactiveChat(self)
         self.web_search = WebSearch(config)
+        self.games = GameAI(self)
 
     async def triggered(self, event):
         cfg = self.config.data
@@ -148,6 +150,9 @@ class Kernel:
             await self.store.mark_event(event['event_id'], 'emoji_observed')
             return
         self.proactive.observe(event)
+        if await self.games.observe(event):
+            await self.store.mark_event(event['event_id'],'game_observed')
+            return
         if not await self.triggered(event):
             if await self.proactive.consider(event):event={**event,'proactive_kind':'join'}
             else:
@@ -199,6 +204,7 @@ class Kernel:
     async def reset(self, sid):
         self.epochs[sid] += 1
         self.proactive.reset(sid)
+        self.games.reset(sid)
         await self.store.reset_session(sid)
         for event in self.pending.pop(sid, []):
             self.pending_count -= 1
@@ -497,6 +503,7 @@ class Kernel:
             prefix = self.config.data['command_prefix']
             if command != '@url' and prefix != '/' and text.startswith(prefix): text = '/' + text[len(prefix):]
             result = await self.plugins.execute(item, text, {"session_id": sid, "user_id": event["user_id"]})
+            if await self.games.accept(event,item,result):return
             if result is None and item.get("silent_ack"):
                 await self.store.mark_event(event["event_id"], "plugin_queued")
             else:
@@ -557,13 +564,14 @@ class Kernel:
         plugins = self.plugins.list()
         return dict(version=__version__, uptime=int(time.monotonic() - self.started),
                     transport={**self.transport.snapshot(), "qq": dict(self.qq_status)}, provider=self.provider.snapshot(),
-                    queue=dict(pending=self.pending_count, active=self.active, media_active=self.rich.busy, max=self.config.data["max_pending"]),
+                    queue=dict(pending=self.pending_count, active=self.active, media_active=self.rich.busy, game_ai_active=len(self.games.tasks),max=self.config.data["max_pending"]),
                     metrics=dict(self.metrics), plugins=dict(total=len(plugins), enabled=sum(p["enabled"] for p in plugins)),
                     store=await self.store.stats(), resources=await self.resources.status(),
-                    emoji_collection=self.collector.snapshot(),proactive=self.proactive.snapshot(),web_search=self.web_search.snapshot())
+                    emoji_collection=self.collector.snapshot(),proactive=self.proactive.snapshot(),web_search=self.web_search.snapshot(),game_ai=self.games.snapshot())
 
     async def close(self):
         self.closing = True
+        await self.games.close()
         await self.proactive.close()
         await self.collector.close()
         await self.native.close()

@@ -19,7 +19,11 @@ def main():
         for line in sys.stdin:
             try:
                 req = json.loads(line)
-                result = module.handle(req["text"], req.get("context", {}))
+                context=req.get('context',{})
+                if isinstance(context.get('_game_ai'),dict):
+                    from .game_worker import handle as game_handle
+                    result=game_handle(module,req['text'],context)
+                else:result = module.handle(req["text"], context)
                 if isinstance(result,str) and len(result.encode('utf-8'))>32000:raise ValueError('Unbounded text result')
                 result = validate_result(result)
                 protocol.write(json.dumps({"text": result}, ensure_ascii=False) + "\n")

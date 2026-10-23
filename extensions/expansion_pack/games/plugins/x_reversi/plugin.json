@@ -1,13 +1,14 @@
 {
   "id": "x_reversi",
   "name": "六路黑白棋",
-  "version": "1.2.0",
-  "description": "/黑白棋 开始；另一人 加入；/黑白棋 行 列（1—6）。必须夹住对手棋子；无合法步时发送 跳过；双方均无步按子数结算。状态、认输、结束。",
+  "version": "1.3.0",
+  "description": "/黑白棋 开始；另一人 加入；/黑白棋 行 列（1—6）。必须夹住对手棋子；无合法步时发送 跳过；双方均无步按子数结算。状态、认输、结束。 支持AI玩家；创建/开始加 人机 或 加入AI，之后自动行动。",
   "worker": "worker.py",
   "commands": [
     "/黑白棋"
   ],
   "config_schema": [],
-  "minimum_core_version": "0.8.0",
-  "result_protocol": 1
+  "minimum_core_version": "0.10.0",
+  "result_protocol": 1,
+  "game_ai_adapter": 1
 }

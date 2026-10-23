@@ -1,8 +1,8 @@
 {
   "id": "x_battleship",
   "name": "单人坐标海战",
-  "version": "1.2.0",
-  "description": "/海战 开始；/海战 攻击 A1；状态；投降。5×5隐藏海图含长度3、2、2的三艘船，直线连续、不重叠、可以相邻。X为命中、~为未中；击沉全部舰船获胜，重复坐标不消耗攻击次数。",
+  "version": "1.3.0",
+  "description": "/海战 开始；/海战 攻击 A1；状态；投降。5×5隐藏海图含长度3、2、2的三艘船，直线连续、不重叠、可以相邻。X为命中、~为未中；击沉全部舰船获胜，重复坐标不消耗攻击次数。 支持AI搭档；创建/开始加 人机 或 加入AI，之后自动行动。",
   "worker": "worker.py",
   "commands": [
     "/海战"
@@ -17,6 +17,7 @@
       "max": 25
     }
   ],
-  "minimum_core_version": "0.8.0",
-  "result_protocol": 1
+  "minimum_core_version": "0.10.0",
+  "result_protocol": 1,
+  "game_ai_adapter": 1
 }

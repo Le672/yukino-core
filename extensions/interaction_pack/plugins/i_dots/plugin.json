@@ -1,7 +1,7 @@
 {
   "id": "i_dots",
   "name": "点格棋",
-  "description": "/点格棋 创建；第二人 加入；发起者 开始。轮到的人 落子 H 行 列（横边，行1—3列1—2）或 V 行 列（竖边，行1—2列1—3）。闭合格子得分并再走，4格全满分高者胜；状态、结束。",
+  "description": "/点格棋 创建；第二人 加入；发起者 开始。轮到的人 落子 H 行 列（横边，行1—3列1—2）或 V 行 列（竖边，行1—2列1—3）。闭合格子得分并再走，4格全满分高者胜；状态、结束。 支持AI玩家；创建/开始加 人机 或 加入AI，之后自动行动。",
   "commands": [
     "/点格棋"
   ],
@@ -16,7 +16,8 @@
       "default": 12
     }
   ],
-  "version": "1.2.0",
-  "minimum_core_version": "0.8.0",
-  "result_protocol": 1
+  "version": "1.3.0",
+  "minimum_core_version": "0.10.0",
+  "result_protocol": 1,
+  "game_ai_adapter": 1
 }

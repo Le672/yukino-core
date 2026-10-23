@@ -1,7 +1,7 @@
 {
   "id": "i_undercover",
   "name": "谁是卧底",
-  "description": "/谁是卧底 创建；3—12人 加入；主持人 开始。每人私聊 /谁是卧底 取词 房间码；群中描述后 投票 对方QQ；主持人 结算。平票重投，卧底出局平民胜，剩2人卧底胜。状态、结束。8组原创简单词对，投票并非匿名。",
+  "description": "谁是卧底：创建、加入、开始；每人私聊取词。AI模式按顺序描述，可正常发言或发 描述 内容；全部描述后 投票 QQ/AI，齐票自动结算。3—12人含一名AI，平票重投。AI只知道自己的词。状态、AI退出、结束。",
   "commands": [
     "/谁是卧底"
   ],
@@ -16,7 +16,8 @@
       "default": 12
     }
   ],
-  "version": "1.2.0",
-  "minimum_core_version": "0.8.0",
-  "result_protocol": 1
+  "version": "1.3.0",
+  "minimum_core_version": "0.10.0",
+  "result_protocol": 1,
+  "game_ai_adapter": 1
 }

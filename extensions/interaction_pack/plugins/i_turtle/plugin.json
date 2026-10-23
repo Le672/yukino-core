@@ -1,7 +1,7 @@
 {
   "id": "i_turtle",
   "name": "海龟汤主持",
-  "description": "群内 /海龟汤 创建；主持人私聊 /海龟汤 设题 房间码 汤面 | 汤底；回群 开始。玩家 提问 内容；主持人 下一问、回答 是/否/无关、揭底；汤面、记录、状态、结束。由真人主持，不自动推理或调用模型。",
+  "description": "海龟汤：真人主持人私聊设题并在群里开始；玩家提问，主持人 下一问、回答 是/否/无关、揭底。支持AI作为解谜玩家，只看公开汤面与问答，不知道汤底。",
   "commands": [
     "/海龟汤"
   ],
@@ -16,7 +16,8 @@
       "default": 12
     }
   ],
-  "version": "1.2.0",
-  "minimum_core_version": "0.8.0",
-  "result_protocol": 1
+  "version": "1.3.0",
+  "minimum_core_version": "0.10.0",
+  "result_protocol": 1,
+  "game_ai_adapter": 1
 }

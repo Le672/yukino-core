@@ -1,8 +1,8 @@
 {
   "id": "x_sokoban",
   "name": "原创推箱子",
-  "version": "1.2.0",
-  "description": "/推箱子 开始；上/下/左/右；撤销；状态；投降。@人物，$箱子，.目标，*到位。只能推不能拉，原创单关。",
+  "version": "1.3.0",
+  "description": "/推箱子 开始；上/下/左/右；撤销；状态；投降。@人物，$箱子，.目标，*到位。只能推不能拉，原创单关。 支持AI搭档；创建/开始加 人机 或 加入AI，之后自动行动。",
   "worker": "worker.py",
   "commands": [
     "/推箱子"
@@ -17,6 +17,7 @@
       "max": 100
     }
   ],
-  "minimum_core_version": "0.8.0",
-  "result_protocol": 1
+  "minimum_core_version": "0.10.0",
+  "result_protocol": 1,
+  "game_ai_adapter": 1
 }

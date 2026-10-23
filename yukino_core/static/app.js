@@ -468,7 +468,7 @@
   const modelsUI = { profiles: [], types: [], defaultID: "", editing: null, busy: false, request: 0, formType: "" };
   const connectionsUI = { data: null, dirty: false, revision: 0 };
   const pluginUI = { id: "", controls: new Map(), request: 0, removing: null, removeBusy: false, installBusy: false };
-  const sectionNames = { general: "基本信息", persona: "人格与称呼", access: "对话范围与权限", triggers: "唤醒与触发", proactive: "主动搭话", web_search: "聊天联网查询", context: "上下文与资源", runtime: "队列与运行限制" };
+  const sectionNames = { general: "基本信息", persona: "人格与称呼", access: "对话范围与权限", triggers: "唤醒与触发", proactive: "主动搭话", web_search: "聊天联网查询", game_ai: "小游戏里的AI玩家",context: "上下文与资源", runtime: "队列与运行限制" };
   function parseList(value) { return [...new Set(String(value).split(/[,，\n\r]+/).map((part) => part.trim()).filter(Boolean))]; }
   function fieldType(field) {
     const raw = String(field.type || "str").toLowerCase();
@@ -866,6 +866,7 @@
       title.append(node("h2", "", display(pick(plugin.display_name, plugin.name, plugin.id), "未命名插件")), node("p", "mono", display(plugin.id, "ID 未提供")));
       header.append(node("span", "plugin-symbol", "⊞"), title, pill(plugin.enabled === undefined ? "状态未知" : enabled ? "已启用" : "已停用", plugin.enabled === undefined ? "neutral" : enabled ? "good" : "neutral"));
       card.append(header, node("p", "plugin-description", display(plugin.description, "此插件没有提供说明。")));
+      if (plugin.game_ai) card.append(node("p","plugin-commands",plugin.game_ai.mode === "partner" ? "AI搭档：支持一起解题，加入后自动轮流行动。" : "AI玩家：支持独立席位，加入后自动按回合行动。"));
       if (Array.isArray(plugin.commands) && plugin.commands.length) card.append(node("p", "plugin-commands", `指令：${plugin.commands.join(" · ")}`));
       const error = pick(plugin.last_error, plugin.error);
       if (error) card.append(node("p", "plugin-error", display(error)));
