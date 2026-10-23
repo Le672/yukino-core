@@ -7,7 +7,7 @@
     "/英语词典"
   ],
   "worker": "worker.py",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "minimum_core_version": "0.11.0",
   "result_protocol": 1,
   "config_schema": [

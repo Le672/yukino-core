@@ -2,7 +2,7 @@
 from __future__ import annotations
 import html,json,math,re,time
 from datetime import datetime,timezone
-from urllib.parse import quote,urlencode,urlsplit
+from urllib.parse import parse_qs,quote,unquote,urlencode,urlsplit
 from PIL import Image,ImageDraw
 from common import UserError,argument,cached,clean,deadline,get_json,guard,image_item,need,result,settings
 from yukino_core import public_net
@@ -93,11 +93,70 @@ def projects(text,context):
     media=[dict(type='file',text=json.dumps(export,ensure_ascii=False,indent=2),name='GitHub项目.json')] if export and settings(context).get('attach_json',True) else []
     return result(heading+('\n'.join(lines) if lines else '\n没有找到公开仓库。')+'\n来源：GitHub公开API'+stamp(at,hit),media)
 
+def pronunciation_source(value):
+    """Resolve only the Commons page explicitly cited by this phonetic entry."""
+    source=approved(value,('commons.wikimedia.org',))
+    if not source or urlsplit(source).hostname!='commons.wikimedia.org':return None
+    parsed=urlsplit(source);query=parse_qs(parsed.query)
+    if parsed.path=='/w/index.php' and len(query.get('curid',[]))==1 and re.fullmatch(r'[1-9][0-9]{0,19}',query['curid'][0]):
+        return source,{'pageids':query['curid'][0]}
+    title=unquote(parsed.path.removeprefix('/wiki/'))
+    if parsed.path.startswith('/wiki/') and title.startswith('File:') and 6<len(title)<240 and not any(c in title for c in '\n\r|'):
+        return source,{'titles':title}
+    return None
+
+
+def commons_pronunciation(phonetic,end):
+    source=pronunciation_source(phonetic.get('sourceUrl'))
+    if not source:return None
+    page,selector=source
+    query=dict(action='query',prop='imageinfo',iiprop='url|extmetadata',format='json',**selector)
+    data=get_json('https://commons.wikimedia.org/w/api.php?'+urlencode(query),end,['commons.wikimedia.org'])
+    pages=data.get('query',{}).get('pages',{})
+    if not isinstance(pages,dict) or len(pages)!=1:return None
+    info=next(iter(pages.values())).get('imageinfo',[])
+    if not info or not isinstance(info[0],dict):return None
+    info=info[0];audio=approved(info.get('url'),('upload.wikimedia.org',))
+    if not audio or urlsplit(audio).hostname!='upload.wikimedia.org' or not urlsplit(audio).path.startswith('/wikipedia/commons/'):return None
+    suffix=urlsplit(audio).path.rsplit('.',1)[-1].lower()
+    if suffix not in ('mp3','ogg','wav','flac','m4a'):return None
+    metadata=info.get('extmetadata') or {}
+    def plain(key):return clean(html.unescape(re.sub(r'<[^>]*>','',str((metadata.get(key) or {}).get('value','')))),300)
+    artist=plain('Artist');license=plain('LicenseShortName')
+    if not license or (not artist and 'public domain' not in license.lower() and 'cc0' not in license.lower()):return None
+    description=approved(info.get('descriptionurl'),('commons.wikimedia.org',)) or page
+    license_url=approved((metadata.get('LicenseUrl') or {}).get('value'),('creativecommons.org','commons.wikimedia.org'))
+    attribution='发音：Wikimedia Commons · '+(artist or '公有领域')+' · '+license+'\n'+description
+    if license_url:attribution+='\n许可：'+license_url
+    return audio,suffix,attribution
+
+
+def dictionary_pronunciation(phonetics,end):
+    """At most one media probe and one Commons lookup within the query deadline."""
+    first=next((p for p in phonetics if approved(p.get('audio'),('api.dictionaryapi.dev',))),None)
+    if not first:return None
+    audio=approved(first['audio'],('api.dictionaryapi.dev',))
+    try:
+        response=public_net.request(audio,timeout=min(3,public_net.remaining(end)),max_bytes=512000,max_redirects=0,allowed_hosts=['api.dictionaryapi.dev'])
+        body=response.body
+        if not (body.startswith((b'ID3',b'OggS',b'fLaC')) or (len(body)>2 and body[0]==255 and body[1]&224==224) or (len(body)>12 and (body.startswith(b'RIFF') and body[8:12]==b'WAVE' or body[4:8]==b'ftyp'))):
+            raise ValueError('The pronunciation endpoint did not return audio')
+        license=first.get('license') or {};source=pronunciation_source(first.get('sourceUrl'))
+        attribution='发音：Free Dictionary API · '+clean(license.get('name') or '许可见来源页面',100)
+        if source:attribution+='\n'+source[0]
+        license_url=approved(license.get('url'),('creativecommons.org','commons.wikimedia.org'))
+        if license_url:attribution+='\n许可：'+license_url
+        return audio,'mp3',attribution
+    except (public_net.NetworkError,ValueError):
+        try:return commons_pronunciation(first,end)
+        except (UserError,ValueError,KeyError,TypeError,IndexError,AttributeError):return None
+
+
 def dictionary(text,context):
     word=argument(text).lower();need(re.fullmatch(r"[a-z][a-z' -]{0,39}",word),'用法：/查词 hello。支持英文单词及简短词组。')
     end=deadline(context);url='https://api.dictionaryapi.dev/api/v2/entries/en/'+quote(word,safe='')
     data,at,hit=cached(context,'dictionary:'+word,lambda:get_json(url,end,['api.dictionaryapi.dev']))
-    need(isinstance(data,list) and data and isinstance(data[0],dict),'词典没有收录这个词。');entry=data[0];phonetics=entry.get('phonetics',[])
+    need(isinstance(data,list) and data and isinstance(data[0],dict),'词典没有收录这个词。');entry=data[0];phonetics=[p for p in entry.get('phonetics',[]) if isinstance(p,dict)]
     ipa=entry.get('phonetic') or next((p.get('text') for p in phonetics if p.get('text')),'')
     lines=['英语词典：'+clean(entry.get('word') or word,60)+' '+clean(ipa,100)];media=[]
     for meaning in entry.get('meanings',[])[:3]:
@@ -106,9 +165,10 @@ def dictionary(text,context):
             lines.append('• '+clean(definition.get('definition'),280))
             if definition.get('example'):lines.append('例：'+clean(definition['example'],180))
     if settings(context).get('send_pronunciation',True):
-        audio=next((approved(p.get('audio'),('api.dictionaryapi.dev',)) for p in phonetics if p.get('audio') and approved(p.get('audio'),('api.dictionaryapi.dev',))),None)
-        if audio:media.append(dict(type='audio',url=audio,name=word.replace(' ','_')+'.mp3'))
-        else:lines.append('该词条暂无可用发音。')
+        audio=dictionary_pronunciation(phonetics,end)
+        if audio:
+            media.append(dict(type='audio',url=audio[0],name=word.replace(' ','_')+'.'+audio[1]));lines.append(audio[2])
+        else:lines.append('该词条暂无可用发音，或发音来源暂时不可用；已保留释义。')
     license=entry.get('license') or {};lines.append('来源：Free Dictionary API / Wiktionary · '+clean(license.get('name'),100))
     return result('\n'.join(lines)+stamp(at,hit),media)
 

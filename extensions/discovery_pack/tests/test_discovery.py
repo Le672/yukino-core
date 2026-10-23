@@ -107,11 +107,46 @@ class DiscoveryTests(unittest.TestCase):
 
     def test_dictionary_sends_source_audio_and_has_no_invented_pronunciation(self):
         entry=dict(word='hello',phonetic='/hello/',phonetics=[{'audio':'https://api.dictionaryapi.dev/media/pronunciations/en/hello-us.mp3'}],meanings=[{'partOfSpeech':'interjection','definitions':[{'definition':'A greeting.','example':'Hello, world.'}]}],license={'name':'CC BY-SA 3.0'})
-        with patch.object(network,'get_json',return_value=[entry]):answer=network.handle('d_dictionary','/查词 hello',self.ctx)
+        with patch.object(network,'get_json',return_value=[entry]),patch.object(network.public_net,'request',return_value=SimpleNamespace(body=b'ID3'+b'\x00'*30)) as request:
+            answer=network.handle('d_dictionary','/查词 hello',self.ctx)
+        self.assertEqual(request.call_count,1);self.assertLessEqual(request.call_args.kwargs['timeout'],3)
         self.assertEqual(answer['media'][0]['type'],'audio');self.assertIn('A greeting.',answer['text']);self.assertIn('CC BY-SA',answer['text'])
         self.ctx['settings']={'cache_seconds':0};entry['phonetics']=[]
         with patch.object(network,'get_json',return_value=[entry]):answer=network.handle('d_dictionary','/查词 hello',self.ctx)
         self.assertEqual(answer['media'],[]);self.assertIn('暂无',answer['text'])
+
+    def test_dictionary_media_failure_uses_only_cited_commons_file_and_attributes_audio(self):
+        entry=dict(word='hello',phonetics=[dict(audio='https://api.dictionaryapi.dev/media/pronunciations/en/hello-au.mp3',sourceUrl='https://commons.wikimedia.org/w/index.php?curid=75797336')],meanings=[{'partOfSpeech':'interjection','definitions':[{'definition':'A greeting.'}]}],license={'name':'CC BY-SA 3.0'})
+        original='https://upload.wikimedia.org/wikipedia/commons/e/e9/En-au-hello.ogg?utm_source=commons.wikimedia.org'
+        info={'url':original,'descriptionurl':'https://commons.wikimedia.org/wiki/File:En-au-hello.ogg','extmetadata':{'Artist':{'value':'<a href="//commons.wikimedia.org/wiki/User:Commander_Keane">Commander Keane</a>'},'LicenseShortName':{'value':'CC BY-SA 4.0'},'LicenseUrl':{'value':'https://creativecommons.org/licenses/by-sa/4.0'}}}
+        commons={'query':{'pages':{'75797336':{'imageinfo':[info]}}}}
+        with patch.object(network,'get_json',side_effect=[[entry],commons]) as lookup,patch.object(network.public_net,'request',side_effect=network.public_net.NetworkError('HTTP 530')) as request:
+            answer=validate_result(network.handle('d_dictionary','/查词 hello',self.ctx))
+        self.assertEqual(lookup.call_count,2);self.assertEqual(request.call_count,1)
+        self.assertEqual(answer['media'],[{'type':'audio','url':original,'name':'hello.ogg'}]);self.assertIn('A greeting.',answer['text'])
+        self.assertIn('Commander Keane',answer['text']);self.assertIn('CC BY-SA 4.0',answer['text']);self.assertIn(info['descriptionurl'],answer['text']);self.assertIn('https://creativecommons.org/licenses/by-sa/4.0',answer['text'])
+        self.assertIn('pageids=75797336',lookup.call_args.args[0]);self.assertIn('prop=imageinfo',lookup.call_args.args[0]);self.assertEqual(lookup.call_args.args[2],['commons.wikimedia.org'])
+
+    def test_dictionary_rejects_unsafe_or_uncited_commons_media_and_keeps_definitions(self):
+        entry=dict(word='hello',phonetics=[dict(audio='https://api.dictionaryapi.dev/media/pronunciations/en/hello.mp3',sourceUrl='https://commons.wikimedia.org/w/index.php?curid=12')],meanings=[{'definitions':[{'definition':'A greeting.'}]}])
+        for url,metadata in [('https://evil.example/voice.mp3',{'Artist':{'value':'author'},'LicenseShortName':{'value':'CC BY 4.0'}}),('https://upload.wikimedia.org/wikipedia/commons/a/a1/voice.ogg',{'LicenseShortName':{'value':'CC BY 4.0'}})]:
+            with self.subTest(url=url,metadata=metadata):
+                commons={'query':{'pages':{'12':{'imageinfo':[{'url':url,'extmetadata':metadata}]}}}}
+                self.ctx['settings']={'cache_seconds':0}
+                with patch.object(network,'get_json',side_effect=[[entry],commons]),patch.object(network.public_net,'request',return_value=SimpleNamespace(body=b'<html>unavailable</html>')):
+                    answer=network.handle('d_dictionary','/查词 hello',self.ctx)
+                self.assertEqual(answer['media'],[]);self.assertIn('A greeting.',answer['text']);self.assertIn('发音来源暂时不可用',answer['text'])
+        entry['phonetics'][0]['sourceUrl']='https://127.0.0.1/w/index.php?curid=12'
+        with patch.object(network,'get_json',return_value=[entry]) as lookup,patch.object(network.public_net,'request',side_effect=network.public_net.NetworkError('HTTP 530')):
+            answer=network.handle('d_dictionary','/查词 hello',self.ctx)
+        self.assertEqual(lookup.call_count,1);self.assertEqual(answer['media'],[])
+
+    def test_dictionary_commons_timeout_does_not_hide_text_or_try_more_endpoints(self):
+        entry=dict(word='hello',phonetics=[dict(audio='https://api.dictionaryapi.dev/media/pronunciations/en/hello.mp3',sourceUrl='https://commons.wikimedia.org/wiki/File:En-uk-hello.ogg')],meanings=[{'definitions':[{'definition':'A greeting.'}]}])
+        with patch.object(network,'get_json',side_effect=[[entry],network.public_net.NetworkError('deadline')]) as lookup,patch.object(network.public_net,'request',side_effect=network.public_net.NetworkError('HTTP 530')) as request:
+            answer=network.handle('d_dictionary','/查词 hello',self.ctx)
+        self.assertEqual(request.call_count,1);self.assertEqual(lookup.call_count,2);self.assertEqual(answer['media'],[]);self.assertIn('A greeting.',answer['text'])
+        self.assertIn('titles=File%3AEn-uk-hello.ogg',lookup.call_args.args[0]);self.assertTrue(all('commons.wikimedia.org' in url for url in [lookup.call_args.args[0]]))
 
     def test_air_uses_explicit_location_and_labels_us_aqi_and_model_forecast(self):
         current=dict(time='2026-10-23T12:00',us_aqi=65,pm2_5=12,pm10=17);data=dict(current=current,current_units={'pm2_5':'μg/m³'},timezone='Asia/Shanghai',hourly={'time':['2026-10-23T12:00','2026-10-23T13:00','2026-10-23T14:00'],'pm2_5':[12,None,18],'pm10':[17,19,21]})

@@ -5,6 +5,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import re
 import sqlite3
 import sys
 import tempfile
@@ -159,11 +160,65 @@ class SocialTests(unittest.TestCase):
     def test_concurrent_capacity_is_atomic_and_unique(self):
         def insert(i):
             return self.call('s_mood', '记 4 | 并发' + str(i), uid=str(1000 + i), max_records=5)
+        busy = '状态暂不可用，请管理员检查插件数据；本次操作未保存。'
         with ThreadPoolExecutor(max_workers=6) as pool:
             results = list(pool.map(insert, range(18)))
+
+        def assert_saved_matches_receipts():
+            # A slow filesystem may exhaust SQLite's bounded lock wait. Every
+            # receipt must describe exactly what was committed, including the
+            # owner/body of each success and its unique record id.
+            saved = {}
+            for i, result in enumerate(results):
+                if '已记录' in result:
+                    match = re.fullmatch(r'心情 #(\d+) 已记录，自评 4/5；仅保存你的自评，不作诊断。', result)
+                    self.assertIsNotNone(match, result)
+                    rid = int(match.group(1))
+                    self.assertNotIn(rid, saved, results)
+                    saved[rid] = (str(1000 + i), '并发' + str(i))
+                else:
+                    self.assertIn(result, (busy, '插件总记录数已达上限，请先删除旧记录。'), results)
+            db = common.connect(self.ctx('s_mood'))
+            try:
+                rows = db.execute('SELECT id,uid,body FROM entries').fetchall()
+            finally:
+                db.close()
+            self.assertEqual({row['id']: (row['uid'], row['body']) for row in rows}, saved)
+            self.assertLessEqual(len(saved), 5)
+
+        assert_saved_matches_receipts()
+        # Retry only explicit "not saved" receipts, once, after contention has
+        # ended. Keep the production lock timeout and reject all other failures.
+        for i, result in enumerate(results):
+            if result == busy:
+                results[i] = insert(i)
+        assert_saved_matches_receipts()
         self.assertEqual(sum('已记录' in x for x in results), 5, results)
         self.assertEqual(sum('总记录数' in x for x in results), 13, results)
         self.assertEqual(self.count('s_mood'), 5)
+
+    def test_locked_database_is_not_saved_and_can_retry_after_unlock(self):
+        self.assertIn('已记录', self.call('s_mood', '记 3 | 已有记录'))
+        original_connect = common.connect
+        blocker = original_connect(self.ctx('s_mood'))
+
+        def short_wait(ctx):
+            db = original_connect(ctx)
+            db.execute('PRAGMA busy_timeout=30')
+            return db
+
+        try:
+            blocker.execute('BEGIN IMMEDIATE')
+            with patch.object(common, 'connect', side_effect=short_wait):
+                result = self.call('s_mood', '记 4 | 待重试', uid='202')
+            self.assertEqual(result, '状态暂不可用，请管理员检查插件数据；本次操作未保存。')
+            rows = blocker.execute('SELECT uid,body FROM entries').fetchall()
+            self.assertEqual([(row['uid'], row['body']) for row in rows], [('101', '已有记录')])
+        finally:
+            blocker.rollback()
+            blocker.close()
+        self.assertIn('已记录', self.call('s_mood', '记 4 | 待重试', uid='202'))
+        self.assertEqual(self.count('s_mood'), 2)
 
     def test_retention_deletes_expired_ordinary_entries(self):
         self.call('s_mood', '记 4 | 旧记录', retention_days=1)

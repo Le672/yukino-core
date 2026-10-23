@@ -6,7 +6,7 @@
 - 二维码：[Project Nayuki](https://github.com/nayuki/QR-Code-generator)，MIT；仅vendored `python/qrcodegen.py`，原完整版权许可保留。固定提交及SHA-256见 `vendor/provenance.json`；未复制演示图片。
 - 限免查询：Epic官方商城公开 `freeGamesPromotions`；实现方式参考[公开抓取项目](https://github.com/s-p-e-c-k/Epic-Games-Store-Free-Games)。筛选有效促销时间、100%折扣与实际零价，排除永久免费商品。封面和商品描述版权归原权利人。
 - 项目查询：[GitHub REST仓库搜索](https://docs.github.com/en/rest/search/search#search-repositories)、公开仓库详情；无token，不下载或执行仓库代码。
-- 词典：[meetDeveloper/freeDictionaryAPI](https://github.com/meetDeveloper/freeDictionaryAPI)。词条及发音按来源返回，保留Wiktionary/条目许可名称；不声称覆盖全部单词或提供中文翻译。
+- 词典：[meetDeveloper/freeDictionaryAPI](https://github.com/meetDeveloper/freeDictionaryAPI)。词条及发音按来源返回，分别标注词条许可与音频许可。0.1.1在词典媒体不可用时，仅按该发音条目引用的Commons页面，通过[Wikimedia imageinfo官方API](https://www.mediawiki.org/wiki/API:Imageinfo)查询原音频、作者及许可；保留署名和来源页，不猜媒体URL或生成替代发音。不声称覆盖全部单词或提供中文翻译。
 - 空气质量：[Open-Meteo Air Quality API](https://open-meteo.com/en/docs/air-quality-api)，CAMS模型数据；按文档署名。展示美标AQI及浓度，不混作中国国标AQI或监测站实测。
 
 公开数据源有各自的访问限额与使用条款；GitHub匿名请求会限流。查询有缓存、总耗时和大小上限，失败如实返回，不用过期结果冒充刚查到的数据。源码不包含账户、Cookie、私人图片或服务密钥。
