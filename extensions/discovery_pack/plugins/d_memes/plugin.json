@@ -1,0 +1,15 @@
+{
+  "id": "d_memes",
+  "name": "中文文字表情画板",
+  "description": "原创熊举牌、记仇小本本和摸鱼牌；直接发送真实PNG图片，无需模型或外部素材。",
+  "commands": [
+    "/举牌",
+    "/记仇",
+    "/摸鱼牌"
+  ],
+  "worker": "worker.py",
+  "version": "0.1.0",
+  "minimum_core_version": "0.11.0",
+  "result_protocol": 1,
+  "config_schema": []
+}

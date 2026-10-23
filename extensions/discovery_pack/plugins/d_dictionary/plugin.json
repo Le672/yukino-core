@@ -1,0 +1,43 @@
+{
+  "id": "d_dictionary",
+  "name": "英语词典与真人发音",
+  "description": "实时查询英文释义、音标与例句，直接发送来源提供的发音音频；并非中文翻译器。",
+  "commands": [
+    "/查词",
+    "/英语词典"
+  ],
+  "worker": "worker.py",
+  "version": "0.1.0",
+  "minimum_core_version": "0.11.0",
+  "result_protocol": 1,
+  "config_schema": [
+    {
+      "key": "online_enabled",
+      "type": "boolean",
+      "label": "允许访问本功能公开数据源",
+      "default": true
+    },
+    {
+      "key": "network_seconds",
+      "type": "integer",
+      "label": "网络请求总预算（秒）",
+      "default": 12,
+      "min": 2,
+      "max": 20
+    },
+    {
+      "key": "cache_seconds",
+      "type": "integer",
+      "label": "成功结果缓存（秒，0禁用）",
+      "default": 300,
+      "min": 0,
+      "max": 3600
+    },
+    {
+      "key": "send_pronunciation",
+      "type": "boolean",
+      "label": "直接发送词典发音",
+      "default": true
+    }
+  ]
+}

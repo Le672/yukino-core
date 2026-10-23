@@ -1,0 +1,58 @@
+{
+  "id": "d_projects",
+  "name": "GitHub项目雷达",
+  "description": "搜索公开项目、查看星标语言许可证和更新时间，附JSON清单；GitHub仓库链接自动预览，无需@。",
+  "commands": [
+    "/找项目",
+    "/项目"
+  ],
+  "worker": "worker.py",
+  "version": "0.1.0",
+  "minimum_core_version": "0.11.0",
+  "result_protocol": 1,
+  "config_schema": [
+    {
+      "key": "online_enabled",
+      "type": "boolean",
+      "label": "允许访问本功能公开数据源",
+      "default": true
+    },
+    {
+      "key": "network_seconds",
+      "type": "integer",
+      "label": "网络请求总预算（秒）",
+      "default": 12,
+      "min": 2,
+      "max": 20
+    },
+    {
+      "key": "cache_seconds",
+      "type": "integer",
+      "label": "成功结果缓存（秒，0禁用）",
+      "default": 300,
+      "min": 0,
+      "max": 3600
+    },
+    {
+      "key": "max_results",
+      "type": "integer",
+      "label": "最多项目数量",
+      "default": 3,
+      "min": 1,
+      "max": 5
+    },
+    {
+      "key": "attach_json",
+      "type": "boolean",
+      "label": "附带可下载的项目JSON",
+      "default": true
+    }
+  ],
+  "auto_url_hosts": [
+    "github.com"
+  ],
+  "auto_url_paths": {
+    "github.com": "/"
+  },
+  "silent_ack": true
+}

@@ -144,6 +144,8 @@ class Kernel:
                 if pid: self.plugins.errors[pid] = "事件互动执行失败，请核对参数与数据目录"
                 await self.store.mark_event(event["event_id"], "notice_error", "事件互动执行失败")
             return
+        from .image_inputs import image_command_event
+        event=image_command_event(event,self.plugins)
         collecting = self.collector.observe(event)
         if collecting and not any(segment.get('type') == 'text' and str(segment.get('data', {}).get('text', '')).strip()
                                   for segment in event.get('segments', [])):
@@ -502,7 +504,11 @@ class Kernel:
         elif "worker" in item:
             prefix = self.config.data['command_prefix']
             if command != '@url' and prefix != '/' and text.startswith(prefix): text = '/' + text[len(prefix):]
-            result = await self.plugins.execute(item, text, {"session_id": sid, "user_id": event["user_id"]})
+            context={"session_id": sid, "user_id": event["user_id"]}
+            if item['id']=='d_images':
+                from .image_inputs import command_images
+                context['image_urls']=await command_images(self.store,event)
+            result = await self.plugins.execute(item, text, context)
             if await self.games.accept(event,item,result):return
             if result is None and item.get("silent_ack"):
                 await self.store.mark_event(event["event_id"], "plugin_queued")

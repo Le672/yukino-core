@@ -1,0 +1,13 @@
+{
+  "id": "d_qrcode",
+  "name": "本地二维码",
+  "description": "将文字、中文或网址编码为真实PNG二维码，UTF-8 ECI和四模块静区；不上传内容。",
+  "commands": [
+    "/二维码"
+  ],
+  "worker": "worker.py",
+  "version": "0.1.0",
+  "minimum_core_version": "0.11.0",
+  "result_protocol": 1,
+  "config_schema": []
+}

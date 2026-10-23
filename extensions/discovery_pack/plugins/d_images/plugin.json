@@ -1,0 +1,43 @@
+{
+  "id": "d_images",
+  "name": "图片动效工坊",
+  "description": "摸头、转圈、像素化、灰度、镜像与GIF倒放调速；处理同条附图、同会话引用图或公开HTTPS图片，不查询QQ头像。",
+  "commands": [
+    "/图片工坊",
+    "/摸头",
+    "/转圈",
+    "/像素化",
+    "/图片灰度",
+    "/图片镜像",
+    "/动图倒放",
+    "/动图加速"
+  ],
+  "worker": "worker.py",
+  "version": "0.1.0",
+  "minimum_core_version": "0.11.0",
+  "result_protocol": 1,
+  "config_schema": [
+    {
+      "key": "online_enabled",
+      "type": "boolean",
+      "label": "允许访问本功能公开数据源",
+      "default": true
+    },
+    {
+      "key": "network_seconds",
+      "type": "integer",
+      "label": "网络请求总预算（秒）",
+      "default": 12,
+      "min": 2,
+      "max": 20
+    },
+    {
+      "key": "max_frames",
+      "type": "integer",
+      "label": "输入GIF最大帧数",
+      "default": 24,
+      "min": 1,
+      "max": 32
+    }
+  ]
+}

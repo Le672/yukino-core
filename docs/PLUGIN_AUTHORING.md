@@ -1,6 +1,6 @@
 # Yukino Core 插件编写指南
 
-适用内核：**0.4.0—0.7.0**；Python：**3.12+**。普通文字 worker 接口保持兼容；0.7.0 的图片、音频和文件结果见 [媒体结果协议](RICH_PLUGIN_OUTPUTS.md)。原生通知互动见 [通知说明](NOTICE_INTERACTIONS.md)。
+适用内核：**0.4.0—0.11.0**；Python：**3.12+**。普通文字worker接口保持兼容；0.7.0起的图片、音频和文件结果见 [媒体结果协议](RICH_PLUGIN_OUTPUTS.md)。模型游戏适配见 [小游戏AI玩家](GAME_AI.md)，原生通知互动见 [通知说明](NOTICE_INTERACTIONS.md)。本文的“当前”指0.11.0源码，旧内核不保证支持新增字段。
 
 本指南依据当前的安装器、插件管理器和进程宿主实现编写。Yukino 使用自己的插件接口，MaiBot／AstrBot 插件需要适配，不能直接复制后运行。完整教学模板在 `examples/plugins/hello_counter/`；该示例不会自动安装到正式机器人。
 
@@ -13,7 +13,7 @@ def handle(text, context):
     return "回复文字"
 ```
 
-| 需求 | 0.4.0 的支持方式 |
+| 需求 | 当前支持方式 |
 | --- | --- |
 | 文字命令、计算、查询、小游戏 | 普通worker即可 |
 | 面板开关、自定义参数 | `plugin.json` 的 `config_schema` |
@@ -76,18 +76,22 @@ ZIP根目录必须有 `plugin.json`。以下为当前安装器保留的字段：
 | `auto_url_hosts` | 否 | 最多16个小写完整主机名，精确匹配，不支持通配符 |
 | `auto_url_paths` | 否 | 主机名到路径前缀的对象；键必须出现在hosts列表中 |
 | `silent_ack` | 否 | 布尔值，默认false；返回空结果时是否抑制默认确认文字 |
+| `version` | 否 | 插件版本，格式为三个点分整数，如 `0.1.0`；每段1～3位数字 |
+| `minimum_core_version` | 否 | 最低内核版本，格式同上；安装器拒绝高于当前内核的要求 |
+| `result_protocol` | 否 | 普通媒体结果协议，目前只接受 `1`；旧文字worker可省略 |
+| `game_ai_adapter` | 否 | 仅支持内核游戏目录中已经适配的插件ID，值为整数 `1`；不是任意worker的模型权限开关 |
 
-内置ID不可占用：`utilities`、`sessions`、`memory`、`emoji`、`knowledge`、`dice`、`calculator`、`group_admin`、`reminders`、`keyword_reply`。0.5.0外部安装清单最多128条、清单文件最多1MiB，不含内置插件；0.4.0原上限为50条。单个ZIP最多50条目的限制保持不变。
+内置ID不可占用：`utilities`、`sessions`、`memory`、`emoji`、`emoji_collector`、`knowledge`、`dice`、`calculator`、`group_admin`、`reminders`、`keyword_reply`、`poke`、`group_welcome`、`group_farewell`、`group_admin_notice`、`group_title_notice`、`group_card_notice`。0.5.0起外部安装清单最多128条、清单文件最多1MiB，不含内置插件；0.4.0原上限为50条。单个ZIP最多50条目的限制保持不变。
 
 不要注册和其他插件相同的命令。当前按清单顺序取第一个匹配项，重复命令不会自动合并或广播；即使前面的同名插件停用，也可能阻挡后面的同名命令。
 
-`version`、`author`、`dependencies`、`minimum_core_version` 等不是当前运行时保留的清单字段。可以在README、文件名和发布清单记录版本、作者与最低内核版本，但不会因此自动安装依赖、检查兼容性或升级插件。
+当前安装器和运行时保留 `version`、`minimum_core_version`、`result_protocol`；最低版本在安装时核对。字段名必须是 `minimum_core_version`，`min_core_version` 不受支持。`author`、`dependencies` 等不是运行时保留字段，可在README记录；依赖需要部署者安装，插件不会因此自动升级。不要手改实例清单绕过安装检查。
 
 ## 4. 可运行模板：面板参数与持久化
 
 配套模板：`examples/plugins/hello_counter/`。
 
-模板可从开发仓库或配套的 `yukino-plugin-guide-0.4.0.zip` 取得，后者按目录解压到内核源码根目录即可。当前通用内核源码发行包没有附带 `examples` 目录，需要同时取得开发模板包；本指南的入口代码也可直接复制使用。
+模板位于开发仓库及当前命名源码发行包的 `examples/plugins/hello_counter/`；本指南的入口代码也可直接复制使用。
 
 ```text
 hello_counter/
@@ -227,10 +231,13 @@ Linux/macOS把 `.\.venv\Scripts\python` 换成 `.venv/bin/python`，仍在源码
 | `context["owner_ids"]` | 配置中的机器人主人字符串列表 |
 | `context["settings"]` | 本次调用的插件配置快照，含通用与自定义参数 |
 | `context["data_dir"]` | 宿主为该进程插件创建的持久化目录绝对路径 |
+| `context["rich_result_version"]` | 当前为整数 `1`，表示宿主支持普通媒体结果协议 |
 
 没有默认传入 `group_id`、`message_id`、昵称、QQ群角色、原始消息段、完整聊天历史、数据库句柄、模型对象或发送函数。群号如确有需要可从 `session_id` 的 `g:` 部分读取，但这不会赋予QQ动作权限。
 
-返回值只能是 `str` 或 `None`。返回字典、列表、图片路径、CQ码字符串或OneBot消息段对象不会自动变成对应媒体发送；普通字符串按文字发送。
+0.11.0为已适配的 `d_images` 图片工坊额外传入 `context["image_urls"]`：最多3条经检查、去重后的图片URL，来自当前消息；当前消息没有图片时才读取同会话中已接收的被引用消息。引用原文未保存时返回空列表，不跨会话或向QQ补查历史，不查询QQ头像。此字段只在该适配器中提供，普通worker不能据此读取任意历史。
+
+返回值可以是 `str`、`None` 或 [媒体结果协议](RICH_PLUGIN_OUTPUTS.md) 定义的 `version: 1` 对象。任意字典、列表、图片路径、CQ码字符串或OneBot消息段对象不会自动变成对应媒体发送；普通字符串按文字发送。游戏适配器另有宿主校验的游戏结果，不应自行将普通插件的 `result_protocol` 改为 `2`。
 
 - 非空字符串：发送文字。
 - `None` 或空字符串，且 `silent_ack=false`：宿主发送「插件执行完成。」。
@@ -425,7 +432,7 @@ $request | ConvertTo-Json -Depth 5 -Compress | .\.venv\Scripts\python -X utf8 -m
 | 插件出现但不回复 | 是否启用、指令前缀、访问限制、同名命令是否先被其他插件匹配 |
 | 首次调用失败 | Python语法、`handle`是否普通函数、依赖是否存在于宿主解释器、辅助模块路径 |
 | `None`仍有一句确认 | 默认行为；需要安静空返回时声明 `silent_ack: true` |
-| 返回消息段字典后报错 | 入口只接受str或None，不能返回OneBot对象 |
+| 返回消息段字典后报错 | 使用version为1的媒体结果协议；不能直接返回OneBot对象、CQ码或本地路径 |
 | 参数在面板不显示 | 类型是否受支持、key是否合法、是否与通用字段同名、是否重新加载清单 |
 | 修改参数没改变回复 | 是否保存、代码是否从context.settings读取，而不是只用模块全局常量 |
 | 记录重启后丢失 | 是否仅放在全局变量、是否误写源码目录、插件ID是否变化 |

@@ -10,7 +10,7 @@
 - **模型**：OpenAI 兼容 Chat Completions、OpenAI Responses、Anthropic Messages、Gemini、Ollama、可选 ChatGPT 网页桥。
 - **对话**：私聊与群聊、@ / 引用 / 名称触发、[主动参与与冷场接话](docs/NETWORK_AND_PROACTIVE.md)、黑白名单、上下文、消息合并、冷却、队列、图片表情和知识检索。
 - **管理与互动**：全局主人、群管理、提醒、关键词回复、戳一戳、欢迎、退群、管理员 / 头衔 / 名片通知、[偷表情包](docs/EMOJI_COLLECTOR.md)，共 **17 项原生功能**。
-- **扩展**：**119 个外部插件**，覆盖 F1、签到、查询、开发工具、生活记录和文字游戏；每项都有源码、独立 ZIP 和用法。
+- **扩展**：当前源码包含 **126 个外部插件**，覆盖 F1、签到、查询、开发工具、生活记录、文字游戏、图片动效和公开信息发现；每项都有源码、独立 ZIP 和用法。
 
 普通指令无需模型；模型对话需要自己的可用服务。核心不捆绑 QQ 客户端、模型账号、浏览器会话或表情素材。
 
@@ -20,11 +20,13 @@
 
 0.9.0 新增[普通聊天联网查询](docs/CHAT_WEB_SEARCH.md)：管理员同意查询关键词交给搜索服务后，可在「对话策略 → 聊天联网查询」启用。它先查资料、读取少量正文，再交给会话选定的模型一次回答；支持缓存、追问、超时回退及自建 SearXNG。新安装默认关闭独立搜索。
 
-当前源码 **0.10.0** 已为 [41项小游戏接入模型玩家](docs/GAME_AI.md)。谁是卧底、UNO、棋类等支持独立席位，单人谜题支持AI搭档。创建/开始加“人机”或在插件管理开启自动加入，之后按轮次行动；模型只接收公开局面和自己应知道的词或手牌。
+0.10.0 为 [41项小游戏接入模型玩家](docs/GAME_AI.md)。谁是卧底、UNO、棋类等支持独立席位，单人谜题支持AI搭档。创建/开始加“人机”或在插件管理开启自动加入，之后按轮次行动；模型只接收公开局面和自己应知道的词或手牌。
+
+当前源码 **0.11.0** 新增 [7项媒体与发现插件](extensions/discovery_pack/README.md)：图片动效工坊、中文文字表情画板、本地二维码、Epic限时喜加一、GitHub项目雷达、英语词典与真人发音、城市空气质量与趋势。图片工坊支持同条附图、同会话已收到的引用图或明确提供的公开HTTPS图片；GitHub仓库链接可自动预览，无需@。这七项功能不调用模型。
 
 ## 下载哪个包
 
-在 [Releases](https://github.com/Le672/yukino-core/releases/latest) 下载：
+已发布的稳定附件仍为 **0.8.0**，在 [Releases](https://github.com/Le672/yukino-core/releases/tag/v0.8.0) 下载以下文件。上文的0.9.0—0.11.0功能属于当前源码；需要这些功能时请使用当前源码并按文末步骤构建对应插件，不能将下表0.8.0附件视为新版。
 
 | 文件 | 用途 |
 | --- | --- |
@@ -42,7 +44,7 @@ GitHub 自动生成的 “Source code” 也能用于开发；想复核发布清
 3. 双击 **`Show-Token.cmd`**，使用本机生成的管理令牌登录。
 4. 按下方步骤配置 QQ 和模型，再启用接收。停止时双击 **`Stop.cmd`**。
 
-无需安装 Python 或 Docker。关闭浏览器后核心继续运行，电脑关机或休眠后本地机器人停止处理。新实例有 136 项功能，其中戳一戳、偷表情包和 119 个扩展默认启用，其他五种群通知默认关闭；实际触发还受 QQ 接收、群范围和权限控制。
+无需安装 Python 或 Docker。关闭浏览器后核心继续运行，电脑关机或休眠后本地机器人停止处理。上表0.8.0便携版新实例有136项功能，其中戳一戳、偷表情包和119个扩展默认启用，其他五种群通知默认关闭；实际触发还受QQ接收、群范围和权限控制。用0.11.0源码及七组扩展构建时，共有17项原生功能和126个外部插件。
 
 完整操作、升级和离线构建见 [Windows 使用说明](windows/README.md)。
 
@@ -101,8 +103,9 @@ ssh -N -L 18001:127.0.0.1:18001 your-user@your-server
 | 第二批市场扩展 | 8 | [RSS、Bangumi、课表、UNO、麻将等](extensions/market2_pack/README.md) |
 | 互动扩展 | 12 | [海龟汤、抢答、续写、谁是卧底、棋类等](docs/INTERACTION_PLUGINS.md) |
 | 社交解谜与查询 | 10 | [漂流瓶、时光信、数独、远征、搭话、版本查询等](extensions/social_pack/README.md) |
+| 媒体与发现（0.11.0+） | 7 | [图片动效、文字表情、二维码、免费游戏、项目、发音与空气质量](extensions/discovery_pack/README.md) |
 
-Windows 便携版首次启动自动安装上述扩展。源码 / Docker 用户解压插件合集，在「插件管理 → 从本地 ZIP 安装」选择里面的**单插件 ZIP**，再启用。合集外层 ZIP 不是单插件安装包。联网插件可能需要自己的 API Key、服务地址或网络条件，详见各插件说明。
+Windows便携版首次启动自动安装该附件内附带的扩展；0.8.0附件包含前六组，七组全量构建共126个。源码 / Docker 用户解压插件合集，在「插件管理 → 从本地 ZIP 安装」选择里面的**单插件 ZIP**，再启用。合集外层 ZIP 不是单插件安装包。联网插件可能需要自己的 API Key、服务地址或网络条件，详见各插件说明。媒体与发现包的七项不需要API Key，查询词或地点会发给各自的公开数据源。
 
 本项目采用 Yukino 自有的 manifest / worker 接口，**不能直接安装 MaiBot 或 AstrBot 插件**。普通外部 worker 提供文字命令接口；戳一戳和 QQ 群管理属于宿主原生功能。插件进程用于故障隔离，不是运行不可信代码的安全沙箱。
 
@@ -128,7 +131,7 @@ python -m unittest discover -s windows/tests -v
 python scripts/build_release.py --output ./dist/source
 ```
 
-各扩展包的 README 给出独立测试位置；实用扩展的测试分为 `dev_tools/tests`、`life_tools/tests` 和 `games/tests`。`build_pack.py --output <新目录>` 生成单插件 ZIP。Windows 构建步骤见 [Windows 说明](windows/README.md)。GitHub Actions 检查核心、启动器、六组插件与白名单打包。
+各扩展包的 README 给出独立测试位置；实用扩展的测试分为 `dev_tools/tests`、`life_tools/tests` 和 `games/tests`。`build_pack.py --output <新目录>` 生成单插件 ZIP，例如 `python extensions/discovery_pack/build_pack.py --output ./dist/discovery-pack`。Windows构建步骤见 [Windows说明](windows/README.md)，全量构建时将七组插件目录逐一传给 `--plugins`。GitHub Actions检查核心、启动器、七组插件与白名单打包。
 
 ## 许可与来源
 

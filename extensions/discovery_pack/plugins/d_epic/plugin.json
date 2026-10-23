@@ -1,0 +1,59 @@
+{
+  "id": "d_epic",
+  "name": "Epic限时喜加一",
+  "description": "查询当前及即将限免的Epic游戏，发送真实封面、介绍、领取期限与商城入口；排除永久免费商品。",
+  "commands": [
+    "/喜加一",
+    "/Epic免费"
+  ],
+  "worker": "worker.py",
+  "version": "0.1.0",
+  "minimum_core_version": "0.11.0",
+  "result_protocol": 1,
+  "config_schema": [
+    {
+      "key": "online_enabled",
+      "type": "boolean",
+      "label": "允许访问本功能公开数据源",
+      "default": true
+    },
+    {
+      "key": "network_seconds",
+      "type": "integer",
+      "label": "网络请求总预算（秒）",
+      "default": 12,
+      "min": 2,
+      "max": 20
+    },
+    {
+      "key": "cache_seconds",
+      "type": "integer",
+      "label": "成功结果缓存（秒，0禁用）",
+      "default": 300,
+      "min": 0,
+      "max": 3600
+    },
+    {
+      "key": "country",
+      "type": "string",
+      "label": "商城地区",
+      "default": "CN",
+      "max_length": 80,
+      "options": [
+        "CN",
+        "US",
+        "HK",
+        "JP",
+        "SG"
+      ]
+    },
+    {
+      "key": "max_results",
+      "type": "integer",
+      "label": "最多游戏数量",
+      "default": 3,
+      "min": 1,
+      "max": 4
+    }
+  ]
+}
